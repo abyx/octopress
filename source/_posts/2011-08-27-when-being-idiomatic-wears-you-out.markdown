@@ -27,7 +27,7 @@ Lately, we started toying with just saying "screw the idioms" and doing what fee
 
 I mean, common:
 
-[gist id=1175248 bump=1]
+{% gist 1175248 %}
 
 Now we'll have to wait and see where this gets us.
 

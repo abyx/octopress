@@ -22,13 +22,13 @@ This is a quickie techie post that summarizes a few hours of learning that I wis
 
 So, I wanted to be able to configure via Puppet the way our new instances should be configured, and then be able to easily spawn new instances that will get configured by said puppet. The first part is [installing](https://help.ubuntu.com/10.10/serverguide/C/puppet.html) puppetmaster. I decided to manually setup an EC2 instance that will act as the puppet master:
 
-[gist id=747614 file=install_master.sh bump=7]
+{% gist 747614 install_master.sh %}
 
 Under /etc/puppet/manifests/site.pp we place the "main" entry point for the configuration. This is the file that is responsible for including the rest of the files. I copied the structure from somewhere where the actual classes were put under /etc/puppet/manifests/classes and import it in site.pp. Do note that currently this setup only supports a single type of node, but supporting more should be doable using [external nodes](http://docs.puppetlabs.com/guides/external_nodes.html) to classify the node types.
 
-[gist id=747614 file=site.pp bump=7]
+{% gist 747614 site.pp %}
 
-[gist id=747614 file="classes/default_node.pp" bump=7]
+{% gist 747614 classes/default_node.pp %}
 
 
 ## Auto-signing new instances
@@ -65,7 +65,7 @@ I decided to go with this solution since it's simpler and less likely to get bro
 
 This is a solution I saw mentioned a few times online. Using the [EC2 API tools](http://aws.amazon.com/developertools/351?_encoding=UTF8&jiveRedirect=1) write a script that gets the DNS names of all the trusted instances you've got and write them. Once you have this getting it to run with a cron job every minute will do the trick. This can be done with sophisticated scripts, but for my (_very initial_) testing, this seemed to work:
 
-[gist id=747614 file=cron bump=7]
+{% gist 747614 cron %}
 
 
 ## Getting new instances to connect to the master
@@ -87,7 +87,7 @@ The last piece of the puzzle. Since we use Ubuntu, we could simply use the [Cano
 
 
 
-[gist id=747614 file=start_puppet.sh bump=7]
+{% gist 747614 start_puppet.sh %}
 
 
 Once all of this is up and running, creating a new instance is as easy as:

@@ -24,21 +24,21 @@ First of all, instead of having to set up our own server to tell the newly creat
 
 On our system, we need to start by installing chef. You will also want to install the dependencies needed to make chef talk with EC2 (these are not installed automatically when installing the gem because they're optional):
 
-[gist id=859076 file=install.sh bump=1]
+{% gist 859076 install.sh %}
 Now, we need to setup a chef repository. This repository will contain our cookbooks (libraries that contain recipes, which are scripts for doing stuff, like installing apache) and roles (which map recipes to nodes), among other stuff. To get it run:
-[gist id=859076 file=clone.sh bump=2]
+{% gist 859076 clone.sh %}
 In the repository create a .chef directory. Now back on Opscode's site, you need to download 3 files: your organization's validator key, your user's key and a generated knife.rb. Once installed, copy them all to the .chef directory:
-[gist id=859076 file=cp.sh bump=3]
+{% gist 859076 cp.sh %}
 These will be used by the new instances to connect to Opscode and identify themselves as truly being created by you (this saves us from having to hack an awkward solution for this to work on Puppet).  Add to your knife.rb file your AWS credentials:
-[gist id=859076 file=knife.rb bump=4]
+{% gist 859076 knife.rb %}
 We will now fetch the apache2 cookbook, which will allow us to install apache on our instances by adding a single configuration line. To download an existing cookbook, do the following:
-[gist id=859076 file=download.sh bump=5]
+{% gist 859076 download.sh %}
 You can see what other cookbooks are made available by looking around [here](http://github.com/opscode/cookbooks). Now, we'll create a role for our instances. Create the file roles/appserver.rb with this data:
-[gist id=859076 file=appserver.rb bump=6]
+{% gist 859076 appserver.rb %}
 And to update our Opscode server with the new cookbook and role:
-[gist id=859076 file=upload.sh bump=7]
+{% gist 859076 upload.sh %}
 We're getting really close now! You should have a security group define in AWS that has port 22 (SSH) open, for knife to be able to connect to it and configure it, and port 80 (HTTP) for our Apache to be available. I called mine "chef". You will also need to decide with AMI (image) to use, you can find a list of AMIs supplied by Opscode [here](http://wiki.opscode.com/display/chef/Amazon+EC2+AMIs+with+Chef).  And now, to create an instance with one command line, as promised:
-[gist id=859076 file=create.sh bump=8]
+{% gist 859076 create.sh %}
 
 This will take a while, as knife will create the instance, connect to it, install ruby, chef itself, apache etc. Once it says it has finished simply copy the public DNS of the newly created image (it should be printed once knife finishes) and open it in your browser. My, what a sense of accomplishment one gets from seeing the string "It works!"
 

@@ -31,13 +31,13 @@ And still, sometimes bad stuff happen. 64bit hash collisions are somewhere, out 
 
 The rule allows you to simply annotate a test to make it retry in case it fails:
 
-[gist id=897229 file=RetrierTest.java bump=1]
+{% gist 897229 RetrierTest.java %}
 
 And the implementation is as simple as:
 
-[gist id=897229 file=Retry.java bump=2]
+{% gist 897229 Retry.java %}
 
-[gist id=897229 file=RetryRule.java bump=3]
+{% gist 897229 RetryRule.java %}
 
 With the tests so unlikely to fail, I'd start a lottery at work for whoever breaks them.
 

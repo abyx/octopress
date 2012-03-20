@@ -3,7 +3,7 @@ date: '2011-08-09 22:18:07'
 layout: post
 slug: guest-post-lookup-tables-with-ruby-on-rails
 status: publish
-title: 'Guest Post: Lookup Tables with Ruby-on-Rails '
+title: 'Guest Post: Lookup Tables with Ruby-on-Rails'
 comments: true
 wordpress_id: '427'
 categories:
@@ -280,7 +280,7 @@ In this post, however, I would like to elucidate how this is achieved, hopefully
 
 So how do we achieve that? Well, we start with creating our own Lookup module which can be included into active record classes:
 
-[gist id=1129084]
+{% gist 1129084 %}
 
 This is the basic setup for inserting a new "macro" like belongs_to (which is actually a simple class method). When the Lookup module is included in a class, the ruby interpreter will call the hook method "self.included" with the class this was included into. We ask to also extend this class, thereby adding any class methods defined in ClassMethods into it.
 
@@ -303,7 +303,7 @@ We can now call "lookup :car_type, :as => :type" in our Car class, only that it 
 
 We will now present the code for each - when you read through, remember this all runs in the host class context (e.g. Car) so that self is the Car class, and any actions we take are equivalent to having explicitly written them in the Car class itself.
 
-[gist id=1129091]
+{% gist 1129091 %}
 
 The important parts to note here are:
 
@@ -327,13 +327,13 @@ The important parts to note here are:
 
 Note also that we have already included the has_many link inside of CarType. In the same way, we will include the belongs_to in the other direction. We do this and also define the special accessors for getting and setting the CarType as a String:
 
-[gist id=1129101]
+{% gist 1129101 %}
 
 The important thing to note here is how we employ ActiveRecord's read_attribute and write_attribute. The data in your ActiveRecord is maintained in a hash called attributes where the names of fields (in the DB) are saved along with their values. A classic setter method like `car.car_type = "Compact"` would set an attribute entry in the hash with :car_type => "Compact", which will later cause SELECT or INSERT statements to try and access the in existing column car_type. Our approach is to intercept every time the 'type' attribute is being written (with a String), and replace that String with a numerical ID (meanwhile creating the corresponding CarType entry if necessary).
 
 Finally, prefill the caches from the DB when this class loads. This is optional but as the list of types is likely to be rather small, a real-time expanding cache is just wasting some user time and could be better done ahead.
 
-[gist id=1129105]
+{% gist 1129105 %}
 
 That's it. If you don't like the caching this becomes even easier - remove all of the references to @@rcaches and @@caches and you simply saved yourself the trouble of manually maintaining CarType objects.
 
@@ -344,7 +344,7 @@ The only remaining thing is to define your migrations for creating the actual da
 
 will automatically create the migration. This is the required migration
 
-[gist id=1129113]
+{% gist 1129113 %}
 
 I'll let you work out the details for actually migrating the data yourself - this post has already ran long enough. I urge you to read more in the gem's source code [here](https://github.com/Nimster/RailsLookup/blob/master/lib/active_record/lookup.rb). There are some tricks I've omitted to make rails be able to support calls like Car.find_by_car_type_and_color "Compact", :blue (when the actual SQL query should be asking about car_type_id = 1), and some more options for setting the lookup itself, handling Car.where(type: "Compact") or multiple classes using a single lookup.
 

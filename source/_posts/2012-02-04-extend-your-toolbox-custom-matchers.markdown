@@ -32,7 +32,7 @@ Creating your own matcher usually means creating a Matcher class that performs t
 
 Here's an example from the [RSpec documentation](https://github.com/dchelimsky/rspec/wiki/Custom-Matchers):
 
-[gist id=1737631 file=rspec_matcher.rb]
+{% gist 1737631 rspec_matcher.rb %}
 
 
 ### Matchers increase readability and intent
@@ -40,7 +40,7 @@ Here's an example from the [RSpec documentation](https://github.com/dchelimsky/r
 
 As you should know, one of the [most important rules for design](http://c2.com/cgi/wiki?XpSimplicityRules) is _Reveals Intent_. Take a quick look here, which way do you think reveals more intent?
 
-[gist id=1737631 file=intent.rb bump=2]
+{% gist 1737631 intent.rb %}
 
 Also, which error message do you prefer? "expected false to be true" or something along the lines of "expected comment to be anonymous"?
 
@@ -52,13 +52,13 @@ The most important advantage of all is how using matchers easily allows you to s
 The mark of good tests is that a change in your code doesn't require you to perform changes in multiple tests that don't really care for the change.
 Take this code for example:
 
-[gist id=1737631 file=sucky_non_dry.rb bump=2]
+{% gist 1737631 sucky_non_dry.rb %}
 
 This might seem like a standard test, but that's not really the case. A test should assert for a single piece of knowledge, and this test actually checks several. If the purpose of this test is to check the behavior of anonymous comments, why should it change if we no longer allow replies? Or if we no longer require users for posting comments?
 
 The magic of matchers is exactly here. You create a new matcher to check specifically the aspect your test cares about and *boom*, you're decoupled!
 
-[gist id=1737631 file=beautiful_and_dry.rb]
+{% gist 1737631 beautiful_and_dry.rb %}
 
 This simple change makes your tests DRY and cool.
 
