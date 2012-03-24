@@ -6,6 +6,9 @@ status: publish
 title: Bash Nitpicking on Redirections
 comments: true
 wordpress_id: '46'
+categories:
+- Programming
+- bash
 ---
 
 This little excerpt from the bash man page explains the reason I just wasted 2 hours:

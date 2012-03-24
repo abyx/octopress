@@ -9,11 +9,8 @@ wordpress_id: '155'
 categories:
 - Programming
 - testing
-tags:
 - buildbot
 - nose
-- Programming
-- testing
 ---
 
 Once we got our builds happily running on Buildbot, there's really no reason not to add coverage since it's so easy (especially if you get bragging rights over your non-TDDers teammates).

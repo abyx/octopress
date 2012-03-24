@@ -9,10 +9,8 @@ wordpress_id: '234'
 categories:
 - pragprowrimo2010
 - Programming
-tags:
 - clean code
 - DRY
-- Programming
 - software craftsmanship
 - tips
 ---

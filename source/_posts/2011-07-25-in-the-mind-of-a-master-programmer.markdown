@@ -8,9 +8,7 @@ comments: true
 wordpress_id: '404'
 categories:
 - Programming
-tags:
 - books
-- Programming
 - tdd
 ---
 

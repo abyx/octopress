@@ -8,7 +8,6 @@ comments: true
 wordpress_id: '660'
 categories:
 - techie
-tags:
 - devops
 - ec2
 ---

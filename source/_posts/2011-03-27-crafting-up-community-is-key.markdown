@@ -8,8 +8,6 @@ comments: true
 wordpress_id: '361'
 categories:
 - Programming
-tags:
-- Programming
 - SCIL
 - software craftsmanship
 ---

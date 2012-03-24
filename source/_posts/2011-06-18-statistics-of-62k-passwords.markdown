@@ -8,8 +8,6 @@ comments: true
 wordpress_id: '383'
 categories:
 - Programming
-tags:
-- Programming
 - security
 ---
 

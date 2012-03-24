@@ -8,9 +8,7 @@ comments: true
 wordpress_id: '207'
 categories:
 - Programming
-tags:
 - clean code
-- Programming
 - software craftsmanship
 - tdd
 ---

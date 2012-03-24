@@ -9,10 +9,8 @@ wordpress_id: '308'
 categories:
 - Programming
 - techie
-tags:
 - ec2
 - puppet
-- techie
 - tips
 ---
 

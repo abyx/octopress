@@ -8,9 +8,7 @@ comments: true
 wordpress_id: '228'
 categories:
 - Programming
-tags:
 - agile
-- Programming
 - software craftsmanship
 ---
 

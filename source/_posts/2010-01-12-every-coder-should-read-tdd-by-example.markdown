@@ -8,7 +8,6 @@ comments: true
 wordpress_id: '87'
 categories:
 - Programming
-tags:
 - books
 ---
 

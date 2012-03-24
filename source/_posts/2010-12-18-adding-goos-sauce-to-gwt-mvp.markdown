@@ -8,10 +8,8 @@ comments: true
 wordpress_id: '289'
 categories:
 - Programming
-tags:
 - clean code
 - goos
-- Programming
 - software craftsmanship
 - tdd
 - testing

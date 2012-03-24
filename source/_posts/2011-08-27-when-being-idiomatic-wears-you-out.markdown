@@ -8,8 +8,6 @@ comments: true
 wordpress_id: '453'
 categories:
 - Programming
-tags:
-- Programming
 - software craftsmanship
 ---
 

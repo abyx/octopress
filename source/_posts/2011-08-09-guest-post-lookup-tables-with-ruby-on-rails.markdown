@@ -8,9 +8,7 @@ comments: true
 wordpress_id: '427'
 categories:
 - Programming
-tags:
 - guestposts
-- Programming
 - rails
 ---
 

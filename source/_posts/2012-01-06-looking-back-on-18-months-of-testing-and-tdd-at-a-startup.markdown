@@ -9,10 +9,8 @@ wordpress_id: '701'
 categories:
 - Programming
 - testing
-tags:
 - billguard
 - tdd
-- testing
 ---
 
 As we're approaching a year and half here at [BillGuard](https://www.billguard.com), I've started thinking back a bit about our testing habits and how well that's turned out.

@@ -8,8 +8,6 @@ comments: true
 wordpress_id: '118'
 categories:
 - Programming
-tags:
-- Programming
 - tips
 ---
 

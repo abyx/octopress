@@ -8,7 +8,6 @@ comments: true
 wordpress_id: '243'
 categories:
 - pragprowrimo2010
-tags:
 - clean code
 - DRY
 - Programming

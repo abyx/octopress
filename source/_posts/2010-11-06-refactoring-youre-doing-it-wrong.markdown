@@ -8,7 +8,6 @@ comments: true
 wordpress_id: '248'
 categories:
 - pragprowrimo2010
-tags:
 - clean code
 - Programming
 - software craftsmanship

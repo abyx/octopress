@@ -8,7 +8,6 @@ comments: true
 wordpress_id: '416'
 categories:
 - Programming
-tags:
 - chef
 - ec2
 - puppet

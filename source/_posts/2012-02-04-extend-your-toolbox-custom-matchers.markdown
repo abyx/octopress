@@ -9,12 +9,10 @@ wordpress_id: '726'
 categories:
 - Programming
 - testing
-tags:
 - DRY
 - ruby
 - software craftsmanship
 - tdd
-- testing
 ---
 
 I'd like to point out a really nice testing practice that I've been loving more and more lately.

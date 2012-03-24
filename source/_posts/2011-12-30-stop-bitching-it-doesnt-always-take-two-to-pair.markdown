@@ -8,7 +8,6 @@ comments: true
 wordpress_id: '689'
 categories:
 - Programming
-tags:
 - agile
 - autonomouscraftsmanshipcore
 ---

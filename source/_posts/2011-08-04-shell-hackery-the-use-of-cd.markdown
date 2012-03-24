@@ -9,9 +9,7 @@ wordpress_id: '421'
 categories:
 - Programming
 - techie
-tags:
 - bash
-- Programming
 - shell
 ---
 

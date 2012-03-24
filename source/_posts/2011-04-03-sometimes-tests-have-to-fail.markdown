@@ -9,10 +9,7 @@ wordpress_id: '376'
 categories:
 - Programming
 - testing
-tags:
-- Programming
 - tdd
-- testing
 ---
 
 A friend asked me about a common problem that pops up in real-world projects and testing: What do you do when you test code with random properties?

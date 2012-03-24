@@ -8,11 +8,9 @@ comments: true
 wordpress_id: '365'
 categories:
 - Programming
-tags:
 - DRY
 - goos
 - OOD
-- Programming
 - SOLID
 ---
 

@@ -10,10 +10,8 @@ categories:
 - pragprowrimo2010
 - Programming
 - techie
-tags:
 - clean code
 - DRY
-- Programming
 - software craftsmanship
 ---
 

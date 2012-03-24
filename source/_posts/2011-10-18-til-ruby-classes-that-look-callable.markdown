@@ -8,8 +8,6 @@ comments: true
 wordpress_id: '478'
 categories:
 - Programming
-tags:
-- Programming
 - ruby
 ---
 

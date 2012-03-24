@@ -9,10 +9,7 @@ wordpress_id: '372'
 categories:
 - Programming
 - testing
-tags:
-- Programming
 - tdd
-- testing
 ---
 
 A friend approached me with one of the known problems in the testing world - How do you keep external resources under a test harness? Having heard the question a few times before, I thought I'd share my thoughts, and mainly put together the common advice that drifts around the web.

@@ -8,11 +8,9 @@ comments: true
 wordpress_id: '315'
 categories:
 - Programming
-tags:
 - books
 - clean code
 - goos
-- Programming
 - software craftsmanship
 - tdd
 ---

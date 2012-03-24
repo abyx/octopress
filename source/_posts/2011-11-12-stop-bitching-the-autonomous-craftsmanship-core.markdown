@@ -8,10 +8,8 @@ comments: true
 wordpress_id: '504'
 categories:
 - Programming
-tags:
 - agile
 - autonomouscraftsmanshipcore
-- Programming
 - software craftsmanship
 ---
 

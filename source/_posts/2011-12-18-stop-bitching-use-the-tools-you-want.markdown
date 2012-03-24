@@ -8,10 +8,8 @@ comments: true
 wordpress_id: '682'
 categories:
 - Programming
-tags:
 - autonomouscraftsmanshipcore
 - pragmatic
-- Programming
 - software craftsmanship
 ---
 

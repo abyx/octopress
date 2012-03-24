@@ -8,9 +8,7 @@ comments: true
 wordpress_id: '148'
 categories:
 - Programming
-tags:
 - books
-- Programming
 - software craftsmanship
 ---
 

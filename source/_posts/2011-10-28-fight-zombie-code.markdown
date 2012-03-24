@@ -8,8 +8,6 @@ comments: true
 wordpress_id: '490'
 categories:
 - Programming
-tags:
-- Programming
 - software craftsmanship
 - tdd
 ---

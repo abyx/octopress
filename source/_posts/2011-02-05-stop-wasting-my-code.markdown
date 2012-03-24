@@ -8,8 +8,6 @@ comments: true
 wordpress_id: '329'
 categories:
 - Programming
-tags:
-- Programming
 - YAGNI
 ---
 

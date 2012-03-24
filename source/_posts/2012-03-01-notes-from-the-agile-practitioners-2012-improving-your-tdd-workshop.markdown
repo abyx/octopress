@@ -8,7 +8,6 @@ comments: true
 wordpress_id: '745'
 categories:
 - Programming
-tags:
 - agile
 - software craftsmanship
 - tdd

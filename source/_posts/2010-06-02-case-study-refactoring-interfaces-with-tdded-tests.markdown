@@ -9,12 +9,9 @@ wordpress_id: '190'
 categories:
 - Programming
 - testing
-tags:
 - clean code
-- Programming
 - software craftsmanship
 - tdd
-- testing
 ---
 
 I've been practicing TDD for a couple of years now, and keep learning all the time.

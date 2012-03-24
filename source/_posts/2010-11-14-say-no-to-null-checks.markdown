@@ -9,12 +9,9 @@ wordpress_id: '267'
 categories:
 - Programming
 - testing
-tags:
 - clean code
-- Programming
 - software craftsmanship
 - tdd
-- testing
 ---
 
 Hey, do you check your methods' arguments to make sure they're not null?

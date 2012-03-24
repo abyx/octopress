@@ -6,6 +6,8 @@ status: publish
 title: Liskov Substitution Principle Violation Spotted in the Wild
 comments: true
 wordpress_id: '272'
+categories:
+- Programming
 ---
 
 The [Liskov Substitution Principle](http://en.wikipedia.org/wiki/Liskov_substitution_principle) (LSP) states that "if S is a subtype of T, then objects of type T in a program may be replaced with objects of type S without altering any of the desirable properties of that program." This principle is actually so important it's part of [SOLID](http://en.wikipedia.org/wiki/Solid_(object-oriented_design)).

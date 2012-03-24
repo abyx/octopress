@@ -9,10 +9,8 @@ wordpress_id: '348'
 categories:
 - Programming
 - techie
-tags:
 - chef
 - ec2
-- Programming
 - puppet
 ---
 

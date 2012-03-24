@@ -8,6 +8,7 @@ comments: true
 wordpress_id: '50'
 categories:
 - Programming
+- buildbot
 ---
 
 We've been working on creating a scalable and stable building and testing environment for our team.

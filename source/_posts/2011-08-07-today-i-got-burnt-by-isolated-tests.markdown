@@ -9,9 +9,7 @@ wordpress_id: '440'
 categories:
 - Programming
 - testing
-tags:
 - goos
-- Programming
 - tdd
 ---
 

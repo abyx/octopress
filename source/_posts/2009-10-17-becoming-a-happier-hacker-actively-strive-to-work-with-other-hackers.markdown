@@ -6,6 +6,8 @@ status: publish
 title: 'Becoming a Happier Hacker: Actively Strive to Work with Other Hackers'
 comments: true
 wordpress_id: '56'
+categories:
+- Programming
 ---
 
 After a few years of working in the field, I've come to a conclusion: one of the best ways to evolve as a [hacker](http://paulgraham.com/gba.html) is to work with other hackers. Not just that, I'd rather work alone than work with non-hackers. Wait, I can almost see you reaching to close this tab, mumbling to yourself this is nonsense. I'm not saying workplaces shouldn't hire junior developers .I'm saying that working with people that don't have Hacker Quality™ is frustrating.

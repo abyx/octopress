@@ -8,7 +8,6 @@ comments: true
 wordpress_id: '741'
 categories:
 - Programming
-tags:
 - code retreat
 - software craftsmanship
 ---

@@ -6,6 +6,9 @@ status: publish
 title: So You Got an Arduino
 comments: true
 wordpress_id: '42'
+categories:
+- Programming
+- arduino
 ---
 
 After playing around a bit with my new Arduino, I've gathered a list of a few things that I wish I knew when I started, as it would have saved some of my time. Hope it helps someone. Happy hacking!

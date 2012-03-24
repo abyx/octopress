@@ -8,10 +8,8 @@ comments: true
 wordpress_id: '293'
 categories:
 - Programming
-tags:
 - clean code
 - DRY
-- Programming
 - SCIL
 - software craftsmanship
 ---

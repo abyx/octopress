@@ -8,9 +8,7 @@ comments: true
 wordpress_id: '463'
 categories:
 - Programming
-tags:
 - github
-- Programming
 - rubinius
 - ruby
 ---
