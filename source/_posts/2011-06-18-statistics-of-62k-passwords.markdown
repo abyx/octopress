@@ -24,9 +24,9 @@ The dump's average password length is 7.63. I was surprised, because I thought m
 Here's a short graph depicting the distribution of password length (Note that edge groups have less than 10 passwords and so aren't really seen here):
 
 
-### [![Passwords by length](http://codelord.net/wp-content/uploads/2011/06/passwords.png)](http://codelord.net/wp-content/uploads/2011/06/passwords.png)
-Common Passwords
+![Passwords by length](/images/posts_images/passwords.png)
 
+### Common Passwords
 
 Not surprisingly, the most common password is 123456 with 569 occurrences, followed by its "more secure" cousin 123456789 with 184. The 3rd most common password is... "password" (132 occurrences)! The other top-10 passwords are interesting - some are plain words such as "romance", "mystery", "tigger" and "shadow", "102030" makes quite a few appearances.
 

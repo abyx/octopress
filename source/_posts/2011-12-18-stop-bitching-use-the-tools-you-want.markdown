@@ -36,11 +36,7 @@ Why would someone be against that? Maybe your company doesn't want to allocate a
 
 ### Autonomous Craftsmen Make Do
 
-
-
-
-[![](http://www.codelord.net/wp-content/uploads/2011/12/macgyver-300x200.jpg)](http://www.codelord.net/wp-content/uploads/2011/12/macgyver.jpg)
-
+{% img /images/posts_images/macgyver.jpg 300 200 %}
 
 That sums it up. A craftsman's gotta do what a craftsman's gotta do.
 

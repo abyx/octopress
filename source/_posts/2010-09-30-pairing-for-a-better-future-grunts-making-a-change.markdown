@@ -18,7 +18,7 @@ If you've read just about any of my posts you probably know I'm one of those guy
 
 Pairing, or [pair-programming](http://en.wikipedia.org/wiki/Pair_programming), is simply the act of two coders sitting together to work on a problem. This method's advantages have been enumerated so many times before I won't go into it. The interesting part is that pairing is one of the best tools you have to really change stuff.
 
-![](http://codelord.net/wp-content/uploads/2010/09/pear_programming-300x225.jpg)
+{% img /images/posts_images/pear_programming.jpg 300 225 Pear Programming %}
 
 Whenever you pair, you shouldn't cut corners. More importantly, you shouldn't agree to cut corners because your pair sees things differently. If you spend a day around me, you'll probably hear me say stuff like "you're really going to add more code to that mess?" or "dude, please rename that method". I use pairing to make my work place better. I want to make sure things are fully tested? "Here, I'll write the test and you'll make it pass". I want to remove duplication mercilessly? "... now if we just extract a method _here_". Simply want us to be more productive? "You know you could have simply done that with Cmd+Alt+T, right?"
 

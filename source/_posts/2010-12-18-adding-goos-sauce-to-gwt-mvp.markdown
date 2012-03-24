@@ -33,7 +33,7 @@ After beating around this bush for quite some time, I decided to try and find a 
  
 {% gist 746606 gistfile2.java %}
 
-[<img src="http://codelord.net/wp-content/uploads/2010/12/goos.jpg" style="float: right;"/>](http://www.amazon.com/gp/product/0321503627?ie=UTF8&tag=thcodu02-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0321503627)
+[<img src="/images/posts_images/goos.jpg" style="float: right;"/>](http://www.amazon.com/gp/product/0321503627?ie=UTF8&tag=thcodu02-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0321503627)
 
 This might seem like a tiny change. And it is. But it makes all the difference in the world in how more responsive your design gets, especially in our world where the view is most likely to change a dozen times before settling on something. Once there are enough of these, I push the presenter as a dependency into the view, and let it call the presenter directly. The funny thing is this style is actually implicitly mentioned in the [second part](http://code.google.com/webtoolkit/articles/mvp-architecture-2.html) of the GWT MVP tutorial. Just some GOOSing helped us get to a better, more malleable design!
 

@@ -14,7 +14,7 @@ But, it being an army and everything, everyone is required to do some "army" stu
 
 Let me paint you the picture a little clearer. How would you like having to leave your life, in order to spend a week (or two) in a place that can be only regarded as 'nowhere', and spend 10 hours a day doing nothing but looking at some desert mountains? Now, imagine you know no one of the other few that are with you, the room is a dump, and you don't even want to hear about the showers? Oh, it gets better. At night the temprature can drop so much, that checking your weapon before going to sleep is just painful, and requires you to jiggle your fingers for 5 minutes before you get enough dexterity to actually do it?
 
-[![The view from nowhere](http://codelord.net/wp-content/uploads/2010/01/18022008001-300x225.jpg)](http://www.codelord.net/2010/01/14/a-week-in-nowhere-for-better-code/attachment/18022008001/)
+{% img /images/posts_images/view_from_nowhere.jpg 300 225 The view from nowhere %}
 
 The real deal, though, is that I find myself missing those weeks, a bit at least. Why would a geek think about a week with no keyboard, and actually just about zero contact with the outside world given that cell reception is scarse, and miss it? Well, that's just the point!
 

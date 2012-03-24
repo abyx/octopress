@@ -24,7 +24,7 @@ Whenever I recognized something that looks like dead code but I'm not entirely s
 
 Zombie code is code that was never alive, and so couldn't really become dead. It's the undead code - code that died right when it was committed. Code that never ran or never worked. The are two reasons I hate zombie code more than "plain" dead code.
 
-[![](http://codelord.net/wp-content/uploads/2011/10/test_my_code-300x300.jpg)](http://codelord.net/wp-content/uploads/2011/10/test_my_code.jpg)
+{% img /images/posts_images/test_my_code.png 240 300 %}
 
 The first reason is that it simply wastes more of my time. Looking back in version control won't help me see the commit in which the code was "decommissioned", it would just appear to always sit there. That means I have to take extra care to verify that it, in fact, never worked.
 

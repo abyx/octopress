@@ -25,9 +25,7 @@ When I just joined the team, I naturally tried to get the vibes of the team and 
 
 I decided to return to the good path. Catching up on some best practices for unit testing in Python and adopting once more the Red-Green-Refactor cycle did the trick for me. I haven't stopped TDDing since and didn't look back. But here is where the story got more interesting.
 
-
-[![](http://codelord.net/wp-content/uploads/2010/08/crowdsurfing1-300x225.jpg)](http://codelord.net/wp-content/uploads/2010/08/crowdsurfing1.jpg)
-
+{% img /images/posts_images/crowdsurfing.jpg 300 225 %}
 
 Working on a project mainly by myself meant I had it easy in making sure the code base is tested the way I liked it. My manager thought, as a good manager does, that as long as the outcome is good he shouldn't care if I do something no one else on the team does. This allowed me to have my fun, but still something was missing. I really found it hard seeing my teammates having troubles that could have been easily avoided with a good suite of tests. More than once I saw people in a debugging spiral or fighting a refactoring gone wrong.
 

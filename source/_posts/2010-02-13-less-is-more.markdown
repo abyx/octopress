@@ -21,7 +21,7 @@ When making bigger changes, the best feedback will be from getting another pair 
 
 When I work by myself about the bigger things, there's a handful of things I try to keep in mind, like the [SOLID principles](http://bit.ly/bs003B). But, the measure I like the most of how much shorter am I making the code. I'm not talking about obfuscating code. Readability is a must. I'm talking about abstractions that are really useful right now - they already make the code base smaller. Refactorings that make the code [DRY](http://bit.ly/dizkHM) and thus shorter.
 
-[![delete key](http://codelord.net/wp-content/uploads/2010/02/67396-delete-key-150x150.jpg)](http://codelord.net/wp-content/uploads/2010/02/67396-delete-key.jpg)
+{% img /images/posts_images/delete_key.jpg 150 150 Delete key %}
 
 Whenever I commit and git tells me I deleted more code than I inserted I get this fuzzy warm feeling. One of the [agile manifesto principles](http://bit.ly/cPw2Nr) says "Simplicity - the art of maximizing the amount of work not done - is essential". Problem is I'm not a perfect coder, and because of that I often perform more work than necessary. But I try to simplify my code when I notice this.
 

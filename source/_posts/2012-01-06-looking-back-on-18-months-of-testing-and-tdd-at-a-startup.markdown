@@ -25,9 +25,7 @@ I've seen a lot of posts about testing in startups, some saying startups shouldn
 
 When we started, only two of us had a test-infected background out of the five technical guys, me being big on [TDD](http://www.amazon.com/gp/product/0321146530/ref=as_li_ss_tl?ie=UTF8&tag=thcodu02-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=0321146530)<img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321146530" style="width: 0; height: 0; display: none; border: none !important;">. Two other developers never wrote tests before. We agreed that tests were important, but that's about it. I set up a continuous integration server and with that we were off. With time, the habit of writing tests spread out among the team. Some are TDD passionate, some write tests after the fact, but we generally all believe that tests should be written extensively.
 
-
-[![](http://www.codelord.net/wp-content/uploads/2012/01/test_in_prod-240x300.png)](http://www.codelord.net/wp-content/uploads/2012/01/test_in_prod.png)
-
+{% img /images/posts_images/test_my_code.png 240 300 %}
 
 ### Not everything is worth testing
 

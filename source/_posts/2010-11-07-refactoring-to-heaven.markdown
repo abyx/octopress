@@ -19,7 +19,7 @@ My [last blog](http://www.codelord.net/2010/11/06/refactoring-youre-doing-it-wro
 
 Well, of course that's not the case. Even the best programmers occasionally dig themselves into a hole that will require some effort to get out of. The point is that the best thing to do is never to take those 2 days to 2 weeks period just for doing that refactoring. That is never the right approach to solve such a problem.
 
-[![](http://codelord.net/wp-content/uploads/2010/11/StairwayToHeaven-300x225.jpg)](http://codelord.net/wp-content/uploads/2010/11/StairwayToHeaven.jpg)
+{% img /images/posts_images/stairway_to_heaven.jpg 300 225 %}
 
 First of all, I've seen many times that it was intended to spend "only" 2 days (which is already a huge amount of time) to do some refactoring, but 2 days in, the dev team found it they actually need 2 more days because of extra complications they've got, and the team's lucky if after a week of hard work they still have a working system, not to mention better.
 
