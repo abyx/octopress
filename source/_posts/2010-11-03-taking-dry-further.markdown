@@ -17,7 +17,7 @@ tags:
 - software craftsmanship
 ---
 
-After learning to [spot basic DRY](http://www.codelord.net/2010/11/02/short-intro-to-dry/) violations, such as code you've just copied from somewhere, it's time to learn how to use DRY to drive a lot more in your system.
+After learning to [spot basic DRY](/2010/11/02/short-intro-to-dry/) violations, such as code you've just copied from somewhere, it's time to learn how to use DRY to drive a lot more in your system.
 
 DRY can be used extensively in your code base to alert you of problems waiting to happen. For example, similar code structures in different parts of the code are usually a DRY violation. This violation causes coupling which in turn will make it harder to change the code. The good scenario is that you have to tediously go through all the repetitions and change them to accommodate the change. The worse case is you forget to change one and introduce inconsistency in your code.
 

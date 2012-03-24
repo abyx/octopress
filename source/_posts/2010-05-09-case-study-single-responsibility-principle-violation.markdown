@@ -14,7 +14,7 @@ tags:
 - software craftsmanship
 ---
 
-Having recently finished the amazing PPP book (more [here](http://www.codelord.net/2010/05/02/agile-software-development-you-will-never-code-the-same-again/)) my code-sense is getting better in putting the finger on the smells in code that make it painful for me to use. This is the story of one of them, in [Buildbot](http://buildbot.net/).
+Having recently finished the amazing PPP book (more [here](/2010/05/02/agile-software-development-you-will-never-code-the-same-again/)) my code-sense is getting better in putting the finger on the smells in code that make it painful for me to use. This is the story of one of them, in [Buildbot](http://buildbot.net/).
 
 Disclaimer: Buildbot is a pretty awesome building/continuous integration system that I use and contribute code to regularly. Indeed, it is far from perfect, but none of the coders should take offense.
 
@@ -47,6 +47,6 @@ Because this class has to also act as its own constructor, the coupling between 
 
 Surely, separating this to 2 different classes (the actual step and a factory) will have solved this problem elegantly. Given that this might be considered "advanced" usage I'm willing to accept that creating a factory will be _optional_. But really people, this `addFactoryArguments` screams _HACK_.
 
-If you liked this post, you'll definitely want to read the [PPP book](http://www.codelord.net/2010/05/02/agile-software-development-you-will-never-code-the-same-again/).
+If you liked this post, you'll definitely want to read the [PPP book](/2010/05/02/agile-software-development-you-will-never-code-the-same-again/).
 
 You should subscribe to my [feed](http://feeds.feedburner.com/TheCodeDump) and follow me on [twitter](http://twitter.com/avivby)!

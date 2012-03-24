@@ -21,7 +21,7 @@ The DRY principle doesn't talk about code, but knowledge.
 Clever is never something to be proud of in your code.
 {% endblockquote %}
 
-A couple of days after [attending the code retreat](http://www.codelord.net/2012/02/28/notes-from-the-israeli-software-craftsmanship-group-code-retreat/) facilitated by him, I was fortunate to attend Corey Haines's “[Improving Your TDD](http://agilepractitioners2012.com/conference-program/corey-haines-improving-your-tdd/)” workshop at the [Agile Practitioners 2012](http://agilepractitioners2012.com/) conference. These are some of my notes from the day.
+A couple of days after [attending the code retreat](/2012/02/28/notes-from-the-israeli-software-craftsmanship-group-code-retreat/) facilitated by him, I was fortunate to attend Corey Haines's “[Improving Your TDD](http://agilepractitioners2012.com/conference-program/corey-haines-improving-your-tdd/)” workshop at the [Agile Practitioners 2012](http://agilepractitioners2012.com/) conference. These are some of my notes from the day.
 
 The workshop was intended at coders familiar with TDD and not introductory. I was very interested to see how in-depth TDD training looks, and also meet other coders from Israel that have been doing TDD for a few years. It was quite awesome to sit in a room where everyone felt comfortable with TDD and it wasn't this new and hard thing. When the group shares this "advanced" technique, discussion can suddenly level up and we could all dive in to the nitty gritty stuff.
 

@@ -14,7 +14,7 @@ tags:
 - software craftsmanship
 ---
 
-I've been writing [quite](http://www.codelord.net/2010/11/02/short-intro-to-dry/) [a](http://www.codelord.net/2010/11/03/taking-dry-further/) [bit](http://www.codelord.net/2010/11/04/dry-dont-get-trigger-happy/) about DRY lately, but I think it's time to take a few steps back and talk about something even more fundamental, refactoring. Today, refactoring as a concept is pretty common. I think it's even passed the buzzword stage. It's still not too known in academia (I've yet to hear the term mentioned in my studies), but given that most IDEs come with refactoring support or have supplementary tools for it, people are familiar with the term.
+I've been writing [quite](/2010/11/02/short-intro-to-dry/) [a](/2010/11/03/taking-dry-further/) [bit](/2010/11/04/dry-dont-get-trigger-happy/) about DRY lately, but I think it's time to take a few steps back and talk about something even more fundamental, refactoring. Today, refactoring as a concept is pretty common. I think it's even passed the buzzword stage. It's still not too known in academia (I've yet to hear the term mentioned in my studies), but given that most IDEs come with refactoring support or have supplementary tools for it, people are familiar with the term.
 
 It has been written a lot about that the term refactoring is being heavily misused lately. Have you ever said "we need to do a big refactoring here?" If so, you've done the term wrong. The Big Refactoring is the new Big Redesign in the Sky. Have you ever told your boss you need time to refactor something? You're doing it wrong. Wrote Refactoring as a task on the board? Wrong once more.
 

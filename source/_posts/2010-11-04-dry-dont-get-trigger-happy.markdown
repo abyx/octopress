@@ -27,7 +27,7 @@ In the snippet above you can see the value '0' referenced twice. Is that a DRY v
 
 {% gist 662849 %}
 
-In that example, 2 appears twice also. Is that a DRY violation? After being in a [code retreat](http://www.codelord.net/2010/05/10/notes-from-the-first-israeli-code-retreat/), and hearing from other code retreaters, I understand that many people that try and focus on DRY think that is in fact a DRY violation. After all, both occurrences refer to the number of living neighbours a cell has and the number is part of the rules of the problem domain. But, let's give this a bit more thought. Although both instances of 2 reference a rule of the game, they reference _different_ rules of the game. Semantically, they are different. If we decide to change the minimal number of neighbours for a cell to stay alive it does not mean we will want to change the number of neighbours it takes to bring a cell to life.
+In that example, 2 appears twice also. Is that a DRY violation? After being in a [code retreat](/2010/05/10/notes-from-the-first-israeli-code-retreat/), and hearing from other code retreaters, I understand that many people that try and focus on DRY think that is in fact a DRY violation. After all, both occurrences refer to the number of living neighbours a cell has and the number is part of the rules of the problem domain. But, let's give this a bit more thought. Although both instances of 2 reference a rule of the game, they reference _different_ rules of the game. Semantically, they are different. If we decide to change the minimal number of neighbours for a cell to stay alive it does not mean we will want to change the number of neighbours it takes to bring a cell to life.
 
 I hope you're catching my train of thought here. Now let's look at another example. This is a snippet of code one might get to while doing the famous Bowling Kata:
 
@@ -42,6 +42,6 @@ This is a tricky one, and if you noticed it before reading give yourself a pat o
 
 The big money of DRY comes when you learn to tell the difference between duplication of intent and mere duplication of text. This simple rule for judging your code helps you understand your code better, simply by making you actively consider what your real intention is.
 
-I've written more about DRY [here](http://www.codelord.net/2010/11/03/taking-dry-further/) and [here](http://www.codelord.net/2010/11/02/short-intro-to-dry/) if you'd like to hear more.
+I've written more about DRY [here](/2010/11/03/taking-dry-further/) and [here](/2010/11/02/short-intro-to-dry/) if you'd like to hear more.
 
 You should subscribe to my [feed](http://feeds.feedburner.com/TheCodeDump) and follow me on [twitter](http://twitter.com/avivby)!

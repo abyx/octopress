@@ -23,7 +23,7 @@ In the past year I've been mainly working on a single project, the longest I've 
 
 With the hundreds of test you have, refactoring on the class-interface level (that is, the interfaces of classes, and not inside classes) can be problematic, with you having to update all the tests.
 
-I'm still learning how to handle this efficiently, and would like to share an experience I had today. This is an example of a problem regarding 2 collaborators and an interface change. Such refactorings in a TDD environment weren't mentioned in the excellent "[TDD by Example](http://www.codelord.net/2010/01/12/every-coder-should-read-tdd-by-example/)" book and similar works, so I'm pretty much guessing here.
+I'm still learning how to handle this efficiently, and would like to share an experience I had today. This is an example of a problem regarding 2 collaborators and an interface change. Such refactorings in a TDD environment weren't mentioned in the excellent "[TDD by Example](/2010/01/12/every-coder-should-read-tdd-by-example/)" book and similar works, so I'm pretty much guessing here.
 
 The example:
 

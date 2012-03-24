@@ -29,7 +29,7 @@ I actually never heard of the authors before 2010. As opposed to books by author
 
 I heard talks mention it, I saw lots of tweets about it and quite a few people that I highly value were praising it. This picked my interest and boy, am I glad I decided to add it to my pile.
 
-I've read a lot about better development, better testing and better everything. And yet, I've never come across a book as thourough and as comprehensive as GOOS. If you read [my](http://www.codelord.net/2010/06/15/book-review-clean-code/) [other](http://www.codelord.net/2010/05/02/agile-software-development-you-will-never-code-the-same-again/) [reviews](http://www.codelord.net/2010/01/12/every-coder-should-read-tdd-by-example/) you will see that what usually buys me over are good code walk-throughs. Now let me tell you, you haven't seen a good walk-through until you've seen GOOS.
+I've read a lot about better development, better testing and better everything. And yet, I've never come across a book as thourough and as comprehensive as GOOS. If you read [my](/2010/06/15/book-review-clean-code/) [other](/2010/05/02/agile-software-development-you-will-never-code-the-same-again/) [reviews](/2010/01/12/every-coder-should-read-tdd-by-example/) you will see that what usually buys me over are good code walk-throughs. Now let me tell you, you haven't seen a good walk-through until you've seen GOOS.
 
 
 > Code isn't sacred just because it exists, and the second time won't take as long.
@@ -43,7 +43,7 @@ On the other hand, every page turn is greeted with more nuggets of OOP lore. Act
 > Once we start a major rework we can't stop until finished. There's a reason surgeons prefer keyhole surgery to opening up a patient.
 
 
-I've read GOOS over the course of a few months, consuming chapters little by little and letting the knowledge sink in. I was amazed at how much this affected my way of thinking about OOP and TDD, pretty much right off the covers. I already [blogged](http://www.codelord.net/2010/12/18/adding-goos-sauce-to-gwt-mvp/) about how my new OOP-Spidey-Sense helped us improve our architecture.
+I've read GOOS over the course of a few months, consuming chapters little by little and letting the knowledge sink in. I was amazed at how much this affected my way of thinking about OOP and TDD, pretty much right off the covers. I already [blogged](/2010/12/18/adding-goos-sauce-to-gwt-mvp/) about how my new OOP-Spidey-Sense helped us improve our architecture.
 
 I'll finish with saying this book is a game-changer for me, even though I've been doing TDD for a few years now. To the authors, Nat and Steve, I take my hat off. They have earned a place of honor in my [Deserve-A-Beer list](http://twitter.com/#!/avivby/deserve-a-beer).
 

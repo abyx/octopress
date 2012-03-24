@@ -10,7 +10,7 @@ categories:
 - Programming
 ---
 
-[Fake it till you make it](http://c2.com/cgi/wiki?FakeItUntilYouMakeIt) is a known pattern in Test Driven Development implementation, which means one writes code that acts like it knows what it's doing in order to know what it's doing. This is a powerful technique and I've [already written](http://www.codelord.net/2010/08/20/unleashing-your-enthusiasm-grunts-making-a-change/) how using the same trick on the individual scale can help you make your team better.
+[Fake it till you make it](http://c2.com/cgi/wiki?FakeItUntilYouMakeIt) is a known pattern in Test Driven Development implementation, which means one writes code that acts like it knows what it's doing in order to know what it's doing. This is a powerful technique and I've [already written](/2010/08/20/unleashing-your-enthusiasm-grunts-making-a-change/) how using the same trick on the individual scale can help you make your team better.
 
 I just recently realized that I had already seen this principle applied to a whole team which then caused a whole department to follow suit.
 

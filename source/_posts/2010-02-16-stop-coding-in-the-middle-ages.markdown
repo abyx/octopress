@@ -25,6 +25,6 @@ About 2 weeks into my decision to stick with Emacs I started searching for simpl
 
 I don't like wasting my time, and I'm sure you don't either. Stop being lazy (in the bad way). Stop making me angry. Get out of the middle ages. Yesterday we got everyone on my team to add pyflakes to their vim. Took 3 minutes to install. The problem is that it took more time to get them to install. "Nah, Vim already highlights syntax, there's no need for more". Oh really? After 10 minutes of searching I found a file that pyflakes showed a real problem in, and another, and another. "Hmmm, where do I download that plugin?" Win!
 
-Do yourself, your team and your build slaves a favor, and start using some modern tools. I promise it will be worth it, money-back-guarantee. And remember, if your team is still churning butter, [sometimes all it takes is a little push](http://www.codelord.net/2009/04/04/sometimes-all-it-takes-is-a-little-push/) (and sometimes you can plant bugs in their files).
+Do yourself, your team and your build slaves a favor, and start using some modern tools. I promise it will be worth it, money-back-guarantee. And remember, if your team is still churning butter, [sometimes all it takes is a little push](/2009/04/04/sometimes-all-it-takes-is-a-little-push/) (and sometimes you can plant bugs in their files).
 
 You should follow me on [twitter](http://bit.ly/aU2CaB).

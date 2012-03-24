@@ -16,7 +16,7 @@ tags:
 - puppet
 ---
 
-This is a follow up post to my [post about using Puppet](http://www.codelord.net/2010/12/19/using-puppet-to-automatically-configure-new-ec2-instances/) to get the same result. In the comments to that post I was told by a few people that chef can make my life easier and I decided to give a try. Here's what I came up with.
+This is a follow up post to my [post about using Puppet](/2010/12/19/using-puppet-to-automatically-configure-new-ec2-instances/) to get the same result. In the comments to that post I was told by a few people that chef can make my life easier and I decided to give a try. Here's what I came up with.
 
 In this post, as in the previous one, our goal is to be able to start a new EC2 instance with one command, which will in turn be created and started with Apache running.
 

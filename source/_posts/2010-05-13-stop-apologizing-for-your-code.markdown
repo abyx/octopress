@@ -12,7 +12,7 @@ categories:
 
 Have a habit of apologizing for your code before showing it to someone else? _You're doing it wrong._
 
-I've been the only TDDer in my team for about a year now. When I just joined the team, my [TDD](http://www.codelord.net/2010/01/12/every-coder-should-read-tdd-by-example/) ways were looked at as a weird fad. Nevertheless, I kept working in my ways, know that, at least for me, it works best.
+I've been the only TDDer in my team for about a year now. When I just joined the team, my [TDD](/2010/01/12/every-coder-should-read-tdd-by-example/) ways were looked at as a weird fad. Nevertheless, I kept working in my ways, know that, at least for me, it works best.
 
 Working like that can be very frustrating. You make sure your code is clean, well tested and refactored. Then comes along someone that makes a small change and your tests no longer cover that part of the code. You open up some other part of the system, see bad code and though you try to follow the [boy-scout rule](http://bit.ly/ba2Dvt), you can't because you'd need to harness 10 computers and a goat to test the code in its current state.
 
@@ -34,6 +34,6 @@ Get out of this shame-phase. Being ashamed means you care, do something with it.
 
 Remember, coding is a social activity. When you disrespect the code, you disrespect your friends. When you _rock on_, you _all_ enjoy. As a wise man [said](http://bit.ly/aLE5dp), keep working on your code till **_you’re ready to project the code onto the wall for the whole team to see._**
 
-And if you're in my shoes, keep it up. [Sometimes all it takes is a little push](http://www.codelord.net/2009/04/04/sometimes-all-it-takes-is-a-little-push/).
+And if you're in my shoes, keep it up. [Sometimes all it takes is a little push](/2009/04/04/sometimes-all-it-takes-is-a-little-push/).
 
 You should subscribe to my [feed](http://feeds.feedburner.com/TheCodeDump) and follow me on [twitter](http://twitter.com/avivby)!

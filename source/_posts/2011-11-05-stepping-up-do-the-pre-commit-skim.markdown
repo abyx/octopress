@@ -21,7 +21,7 @@ The trick is to simply go over every file you've changed and **look for common p
 
 **Unused code** - Are there methods your changes just made obsolete? Maybe a conditional with an "else" clause that can no longer happen? Delete code! It's the best code you'll write today!
 
-**Zombie code** - Did you start with something that was too complex and is no longer needed? Often in retrospect you can see how to simplify something and spare your colleagues the [woes of zombie code](http://www.codelord.net/2011/10/28/fight-zombie-code/).
+**Zombie code** - Did you start with something that was too complex and is no longer needed? Often in retrospect you can see how to simplify something and spare your colleagues the [woes of zombie code](/2011/10/28/fight-zombie-code/).
 
 **Overdue refactoring** - Look at your changes. Are you pushing a method too far? Maybe making a class too bloated? Maybe it's time to for some cleaning.
 

@@ -15,7 +15,7 @@ tags:
 - software craftsmanship
 ---
 
-This kata is intended to help one practice the DRY principle (Don't Repeat Yourself). You can read more about DRY [here](http://www.codelord.net/tag/dry/).
+This kata is intended to help one practice the DRY principle (Don't Repeat Yourself). You can read more about DRY [here](/tag/dry/).
 
 A few notes:
 

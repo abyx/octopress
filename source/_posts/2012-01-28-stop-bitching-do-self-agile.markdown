@@ -14,7 +14,7 @@ tags:
 - software craftsmanship
 ---
 
-Continuing on this series of the [Autonomous Craftsmanship Core](http://www.codelord.net/tag/autonomouscraftsmanshipcore/) we now reach the methodology problem.
+Continuing on this series of the [Autonomous Craftsmanship Core](/tag/autonomouscraftsmanshipcore/) we now reach the methodology problem.
 
 
 ### “I want to do agile/craftsmanship/etc.”
@@ -26,7 +26,7 @@ The key is basically to put the rest of your team aside and focus on how you can
 ### Development Practices
 
 
-This one deserves a post of its own, but luckily for us I've [already](http://www.codelord.net/2011/11/28/stop-bitching-write-those-damn-tests/) [written](http://www.codelord.net/2011/12/18/stop-bitching-use-the-tools-you-want/) [it](http://www.codelord.net/2011/12/30/stop-bitching-it-doesnt-always-take-two-to-pair/)! You don't need permission to write tests, use the right tools, and just coding in an awesome manner.
+This one deserves a post of its own, but luckily for us I've [already](/2011/11/28/stop-bitching-write-those-damn-tests/) [written](/2011/12/18/stop-bitching-use-the-tools-you-want/) [it](/2011/12/30/stop-bitching-it-doesnt-always-take-two-to-pair/)! You don't need permission to write tests, use the right tools, and just coding in an awesome manner.
 
 
 ### Your own mini iterations, planning and retrospectives

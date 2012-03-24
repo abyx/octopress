@@ -15,7 +15,7 @@ tags:
 - software craftsmanship
 ---
 
-My [last blog](http://www.codelord.net/2010/11/06/refactoring-youre-doing-it-wrong/) was about how many people refer to refactoring as the wrong thing. For completeness of discussion I'd like to talk about what a lot of people seemed to not get in my previous post. I said that the 'Big Refactoring' is the new 'Big Redesign in the Sky', and got a bunch of questions along the linse of "so we're never supposed to redesign?"
+My [last blog](/2010/11/06/refactoring-youre-doing-it-wrong/) was about how many people refer to refactoring as the wrong thing. For completeness of discussion I'd like to talk about what a lot of people seemed to not get in my previous post. I said that the 'Big Refactoring' is the new 'Big Redesign in the Sky', and got a bunch of questions along the linse of "so we're never supposed to redesign?"
 
 Well, of course that's not the case. Even the best programmers occasionally dig themselves into a hole that will require some effort to get out of. The point is that the best thing to do is never to take those 2 days to 2 weeks period just for doing that refactoring. That is never the right approach to solve such a problem.
 

@@ -16,7 +16,7 @@ tags:
 - tips
 ---
 
-_Note: I posted an update about doing the same with chef [here](http://www.codelord.net/2011/03/07/using-chef-to-automatically-configure-new-ec2-instances/)._
+_Note: I posted an update about doing the same with chef [here](/2011/03/07/using-chef-to-automatically-configure-new-ec2-instances/)._
 
 This is a quickie techie post that summarizes a few hours of learning that I wish someone else had put up on the web before me. I assume some knowledge about Puppet, and recommend the [Pro Puppet](http://www.amazon.com/gp/product/1430230576/ref=as_li_tf_tl?ie=UTF8&tag=thcodu02-20&linkCode=as2&camp=217145&creative=399381&creativeASIN=1430230576)<img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=1430230576&camp=217145&creative=399381" style="width: 0; height: 0; display: none; border: none !important;"> book and heard good stuff about [Puppet 2.7 Cookbook](http://www.amazon.com/gp/product/1849515387/ref=as_li_ss_tl?ie=UTF8&tag=thcodu02-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=1849515387)<img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=1849515387" style="width: 0; height: 0; display: none; border: none !important;">.
 

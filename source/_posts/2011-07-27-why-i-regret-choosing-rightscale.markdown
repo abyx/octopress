@@ -14,7 +14,7 @@ tags:
 - puppet
 ---
 
-A few months ago we had to decide on some framework/environment to use for our devops needs. I've blogged about my experiences with [Puppet](http://www.codelord.net/2010/12/19/using-puppet-to-automatically-configure-new-ec2-instances/) and [Chef](http://www.codelord.net/2011/03/07/using-chef-to-automatically-configure-new-ec2-instances/) on EC2. Somehow, we eventually ended up using [RightScale](http://www.rightscale.com).
+A few months ago we had to decide on some framework/environment to use for our devops needs. I've blogged about my experiences with [Puppet](/2010/12/19/using-puppet-to-automatically-configure-new-ec2-instances/) and [Chef](/2011/03/07/using-chef-to-automatically-configure-new-ec2-instances/) on EC2. Somehow, we eventually ended up using [RightScale](http://www.rightscale.com).
 
 Quick disclaimer: this is not a rant and I don't intend any bashing. It's just a report of my impression from using it.
 

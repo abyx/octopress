@@ -22,7 +22,7 @@ The meeting was composed of 3 tables: a code review table where people actually 
 
 Unfortunately for me, this means I couldn't take part in the other tables, but from what I could pick up I must say it was really fun getting so much positive feedback for a meeting.
 
-The DRY table consisted of a Kata I've composed specifically to raise issues of duplication already a few minutes into it, which you can find [here](http://www.codelord.net/2010/12/11/serializer-kata-practicing-dry/). It was amazing seeing people keep working on the Kata after the 1-hour dedicated to it was up, and I never expected to see such variety (Java, C#, Python, Ruby, JavaScript and PHP were all spotted)!
+The DRY table consisted of a Kata I've composed specifically to raise issues of duplication already a few minutes into it, which you can find [here](/2010/12/11/serializer-kata-practicing-dry/). It was amazing seeing people keep working on the Kata after the 1-hour dedicated to it was up, and I never expected to see such variety (Java, C#, Python, Ruby, JavaScript and PHP were all spotted)!
 
 The slides from my (extremely) short introduction to DRY are available here:
 
