@@ -13,7 +13,7 @@ categories:
 - software craftsmanship
 ---
 
-This kata is intended to help one practice the DRY principle (Don't Repeat Yourself). You can read more about DRY [here](/tag/dry/).
+This kata is intended to help one practice the DRY principle (Don't Repeat Yourself). You can read more about DRY [here](/category/dry/).
 
 A few notes:
 

@@ -13,7 +13,7 @@ categories:
 - software craftsmanship
 ---
 
-Continuing on this series of the [Autonomous Craftsmanship Core](/tag/autonomouscraftsmanshipcore/) we now reach the methodology problem.
+Continuing on this series of the [Autonomous Craftsmanship Core](/category/autonomouscraftsmanshipcore/) we now reach the methodology problem.
 
 
 ### “I want to do agile/craftsmanship/etc.”

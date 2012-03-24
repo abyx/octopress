@@ -12,7 +12,7 @@ categories:
 - autonomouscraftsmanshipcore
 ---
 
-Pushing forward with the [Autonomous Craftsmanship Core series](/tag/autonomouscraftsmanshipcore/). This week on our plate: How can you force pairing down the throat of your team even if they're not really into it?
+Pushing forward with the [Autonomous Craftsmanship Core series](/category/autonomouscraftsmanshipcore/). This week on our plate: How can you force pairing down the throat of your team even if they're not really into it?
 
 I've already touched on this subject a few times before, especially since it's one I find really important and had to handle a few times before.
 Pair programming feels to me like the best technique currently known to the software industry for making a team highly productive and have global code ownership. It's one of those things that didn't click right away when reading [Extreme Programming Explained](http://www.amazon.com/gp/product/0321278658/ref=as_li_tf_tl?ie=UTF8&tag=thcodu02-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0321278658)<img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321278658" style="width: 0; height: 0; display: none; border: none !important;">, but man did I get it wrong.

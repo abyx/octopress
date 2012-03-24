@@ -24,7 +24,7 @@ SOLID, no doubt, drives better design. My problem was incorporating it natively 
 
 For a few months now I've been getting the feeling that my OOD toolset has reduced quite a lot to the very essence. That feeling was also magnified by reading [GOOS](http://www.amazon.com/gp/product/0321503627/ref=as_li_tf_tl?ie=UTF8&tag=thcodu02-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0321503627)<img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321503627" style="width: 0; height: 0; display: none; border: none !important;"> and pretty much everything written by [J. B. Rainsberger](http://twitter.com/jbrains) [here](http://jbrains.ca) and [here](http://blog.thecodewhisperer.com/).
 
-The first tool I use heavily (and I mean heavily, my mind has managed to get OCD about it) is duplication - or DRY. This tool alone makes any codebase a magnitude better. I've [written plenty](/tag/dry/) about DRY before.
+The first tool I use heavily (and I mean heavily, my mind has managed to get OCD about it) is duplication - or DRY. This tool alone makes any codebase a magnitude better. I've [written plenty](/category/dry/) about DRY before.
 
 But, just yesterday I realized that other than that, I mainly concentrate on one thing, as I contemplated on [twitter](http://twitter.com/#!/avivby/status/52471700167737344):
 

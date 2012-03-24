@@ -12,7 +12,7 @@ categories:
 - software craftsmanship
 ---
 
-This is another post in my [book reviews series](/tag/books/). I finished reading [Clean Code](http://www.amazon.com/gp/product/0132350882?ie=UTF8&tag=thcodu02-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0132350882)<img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0132350882" style="width: 0; height: 0; display: none; border: none !important;"> a few days ago and loved it. It makes me feel good, seeing my decision to wear the Clean Code [wristband](http://bit.ly/aPug4e) a few months ago was a smart one.
+This is another post in my [book reviews series](/category/books/). I finished reading [Clean Code](http://www.amazon.com/gp/product/0132350882?ie=UTF8&tag=thcodu02-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0132350882)<img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0132350882" style="width: 0; height: 0; display: none; border: none !important;"> a few days ago and loved it. It makes me feel good, seeing my decision to wear the Clean Code [wristband](http://bit.ly/aPug4e) a few months ago was a smart one.
 
 After I finished it, I felt a bit weird writing a blog post about it, because, just like the previous books I've blogged about, I found this book simply awesome. Then I thought about the fact it's simply because I'm reading those books that show up enough in other contexts that I upped them in my reading queue enough to get on top.
 

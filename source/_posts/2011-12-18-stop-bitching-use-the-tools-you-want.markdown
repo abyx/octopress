@@ -13,7 +13,7 @@ categories:
 - software craftsmanship
 ---
 
-Continuing on the thread of the [Autonomous Craftsmanship Core](/tag/autonomouscraftsmanshipcore/), we reach another problem: "they" just won't let you use the right tool, or in the right way. As I've said in the [previous](/2011/11/12/stop-bitching-the-autonomous-craftsmanship-core/) [posts](/2011/11/28/stop-bitching-write-those-damn-tests/) if anything is _so_ bad you can't work with it - leave; otherwise, you gotta learn how to make do.
+Continuing on the thread of the [Autonomous Craftsmanship Core](/category/autonomouscraftsmanshipcore/), we reach another problem: "they" just won't let you use the right tool, or in the right way. As I've said in the [previous](/2011/11/12/stop-bitching-the-autonomous-craftsmanship-core/) [posts](/2011/11/28/stop-bitching-write-those-damn-tests/) if anything is _so_ bad you can't work with it - leave; otherwise, you gotta learn how to make do.
 
 A [pragmatic programmer](http://www.amazon.com/gp/product/020161622X/ref=as_li_tf_tl?ie=UTF8&tag=thcodu02-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=020161622X)<img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=020161622X" style="width: 0; height: 0; display: none; border: none !important;"> uses the right tool for the job. We all know that if you have a hammer, every problem looks like a nail. In this post I'm talking about the situation where you have an awesome toolbox right _there_ and yet they're forcing you to unscrew something with your pinky's nail. Excruciating to your brain.
 
