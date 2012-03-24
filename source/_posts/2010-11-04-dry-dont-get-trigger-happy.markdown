@@ -21,20 +21,22 @@ The problem is, that as with any skill, you have to learn to master even the cor
 
 We know that duplicate code is a code smell and a DRY violation that needs to be removed. But, as with any rule, it has exceptions. Taking the dumb example, look at this piece of code:
 
+{% gist 662843 %}
 
- 
 In the snippet above you can see the value '0' referenced twice. Is that a DRY violation? I'm sure you'll agree it isn't. After all, even though it is the same value that appears multiple times syntacticly, it has a different meaning semantically. The first zero is an initialization value and the other seems to indicate bad values in the array. The fact that they both are zero is meaningless and a coincidence. It might very well be that the next version will mark bad values as 'null', which surely shouldn't change the way the array index is initialized.  OK, so that was an easy one. Let's look at this next snippet, taking from some code whipped up solve the Game of Life:
- 
 
+{% gist 662849 %}
 
 In that example, 2 appears twice also. Is that a DRY violation? After being in a [code retreat](http://www.codelord.net/2010/05/10/notes-from-the-first-israeli-code-retreat/), and hearing from other code retreaters, I understand that many people that try and focus on DRY think that is in fact a DRY violation. After all, both occurrences refer to the number of living neighbours a cell has and the number is part of the rules of the problem domain. But, let's give this a bit more thought. Although both instances of 2 reference a rule of the game, they reference _different_ rules of the game. Semantically, they are different. If we decide to change the minimal number of neighbours for a cell to stay alive it does not mean we will want to change the number of neighbours it takes to bring a cell to life.
 
 I hope you're catching my train of thought here. Now let's look at another example. This is a snippet of code one might get to while doing the famous Bowling Kata:
 
+{% gist 662853 %}
 
- 
 This snippet adds the current frame's score to the total score of the bowling game, taking into account whether the frame has a strike, a spare, or is a 'simple' frame. Now, you might notice there is some "duplication" here. I can tell you that when I started refactoring this code to make it look better, I had to think a bit whether the calculation of the score in the first branch and the second branch should be extracted to be the same method.
  But again, this is a mere textual duplication, and not a violation of real DRY, which is duplication of _intent_. The first one takes the score of the strike frame itself and adds the strike bonus (2 next rolls), the other takes the score of the spare frame and adds the spare bonus (1 next roll), so even though it takes the same additions, it is not the same logic. The better way is of course this:  
+
+{% gist 662854 %}
 
 This is a tricky one, and if you noticed it before reading give yourself a pat on the back! If you start and refactor this with an IDE, most IDEs will actually make a bit of a mess for you here, because they usually try and replace same occurrences of code once you extract a method, but here that would not be the better choice. Always keep an eye on your refactoring tools, because they, unlike you, can't tell the difference between syntactic duplication and semantic duplication!
 

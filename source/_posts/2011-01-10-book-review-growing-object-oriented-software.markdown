@@ -17,20 +17,13 @@ tags:
 - tdd
 ---
 
-[![](http://codelord.net/wp-content/uploads/2010/12/goos.jpg)](http://www.amazon.com/gp/product/0321503627?ie=UTF8&tag=thcodu02-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0321503627)![](http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321503627)
-
-
+[<img src="http://codelord.net/wp-content/uploads/2010/12/goos.jpg" style="float: right;"/>](http://www.amazon.com/gp/product/0321503627?ie=UTF8&tag=thcodu02-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0321503627)
 
 > Starting with a test means that we have to describe _what_ we want to achieve before we consider _how_.
 
-
-
-
-
-
 2010, for me, was a year with quite a good reading list. It was when I first got to read some really good books such as Clean Code, Agile Software Development, TDD by Example and  Apprenticeship Patterns. These are all stellar books I highly recommend.
 
-Yes, indeed it was an awesome year and yet I can tell you that the best book I read this year is [Growing Object-Oriented Software, Guided by Tests](http://www.amazon.com/gp/product/0321503627?ie=UTF8&tag=thcodu02-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0321503627)![](http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321503627) (GOOS, for short).
+Yes, indeed it was an awesome year and yet I can tell you that the best book I read this year is [Growing Object-Oriented Software, Guided by Tests](http://www.amazon.com/gp/product/0321503627?ie=UTF8&tag=thcodu02-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0321503627)<img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321503627" style="width: 0; height: 0; display: none; border: none !important;"> (GOOS, for short).
 
 I actually never heard of the authors before 2010. As opposed to books by authors such as Kent Beck and Robert Martin which one regularly hears about, I was quite astonished that I kept hearing about this book in different places.
 

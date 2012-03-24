@@ -26,6 +26,6 @@ The DRY table consisted of a Kata I've composed specifically to raise issues of 
 
 The slides from my (extremely) short introduction to DRY are available here:
 
-[DRY - Don't Repeat Yourself](http://www.scribd.com/doc/45494123/DRY-Don-t-Repeat-Yourself) 				 		 		 		 		 		 		
+<script src="http://speakerdeck.com/embed/4f6dac1faa99e4002202a486.js"></script>
 
 You should subscribe to [my](http://feeds.feedburner.com/TheCodeDump) feed and follow me on [twitter](http://twitter.com/avivby)!

@@ -17,7 +17,7 @@ Just recently my Dreamhost plan, the one this blog is hosted on, expired and I h
 
 _Disclaimer: this worked for me. If you lose your blog, too bad. Backup is your friend, my friend. You need some devops-chops to follow along._
 
-__After being tipped of by a couple of friends, I decided to look into setting up my site on EC2. Basically, my blog is really small (the WordPress export file is about 2MB), and it's not like I get tons of traffic. That alone means that for a year now I can use the EC2 free tier, making this blog cost pretty much nothing.
+After being tipped of by a couple of friends, I decided to look into setting up my site on EC2. Basically, my blog is really small (the WordPress export file is about 2MB), and it's not like I get tons of traffic. That alone means that for a year now I can use the EC2 free tier, making this blog cost pretty much nothing.
 
 
 ### Initial setup
@@ -42,16 +42,15 @@ On your original blog, you can use the export utility and then import all your p
 If you'd like to move WordPress to the root of your site (/ instead of /wordpress), remove the path from the General settings page and then SSH to the machine. Replace the first two lines of the file /opt/bitnami/apps/wordpress/conf/wordpress.conf with:
 
     
-    Alias / "/opt/bitnami/apps/wordpress/htdocs/"
-
+{% codeblock lang:apache %}
+Alias / "/opt/bitnami/apps/wordpress/htdocs/"
+{% endcodeblock %}
 
 Then, go to /opt/bitnami/apache2 and do:
 
-    
-    sudo ./bin/apachectl restart
-
-
-
+{% codeblock lang:bash %}
+sudo ./bin/apachectl restart
+{% endcodeblock %}
 
 ### Gotchas
 
@@ -59,17 +58,18 @@ Then, go to /opt/bitnami/apache2 and do:
 Got permalinks? You'll need to:
 
     
-    chmod g+rw /opt/bitnami/apps/wordpress/htdocs/.htaccess
+{% codeblock lang:bash %}
+chmod g+rw /opt/bitnami/apps/wordpress/htdocs/.htaccess
+{% endcodeblock %}
 
 
 Want to receive email notification for new comments etc.? You'll need to do:
 
-    
-    sudo apt-get install sendmail && sudo ln -s /usr/sbin/sendmail /usr/bin/sendmail
-
+{% codeblock lang:bash %}
+sudo apt-get install sendmail && sudo ln -s /usr/sbin/sendmail /usr/bin/sendmail
+{% endcodeblock %}
 
 If you have attachments in any of your posts, you might need to fix the URL after the final move.
-
 
 ### Testing
 

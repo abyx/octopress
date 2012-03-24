@@ -15,8 +15,16 @@ At my work we've just wasted quite some time chasing down a bug that was due to 
 Given LSP, one might assume that wherever you use a Set you can simply replace it with a SortedSet in order to get the same thing but with sorted output. Well, think again! _(Tam, tam, tammmm)_
 
 Suppose you have this nice class:
+
+{% gist 714291 %}
+
 This is all very fine and dandy, but somewhere in our code we wanted to replace a Set of Accounts with a SortedSet, so the accounts will be displayed sorted by their names (only their names). So, we whipped up this simple Comparator: 
+
+{% gist 714332 %}
+
 This looked very cool and everything worked, until we attempted to add to the SortedSet 2 accounts with the same name but different IDs. We expected both to be inserted to it, since they are not "equal", but were surprised by the result of this:
+
+{% gist 714338 %}
 
 The above test **fails**. After much digging and debugging, we realized that the TreeSet uses the Comparator to determine whether the account was in the set. Once it found an object in the set that had the same "comparison value" ("compareTo" returned zero), it decided the account was already in the set. This is stupidly stupid, since we felt the natural behavior is that returning zero means we don't really care about these objects' order, and that equals() will be used to determine which are actual duplicates. Switching the code to use a non-SortedSet (e.g. HashSet) makes the test pass.
 

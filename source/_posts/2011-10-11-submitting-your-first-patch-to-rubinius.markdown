@@ -25,9 +25,10 @@ At the moment, the people at Rubinius are working hard on making it compatible w
 
 Clone the project from the GitHub [repo](https://github.com/rubinius/rubinius). Once that's done, to make sure that everything works properly do this:
 
-` ./configure
+{% codeblock lang:bash %}
+./configure
 rake spec
-`
+{% endcodeblock %}
 
 The specs should be all passing on your machine. It will take a few minutes the first time, but afterwards whenever you make small changes it will be faster.
 
@@ -41,7 +42,9 @@ Rubinius, along with the other Ruby implementations, uses mspec in order to have
 
 I came up with this command in order to find and execute such 1.9 specs that were last reported by Rubinius developers to be failing:
 
-`bin/mspec tag --list fails -tx19 :ci_files`
+{% codeblock lang:bash %}
+bin/mspec tag --list fails -tx19 :ci_files
+{% endcodeblock %}
 
 This command will list the RubySpecs that are tagged as failing on Rubinius in 1.9 mode.
 
@@ -49,7 +52,9 @@ You should see plenty (at the time of this writing, over 500) of failing specs. 
 
 Once you spot a spec that looks interesting you can run it specifically and see the code. For example, if you see an interesting spec for String#squeeze, you can run it with:
 
-`bin/mspec -tx19 spec/ruby/core/string/squeeze_spec.rb`
+{% codeblock lang:bash %}
+bin/mspec -tx19 spec/ruby/core/string/squeeze_spec.rb
+{% endcodeblock %}
 
 
 ### Doing some work

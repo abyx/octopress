@@ -16,13 +16,13 @@ tags:
 Pushing forward with the [Autonomous Craftsmanship Core series](http://www.codelord.net/tag/autonomouscraftsmanshipcore/). This week on our plate: How can you force pairing down the throat of your team even if they're not really into it?
 
 I've already touched on this subject a few times before, especially since it's one I find really important and had to handle a few times before.
-Pair programming feels to me like the best technique currently known to the software industry for making a team highly productive and have global code ownership. It's one of those things that didn't click right away when reading [Extreme Programming Explained](http://www.amazon.com/gp/product/0321278658/ref=as_li_tf_tl?ie=UTF8&tag=thcodu02-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0321278658)![](http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321278658), but man did I get it wrong.
+Pair programming feels to me like the best technique currently known to the software industry for making a team highly productive and have global code ownership. It's one of those things that didn't click right away when reading [Extreme Programming Explained](http://www.amazon.com/gp/product/0321278658/ref=as_li_tf_tl?ie=UTF8&tag=thcodu02-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0321278658)<img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321278658" style="width: 0; height: 0; display: none; border: none !important;">, but man did I get it wrong.
 
 I've loved pairing from the moment I started doing it and ever since I find it hard doing hard work without a pair by my side. The problem is that most of the software shops around are still not pairing regularly, making it hard for a pairing junky like me to have fun.
 
 So, how can we stop bitching about our team not pairing and actually get shit done with a pair? As opposed to the previous posts on the Autonomous Craftsmanship Core, this is not something one can do alone, and so is a bit harder to work around.
 
-Basically, **don't calling it pair programming**. It might be a bit tricky socially, but it's worth it. Some real examples:
+Basically, **not calling it pair programming**. It might be a bit tricky socially, but it's worth it. Some real examples:
 
 
 ### Can you help me out?

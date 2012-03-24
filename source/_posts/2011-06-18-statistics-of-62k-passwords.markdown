@@ -19,7 +19,7 @@ A couple of days ago, [LulzSec](http://lulzsecurity.com/) published a batch of 6
 ### Password length
 
 
-The dump's average password length is 7.63. I was surprised, because I thought most users would use something like 4 characters, but then remembered a lot of sites nowadays enforce a a 6-8 character limit minimum, so this makes sense. As you should know, and as you can find in [Hacking: The Art of Exploitation](http://www.amazon.com/gp/product/1593271441/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=thcodu02-20&linkCode=as2&camp=217145&creative=399381&creativeASIN=1593271441)![](http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=1593271441&camp=217145&creative=399381), longer passwords are greatly harder to crack, so this is definitely a case where size does matter.
+The dump's average password length is 7.63. I was surprised, because I thought most users would use something like 4 characters, but then remembered a lot of sites nowadays enforce a a 6-8 character limit minimum, so this makes sense. As you should know, and as you can find in [Hacking: The Art of Exploitation](http://www.amazon.com/gp/product/1593271441/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=thcodu02-20&linkCode=as2&camp=217145&creative=399381&creativeASIN=1593271441)<img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=1593271441&camp=217145&creative=399381" style="width: 0; height: 0; display: none; border: none !important;">, longer passwords are greatly harder to crack, so this is definitely a case where size does matter.
 
 Here's a short graph depicting the distribution of password length (Note that edge groups have less than 10 passwords and so aren't really seen here):
 

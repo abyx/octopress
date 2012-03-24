@@ -17,7 +17,7 @@ tags:
 
 Diving deeper into the idea of the [Autonomous Craftsmanship Core](http://www.codelord.net/2011/11/12/stop-bitching-the-autonomous-craftsmanship-core/), this time I'd like to talk about one of the first problems a lot of developers face when wanting to start doing clean code.
 
-You read Uncle Bob's [Clean Code](http://www.amazon.com/gp/product/0132350882/ref=as_li_tf_tl?ie=UTF8&tag=thcodu02-20&linkCode=as2&camp=217145&creative=399369&creativeASIN=0132350882)![](http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0132350882&camp=217145&creative=399369), or went to a talk and then go all "Next day at work I'm gonna write tests!!" Then you come to work, and you give the "let's write tests man!" speech to your teammate, and he just yawns, and slowly the rush fades.
+You read Uncle Bob's [Clean Code](http://www.amazon.com/gp/product/0132350882/ref=as_li_tf_tl?ie=UTF8&tag=thcodu02-20&linkCode=as2&camp=217145&creative=399369&creativeASIN=0132350882)<img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0132350882&camp=217145&creative=399369" style="width: 0; height: 0; display: none; border: none !important;">, or went to a talk and then go all "Next day at work I'm gonna write tests!!" Then you come to work, and you give the "let's write tests man!" speech to your teammate, and he just yawns, and slowly the rush fades.
 
 Lots have been written before about introducing tests to a team as a grunt, but I'll do a quick recap:
 

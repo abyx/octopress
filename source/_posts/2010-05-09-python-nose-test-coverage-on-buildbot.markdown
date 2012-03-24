@@ -20,4 +20,4 @@ Once we got our builds happily running on Buildbot, there's really no reason not
 
 All you have to do is this (code is based on this [blog post](http://copypasteprogrammer.blogspot.com/2010/03/buildbot-and-nose-test-coverage.html), with adaptations to work on slaves that don't share directories with the master, since the createSummary method runs on the master):
 
-
+{% gist 395269 %}

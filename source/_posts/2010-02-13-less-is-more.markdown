@@ -27,6 +27,6 @@ Whenever I commit and git tells me I deleted more code than I inserted I get thi
 
 Paul Graham has an [essay](http://bit.ly/ae8RfK) where he once showed a way for him to know he's making good progress with Arc, the language he created. He kept track of the number of lines it took him to implement an application (Hacker News) and whenever he made some changes he checked to see if they made the application simpler.
 
-Of course, as any rule, this one has exceptions. Eventually, you will need to add code! But, it always helps me see that what I thought was really good just adds clutter. Try and take a look at the output of git log --shortstat - do you tend to add more lines whenever you clean up?
+Of course, as any rule, this one has exceptions. Eventually, you will need to add code! But, it always helps me see that what I thought was really good just adds clutter. Try and take a look at the output of `git log --shortstat` - do you tend to add more lines whenever you clean up?
 
 You should follow me on [twitter](http://bit.ly/aU2CaB)!

@@ -24,28 +24,4 @@ So, just in case someone else wants an already ready build.xml file for this pur
 
 I hope this helps someone, and if anyone has a better way of doing this I'd like to hear about it!
 
-
-
-
-    
-    <span style="color:#a65700;"><</span><span style="color:#5f5035;">target</span> <span style="color:#274796;">name</span><span style="color:#808030;">=</span><span style="color:#0000e6;">"</span><span style="color:#0000e6;">compile</span><span style="color:#0000e6;">"</span> <span style="color:#274796;">depends</span><span style="color:#808030;">=</span><span style="color:#0000e6;">"</span><span style="color:#0000e6;">compile-grammar</span><span style="color:#0000e6;">"</span><span style="color:#a65700;">></span>
-        <span style="color:#a65700;"><</span><span style="color:#5f5035;">javac</span> <span style="color:#274796;">srcdir</span><span style="color:#808030;">=</span><span style="color:#0000e6;">"</span><span style="color:#0000e6;">${src}</span><span style="color:#0000e6;">"</span> <span style="color:#274796;">destdir</span><span style="color:#808030;">=</span><span style="color:#0000e6;">"</span><span style="color:#0000e6;">${build}</span><span style="color:#0000e6;">"</span><span style="color:#a65700;">></span>
-            <span style="color:#a65700;"><</span><span style="color:#5f5035;">classpath</span> <span style="color:#274796;">refid</span><span style="color:#808030;">=</span><span style="color:#0000e6;">"</span><span style="color:#0000e6;">classpath.base</span><span style="color:#0000e6;">"</span><span style="color:#a65700;">/></span>
-        <span style="color:#a65700;"></</span><span style="color:#5f5035;">javac</span><span style="color:#a65700;">></span>
-    <span style="color:#a65700;"></</span><span style="color:#5f5035;">target</span><span style="color:#a65700;">></span>
-    
-    <span style="color:#a65700;"><</span><span style="color:#5f5035;">target</span> <span style="color:#274796;">name</span><span style="color:#808030;">=</span><span style="color:#0000e6;">"</span><span style="color:#0000e6;">compile-grammar</span><span style="color:#0000e6;">"</span> <span style="color:#274796;">depends</span><span style="color:#808030;">=</span><span style="color:#0000e6;">"</span><span style="color:#0000e6;">-check_grammar_needs_compile</span><span style="color:#0000e6;">"</span>
-            <span style="color:#274796;">if</span><span style="color:#808030;">=</span><span style="color:#0000e6;">"</span><span style="color:#0000e6;">grammarBuildRequired</span><span style="color:#0000e6;">"</span><span style="color:#a65700;">></span>
-        <span style="color:#a65700;"><</span><span style="color:#5f5035;">java</span> <span style="color:#274796;">classname</span><span style="color:#808030;">=</span><span style="color:#0000e6;">"</span><span style="color:#0000e6;">org.antlr.Tool</span><span style="color:#0000e6;">"</span> <span style="color:#274796;">failonerror</span><span style="color:#808030;">=</span><span style="color:#0000e6;">"</span><span style="color:#0000e6;">true</span><span style="color:#0000e6;">"</span><span style="color:#a65700;">></span>
-            <span style="color:#a65700;"><</span><span style="color:#5f5035;">arg</span> <span style="color:#274796;">value</span><span style="color:#808030;">=</span><span style="color:#0000e6;">"</span><span style="color:#0000e6;">${grammar-file}</span><span style="color:#0000e6;">"</span><span style="color:#a65700;">/></span>
-            <span style="color:#a65700;"><</span><span style="color:#5f5035;">classpath</span> <span style="color:#274796;">refid</span><span style="color:#808030;">=</span><span style="color:#0000e6;">"</span><span style="color:#0000e6;">classpath.antlr</span><span style="color:#0000e6;">"</span><span style="color:#a65700;">/></span>
-        <span style="color:#a65700;"></</span><span style="color:#5f5035;">java</span><span style="color:#a65700;">></span>
-    <span style="color:#a65700;"></</span><span style="color:#5f5035;">target</span><span style="color:#a65700;">></span>
-    
-    <span style="color:#a65700;"><</span><span style="color:#5f5035;">target</span> <span style="color:#274796;">name</span><span style="color:#808030;">=</span><span style="color:#0000e6;">"</span><span style="color:#0000e6;">-check_grammar_needs_compile</span><span style="color:#0000e6;">"</span><span style="color:#a65700;">></span>
-        <span style="color:#a65700;"><</span><span style="color:#5f5035;">uptodate</span> <span style="color:#274796;">property</span><span style="color:#808030;">=</span><span style="color:#0000e6;">"</span><span style="color:#0000e6;">grammarBuildRequired</span><span style="color:#0000e6;">"</span> <span style="color:#274796;">targetfile</span><span style="color:#808030;">=</span><span style="color:#0000e6;">"</span><span style="color:#0000e6;">${grammar-file}</span><span style="color:#0000e6;">"</span>
-            <span style="color:#274796;">srcfile</span><span style="color:#808030;">=</span><span style="color:#0000e6;">"</span><span style="color:#0000e6;">${grammar-java-file}</span><span style="color:#0000e6;">"</span><span style="color:#a65700;">/></span>
-    <span style="color:#a65700;"></</span><span style="color:#5f5035;">target</span><span style="color:#a65700;">></span>
-
-
-
+{% gist 2182506 %}

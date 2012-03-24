@@ -15,23 +15,11 @@ tags:
 - testing
 ---
 
-> If you write a test and it passes, the question is if the previous step was too big.
-
-
-
-
-> The DRY principle doesn't talk about code, but knowledge.
-
-
-
-
-> Clever is never something to be proud of in your code.
-
-
-
-
-> - Corey Haines
-
+{% blockquote Corey Haines, Improving Your TDD %}
+If you write a test and it passes, the question is if the previous step was too big.
+The DRY principle doesn't talk about code, but knowledge.
+Clever is never something to be proud of in your code.
+{% endblockquote %}
 
 A couple of days after [attending the code retreat](http://www.codelord.net/2012/02/28/notes-from-the-israeli-software-craftsmanship-group-code-retreat/) facilitated by him, I was fortunate to attend Corey Haines's “[Improving Your TDD](http://agilepractitioners2012.com/conference-program/corey-haines-improving-your-tdd/)” workshop at the [Agile Practitioners 2012](http://agilepractitioners2012.com/) conference. These are some of my notes from the day.
 
@@ -47,7 +35,7 @@ We then took another introspective look at our TDD process (aided by an exercise
 
 We had a long discussion about these problems and how they are directly connected to the way we pick the next test. We all know that the next test should be the "simplest thing", but how exactly do we define simple?
 
-I love having these discussions that jolt me and make me rethinks stuff I've long ago stopped paying attention to. Developer introspection is a thing of beauty and much power (Kent Beck tells that he wrote his incredible [Smalltalk Best Practice Patterns](http://www.amazon.com/gp/product/013476904X/ref=as_li_ss_tl?ie=UTF8&tag=thcodu02-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=013476904X)![](http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=013476904X) and [Implementation Patterns](http://www.amazon.com/gp/product/0321413091/ref=as_li_ss_tl?ie=UTF8&tag=thcodu02-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=0321413091)![](http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321413091) books by simply stopping whenever he was about to type some code and have an explanation as to why he picked to do it that way).
+I love having these discussions that jolt me and make me rethinks stuff I've long ago stopped paying attention to. Developer introspection is a thing of beauty and much power (Kent Beck tells that he wrote his incredible [Smalltalk Best Practice Patterns](http://www.amazon.com/gp/product/013476904X/ref=as_li_ss_tl?ie=UTF8&tag=thcodu02-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=013476904X)<img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=013476904X" style="width: 0; height: 0; display: none; border: none !important;"/> and [Implementation Patterns](http://www.amazon.com/gp/product/0321413091/ref=as_li_ss_tl?ie=UTF8&tag=thcodu02-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=0321413091) <img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321413091" style="width: 0; height: 0; display: none; border: none !important;"/>  books by simply stopping whenever he was about to type some code and have an explanation as to why he picked to do it that way).
 
 Corey even did a live demo of his TDD style and programming by wishful thinking. It was very interesting, but as all live demos go he had some trouble along the way. Workshop aside, it is not trivial for someone giving a training to admit a mistake done, and Corey gracefully handled the situation.
 

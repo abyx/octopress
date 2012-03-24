@@ -20,7 +20,7 @@ tags:
 I'd like to point out a really nice testing practice that I've been loving more and more lately.
 
 Just about every mature testing framework out there supports the concept of custom matchers, which provide us with the ability to define our very own assertions seamlessly into the tests. Even though this ability is quite old, we don't see it used too often and I think that's a shame. I've seen this practice heavily used in the mind expanding [GOOS](http://www.amazon.com/gp/product/0321503627?ie=UTF8&tag=thcodu02-20&linkCode=shr&camp=213733&creative=393185&creativeASIN=0321503627) book and just now am starting to realize its awesomeness.
-[caption id="" align="alignright" width="240" caption="Your Testing Toolbox"][![toolbox](http://farm2.staticflickr.com/1155/1403240351_68114a0c53.jpg)](http://www.flickr.com/photos/dipster1/1403240351/)[/caption]
+
 Note: examples in this post are shown in Ruby using [RSpec's matchers](https://github.com/dchelimsky/rspec/wiki/Custom-Matchers) but the concept is pretty much identical (as can be seen for example in Java's [Hamcrest Matchers](http://code.google.com/p/hamcrest/wiki/Tutorial)).
 
 

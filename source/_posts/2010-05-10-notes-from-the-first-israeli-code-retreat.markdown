@@ -33,46 +33,20 @@ To sum it up, I think that all-in-all people had a good time. I practically had 
 
 For future reference, here's the list of [Game of Life](http://bit.ly/cePVyl) ideas people have tried:
 
-
-
-	
   * Cell centered
-
-	
   * Board/Universe centered
-
-	
   * if-less (as possible)
-
-	
   * Uber-threaded (each cell is a thread)
-
-	
   * Performance-centered (board is a byte array)
-
-	
   * Focus on the neighboring-connection (the "lines" between cells)
-
-	
   * Implement in a few different languages and their idioms (we had Java, Python and some C)
-
-	
   * Different topologies (hive-like and 3D)
-
-	
   * Calculate results by hashing certain parts of the universe and the expected results for them
-
 
 And, the second problem that was given is the Poker Hands Kata:
 
-	
   * Go through the cards and seek the best hand
-
-	
   * After each card is added to the hand, hand-types that are no more possible are removed
-
-	
   * Encode the hand as a 64bit number, and then find better hand by subtracting the numbers
-
 
 You should subscribe to my [feed](http://feeds.feedburner.com/TheCodeDump) and follow me on [twitter](http://twitter.com/avivby)!

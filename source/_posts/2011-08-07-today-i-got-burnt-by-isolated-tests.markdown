@@ -15,7 +15,7 @@ tags:
 - tdd
 ---
 
-Generally, I prefer the [GOOS](http://www.amazon.com/gp/product/0321503627/ref=as_li_tf_tl?ie=UTF8&tag=thcodu02-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0321503627)![](http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321503627) school of TDD which includes isolating my classes as much as possible, putting mocks and stubs everywhere. Even though one of its known disadvantages is that you risk testing your classes in a fake environment that won't match the real production code using it, I've rarely come across a place where I got really bitten by it.
+Generally, I prefer the [GOOS](http://www.amazon.com/gp/product/0321503627/ref=as_li_tf_tl?ie=UTF8&tag=thcodu02-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0321503627)<img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321503627" style="width: 0; height: 0; display: none; border: none !important;"> school of TDD which includes isolating my classes as much as possible, putting mocks and stubs everywhere. Even though one of its known disadvantages is that you risk testing your classes in a fake environment that won't match the real production code using it, I've rarely come across a place where I got really bitten by it.
 
 Today I set out with my pair to add some functionality to a certain class. That class had about 30-40 lines of code and about 10 test cases, which seemed quite decent. We added our changes TDD style and just couldn't get the thing working. After digging into it for a few more minutes we suddenly realized the class shouldn't be working at all and checking in the DB showed that indeed the last time that specific feature had any effect was 3 months ago!
 

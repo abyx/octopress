@@ -28,12 +28,12 @@ Whenever people asked me to lend them a hand with a piece of code, the presentat
 
 At first, my ego always happy to boast, I took it as a compliment. Later, it dawned on me that it's not that my code looks like pure prose simply because it's TDDed.
 
-What that apologizing means is "**_I'm sorry I don't care about the code as much you do_". Uncle Bob was right, people were actually _ashamed_. Sounds weird right? But then again, if you do care, why haven't you removed the need to apologize after the second time? **
+What that apologizing means is "**_I'm sorry I don't care about the code as much you do_**". Uncle Bob was right, people were actually _ashamed_. Sounds weird right? But then again, if you do care, why haven't you removed the need to apologize after the second time?
 
-**Get out of this shame-phase. Being ashamed means you care, do something with it. The next step is simply making the code cleaner. Some of my team-mates have already started down the enlightened path. **
+Get out of this shame-phase. Being ashamed means you care, do something with it. The next step is simply making the code cleaner. Some of my team-mates have already started down the enlightened path.
 
-**Remember, coding is a social activity. When you disrespect the code, you disrespect your friends. When you _rock on_, you _all_ enjoy. As a wise man [said](http://bit.ly/aLE5dp), keep working on your code till **_you’re ready to project the code onto the wall for the whole team to see._****
+Remember, coding is a social activity. When you disrespect the code, you disrespect your friends. When you _rock on_, you _all_ enjoy. As a wise man [said](http://bit.ly/aLE5dp), keep working on your code till **_you’re ready to project the code onto the wall for the whole team to see._**
 
-**And if you're in my shoes, keep it up. [Sometimes all it takes is a little push](http://www.codelord.net/2009/04/04/sometimes-all-it-takes-is-a-little-push/).**
+And if you're in my shoes, keep it up. [Sometimes all it takes is a little push](http://www.codelord.net/2009/04/04/sometimes-all-it-takes-is-a-little-push/).
 
-**You should subscribe to my [feed](http://feeds.feedburner.com/TheCodeDump) and follow me on [twitter](http://twitter.com/avivby)!**
+You should subscribe to my [feed](http://feeds.feedburner.com/TheCodeDump) and follow me on [twitter](http://twitter.com/avivby)!
