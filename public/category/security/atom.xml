@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: security | The Code Dump]]></title>
+  <link href="http://www.codelord.net/category/security/atom.xml" rel="self"/>
+  <link href="http://www.codelord.net/"/>
+  <updated>2012-03-25T20:33:29+02:00</updated>
+  <id>http://www.codelord.net/</id>
+  <author>
+    <name><![CDATA[Aviv Ben-Yosef]]></name>
+    <email><![CDATA[aviv.by+blog@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Input Validation means more than Javascript]]></title>
+    <link href="http://www.codelord.net/2011/06/20/input-validation-means-more-than-javascript/"/>
+    <updated>2011-06-20T06:14:56+03:00</updated>
+    <id>http://www.codelord.net/2011/06/20/input-validation-means-more-than-javascript</id>
+    <content type="html"><![CDATA[<p>So much has been written about security before, that I never thought I'd end up writing something about it. Then again, I never thought one of the top <a href="http://consumerist.com/2011/06/how-hackers-stole-200000-citi-accounts-by-exploiting-basic-browser-vulnerability.html">U.S. banks will get hacked</a> simply by twiddling digits in a URL.</p>
+
+<p>Basically, the only thing you should take away from this post is that when it comes to external data - trust no one. And I mean absolutely no one.</p>
+
+<p>I think and hope that by now most web developers know not to trust data that users entered in input fields. That trust is what gave birth to <a href="http://en.wikipedia.org/wiki/SQL_injection">SQL injections</a>. Nowadays, just about no one should be exposed to such a lame problem, especially since pretty much every ORM framework out there protects you from these. But checking your input fields is just the beginning.</p>
+
+<p>Every form of input you accept, even indirect input, is still untrusted input. I just want to go over a few examples, because you all should have this in mind:</p>
+
+<p><strong>URLs</strong> - Just like I mentioned above, CitiBank got hacked simply because someone noticed an integer on his browser address bar and started incrementing it. Any parameter you accept from a URL should be examined. Accessing an email by id? Make sure it corresponds with the current user. Always.</p>
+
+<p><strong>Form arguments/JSON</strong> - These are just the same thing as validating input fields. Everyone should know by now that it's wrong to trust and validation done on the client side, since every moderately capable person can craft his own POST/GET requests and bypass any validation. Validate everything on the server. And don't use the client as a place to put some state in, unless it really belongs there. I can't tell you how many ecommerce sites I've seen that pass the price of products along your regular forms as hidden input fields. From that point it's just a few right clicks in firebug and you're gonna get that LCD TV for $1.</p>
+
+<p><strong>Cookies</strong> - Again, these are inputs generated from your clients. Yeah, you put the cookie there in the first place, but since you put it there your users had the chance to do whatever they want to it. So, putting in a cookie any kind of integer means it has to be validated again on the server side, just like a URL parameter. Any data you put there might have been mangled. The solution is to either not use cookies for anything like that, or sign your cookies the way Rails does.</p>
+
+<p><strong>Really anything possible</strong> - Have you ever used a service that allowed you to update certain stuff via email? That's, for example, another form of input. You wouldn't want someone to change some URL/number in the email when he's replying and get access to a different user's data, would you?</p>
+
+<p>These are really just the tip of iceberg, but I'm constantly surprised to see how many around us are popping up web sites with no thought given to these problems. Just a tiny bit of thinking can prevent you from topping reddit for being a lame developer.</p>
+
+<p>You should subscribe to my <a href="http://feeds.feedburner.com/TheCodeDump">feed</a> and follow me on <a href="http://twitter.com/avivby">twitter</a>!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Statistics of 62K Passwords]]></title>
+    <link href="http://www.codelord.net/2011/06/18/statistics-of-62k-passwords/"/>
+    <updated>2011-06-18T11:09:54+03:00</updated>
+    <id>http://www.codelord.net/2011/06/18/statistics-of-62k-passwords</id>
+    <content type="html"><![CDATA[<p>A couple of days ago, <a href="http://lulzsecurity.com/">LulzSec</a> published a batch of 62K random logins (emails and passwords). At first, I grabbed it in order to make sure that neither me nor anyone on my contacts had his passwords revealed. Later I decided to run a few stats on this rare dump of data. Following are a few interesting facts.</p>
+
+<h3>Password length</h3>
+
+<p>The dump's average password length is 7.63. I was surprised, because I thought most users would use something like 4 characters, but then remembered a lot of sites nowadays enforce a a 6-8 character limit minimum, so this makes sense. As you should know, and as you can find in <a href="http://www.amazon.com/gp/product/1593271441/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=217145&amp;creative=399381&amp;creativeASIN=1593271441">Hacking: The Art of Exploitation</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=1593271441&camp=217145&creative=399381" style="width: 0; height: 0; display: none; border: none !important;">, longer passwords are greatly harder to crack, so this is definitely a case where size does matter.</p>
+
+<p>Here's a short graph depicting the distribution of password length (Note that edge groups have less than 10 passwords and so aren't really seen here):</p>
+
+<p><img src="/images/posts_images/passwords.png" alt="Passwords by length" /></p>
+
+<h3>Common Passwords</h3>
+
+<p>Not surprisingly, the most common password is 123456 with 569 occurrences, followed by its "more secure" cousin 123456789 with 184. The 3rd most common password is... "password" (132 occurrences)! The other top-10 passwords are interesting - some are plain words such as "romance", "mystery", "tigger" and "shadow", "102030" makes quite a few appearances.</p>
+
+<p>The 10th most used password is quite intriguing actually - "ajcuivd289". Everyone on the internet seem baffled as to the source of this password. My guess would have to be it's some worm that resets the accounts it hacked into to it. <em>Edit</em>: As Marc comments below, the logins with these passwords seem "clustered", which makes it more likely that these are actually the result of some bot creating accounts. Thanks Marc!</p>
+
+<p>A couple hundred passwords are just not-so-random keyboard taps ("123qwe", "asdf1234", etc.). 789 passwords are taken exactly from the username, and twice that many are part of the username followed by some digits (most seem like birth years).</p>
+
+<h3>Inside Passwords</h3>
+
+<p>12179 of the passwords are all numeric, some are 14 digits long! That's just crazy. While 34717 (that's more than half) of the passwords contain any digits, only 1262 contain capital letters and 533 contain special characters!</p>
+
+<h3>Some Common Words</h3>
+
+<p>418 passwords contain the word "love". "sex" is in 125, "jesus" in 67. More people prefer cats (414) to dogs (291). And the language battle - 6 javas, 2 pythons and 17 "ruby"s (guess which one is also a name).</p>
+
+<p>I'd like to sum this up with urging you to never use the same password twice and use a password manager in order to generate secure passwords! Using a password manager ensures that even if a certain site is breached, it doesn't mean all of your passwords are revealed, and secure paswords are just harder to brute force.</p>
+
+<p>You should subscribe to my <a href="http://feeds.feedburner.com/TheCodeDump">feed</a> and follow me on <a href="http://twitter.com/avivby">twitter</a>!</p>
+]]></content>
+  </entry>
+  
+</feed>

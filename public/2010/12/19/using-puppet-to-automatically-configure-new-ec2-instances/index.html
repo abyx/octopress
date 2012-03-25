@@ -1,0 +1,376 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Using Puppet to Automatically Configure New EC2 Instances - The Code Dump</title>
+  <meta name="author" content="Aviv Ben-Yosef">
+
+  
+  <meta name="description" content="Note: I posted an update about doing the same with chef here. This is a quickie techie post that summarizes a few hours of learning that I wish &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.codelord.net/2010/12/19/using-puppet-to-automatically-configure-new-ec2-instances">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/TheCodeDump" rel="alternate" title="The Code Dump" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7925779-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">The Code Dump</a></h1>
+  
+    <h2>A place a coder rants at...</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/TheCodeDump" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.codelord.net" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Using Puppet to Automatically Configure New EC2 Instances</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-12-19T22:30:48+02:00" pubdate data-updated="true">Dec 19<span>th</span>, 2010</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><em>Note: I posted an update about doing the same with chef <a href="/2011/03/07/using-chef-to-automatically-configure-new-ec2-instances/">here</a>.</em></p>
+
+<p>This is a quickie techie post that summarizes a few hours of learning that I wish someone else had put up on the web before me. I assume some knowledge about Puppet, and recommend the <a href="http://www.amazon.com/gp/product/1430230576/ref=as_li_tf_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=217145&amp;creative=399381&amp;creativeASIN=1430230576">Pro Puppet</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=1430230576&camp=217145&creative=399381" style="width: 0; height: 0; display: none; border: none !important;"> book and heard good stuff about <a href="http://www.amazon.com/gp/product/1849515387/ref=as_li_ss_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=1849515387">Puppet 2.7 Cookbook</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=1849515387" style="width: 0; height: 0; display: none; border: none !important;">.</p>
+
+<p>So, I wanted to be able to configure via Puppet the way our new instances should be configured, and then be able to easily spawn new instances that will get configured by said puppet. The first part is <a href="https://help.ubuntu.com/10.10/serverguide/C/puppet.html">installing</a> puppetmaster. I decided to manually setup an EC2 instance that will act as the puppet master:</p>
+
+<div><script src='https://gist.github.com/747614.js?file=install_master.sh'></script>
+<noscript><pre><code>aptitude install puppetmaster
+echo &quot;127.0.0.1 puppet&quot; &gt;&gt; /etc/hosts</code></pre></noscript></div>
+
+
+<p>Under /etc/puppet/manifests/site.pp we place the &#8220;main&#8221; entry point for the configuration. This is the file that is responsible for including the rest of the files. I copied the structure from somewhere where the actual classes were put under /etc/puppet/manifests/classes and import it in site.pp. Do note that currently this setup only supports a single type of node, but supporting more should be doable using <a href="http://docs.puppetlabs.com/guides/external_nodes.html">external nodes</a> to classify the node types.</p>
+
+<div><script src='https://gist.github.com/747614.js?file=site.pp'></script>
+<noscript><pre><code>import &quot;classes/*&quot;
+
+node default {
+        include default_node
+}</code></pre></noscript></div>
+
+
+
+
+<div><script src='https://gist.github.com/747614.js?file=classes/default_node.pp'></script>
+<noscript><pre><code>class default_node {
+  package { 'apache2':
+    ensure =&gt; installed
+  }
+  service { 'apache2':
+    ensure =&gt; true,
+    enable =&gt; true,
+    require =&gt; Package['apache2'],
+  }
+}</code></pre></noscript></div>
+
+
+<h2>Auto-signing new instances</h2>
+
+<p>A common problem with puppet setups is that whenever a new puppet connects to the puppet master it hands it a certificate which you then have to automatically sign before the puppetmaster will agree to configure it. This is problematic in setups like mine where I want to be able to spawn new instances with a script and don&#8217;t hassle with jumping between the machines right after the certificate was sent and approving it. I found two ways to circumvent this:</p>
+
+<h3>1. Simply auto-signing everything and relying on firewalls</h3>
+
+<p>In case you can allow yourself to firewall the puppetmaster port (tcp/8140) to be only accessible to trusted instances, you do not actually need to sign the certificates, you can tell puppet to trust whatever it gets and leave the security in the hands of your trusty firewall. With EC2 this is extremely easy:</p>
+
+<ul>
+<li>Setup a security group, I&#8217;ll call mine &#8220;puppets&#8221;</li>
+<li>Add a security exception to the puppetmaster that allows access to all instances in the &#8220;puppets&#8221; group</li>
+<li>Create all puppet instances in the &#8220;puppets&#8221; security group</li>
+<li>Configure puppet to automatically sign all requests: echo &#8220;*&#8221; > /etc/puppet/autosign.conf</li>
+</ul>
+
+
+<p>I decided to go with this solution since it&#8217;s simpler and less likely to get broken. I didn&#8217;t see it documented anywhere else. The downside is that you&#8217;ve got to have your puppetmaster on EC2 too.</p>
+
+<h3>2. Automatically identifying new instances and adding them</h3>
+
+<p>This is a solution I saw mentioned a few times online. Using the <a href="http://aws.amazon.com/developertools/351?_encoding=UTF8&amp;jiveRedirect=1">EC2 API tools</a> write a script that gets the DNS names of all the trusted instances you&#8217;ve got and write them. Once you have this getting it to run with a cron job every minute will do the trick. This can be done with sophisticated scripts, but for my (<em>very initial</em>) testing, this seemed to work:</p>
+
+<div><script src='https://gist.github.com/747614.js?file=cron'></script>
+<noscript><pre><code>* * * * * ec2-describe-instances | grep ^INSTANCE  | awk '{print $4}' &gt; /etc/puppet/autosign.conf</code></pre></noscript></div>
+
+
+<h2>Getting new instances to connect to the master</h2>
+
+<p>The last piece of the puzzle. Since we use Ubuntu, we could simply use the <a href="http://alestic.com/2009/04/official-ubuntu-ec2">Canonical-supplied AMIs</a>. These support <a href="http://alestic.com/2009/06/ec2-user-data-scripts">user-data scripts</a> that are executed as root once the system boots. Below is a simple script that does this:</p>
+
+<ol>
+<li>Update the instance</li>
+<li>Add the &#8220;puppet&#8221; entry to DNS - puppet expects the master to be accessible via &#8220;puppet&#8221; DNS resolution. This little snippet gets the current IP of the master via our DNS name and writes it to /etc/hosts</li>
+<li>Install &amp; enable puppet and voila!</li>
+</ol>
+
+
+<div><script src='https://gist.github.com/747614.js?file=start_puppet.sh'></script>
+<noscript><pre><code>#!/bin/bash
+
+set -e -x
+
+# Needed so that the aptitude/apt-get operations will not be interactive
+export DEBIAN_FRONTEND=noninteractive
+
+apt-get update &amp;&amp; apt-get -y upgrade 
+
+# Find the current IP of the puppet master and make &quot;puppet&quot; point to it
+puppet_master_ip=$(host my_puppet_master.company.com | grep &quot;has address&quot; | head -1 | awk '{print $NF}')
+echo $puppet_master_ip puppet &gt;&gt; /etc/hosts
+
+aptitude -y install puppet 
+
+# Enable the puppet client
+sed -i /etc/default/puppet -e 's/START=no/START=yes/'
+
+service puppet restart</code></pre></noscript></div>
+
+
+<p>Once all of this is up and running, creating a new instance is as easy as:</p>
+
+<pre><code>ec2-run-instances -g puppets --user-data-file start_puppet.sh -t m1.small -k key-pair ami-a403f7cd
+</code></pre>
+
+<p>Happy puppeting!</p>
+
+<p>You should subscribe to my <a href="http://feeds.feedburner.com/TheCodeDump">feed</a> and follow me on <a href="http://twitter.com/avivby">twitter</a>!</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Aviv Ben-Yosef</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-12-19T22:30:48+02:00" pubdate data-updated="true">Dec 19<span>th</span>, 2010</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/category/programming/'>Programming</a>, <a class='category' href='/category/ec2/'>ec2</a>, <a class='category' href='/category/puppet/'>puppet</a>, <a class='category' href='/category/techie/'>techie</a>, <a class='category' href='/category/tips/'>tips</a>
+    
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.codelord.net/2010/12/19/using-puppet-to-automatically-configure-new-ec2-instances/" data-via="avivby" data-counturl="http://www.codelord.net/2010/12/19/using-puppet-to-automatically-configure-new-ec2-instances/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2010/12/18/adding-goos-sauce-to-gwt-mvp/" title="Previous Post: Adding GOOS Sauce to GWT MVP">&laquo; Adding GOOS Sauce to GWT MVP</a>
+      
+      
+        <a class="basic-alignment right" href="/2011/01/10/book-review-growing-object-oriented-software/" title="Next Post: Book Review: Growing Object-Oriented Software">Book Review: Growing Object-Oriented Software &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Aviv Ben-Yosef</h1>
+  <img src="https://api.twitter.com/1/users/profile_image?screen_name=avivby&amp;size=original" width="128" height="128" style="height: 128px; width: 128px; border-radius: 6px">
+  <p>An aspiring software craftsman and a happy hacker. More <a href="/about">about me</a>.</p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2012/03/07/slides-from-the-how-billguard-does-mongodb-talk/">Slides from the "How BillGuard does MongoDB" Talk</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/03/01/notes-from-the-agile-practitioners-2012-improving-your-tdd-workshop/">Notes from the Agile Practitioners 2012 Improving Your TDD Workshop</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/28/notes-from-the-israeli-software-craftsmanship-group-code-retreat/">Notes from the Israeli Software Craftsmanship Group Code Retreat</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/04/extend-your-toolbox-custom-matchers/">Extend Your Toolbox: Custom Matchers</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/01/28/stop-bitching-do-self-agile/">Stop Bitching: Do Self-Agile</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("avivby", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/avivby" class="twitter-follow-button" data-show-count="false">Follow @avivby</a>
+  
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Aviv Ben-Yosef -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'codelord';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.codelord.net/2010/12/19/using-puppet-to-automatically-configure-new-ec2-instances/';
+        var disqus_url = 'http://www.codelord.net/2010/12/19/using-puppet-to-automatically-configure-new-ec2-instances/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

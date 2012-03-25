@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Writing a BuildBot Latent Build Slave - The Code Dump</title>
+  <meta name="author" content="Aviv Ben-Yosef">
+
+  
+  <meta name="description" content="We&#8217;ve been working on creating a scalable and stable building and testing environment for our team.
+After some checking, BuildBot was found to &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.codelord.net/2009/10/04/writing-a-buildbot-latent-build-slave">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/TheCodeDump" rel="alternate" title="The Code Dump" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7925779-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">The Code Dump</a></h1>
+  
+    <h2>A place a coder rants at...</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/TheCodeDump" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.codelord.net" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Writing a BuildBot Latent Build Slave</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-10-04T21:33:24+02:00" pubdate data-updated="true">Oct 4<span>th</span>, 2009</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>We&#8217;ve been working on creating a scalable and stable building and testing environment for our team.
+After some checking, <a href="http://buildbot.net">BuildBot</a> was found to be the best (for our needs, at least).</p>
+
+<p>Gathering the different abilities that are needed for testing our products, and the different limitations we&#8217;ve got in our testing lab, we came to the conclusion that using some sort of distribution framework is needed. Being the code monkeys that we are, we started designing a whole solution for integrating BuildBot with our distribution framework of choice, when looking at the BuildBot manual I saw it already has support for this concept, the Latent Buildslave !</p>
+
+<p>One small thing is, that adding support for a new one isn&#8217;t so clear. The <a href="http://djmitche.github.com/buildbot/docs/0.7.11/#Writing-New-Latent-Buildslaves">manual</a> simply states that one needs just to implement <code>start_instance</code> and <code>stop_instance</code> methods and be done with it, but, in my opinion, lacks some details, so here is what we figured:</p>
+
+<ol>
+<li>The <code>start_instance</code> method should return a <a href="http://twistedmatrix.com/projects/core/documentation/howto/defer.html"><code>deferred</code></a> that, when called, will return once a new build slave is ready to go.</li>
+<li>How do you return the new slave&#8217;s IP to BuildBot? No need! Once it will be connected, the master will figure it&#8217;s the one you just created (via <code>AbstractLatentBuildSlave.attached</code>).</li>
+<li>The actual value returned from <code>start_instance</code> is pretty insignificant (will be printed to the log, as the manual states).</li>
+<li>The <code>stop_instance</code> method is pretty much the same, and should take care of making the distribution framework aware that the allocated buildslave is free to be destroyed/reused.</li>
+</ol>
+
+
+<h3>Why don&#8217;t my latent slaves die?</h3>
+
+<p>As you may have noticed, once <code>start_instance</code> is called and a slave connects to the master, BuildBot is in no hurry to call your <code>stop_instance</code> once the build is completed. Actually, as far as BuildBot is concerned, that slave is there to stay (at least, as far as we figured). In case you&#8217;d rather to generate a new slave for each build, you will need to override the <code>buildFinished</code> method of the abstract slave, and in it call the <code>unsubstantiate</code> method. A bit of a headache, but that&#8217;s the way it is.</p>
+
+<p>Happy testing!</p>
+
+<p>P.S. If you&#8217;re using the latest BuildBot (from the git repository), try out the Console view, it&#8217;s really awesome!</p>
+
+<p>You should follow me on twitter <a href="http://twitter.com/avivby">here</a>.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Aviv Ben-Yosef</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-10-04T21:33:24+02:00" pubdate data-updated="true">Oct 4<span>th</span>, 2009</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/category/programming/'>Programming</a>, <a class='category' href='/category/buildbot/'>buildbot</a>
+    
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.codelord.net/2009/10/04/writing-a-buildbot-latent-build-slave/" data-via="avivby" data-counturl="http://www.codelord.net/2009/10/04/writing-a-buildbot-latent-build-slave/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2009/08/12/bash-nitpicking-on-redirections/" title="Previous Post: Bash Nitpicking on Redirections">&laquo; Bash Nitpicking on Redirections</a>
+      
+      
+        <a class="basic-alignment right" href="/2009/10/17/becoming-a-happier-hacker-actively-strive-to-work-with-other-hackers/" title="Next Post: Becoming a Happier Hacker: Actively Strive to Work with Other Hackers">Becoming a Happier Hacker: Actively Strive to Work with Other Hackers &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Aviv Ben-Yosef</h1>
+  <img src="https://api.twitter.com/1/users/profile_image?screen_name=avivby&amp;size=original" width="128" height="128" style="height: 128px; width: 128px; border-radius: 6px">
+  <p>An aspiring software craftsman and a happy hacker. More <a href="/about">about me</a>.</p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2012/03/07/slides-from-the-how-billguard-does-mongodb-talk/">Slides from the "How BillGuard does MongoDB" Talk</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/03/01/notes-from-the-agile-practitioners-2012-improving-your-tdd-workshop/">Notes from the Agile Practitioners 2012 Improving Your TDD Workshop</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/28/notes-from-the-israeli-software-craftsmanship-group-code-retreat/">Notes from the Israeli Software Craftsmanship Group Code Retreat</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/04/extend-your-toolbox-custom-matchers/">Extend Your Toolbox: Custom Matchers</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/01/28/stop-bitching-do-self-agile/">Stop Bitching: Do Self-Agile</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("avivby", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/avivby" class="twitter-follow-button" data-show-count="false">Follow @avivby</a>
+  
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Aviv Ben-Yosef -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'codelord';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.codelord.net/2009/10/04/writing-a-buildbot-latent-build-slave/';
+        var disqus_url = 'http://www.codelord.net/2009/10/04/writing-a-buildbot-latent-build-slave/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

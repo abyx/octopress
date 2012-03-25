@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: agile | The Code Dump]]></title>
+  <link href="http://www.codelord.net/category/agile/atom.xml" rel="self"/>
+  <link href="http://www.codelord.net/"/>
+  <updated>2012-03-25T20:33:29+02:00</updated>
+  <id>http://www.codelord.net/</id>
+  <author>
+    <name><![CDATA[Aviv Ben-Yosef]]></name>
+    <email><![CDATA[aviv.by+blog@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Notes from the Agile Practitioners 2012 Improving Your TDD Workshop]]></title>
+    <link href="http://www.codelord.net/2012/03/01/notes-from-the-agile-practitioners-2012-improving-your-tdd-workshop/"/>
+    <updated>2012-03-01T08:01:16+02:00</updated>
+    <id>http://www.codelord.net/2012/03/01/notes-from-the-agile-practitioners-2012-improving-your-tdd-workshop</id>
+    <content type="html"><![CDATA[<p><blockquote><p>If you write a test and it passes, the question is if the previous step was too big.<br/>The DRY principle doesn't talk about code, but knowledge.<br/>Clever is never something to be proud of in your code.</p><footer><strong>Corey Haines</strong> <cite>Improving Your TDD</cite></footer></blockquote></p>
+
+<p>A couple of days after <a href="/2012/02/28/notes-from-the-israeli-software-craftsmanship-group-code-retreat/">attending the code retreat</a> facilitated by him, I was fortunate to attend Corey Haines's “<a href="http://agilepractitioners2012.com/conference-program/corey-haines-improving-your-tdd/">Improving Your TDD</a>” workshop at the <a href="http://agilepractitioners2012.com/">Agile Practitioners 2012</a> conference. These are some of my notes from the day.</p>
+
+<p>The workshop was intended at coders familiar with TDD and not introductory. I was very interested to see how in-depth TDD training looks, and also meet other coders from Israel that have been doing TDD for a few years. It was quite awesome to sit in a room where everyone felt comfortable with TDD and it wasn't this new and hard thing. When the group shares this "advanced" technique, discussion can suddenly level up and we could all dive in to the nitty gritty stuff.</p>
+
+<p>During the day, Corey walked us through pretty much taking TDD apart and putting it back together. We started from the history of TDD and its predecessors (manual verification, test after, test first, etc.).</p>
+
+<p>The exercises throughout the day (that I especially enjoyed since I was pairing with <a href="http://twitter.com/theyonibomber">@theyonibomber</a>, my original pair as we were learning TDD together back in 2006) had this beautiful flow of making you smack right into a problem in the way most people do TDD.</p>
+
+<p>We discussed having the tests drive an implementation that we knew we did not want (like sorting easily become bubble sort) and how the (relatively new) <a href="http://cleancoder.posterous.com/the-transformation-priority-premise">Transformation Priority Premise</a> by Uncle Bob can help solve this.</p>
+
+<p>We then took another introspective look at our TDD process (aided by an exercise once more) that made us face the problem of "flailing" and "sitting in red" - basically the problem of trying to take a step too big in the next test and so falling off the good fast rhythm of "<a href="http://programmingtour.blogspot.com/2009/03/time-to-green-graphs-with-gary.html">time to green</a>".</p>
+
+<p>We had a long discussion about these problems and how they are directly connected to the way we pick the next test. We all know that the next test should be the "simplest thing", but how exactly do we define simple?</p>
+
+<p>I love having these discussions that jolt me and make me rethinks stuff I've long ago stopped paying attention to. Developer introspection is a thing of beauty and much power (Kent Beck tells that he wrote his incredible <a href="http://www.amazon.com/gp/product/013476904X/ref=as_li_ss_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=013476904X">Smalltalk Best Practice Patterns</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=013476904X" style="width: 0; height: 0; display: none; border: none !important;"/> and <a href="http://www.amazon.com/gp/product/0321413091/ref=as_li_ss_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=0321413091">Implementation Patterns</a> <img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321413091" style="width: 0; height: 0; display: none; border: none !important;"/>  books by simply stopping whenever he was about to type some code and have an explanation as to why he picked to do it that way).</p>
+
+<p>Corey even did a live demo of his TDD style and programming by wishful thinking. It was very interesting, but as all live demos go he had some trouble along the way. Workshop aside, it is not trivial for someone giving a training to admit a mistake done, and Corey gracefully handled the situation.</p>
+
+<p>All in all, the day was a very productive one and it still has me chewing on some of the lessons we learned. It's fun realizing again that there's no limit to how much one can sharpen a specific skill. Hat off to Corey and the conference organizers for making this happen!</p>
+
+<p>You should <a href="http://feeds.feedburner.com/TheCodeDump">subscribe</a> to my feed or <a href="http://twitter.com/avivby">follow</a> me on twitter!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Stop Bitching: Do Self-Agile]]></title>
+    <link href="http://www.codelord.net/2012/01/28/stop-bitching-do-self-agile/"/>
+    <updated>2012-01-28T14:48:17+02:00</updated>
+    <id>http://www.codelord.net/2012/01/28/stop-bitching-do-self-agile</id>
+    <content type="html"><![CDATA[<p>Continuing on this series of the <a href="/category/autonomouscraftsmanshipcore/">Autonomous Craftsmanship Core</a> we now reach the methodology problem.</p>
+
+<h3>“I want to do agile/craftsmanship/etc.”</h3>
+
+<p>The key is basically to put the rest of your team aside and focus on how you can do things like you think they should be done. You want to do "agile"? Open the manifesto, read the values, and think on how you can change your own process in order to further yourself the direction you want to get.</p>
+
+<h3>Development Practices</h3>
+
+<p>This one deserves a post of its own, but luckily for us I've <a href="/2011/11/28/stop-bitching-write-those-damn-tests/">already</a> <a href="/2011/12/18/stop-bitching-use-the-tools-you-want/">written</a> <a href="/2011/12/30/stop-bitching-it-doesnt-always-take-two-to-pair/">it</a>! You don't need permission to write tests, use the right tools, and just coding in an awesome manner.</p>
+
+<h3>Your own mini iterations, planning and retrospectives</h3>
+
+<p>I think a big part of becoming a better developer is looking at how we work, analyze it, decide where we need practicing and then getting better at it, deliberately. Here are some examples from my own development process.</p>
+
+<h4>Pomodoros</h4>
+
+<p>I love pair programming. Love it. Love it so much, I find it hard to be productive without a pair when coding. I find that the crazy simple <a href="http://www.pomodorotechnique.com/">Pomodoro technique</a> is some kind of magic makes-me-focus-real-good drug. Anytime I'm doing tasks on my own I set up my little timer and burn down the todo list. Using pomodoros allows me to keep track of my time, focus, see how good are my estimations and waste less time on reddit. You don't need anyone else on your team to "allow" you to do pomodoros. Just do it, and see magic happening.</p>
+
+<h4>Goals and Retrospectives</h4>
+
+<p>Just like in an agile team we plan sprints, have retrospectives and set goals, I do the same for myself, both at work and for my personal time. Every week I do a retrospective of the past week, think what I did wrong and what I like. I have monthly and weekly goals. I've got recurring tasks in OmniFocus to review my work. I write the reviews in Evernote and then create new goals and add them to OmniFocus. That way every week and month I can go over the last few weeks and see how I'm doing. For example, I can set goals for finishing a book, write some blog posts, communicate better at work, etc.</p>
+
+<h3>It's up to you</h3>
+
+<p>Uncle Bob Martin said it's not your boss's responsibility to make sure you learn and become better, it's yours. Once you realize this, stop waiting for things to get better by themselves and step up you can actively become better. I was surprised how many of these aspects coincide with what Seth Godin talks about in <a href="http://www.amazon.com/gp/product/1591843162/ref=as_li_ss_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=1591843162">Linchpin</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=1591843162" style="width: 0; height: 0; display: none; border: none !important;"/>. You have no excuses not to be doing better things. It's you're responsibility, so <strong>stop bitching and do awesome work.</strong></p>
+
+<p>You should <a href="http://feeds.feedburner.com/TheCodeDump">subscribe</a> to my feed or <a href="http://twitter.com/avivby">follow</a> me on twitter!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Stop Bitching: It Doesn't Always Take Two to Pair]]></title>
+    <link href="http://www.codelord.net/2011/12/30/stop-bitching-it-doesnt-always-take-two-to-pair/"/>
+    <updated>2011-12-30T18:02:55+02:00</updated>
+    <id>http://www.codelord.net/2011/12/30/stop-bitching-it-doesnt-always-take-two-to-pair</id>
+    <content type="html"><![CDATA[<p>Pushing forward with the <a href="/category/autonomouscraftsmanshipcore/">Autonomous Craftsmanship Core series</a>. This week on our plate: How can you force pairing down the throat of your team even if they're not really into it?</p>
+
+<p>I've already touched on this subject a few times before, especially since it's one I find really important and had to handle a few times before.
+Pair programming feels to me like the best technique currently known to the software industry for making a team highly productive and have global code ownership. It's one of those things that didn't click right away when reading <a href="http://www.amazon.com/gp/product/0321278658/ref=as_li_tf_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321278658">Extreme Programming Explained</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321278658" style="width: 0; height: 0; display: none; border: none !important;">, but man did I get it wrong.</p>
+
+<p>I've loved pairing from the moment I started doing it and ever since I find it hard doing hard work without a pair by my side. The problem is that most of the software shops around are still not pairing regularly, making it hard for a pairing junky like me to have fun.</p>
+
+<p>So, how can we stop bitching about our team not pairing and actually get shit done with a pair? As opposed to the previous posts on the Autonomous Craftsmanship Core, this is not something one can do alone, and so is a bit harder to work around.</p>
+
+<p>Basically, <strong>not calling it pair programming</strong>. It might be a bit tricky socially, but it's worth it. Some real examples:</p>
+
+<h3>Can you help me out?</h3>
+
+<p>If I have a short task (ideally - no more than 30-45 minutes) that I want some help with, I just find someone on my team and ask for some help. Hopefully, you're not in a team where asking for help sounds problematic. Then, once you're both on your computer and working on the problem - you're pairing. That was easy, wasn't it? Do it enough times (without looking like an idiot that always needs help) and your mates get acquainted to the idea fast.</p>
+
+<h3>Volunteer to help people</h3>
+
+<p>I love walking around the team and seeing what people are doing. Every once in a while, simply walking by someone and asking how are things going might trigger a "Take a look at this" response, and you can help a fellow coder get unstuck. I used to do this even outside of my team. Spending 15 minutes with someone to help him solve a problem and share some knowledge and technique in the meantime is just awesome.</p>
+
+<h3>Review code to be in the loop</h3>
+
+<p>I try and read most of the commits being done to projects I'm involved with. It has many advantages, and one of them is that I'm familiar with most of what's going on around me. That means I might find little problems, ideas and changes that might help my team. I then just go to the person that made the changes and share my ideas. Sometimes that would drag us both into a short pairing session.</p>
+
+<p>These are basic techniques that I've found helpful several times. Even people that have never heard about pairing start liking it (if they really find you helpful and not annoying, of course). I just love seeing how after a few weeks, people come and ask for help if you're not around, and how slowly the idea of doing some tasks together becomes obvious. I don't have to have them call it pairing, and it doesn't have to be 100% of the time. The bottom line is that good practices stick, even unconsciously.</p>
+
+<p>You should <a href="http://feeds.feedburner.com/TheCodeDump">subscribe</a> to my feed or <a href="http://twitter.com/avivby">follow</a> me on twitter!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Stop Bitching: Write Those Damn Tests]]></title>
+    <link href="http://www.codelord.net/2011/11/28/stop-bitching-write-those-damn-tests/"/>
+    <updated>2011-11-28T23:27:09+02:00</updated>
+    <id>http://www.codelord.net/2011/11/28/stop-bitching-write-those-damn-tests</id>
+    <content type="html"><![CDATA[<p>Diving deeper into the idea of the <a href="/2011/11/12/stop-bitching-the-autonomous-craftsmanship-core/">Autonomous Craftsmanship Core</a>, this time I'd like to talk about one of the first problems a lot of developers face when wanting to start doing clean code.</p>
+
+<p>You read Uncle Bob's <a href="http://www.amazon.com/gp/product/0132350882/ref=as_li_tf_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=217145&amp;creative=399369&amp;creativeASIN=0132350882">Clean Code</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0132350882&camp=217145&creative=399369" style="width: 0; height: 0; display: none; border: none !important;">, or went to a talk and then go all "Next day at work I'm gonna write tests!!" Then you come to work, and you give the "let's write tests man!" speech to your teammate, and he just yawns, and slowly the rush fades.</p>
+
+<p>Lots have been written before about introducing tests to a team as a grunt, but I'll do a quick recap:</p>
+
+<p>You <em>don't have to ask anyone</em> in order to start and write some tests. Write that first test. Make it pass. Commit. Not that hard, isn't it?</p>
+
+<p>Usually the next problem is that if no one else on your team runs the tests, they will keep breaking. But can you blame your team? You need to make them understand that running the tests will actually get them something.</p>
+
+<p>For example, I've seen that after someone makes a commit that breaks the tests because of a bug, coming over to him and telling him what went wrong and how you found out might make him more interested in the idea of testing. A friend recently told me that he made running tests as simple as a double-click for the developers that don't write tests. Once it got <em>that</em> easy, they started running them because everyone likes knowing that what they wrote works.</p>
+
+<p>What if your boss won't let you write tests? Frankly, <em>why the fuck should your boss care</em>? Does he also tell you when to use "while" instead of "for"? I don't find things such as these to be something any boss should decide about. As I've said in the first post, if you find yourself in a place so resistant to change, <strong>leave</strong>. If you have to stay, do what you have to do. If they won't let you commit your tests to source control or set up a continuous integration machine, there are solutions, which I'll discuss on my next post.</p>
+
+<p>In the mean time, focus on writing tests that help your teammates find problems and see how slowly your little tests get more and more traction. It'll work, because <strong>Success begets attention!</strong></p>
+
+<p>You should subscribe to my <a href="http://feeds.feedburner.com/TheCodeDump">feed</a> and follow me on <a href="http://twitter.com/avivby">twitter</a>!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Stop Bitching: the Autonomous Craftsmanship Core]]></title>
+    <link href="http://www.codelord.net/2011/11/12/stop-bitching-the-autonomous-craftsmanship-core/"/>
+    <updated>2011-11-12T13:42:40+02:00</updated>
+    <id>http://www.codelord.net/2011/11/12/stop-bitching-the-autonomous-craftsmanship-core</id>
+    <content type="html"><![CDATA[<p>A lot of developers I know keep bitching about how their team isn't as passionate as they'd like it to be, or about their boss not letting them do things like it should be done. They get into this habit and never advance in the right direction because something is holding them back. I know this situation well, I'm usually <em>one of these</em> guys.</p>
+
+<p>In the spirit of <a href="http://programmingtour.blogspot.com/2010/11/positivember.html">Positivember</a> I'd like to tell you a secret. You can stop whining and start improving. You don't have to wait for all the stars to align. That cliché about changes starting from yourself is actually right.</p>
+
+<p><strong>I've heard almost every complaint in the book:</strong></p>
+
+<p><em>"My teammates don't write tests."</em>
+<em>"They won't let me have a continuous integration server."</em>
+<em>"I can't use Git."</em>
+<em>"My boss hates it when I make a lot of commits."</em>
+<em>"I was told not to write tests."</em>
+<em>"We're not doing agile development."</em>
+<em>"I can't do pair programming."</em></p>
+
+<p>If everything above applies, or you really have lots of problems like these, <em>just quit</em>. A developer that really cares about these things usually can find a better job easily. But, if it's only some of these, remember that no work is perfect. There will always be suboptimal stuff to live with. The trick is not to be all bitter about it, but to actually try and make changes happen, slowly, so you still have fun.</p>
+
+<p>Most if not all of these problems are things you can work around, technologically, mentally or socially. If you just stick to your good ways, you'll eventually get some followers too.</p>
+
+<p>Step up and realize that everything can start by you and your habits. An <strong>Autonomous Craftsmanship Core</strong> as I like to call it. Sometimes, you core will seem so awesome from the outside that people will join in on some of your practices. Sometimes it will go unnoticed and you will happily go on programming better and better.</p>
+
+<p>I will blog more on tackling some of the problems I mentioned above, but as a starting point I recommend <a href="http://amzn.to/vHjrXa">Apprenticeship Patterns</a> and <a href="http://amzn.to/t68iqC">Driving Technical Change</a>. These great books help a lot in accepting that fact you should take matters into your own hands, and stop bitching.</p>
+
+<p>You should subscribe to my <a href="http://feeds.feedburner.com/TheCodeDump">feed</a> and <a href="http://twitter.com/avivby">follow</a> me on twitter!</p>
+]]></content>
+  </entry>
+  
+</feed>

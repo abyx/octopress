@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Case Study: Refactoring Interfaces with TDDed Tests - The Code Dump</title>
+  <meta name="author" content="Aviv Ben-Yosef">
+
+  
+  <meta name="description" content="I&#8217;ve been practicing TDD for a couple of years now, and keep learning all the time. In the past year I&#8217;ve been mainly working on a single &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.codelord.net/2010/06/02/case-study-refactoring-interfaces-with-tdded-tests">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/TheCodeDump" rel="alternate" title="The Code Dump" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7925779-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">The Code Dump</a></h1>
+  
+    <h2>A place a coder rants at...</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/TheCodeDump" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.codelord.net" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Case Study: Refactoring Interfaces with TDDed Tests</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-06-02T21:48:20+03:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2010</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I&#8217;ve been practicing TDD for a couple of years now, and keep learning all the time.</p>
+
+<p>In the past year I&#8217;ve been mainly working on a single project, the longest I&#8217;ve worked on a project with TDD. Putting aside how fun it is (TDD saved me quite a few times for me to be sure it&#8217;s worthwhile), working on a project for so long I finally got to see some of the main problems people have against TDD.</p>
+
+<p>With the hundreds of test you have, refactoring on the class-interface level (that is, the interfaces of classes, and not inside classes) can be problematic, with you having to update all the tests.</p>
+
+<p>I&#8217;m still learning how to handle this efficiently, and would like to share an experience I had today. This is an example of a problem regarding 2 collaborators and an interface change. Such refactorings in a TDD environment weren&#8217;t mentioned in the excellent &#8221;<a href="/2010/01/12/every-coder-should-read-tdd-by-example/">TDD by Example</a>&#8221; book and similar works, so I&#8217;m pretty much guessing here.</p>
+
+<p>The example:</p>
+
+<div><script src='https://gist.github.com/422831.js?file='></script>
+<noscript><pre><code>class VCR:
+    function eject:
+        _rewind
+        _open_lid
+
+class VCRTest:
+    function test_rewinds_when_ejecting:
+        # stuff
+
+    function test_opens_lid_to_eject:
+        # stuff
+
+class AutomaticPresenter:
+    function change_movies:
+        # ...
+        vcr.eject
+        # ...
+
+class AutomaticPresenterTest:
+    function test_ejects_tape_when_changing_movies:
+        # stuff</code></pre></noscript></div>
+
+
+<p>The change we&#8217;re interested in is making &#8220;eject&#8221; simply open the lid, without rewinding, and making the rewind operation public. This is in order to allow LazyPerson to take the tape out, without having to wait.  Gary Bernhardt <a href="http://blog.extracheese.org/2009/10/my-personal-failures-in-test-isolation.html">wrote</a> about this kind of changes a bit. I agree, the fact I need to make such a change is against the <a href="http://en.wikipedia.org/wiki/Open/closed_principle">OCP</a>. What can I say, I&#8217;m not perfect and made a design mistake. Saying &#8220;that&#8217;s not OCP&#8221; doesn&#8217;t help me - <strong>I&#8217;ve got this code and tests, and I need to change them</strong>.</p>
+
+<p>I used to succumb to the temptation and make all the changes in one sweep. That means changing all the tests and the classes, then running the tests and hope they still pass. This, of course, is a crappy way of doing this. Had I been able to actually perform such tasks, I&#8217;d write less tests.  The secret is <strong>baby steps</strong>. The pressure Kent Beck puts on baby steps and gradually working towards change made me consider this and force myself to find a safe way of doing this.</p>
+
+<p>I decided to start with the VCR and its test (the AutomaticPresenter doesn&#8217;t use the VCR itself but an interface, and the tests use test doubles. This means changing one part won&#8217;t break the other&#8217;s unit tests).  The path to enlightenment lies in finding the baby step that allows starting the refactoring without breaking the rest of the tests. I decided to add a test for the should-now-be-public &#8220;rewind&#8221; operation, while not breaking the existing tests.</p>
+
+<p>The solution is adding a default value for telling the &#8220;eject&#8221; function whether it should rewind or not. This means existing users (be them tests or not) will still get the previous behavior, and new tests can start work with the new interface (in Java I&#8217;d probably do this with method overloading):</p>
+
+<div><script src='https://gist.github.com/422856.js?file='></script>
+<noscript><pre><code>class VCR:
+    function eject(should_rewind=True):
+        if should_rewind:
+             rewind
+        _open_lid
+
+class VCRTest:
+    function test_rewinds_when_ejecting:
+        # stuff
+    function test_opens_lid_to_eject:
+        # stuff
+    function test_rewind_actually_spins_tape:
+       vcr.rewind
+       # check stuff</code></pre></noscript></div>
+
+
+<p>This got me to green pretty fast. Now I can slowly remove every rewind-related assertion from the old tests and also add the &#8220;should_rewind=False&#8221; flag to them, all with quick-green cycles. And we&#8217;re done with the first half.</p>
+
+<p>The next move is to change the AutomaticPresenter to call &#8220;rewind&#8221; before &#8220;eject&#8221;, which is now really easy to do in the tests. Once we hit green, we remove the &#8220;should_rewind&#8221; flag and be done with the refactoring. Baby steps save the day:</p>
+
+<div><script src='https://gist.github.com/422862.js?file='></script>
+<noscript><pre><code>class VCR:
+    function eject:
+        _open_lid
+    function rewind:
+        # stuff
+
+class VCRTest:
+    function test_opens_lid_to_eject:
+        # stuff
+    function test_rewind_actually_spins_tape:
+       vcr.rewind
+       # check stuff
+
+class AutomaticPresenter:
+    function change_movies:
+        # ...
+        vcr.rewind
+        vcr.eject
+        # ...
+
+class AutomaticPresenterTest:
+    function test_ejects_tape_when_changing_movies:
+        # stuff
+    function test_rewinds_tape_when_changing_movies:
+        # stuff</code></pre></noscript></div>
+
+
+<p>Being able to get the refactoring working so easily makes me happy, but I&#8217;m still not sure this is the smartest way, and there are harder refactorings to master ahead. Yet, I hope this will help TDD adopters see that it&#8217;s possible to handle refactorings even with many tests, because once the right baby-step is found, each test can take practically seconds to convert.</p>
+
+<p>I&#8217;d really love getting feedback on this cycle.</p>
+
+<p>You should subscribe to my <a href="http://feeds.feedburner.com/TheCodeDump">RSS</a> feed or follow me on <a href="http://www.twitter.com/avivby">twitter</a>!</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Aviv Ben-Yosef</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-06-02T21:48:20+03:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2010</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/category/programming/'>Programming</a>, <a class='category' href='/category/clean-code/'>clean code</a>, <a class='category' href='/category/software-craftsmanship/'>software craftsmanship</a>, <a class='category' href='/category/tdd/'>tdd</a>, <a class='category' href='/category/testing/'>testing</a>
+    
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.codelord.net/2010/06/02/case-study-refactoring-interfaces-with-tdded-tests/" data-via="avivby" data-counturl="http://www.codelord.net/2010/06/02/case-study-refactoring-interfaces-with-tdded-tests/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2010/05/13/stop-apologizing-for-your-code/" title="Previous Post: Stop Apologizing for Your Code">&laquo; Stop Apologizing for Your Code</a>
+      
+      
+        <a class="basic-alignment right" href="/2010/06/15/book-review-clean-code/" title="Next Post: Book Review: Clean Code">Book Review: Clean Code &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Aviv Ben-Yosef</h1>
+  <img src="https://api.twitter.com/1/users/profile_image?screen_name=avivby&amp;size=original" width="128" height="128" style="height: 128px; width: 128px; border-radius: 6px">
+  <p>An aspiring software craftsman and a happy hacker. More <a href="/about">about me</a>.</p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2012/03/07/slides-from-the-how-billguard-does-mongodb-talk/">Slides from the "How BillGuard does MongoDB" Talk</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/03/01/notes-from-the-agile-practitioners-2012-improving-your-tdd-workshop/">Notes from the Agile Practitioners 2012 Improving Your TDD Workshop</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/28/notes-from-the-israeli-software-craftsmanship-group-code-retreat/">Notes from the Israeli Software Craftsmanship Group Code Retreat</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/04/extend-your-toolbox-custom-matchers/">Extend Your Toolbox: Custom Matchers</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/01/28/stop-bitching-do-self-agile/">Stop Bitching: Do Self-Agile</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("avivby", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/avivby" class="twitter-follow-button" data-show-count="false">Follow @avivby</a>
+  
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Aviv Ben-Yosef -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'codelord';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.codelord.net/2010/06/02/case-study-refactoring-interfaces-with-tdded-tests/';
+        var disqus_url = 'http://www.codelord.net/2010/06/02/case-study-refactoring-interfaces-with-tdded-tests/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

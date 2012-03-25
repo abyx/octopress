@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: nose | The Code Dump]]></title>
+  <link href="http://www.codelord.net/category/nose/atom.xml" rel="self"/>
+  <link href="http://www.codelord.net/"/>
+  <updated>2012-03-25T20:33:29+02:00</updated>
+  <id>http://www.codelord.net/</id>
+  <author>
+    <name><![CDATA[Aviv Ben-Yosef]]></name>
+    <email><![CDATA[aviv.by+blog@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Python (nose) Test Coverage on Buildbot]]></title>
+    <link href="http://www.codelord.net/2010/05/09/python-nose-test-coverage-on-buildbot/"/>
+    <updated>2010-05-09T19:03:07+03:00</updated>
+    <id>http://www.codelord.net/2010/05/09/python-nose-test-coverage-on-buildbot</id>
+    <content type="html"><![CDATA[<p>Once we got our builds happily running on Buildbot, there's really no reason not to add coverage since it's so easy (especially if you get bragging rights over your non-TDDers teammates).</p>
+
+<p>All you have to do is this (code is based on this <a href="http://copypasteprogrammer.blogspot.com/2010/03/buildbot-and-nose-test-coverage.html">blog post</a>, with adaptations to work on slaves that don't share directories with the master, since the createSummary method runs on the master):</p>
+
+<p><div><script src='https://gist.github.com/395269.js?file='></script>
+<noscript><pre><code>from buildbot.process.properties import WithProperties
+from buildbot.steps.shell import ShellCommand
+from buildbot.interface import LOG_CHANNEL_STDERR as STDERR
+
+class Nose(ShellCommand):
+    def __init__(self):
+        self.coverage_path = '/var/www/foo/coverage-%s'
+        self.coverage_url = 'http://example.com/foo/coverage-%s'
+        d = WithProperties('--cover-html-dir=' + self.coverage_path, 
+                           'buildnumber')
+        command = ['nosetests', '--with-coverage', '--cover-erase', 
+                   '--cover-html', d]
+        ShellCommand.__init__(self, command=command)
+    
+    def createSummary(self, log):
+        buildnumber = self.getProperty('buildnumber')
+        coverage_index = ((self.coverage_path + '/index.html')
+                          % buildnumber)
+        lines = [line.strip() for line in
+                 log.readlines(channel=STDERR)]
+        percentage = 'N/A'
+        for line in lines:
+            if line.startswith('TOTAL'):
+                percentage = line.split()[-1]
+                break
+        
+        self.addURL(&quot;coverage %s&quot; % percentage,
+                    self.coverage_url % buildnumber)
+</code></pre></noscript></div>
+</p>
+]]></content>
+  </entry>
+  
+</feed>

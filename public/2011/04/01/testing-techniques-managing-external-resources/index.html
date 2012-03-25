@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Testing Techniques: Managing External Resources - The Code Dump</title>
+  <meta name="author" content="Aviv Ben-Yosef">
+
+  
+  <meta name="description" content="A friend approached me with one of the known problems in the testing world - How do you keep external resources under a test harness? Having heard &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.codelord.net/2011/04/01/testing-techniques-managing-external-resources">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/TheCodeDump" rel="alternate" title="The Code Dump" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7925779-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">The Code Dump</a></h1>
+  
+    <h2>A place a coder rants at...</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/TheCodeDump" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.codelord.net" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Testing Techniques: Managing External Resources</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-04-01T06:45:32+03:00" pubdate data-updated="true">Apr 1<span>st</span>, 2011</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>A friend approached me with one of the known problems in the testing world - How do you keep external resources under a test harness? Having heard the question a few times before, I thought I&#8217;d share my thoughts, and mainly put together the common advice that drifts around the web.</p>
+
+<h3>The Dilemma</h3>
+
+<p>Nowadays, it&#8217;s hard to get more than a 100 lines of code before adding an external resource to our code. It might be a web service to manage something, or some convoluted API to receive data from or just about anything. Usually, writing tests for code that directly talks with these resources using the resources themselves is very problematic, for numerous reasons:</p>
+
+<ul>
+<li><p>It significantly slows the tests, because it requires network access and processing on the service&#8217;s side.</p></li>
+<li><p>It might cost you money, send emails, tweet stuff and do things you&#8217;d rather not do 300 times a day as you run your tests.</p></li>
+<li><p>Making your code handle error conditions with the service is hard or impossible, as you can&#8217;t control when those occur.</p></li>
+</ul>
+
+
+<p>Basically, all of these factors usually amount up to you having crappy tests that you rarely run. That sucks.</p>
+
+<h3>Decouple &amp; Isolate</h3>
+
+<p>The best solution I&#8217;m aware of is simply isolating the thing. We usually strive to wrap whatever service we&#8217;re using with a single-point interface. The decoupling is great since I&#8217;ve yet to encounter a service with an API that matched my thinking of the domain problem. Wrapping it up allows us to keep using our own language and logic throughout the system.</p>
+
+<p>A benefit of that is we now have a simple interface or facade we need to stub/mock out during tests. That&#8217;s usually relatively easy, and allows us to run our tests blazingly fast and test all those hard to reach to corner cases.</p>
+
+<h3>But what if the service changes?</h3>
+
+<p>That&#8217;s the finishing touch. You should still maintain a suite of tests that run against the real service. Those should be the plain tests that make sure you&#8217;re using the API right and that would break if anything you&#8217;re relying on changes. These tests won&#8217;t be part of your regular suite that gets run constantly. Instead have your CI server run them daily/weekly and let you know when something changes.</p>
+
+<p>This puts us basically in a win-win situation, with us being able to run our tests quickly and yet have the assurance that we won&#8217;t miss API changes and the likes.</p>
+
+<p>Happy testing!</p>
+
+<p>You should <a href="http://feeds.feedburner.com/TheCodeDump">subscribe</a> to my feed and <a href="http://twitter.com/avivby">follow</a> me on twitter!</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Aviv Ben-Yosef</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-04-01T06:45:32+03:00" pubdate data-updated="true">Apr 1<span>st</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/category/programming/'>Programming</a>, <a class='category' href='/category/tdd/'>tdd</a>, <a class='category' href='/category/testing/'>testing</a>
+    
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.codelord.net/2011/04/01/testing-techniques-managing-external-resources/" data-via="avivby" data-counturl="http://www.codelord.net/2011/04/01/testing-techniques-managing-external-resources/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2011/03/30/design-is-simpler-now-embrace-the-extract/" title="Previous Post: Design is Simpler Now: Embrace the Extract">&laquo; Design is Simpler Now: Embrace the Extract</a>
+      
+      
+        <a class="basic-alignment right" href="/2011/04/03/sometimes-tests-have-to-fail/" title="Next Post: Sometimes Tests Have to Fail">Sometimes Tests Have to Fail &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Aviv Ben-Yosef</h1>
+  <img src="https://api.twitter.com/1/users/profile_image?screen_name=avivby&amp;size=original" width="128" height="128" style="height: 128px; width: 128px; border-radius: 6px">
+  <p>An aspiring software craftsman and a happy hacker. More <a href="/about">about me</a>.</p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2012/03/07/slides-from-the-how-billguard-does-mongodb-talk/">Slides from the "How BillGuard does MongoDB" Talk</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/03/01/notes-from-the-agile-practitioners-2012-improving-your-tdd-workshop/">Notes from the Agile Practitioners 2012 Improving Your TDD Workshop</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/28/notes-from-the-israeli-software-craftsmanship-group-code-retreat/">Notes from the Israeli Software Craftsmanship Group Code Retreat</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/04/extend-your-toolbox-custom-matchers/">Extend Your Toolbox: Custom Matchers</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/01/28/stop-bitching-do-self-agile/">Stop Bitching: Do Self-Agile</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("avivby", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/avivby" class="twitter-follow-button" data-show-count="false">Follow @avivby</a>
+  
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Aviv Ben-Yosef -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'codelord';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.codelord.net/2011/04/01/testing-techniques-managing-external-resources/';
+        var disqus_url = 'http://www.codelord.net/2011/04/01/testing-techniques-managing-external-resources/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

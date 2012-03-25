@@ -1,0 +1,891 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>The Code Dump</title>
+  <meta name="author" content="Aviv Ben-Yosef">
+
+  
+  <meta name="description" content="This is another post in my book reviews series. I finished reading Clean Code a few days ago and loved it. It makes me feel good, seeing my decision &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.codelord.net/page/6">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/TheCodeDump" rel="alternate" title="The Code Dump" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7925779-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">The Code Dump</a></h1>
+  
+    <h2>A place a coder rants at...</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/TheCodeDump" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.codelord.net" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/06/15/book-review-clean-code/">Book Review: Clean Code</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-06-15T19:45:19+03:00" pubdate data-updated="true">Jun 15<span>th</span>, 2010</time>
+        
+         | <a href="/2010/06/15/book-review-clean-code/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This is another post in my <a href="/category/books/">book reviews series</a>. I finished reading <a href="http://www.amazon.com/gp/product/0132350882?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0132350882">Clean Code</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0132350882" style="width: 0; height: 0; display: none; border: none !important;"> a few days ago and loved it. It makes me feel good, seeing my decision to wear the Clean Code <a href="http://bit.ly/aPug4e">wristband</a> a few months ago was a smart one.</p>
+
+<p>After I finished it, I felt a bit weird writing a blog post about it, because, just like the previous books I&#8217;ve blogged about, I found this book simply awesome. Then I thought about the fact it&#8217;s simply because I&#8217;m reading those books that show up enough in other contexts that I upped them in my reading queue enough to get on top.</p>
+
+<p>The book is about practical, low level details of writing good code. There are chapters about comments, naming, functions, you name it. In a way, it reminds me of <a href="http://www.amazon.com/gp/product/0735619670?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0735619670">Code Complete</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0735619670" style="width: 0; height: 0; display: none; border: none !important;">, other than the fact you can see it&#8217;s oriented for more practiced developers.</p>
+
+<p>Like in his <a href="http://www.amazon.com/gp/product/0135974445?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0135974445">Agile Software Development</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0135974445" style="width: 0; height: 0; display: none; border: none !important;"> book, Uncle Bob made sure to fill this one with code. Actually, this book has a lot more code. There are many examples of code still being worked on. It actually fills the gap I&#8217;ve felt in Agile Software Development of seeing the actual coding steps, test by test. The last chapter shows a really thorough (and actually quite mesmerizing) example of refactoring, with each change explained beforehand, including tests and alternatives considered.</p>
+
+<p>In Agile Software Development, there were a few co-authored chapters. In Clean Code Uncle Bob took this a step further. Almost every chapter was written by a different author, each of very big caliber in the Agile and Software Craftsmanship world. This really resonated with me, because it&#8217;s kind of a &#8220;many in one&#8221; deal, and because I could actually hear a different tone in each chapter, and yet all were in harmony with the motive of clean code.</p>
+
+<p>I think this is truly a masterpiece, and after reading, would recommend it to be read before Agile Software Development. Due to its greater technicality and the fact it&#8217;s quite new, it makes a really good read for developers, and it will have an effect on your coding a few pages in (pages! not even chapters).</p>
+
+<p>The only thing that bothered me was that in the last chapter (which is also the best) I had to, as the introduction warned me, flip back and forth quite a bit, which was a bit hard at first since I&#8217;m not used to reading code on paper. I&#8217;d really love seeing some interactive version of this, but regardless of that, the book is really good.</p>
+
+<p>I can&#8217;t recommend enough this concentrated piece of wisdom and experience.</p>
+
+<p>Stay tuned, a review of <a href="http://www.amazon.com/gp/product/0596518382?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0596518382">Apprenticeship Patterns</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0596518382" style="width: 0; height: 0; display: none; border: none !important;"> is nigh.</p>
+
+<p>You should subscribe to my feed and follow me on twitter.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/06/02/case-study-refactoring-interfaces-with-tdded-tests/">Case Study: Refactoring Interfaces with TDDed Tests</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-06-02T21:48:20+03:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2010</time>
+        
+         | <a href="/2010/06/02/case-study-refactoring-interfaces-with-tdded-tests/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve been practicing TDD for a couple of years now, and keep learning all the time.</p>
+
+<p>In the past year I&#8217;ve been mainly working on a single project, the longest I&#8217;ve worked on a project with TDD. Putting aside how fun it is (TDD saved me quite a few times for me to be sure it&#8217;s worthwhile), working on a project for so long I finally got to see some of the main problems people have against TDD.</p>
+
+<p>With the hundreds of test you have, refactoring on the class-interface level (that is, the interfaces of classes, and not inside classes) can be problematic, with you having to update all the tests.</p>
+
+<p>I&#8217;m still learning how to handle this efficiently, and would like to share an experience I had today. This is an example of a problem regarding 2 collaborators and an interface change. Such refactorings in a TDD environment weren&#8217;t mentioned in the excellent &#8221;<a href="/2010/01/12/every-coder-should-read-tdd-by-example/">TDD by Example</a>&#8221; book and similar works, so I&#8217;m pretty much guessing here.</p>
+
+<p>The example:</p>
+
+<div><script src='https://gist.github.com/422831.js?file='></script>
+<noscript><pre><code>class VCR:
+    function eject:
+        _rewind
+        _open_lid
+
+class VCRTest:
+    function test_rewinds_when_ejecting:
+        # stuff
+
+    function test_opens_lid_to_eject:
+        # stuff
+
+class AutomaticPresenter:
+    function change_movies:
+        # ...
+        vcr.eject
+        # ...
+
+class AutomaticPresenterTest:
+    function test_ejects_tape_when_changing_movies:
+        # stuff</code></pre></noscript></div>
+
+
+<p>The change we&#8217;re interested in is making &#8220;eject&#8221; simply open the lid, without rewinding, and making the rewind operation public. This is in order to allow LazyPerson to take the tape out, without having to wait.  Gary Bernhardt <a href="http://blog.extracheese.org/2009/10/my-personal-failures-in-test-isolation.html">wrote</a> about this kind of changes a bit. I agree, the fact I need to make such a change is against the <a href="http://en.wikipedia.org/wiki/Open/closed_principle">OCP</a>. What can I say, I&#8217;m not perfect and made a design mistake. Saying &#8220;that&#8217;s not OCP&#8221; doesn&#8217;t help me - <strong>I&#8217;ve got this code and tests, and I need to change them</strong>.</p>
+
+<p>I used to succumb to the temptation and make all the changes in one sweep. That means changing all the tests and the classes, then running the tests and hope they still pass. This, of course, is a crappy way of doing this. Had I been able to actually perform such tasks, I&#8217;d write less tests.  The secret is <strong>baby steps</strong>. The pressure Kent Beck puts on baby steps and gradually working towards change made me consider this and force myself to find a safe way of doing this.</p>
+
+<p>I decided to start with the VCR and its test (the AutomaticPresenter doesn&#8217;t use the VCR itself but an interface, and the tests use test doubles. This means changing one part won&#8217;t break the other&#8217;s unit tests).  The path to enlightenment lies in finding the baby step that allows starting the refactoring without breaking the rest of the tests. I decided to add a test for the should-now-be-public &#8220;rewind&#8221; operation, while not breaking the existing tests.</p>
+
+<p>The solution is adding a default value for telling the &#8220;eject&#8221; function whether it should rewind or not. This means existing users (be them tests or not) will still get the previous behavior, and new tests can start work with the new interface (in Java I&#8217;d probably do this with method overloading):</p>
+
+<div><script src='https://gist.github.com/422856.js?file='></script>
+<noscript><pre><code>class VCR:
+    function eject(should_rewind=True):
+        if should_rewind:
+             rewind
+        _open_lid
+
+class VCRTest:
+    function test_rewinds_when_ejecting:
+        # stuff
+    function test_opens_lid_to_eject:
+        # stuff
+    function test_rewind_actually_spins_tape:
+       vcr.rewind
+       # check stuff</code></pre></noscript></div>
+
+
+<p>This got me to green pretty fast. Now I can slowly remove every rewind-related assertion from the old tests and also add the &#8220;should_rewind=False&#8221; flag to them, all with quick-green cycles. And we&#8217;re done with the first half.</p>
+
+<p>The next move is to change the AutomaticPresenter to call &#8220;rewind&#8221; before &#8220;eject&#8221;, which is now really easy to do in the tests. Once we hit green, we remove the &#8220;should_rewind&#8221; flag and be done with the refactoring. Baby steps save the day:</p>
+
+<div><script src='https://gist.github.com/422862.js?file='></script>
+<noscript><pre><code>class VCR:
+    function eject:
+        _open_lid
+    function rewind:
+        # stuff
+
+class VCRTest:
+    function test_opens_lid_to_eject:
+        # stuff
+    function test_rewind_actually_spins_tape:
+       vcr.rewind
+       # check stuff
+
+class AutomaticPresenter:
+    function change_movies:
+        # ...
+        vcr.rewind
+        vcr.eject
+        # ...
+
+class AutomaticPresenterTest:
+    function test_ejects_tape_when_changing_movies:
+        # stuff
+    function test_rewinds_tape_when_changing_movies:
+        # stuff</code></pre></noscript></div>
+
+
+<p>Being able to get the refactoring working so easily makes me happy, but I&#8217;m still not sure this is the smartest way, and there are harder refactorings to master ahead. Yet, I hope this will help TDD adopters see that it&#8217;s possible to handle refactorings even with many tests, because once the right baby-step is found, each test can take practically seconds to convert.</p>
+
+<p>I&#8217;d really love getting feedback on this cycle.</p>
+
+<p>You should subscribe to my <a href="http://feeds.feedburner.com/TheCodeDump">RSS</a> feed or follow me on <a href="http://www.twitter.com/avivby">twitter</a>!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/05/13/stop-apologizing-for-your-code/">Stop Apologizing for Your Code</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-05-13T20:13:14+03:00" pubdate data-updated="true">May 13<span>th</span>, 2010</time>
+        
+         | <a href="/2010/05/13/stop-apologizing-for-your-code/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Have a habit of apologizing for your code before showing it to someone else? <em>You&#8217;re doing it wrong.</em></p>
+
+<p>I&#8217;ve been the only TDDer in my team for about a year now. When I just joined the team, my <a href="/2010/01/12/every-coder-should-read-tdd-by-example/">TDD</a> ways were looked at as a weird fad. Nevertheless, I kept working in my ways, know that, at least for me, it works best.</p>
+
+<p>Working like that can be very frustrating. You make sure your code is clean, well tested and refactored. Then comes along someone that makes a small change and your tests no longer cover that part of the code. You open up some other part of the system, see bad code and though you try to follow the <a href="http://bit.ly/ba2Dvt">boy-scout rule</a>, you can&#8217;t because you&#8217;d need to harness 10 computers and a goat to test the code in its current state.</p>
+
+<p>A few months ago I asked Uncle Bob what is a programmer to do in such a situation. <a href="http://bit.ly/aWGu3s">His</a> <a href="http://bit.ly/9Yhxhj">response</a>:</p>
+
+<blockquote><p>It&#8217;s frustrating and difficult. But what choice do you have? All you can do is keep at it. Shame the others by keeping to your disciplines.</p></blockquote>
+
+<p>And boy was he right. As months passed, and people glancing over saw me running hundreds of tests in a second and being able to make quick changes without fear (or very little), I noticed a weird pattern.</p>
+
+<p>Whenever people asked me to lend them a hand with a piece of code, the presentation of the code started with a disclaimer: &#8221;<em>Never mind how ugly it is</em>&#8221;, and <em>&#8220;I know it looks bad&#8221;</em>.</p>
+
+<p>At first, my ego always happy to boast, I took it as a compliment. Later, it dawned on me that it&#8217;s not that my code looks like pure prose simply because it&#8217;s TDDed.</p>
+
+<p>What that apologizing means is &#8221;<strong><em>I&#8217;m sorry I don&#8217;t care about the code as much you do</em></strong>&#8221;. Uncle Bob was right, people were actually <em>ashamed</em>. Sounds weird right? But then again, if you do care, why haven&#8217;t you removed the need to apologize after the second time?</p>
+
+<p>Get out of this shame-phase. Being ashamed means you care, do something with it. The next step is simply making the code cleaner. Some of my team-mates have already started down the enlightened path.</p>
+
+<p>Remember, coding is a social activity. When you disrespect the code, you disrespect your friends. When you <em>rock on</em>, you <em>all</em> enjoy. As a wise man <a href="http://bit.ly/aLE5dp">said</a>, keep working on your code till <strong><em>you’re ready to project the code onto the wall for the whole team to see.</em></strong></p>
+
+<p>And if you&#8217;re in my shoes, keep it up. <a href="/2009/04/04/sometimes-all-it-takes-is-a-little-push/">Sometimes all it takes is a little push</a>.</p>
+
+<p>You should subscribe to my <a href="http://feeds.feedburner.com/TheCodeDump">feed</a> and follow me on <a href="http://twitter.com/avivby">twitter</a>!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/05/10/notes-from-the-first-israeli-code-retreat/">Notes From the (First?) Israeli Code Retreat</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-05-10T18:12:52+03:00" pubdate data-updated="true">May 10<span>th</span>, 2010</time>
+        
+         | <a href="/2010/05/10/notes-from-the-first-israeli-code-retreat/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Today I had the honor of running a Code Retreat right here in our little country.</p>
+
+<p>A <a href="http://www.coderetreat.com/">Code Retreat</a> is a concept that was born in the beginning of 2009. It&#8217;s a day that consists of a bunch of programmers working in pairs about a problem - a session is 40 minutes long and after each pairs rotate and the start from scratch.</p>
+
+<p>This code retreat was a bit special. It wasn&#8217;t a public one. My previous employer liked the concept and I was asked to help with running one for some of their coders. The group consisted of 15 coders that are in the company at least 2 years.</p>
+
+<p>Most of the people don&#8217;t pair at work and none TDD (only some unit test). Because of this we&#8217;ve decided before starting not to make TDD a must, but introduce it and encourage trying it out.</p>
+
+<p>One of the things that surprised me was that after 3 sessions, some people asked if it was possible to get a different exercise. I haven&#8217;t heard of a code retreat with more than 1 exercise and I&#8217;m puzzled why this team has brought this up. Currently, my only guess is that the Israeli temper and to-the-point attitude (&#8220;Dugri&#8221; or &#8220;Takhles&#8221; in Hebrew)  caused it (even though there were many wicked implementation ideas running around). I&#8217;m still not sure giving them another option was a good thing, as I believe squeezing more ideas from one exercise is where things get really interesting (and some preferred staying with the original one).</p>
+
+<p>Another point was that some people said they would have appreciated more structure/direction - what to do in each session and getting a list of implementation ideas for Game of Life.</p>
+
+<p>We were also asked for longer sessions - 40 minutes felt like too little and our single 50 minutes session felt more like it.</p>
+
+<p>A bit unsurprisingly, when we performed the <a href="http://bit.ly/aSwMdV">String Calculator Kata</a> to demonstrate some TDD, most people thought this was going overboard with tests for such a simple thing. I hope some got the message and I think that the fact we actually had bugs caught instantly by the tests helped!</p>
+
+<p>To sum it up, I think that all-in-all people had a good time. I practically had to pull some from the keyboard at the end of sessions. Can&#8217;t wait for the next one! I&#8217;m thinking of getting a bunch of <a href="http://bit.ly/aPug4e">Clean Code wrist bands</a> to give away.</p>
+
+<p>For future reference, here&#8217;s the list of <a href="http://bit.ly/cePVyl">Game of Life</a> ideas people have tried:</p>
+
+<ul>
+<li>Cell centered</li>
+<li>Board/Universe centered</li>
+<li>if-less (as possible)</li>
+<li>Uber-threaded (each cell is a thread)</li>
+<li>Performance-centered (board is a byte array)</li>
+<li>Focus on the neighboring-connection (the &#8220;lines&#8221; between cells)</li>
+<li>Implement in a few different languages and their idioms (we had Java, Python and some C)</li>
+<li>Different topologies (hive-like and 3D)</li>
+<li>Calculate results by hashing certain parts of the universe and the expected results for them</li>
+</ul>
+
+
+<p>And, the second problem that was given is the Poker Hands Kata:</p>
+
+<ul>
+<li>Go through the cards and seek the best hand</li>
+<li>After each card is added to the hand, hand-types that are no more possible are removed</li>
+<li>Encode the hand as a 64bit number, and then find better hand by subtracting the numbers</li>
+</ul>
+
+
+<p>You should subscribe to my <a href="http://feeds.feedburner.com/TheCodeDump">feed</a> and follow me on <a href="http://twitter.com/avivby">twitter</a>!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/05/09/case-study-single-responsibility-principle-violation/">Case Study: Single Responsibility Principle Violation</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-05-09T20:15:25+03:00" pubdate data-updated="true">May 9<span>th</span>, 2010</time>
+        
+         | <a href="/2010/05/09/case-study-single-responsibility-principle-violation/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Having recently finished the amazing PPP book (more <a href="/2010/05/02/agile-software-development-you-will-never-code-the-same-again/">here</a>) my code-sense is getting better in putting the finger on the smells in code that make it painful for me to use. This is the story of one of them, in <a href="http://buildbot.net/">Buildbot</a>.</p>
+
+<p>Disclaimer: Buildbot is a pretty awesome building/continuous integration system that I use and contribute code to regularly. Indeed, it is far from perfect, but none of the coders should take offense.</p>
+
+<p>So, what is the Single Responsibility Principle (<a href="http://bit.ly/bs003B">SRP</a>) ?</p>
+
+<blockquote><p><strong>A class should have one, and only one, reason to change.</strong></p>
+
+<p>If a class has more than one responsibility, then the responsibilities become coupled. Changes to one responsibility may impair or inhibit the class’ ability to meet the others. This kind of coupling leads to fragile designs that break in unexpected ways when changed.</p></blockquote>
+
+<p>And now, to the gory details. Buildbot has a built-in class for executing shell commands, called <code>ShellCommand</code>. Now let&#8217;s say we want to create a class, <code>VerboseCommand</code> that always executes commands with the <code>-v</code> flag. One would assume this is the right way to do it:</p>
+
+<div><script src='https://gist.github.com/395295.js?file='></script>
+<noscript><pre><code>class VerboseCommand(ShellCommand):
+    def __init__(self, command=None):
+        ShellCommand.__init__(self, command=command + ['-v'])</code></pre></noscript></div>
+
+
+<p>But this turns out to be wrong. Say we tried to execute <code>nosetests</code>, the actual command that will be executed is <code>nosetests -v -v</code> (which is harmless, but you might have guessed my real use-case wasn&#8217;t adding the <code>-v</code> flag).  The reason is, as the <a href="http://djmitche.github.com/buildbot/docs/0.7.12/#Writing-BuildStep-Constructors">Buildbot manual</a> will happily tell you, that <strong>every step is also its own factory</strong>.</p>
+
+<p>Wait, what? Given the fact the a certain step will need to be run in multiple builds on multiple slaves, a new one needs to be created every time. But, as a user you only instantiate the step once. Turns out that behind the scenes, Buildbot will save the arguments given to the command&#8217;s constructor and call it with them again every time it needs a new instance.</p>
+
+<p>This means that in our case, we must find a way to tell in the constructor whether we&#8217;re instantiating the factory or being instantiated by the factory, and add the flag only in one case but not both. My cute example turns to this mess:</p>
+
+<div><script src='https://gist.github.com/395302.js?file='></script>
+<noscript><pre><code>class VerboseCommand(ShellCommand):
+    def __init__(self, command=None, is_factory_call=True):
+        ShellCommand.__init__(self, command=command)
+
+        if is_factory_call:
+            self.addFactoryArguments(is_factory_call=False)
+        else:
+            self.command = self.command + ['-v']</code></pre></noscript></div>
+
+
+<p>(If you&#8217;re really bothered with understanding every detail, read the <a href="http://djmitche.github.com/buildbot/docs/0.7.12/#Writing-BuildStep-Constructors">manual</a>, but I&#8217;m sure you can get the gist of it without doing so.)</p>
+
+<p>Now, if you&#8217;re anything like me, you&#8217;re looking at this and wondering something along the lines of &#8221;<em>what the hell were they thinking?</em>&#8221;. That feeling, that tingling in your code-sense, is the smell of an SRP violation.</p>
+
+<p>Because this class has to also act as its own constructor, the coupling between the two actions is high, and as the definition clearly states, the class now has 2 reasons to change.</p>
+
+<p>Surely, separating this to 2 different classes (the actual step and a factory) will have solved this problem elegantly. Given that this might be considered &#8220;advanced&#8221; usage I&#8217;m willing to accept that creating a factory will be <em>optional</em>. But really people, this <code>addFactoryArguments</code> screams <em>HACK</em>.</p>
+
+<p>If you liked this post, you&#8217;ll definitely want to read the <a href="/2010/05/02/agile-software-development-you-will-never-code-the-same-again/">PPP book</a>.</p>
+
+<p>You should subscribe to my <a href="http://feeds.feedburner.com/TheCodeDump">feed</a> and follow me on <a href="http://twitter.com/avivby">twitter</a>!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/05/09/python-nose-test-coverage-on-buildbot/">Python (nose) Test Coverage on Buildbot</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-05-09T19:03:07+03:00" pubdate data-updated="true">May 9<span>th</span>, 2010</time>
+        
+         | <a href="/2010/05/09/python-nose-test-coverage-on-buildbot/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Once we got our builds happily running on Buildbot, there&#8217;s really no reason not to add coverage since it&#8217;s so easy (especially if you get bragging rights over your non-TDDers teammates).</p>
+
+<p>All you have to do is this (code is based on this <a href="http://copypasteprogrammer.blogspot.com/2010/03/buildbot-and-nose-test-coverage.html">blog post</a>, with adaptations to work on slaves that don&#8217;t share directories with the master, since the createSummary method runs on the master):</p>
+
+<div><script src='https://gist.github.com/395269.js?file='></script>
+<noscript><pre><code>from buildbot.process.properties import WithProperties
+from buildbot.steps.shell import ShellCommand
+from buildbot.interface import LOG_CHANNEL_STDERR as STDERR
+
+class Nose(ShellCommand):
+    def __init__(self):
+        self.coverage_path = '/var/www/foo/coverage-%s'
+        self.coverage_url = 'http://example.com/foo/coverage-%s'
+        d = WithProperties('--cover-html-dir=' + self.coverage_path, 
+                           'buildnumber')
+        command = ['nosetests', '--with-coverage', '--cover-erase', 
+                   '--cover-html', d]
+        ShellCommand.__init__(self, command=command)
+    
+    def createSummary(self, log):
+        buildnumber = self.getProperty('buildnumber')
+        coverage_index = ((self.coverage_path + '/index.html')
+                          % buildnumber)
+        lines = [line.strip() for line in
+                 log.readlines(channel=STDERR)]
+        percentage = 'N/A'
+        for line in lines:
+            if line.startswith('TOTAL'):
+                percentage = line.split()[-1]
+                break
+        
+        self.addURL(&quot;coverage %s&quot; % percentage,
+                    self.coverage_url % buildnumber)
+</code></pre></noscript></div>
+
+
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/05/02/agile-software-development-you-will-never-code-the-same-again/">Agile Software Development: You Will Never Code The Same Again</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-05-02T20:30:17+03:00" pubdate data-updated="true">May 2<span>nd</span>, 2010</time>
+        
+         | <a href="/2010/05/02/agile-software-development-you-will-never-code-the-same-again/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>How often do you get to work along some coding superstar that&#8217;s been at it for decades? If you&#8217;re anything like me, the answer is &#8220;never&#8221;. That&#8217;s why I&#8217;ve recently decided to go after books that are aimed to fill this gap exactly. The latest is <a href="http://www.amazon.com/gp/product/0135974445?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0135974445">&#8220;Agile Software Development: Principles, Patterns, and Practices&#8221;</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0135974445" style="width: 0; height: 0; display: none; border: none !important;"> by the one and only, <a href="http://bit.ly/c9CPQn">Uncle Bob</a> (the previous is <a href="/2010/01/12/every-coder-should-read-tdd-by-example/">&#8220;TDD by example&#8221;</a>, which gets 5 stars from me too).</p>
+
+<h3>It&#8217;s like coding with the Uncle himself</h3>
+
+<p>The thing I liked the most about the book, is the way it walks through (relatively) huge amounts of code. Uncle Bob shows several programming problems and walks through his design process and the implementation of the interesting parts. Reading it (even though it was written almost a decade ago) you can&#8217;t miss the fact the author has so much experience. Whenever I tried coding a solution myself before reading on, I later found out exactly where I went wrong because he somehow managed to cover every decision I made.</p>
+
+<p>When I say it&#8217;s like coding with him, I really mean it. I don&#8217;t know how, but whenever I looked at a code sample I didn&#8217;t like for some reason, I was astonished to read &#8220;You may be wondering why I did X&#8221; the next paragraph. And, maybe less fun, is when I read something, totally agreed with it, and he went on to explain why it sucks.</p>
+
+<p>The feeling throughout reading the book is that you get to pair with one of the best software craftsmen ever.</p>
+
+<h3>You get experience in every paragraph</h3>
+
+<p>A big part of the book is dedicated to talking about XP and design patterns. I&#8217;ve read several books about both and yet I didn&#8217;t find those parts in the book redundant. The reason is because Uncle Bob has managed to put a few grains of experience into whatever he talked about. Even though I&#8217;ve coded my fair share of Factories, he made me realize a few interesting concepts about them. And although I&#8217;ve done Visitors, I suddenly am a bit in love with them (which means I have to fight myself extra-hard not to introduce them everywhere).</p>
+
+<p>If you don&#8217;t have people around you that care about coding a lot (enough to send out awesome <a href="http://bit.ly/aPug4e">Clean Code wristbands</a>, one of which I own) you&#8217;ll quickly grasp what I&#8217;m talking about. The whole writing is of an experienced mentor (which might explain why his company is called &#8220;Object Mentor&#8221;).</p>
+
+<h3>It simply changes the way you look at coding</h3>
+
+<p>Having gone through the <a href="http://bit.ly/bs003B">SOLID principles</a>, my whole designing process and way of thinking has changed. I can&#8217;t think of a sane developer that will refuse to put his hands on a set of principles that the best coders of the past decades have deemed as necessary for quality code.</p>
+
+<p>Do yourself a favor and get your hands on this piece of software-craftsmanship gold-mine!</p>
+
+<p>Stay tuned for the next part of this series, Uncle Bob&#8217;s <a href="http://www.amazon.com/gp/product/B001GSTOAM?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=B001GSTOAM">Clean Code</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=B001GSTOAM" style="width: 0; height: 0; display: none; border: none !important;">!</p>
+
+<p>You should <a href="http://twitter.com/avivby">follow me</a> on twitter and subscribe to my <a href="http://feeds.feedburner.com/TheCodeDump">RSS feed</a>, it&#8217;s free!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/03/03/nose-doesnt-discover-tests-on-solaris/">nose doesn&#8217;t discover tests on Solaris</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-03T16:05:31+02:00" pubdate data-updated="true">Mar 3<span>rd</span>, 2010</time>
+        
+         | <a href="/2010/03/03/nose-doesnt-discover-tests-on-solaris/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>Note:</strong> this is a technical post, to help poor souls that google this :)</p>
+
+<p>When using <em>nose</em> on Solaris machines, simply running <code>nosetests</code> without specifying the file names will not work if you are the root user. To fix this, you must either not be root, or pass <em>nose</em> the argument <code>--exe</code>. That&#8217;s it.</p>
+
+<p>Gory details: by default, <em>nose</em> ignores executable files. Each file it encounters it checks with <code>os.access(test_file, os.X_OK)</code> to see if it&#8217;s executable. Problem is that Solaris&#8217; <code>access</code> function always returns success for root, regardless of actual file permissions. This is discouraged by POSIX, but known behavior.</p>
+
+<p>Ensuring that you&#8217;re aware of known behaviours is crucial, as it prevents you from looking up issues with software unnecessarily. Of course, you can find these out on the web and it&#8217;s not difficult to test run them if you&#8217;re unsure what they&#8217;ll entail in terms of reversing the process or even repairing a bug or glitch yourself.</p>
+
+<p>I hope this saves someone the 3 hours it wasted for me :)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/02/20/avoid-the-perils-of-coder-customers/">Avoid the perils of coder customers</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-02-20T21:44:29+02:00" pubdate data-updated="true">Feb 20<span>th</span>, 2010</time>
+        
+         | <a href="/2010/02/20/avoid-the-perils-of-coder-customers/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿Coders are the worst customers ever. The sooner you wrap your head around that, the better. Actually, any customer that&#8217;s technical is a bad customer, but nothing trumps coders. That fact is not intuitive, or at least wasn&#8217;t for me, but it can be really painful to find it out by yourself. So here, I just saved you some agony.</p>
+
+<p>Why are coders bad customers? First, let me say that even though coder-customers are a hard group to work with, they usually have really interesting problems to solve. After all, if it was simple they&#8217;d usually do it themselves. But, being coders, they think it&#8217;s acceptable to tell you how to do your job.</p>
+
+<p>When you work with coders, the usual ticket/email/water-cooler chat will be of the form &#8220;you need to add an option for specifying X of type Y instead of the current options&#8221;. At this point they&#8217;ll usually start telling you how to implement that and how easy it is. If you&#8217;re like me, at this point your instinct will be to crank out the code and make your customer happy. Resist that urge like the plague!</p>
+
+<p>Whenever I receive such a ticket, I dismiss everything in it. What I do next is come up to whoever suggested it, and ask &#8221;<strong>What is it that you&#8217;re trying to do?</strong>&#8221; Usually, this will result in exactly the same technical do-this-and-that explanation. Take a deep breath and ask the question again. This will usually be enough, but sometimes may require a couple more tries. That&#8217;s how you&#8217;re supposed to gather requirements - <strong>understand the problem at hand</strong>.</p>
+
+<p>The main advantage of being a pain-in-the-ass and making sure you understand what it is you&#8217;re supposed to implement is because every coder should know exactly what his code is doing. A lot has been said about understanding the domain you&#8217;re working in, and simply implementing things handed to you is not the way to become knowledgeable in your domain.</p>
+
+<p>Furthermore, once you hear what people are trying to do you might think of a better way of doing it, you being fully immersed in the existing code. Actually, more often than not you&#8217;ll see it&#8217;s actually already possible to do it! And best of all, you might simply decide that&#8217;s not a fair use of your code, and reject the ticket. How could you have made such a decision without knowing the actual problem you were asked to solve? No way.</p>
+
+<p>Saying &#8220;no&#8221; to features is one of the most important design skills to master, and a tricky one. After all, turning to your keyboard, hacking the code and saying &#8220;presto!&#8221; is more fun at first. But that way of working leads to a code-base that you don&#8217;t really know. I&#8217;ve seen systems that were driven this way by technical users. 3 years later, there were rogue database fields that no one knew why there were being updated, and weird log files in awkward formats. Whenever someone tried removing one of those he found out it broke some dusty cron-job that seemed to use it instead of doing something sane (and do I really need to mention the code was a tangled, convoluted mess?).</p>
+
+<p>Ask why, mindfully consider and then decide. There&#8217;s no really other way, unless you&#8217;d like to meet Code Cthulhu.</p>
+
+<p>You should follow me on <a href="http://bit.ly/aU2CaB">twitter</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/02/16/stop-coding-in-the-middle-ages/">Stop Coding in the Middle Ages</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-02-16T08:41:35+02:00" pubdate data-updated="true">Feb 16<span>th</span>, 2010</time>
+        
+         | <a href="/2010/02/16/stop-coding-in-the-middle-ages/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Aren&#8217;t you sick of wasting your time, your team&#8217;s time and precious build cycles for finding the stupidest mistakes ever? I know I&#8217;m far more interested in solving the real problems at hand than chasing stupid syntax errors. And even if you don&#8217;t mind, you really shouldn&#8217;t let your teammates substitute for a decent tool.</p>
+
+<p>Up until 15 years ago, I think it was very common for people to hack away at code for a good length of time, and once they got enough done, they&#8217;d try and compile the damn thing and start correcting the syntax errors, import things they forgot to, etc. This probably was because 15 years ago is the middle ages in computer-land, and compiling constantly was something people couldn&#8217;t even dream about on the little PCs we used to code on.</p>
+
+<p>Nowadays, you can&#8217;t find more than a handful of static-language coders that won&#8217;t use a full featured IDE. C, Java, C# - other than a few freaky kernel hackers, I doubt anyone does real development outside an IDE in those languages. Today&#8217;s IDEs will tell you that you made a mistake about 2 seconds before you did. I never stop being amazed at how smart Eclipse is - and the first time I had to whip up some Java code in Vim, I felt handicapped.</p>
+
+<p>What I find puzzling, is that people that are using the best available languages today, have suddenly decided that using the proper tool isn&#8217;t that important. Dynamic languages like Python and Ruby are not as easy to write awesome IDEs for, and therefore there aren&#8217;t many around that are mature enough, which is why it&#8217;s very common to see people use Emacs/Vim for coding them. Now don&#8217;t get me wrong, I&#8217;ve tried a few Python IDEs, but I&#8217;m still sticking with my Emacs. But when you use dynamic languages, you have to keep in mind you are even more prone of errors that will slip by. Even if you TDD, and your test coverage is extremely high, a typo might still get past your tests. Do you really want a production failure because you forgot to import an exception? (And do you really want to <a href="http://bit.ly/cKRZAK">upset Agnes</a>?)</p>
+
+<p>About 2 weeks into my decision to stick with Emacs I started searching for simple tools that will protect me from my stupidity. It takes 10 minutes to find and install flymake with pyflakes (Python tool) support. Presto! No more typos in variable names, no more useless imports lying around. What surprised me is that a lot of my teammates, which I have respect for and are good programmers, did not use any of these. Time and time again our continuous integration system will report an error on a file and once I opened the file Emacs would show me the bad line marked with red, with no way of not noticing it.</p>
+
+<p>I don&#8217;t like wasting my time, and I&#8217;m sure you don&#8217;t either. Stop being lazy (in the bad way). Stop making me angry. Get out of the middle ages. Yesterday we got everyone on my team to add pyflakes to their vim. Took 3 minutes to install. The problem is that it took more time to get them to install. &#8220;Nah, Vim already highlights syntax, there&#8217;s no need for more&#8221;. Oh really? After 10 minutes of searching I found a file that pyflakes showed a real problem in, and another, and another. &#8220;Hmmm, where do I download that plugin?&#8221; Win!</p>
+
+<p>Do yourself, your team and your build slaves a favor, and start using some modern tools. I promise it will be worth it, money-back-guarantee. And remember, if your team is still churning butter, <a href="/2009/04/04/sometimes-all-it-takes-is-a-little-push/">sometimes all it takes is a little push</a> (and sometimes you can plant bugs in their files).</p>
+
+<p>You should follow me on <a href="http://bit.ly/aU2CaB">twitter</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/page/7/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/page/5/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Aviv Ben-Yosef</h1>
+  <img src="https://api.twitter.com/1/users/profile_image?screen_name=avivby&amp;size=original" width="128" height="128" style="height: 128px; width: 128px; border-radius: 6px">
+  <p>An aspiring software craftsman and a happy hacker. More <a href="/about">about me</a>.</p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2012/03/07/slides-from-the-how-billguard-does-mongodb-talk/">Slides from the &#8220;How BillGuard does MongoDB&#8221; Talk</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/03/01/notes-from-the-agile-practitioners-2012-improving-your-tdd-workshop/">Notes from the Agile Practitioners 2012 Improving Your TDD Workshop</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/28/notes-from-the-israeli-software-craftsmanship-group-code-retreat/">Notes from the Israeli Software Craftsmanship Group Code Retreat</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/04/extend-your-toolbox-custom-matchers/">Extend Your Toolbox: Custom Matchers</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/01/28/stop-bitching-do-self-agile/">Stop Bitching: Do Self-Agile</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("avivby", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/avivby" class="twitter-follow-button" data-show-count="false">Follow @avivby</a>
+  
+</section>
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Aviv Ben-Yosef -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'codelord';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

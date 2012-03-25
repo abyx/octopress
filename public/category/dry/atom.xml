@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: DRY | The Code Dump]]></title>
+  <link href="http://www.codelord.net/category/dry/atom.xml" rel="self"/>
+  <link href="http://www.codelord.net/"/>
+  <updated>2012-03-25T20:33:29+02:00</updated>
+  <id>http://www.codelord.net/</id>
+  <author>
+    <name><![CDATA[Aviv Ben-Yosef]]></name>
+    <email><![CDATA[aviv.by+blog@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Extend Your Toolbox: Custom Matchers]]></title>
+    <link href="http://www.codelord.net/2012/02/04/extend-your-toolbox-custom-matchers/"/>
+    <updated>2012-02-04T14:53:41+02:00</updated>
+    <id>http://www.codelord.net/2012/02/04/extend-your-toolbox-custom-matchers</id>
+    <content type="html"><![CDATA[<p>I'd like to point out a really nice testing practice that I've been loving more and more lately.</p>
+
+<p>Just about every mature testing framework out there supports the concept of custom matchers, which provide us with the ability to define our very own assertions seamlessly into the tests. Even though this ability is quite old, we don't see it used too often and I think that's a shame. I've seen this practice heavily used in the mind expanding <a href="http://www.amazon.com/gp/product/0321503627?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=shr&amp;camp=213733&amp;creative=393185&amp;creativeASIN=0321503627">GOOS</a> book and just now am starting to realize its awesomeness.</p>
+
+<p>Note: examples in this post are shown in Ruby using <a href="https://github.com/dchelimsky/rspec/wiki/Custom-Matchers">RSpec's matchers</a> but the concept is pretty much identical (as can be seen for example in Java's <a href="http://code.google.com/p/hamcrest/wiki/Tutorial">Hamcrest Matchers</a>).</p>
+
+<h3>Matchers 101</h3>
+
+<p>Creating your own matcher usually means creating a Matcher class that performs the assertions, supplies human readable error messages and a nice constructor.</p>
+
+<p>Here's an example from the <a href="https://github.com/dchelimsky/rspec/wiki/Custom-Matchers">RSpec documentation</a>:</p>
+
+<p><div><script src='https://gist.github.com/1737631.js?file=rspec_matcher.rb'></script>
+<noscript><pre><code>RSpec::Matchers.define :be_a_multiple_of do |expected|
+  match do |actual|
+    actual % expected == 0
+  end
+end</code></pre></noscript></div>
+</p>
+
+<h3>Matchers increase readability and intent</h3>
+
+<p>As you should know, one of the <a href="http://c2.com/cgi/wiki?XpSimplicityRules">most important rules for design</a> is <em>Reveals Intent</em>. Take a quick look here, which way do you think reveals more intent?</p>
+
+<p><div><script src='https://gist.github.com/1737631.js?file=intent.rb'></script>
+<noscript><pre><code># This
+response['X-Runtime'].should =~ /[\d\.]+/
+
+# .. or this?
+response['X-Runtime'].should be_a_number</code></pre></noscript></div>
+</p>
+
+<p>Also, which error message do you prefer? "expected false to be true" or something along the lines of "expected comment to be anonymous"?</p>
+
+<h3>Matchers create robust tests</h3>
+
+<p>The most important advantage of all is how using matchers easily allows you to steer away from fragile tests which are the bane of a lot of testing efforts.
+The mark of good tests is that a change in your code doesn't require you to perform changes in multiple tests that don't really care for the change.
+Take this code for example:</p>
+
+<p><div><script src='https://gist.github.com/1737631.js?file=sucky_non_dry.rb'></script>
+<noscript><pre><code>expected_comment = Comment.new(anonymous: true, user: &quot;the dude&quot;, reply_to: nil)
+commentor.should_receive(:add).with(expected_comment)</code></pre></noscript></div>
+</p>
+
+<p>This might seem like a standard test, but that's not really the case. A test should assert for a single piece of knowledge, and this test actually checks several. If the purpose of this test is to check the behavior of anonymous comments, why should it change if we no longer allow replies? Or if we no longer require users for posting comments?</p>
+
+<p>The magic of matchers is exactly here. You create a new matcher to check specifically the aspect your test cares about and <em>boom</em>, you're decoupled!</p>
+
+<p><div><script src='https://gist.github.com/1737631.js?file=beautiful_and_dry.rb'></script>
+<noscript><pre><code>commentor.should_receive(:add).with(anonymous_comment)</code></pre></noscript></div>
+</p>
+
+<p>This simple change makes your tests DRY and cool.</p>
+
+<p>Happy testing!</p>
+
+<p>Your should <a href="http://feeds.feedburner.com/TheCodeDump">subscribe</a> to my feed or <a href="http://twitter.com/avivby">follow</a> me on twitter!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Design is Simpler Now: Embrace the Extract]]></title>
+    <link href="http://www.codelord.net/2011/03/30/design-is-simpler-now-embrace-the-extract/"/>
+    <updated>2011-03-30T06:40:49+02:00</updated>
+    <id>http://www.codelord.net/2011/03/30/design-is-simpler-now-embrace-the-extract</id>
+    <content type="html"><![CDATA[<p>For the past 5 years or so I've been searching for ways to produce better designed code. I hate the fact I basically can't put my finger on why certain designs aren't as good as others.</p>
+
+<p>That's why I was really blown away when I first learned about the <a href="http://www.amazon.com/gp/product/0135974445/ref=as_li_tf_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0135974445">SOLID</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0135974445" style="width: 0; height: 0; display: none; border: none !important;"> principles and started practicing <a href="http://www.amazon.com/gp/product/0321146530/ref=as_li_tf_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321146530">TDD</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321146530" style="width: 0; height: 0; display: none; border: none !important;">. At last I have found rules that gave me the capability to weigh designs, and a process that helped push me towards what feels like better code.</p>
+
+<p>But even 5 rules were too much for me!</p>
+
+<p>SOLID, no doubt, drives better design. My problem was incorporating it natively with my every day coding. Call me dumb, but I just can't bring myself to contemplate 5 different aspects whenever I whip up a class. I still find it as an excellent checklist to go through when I'm considering refactorings, but thinking about it constantly just drained a big part of my concentration.</p>
+
+<p>For a few months now I've been getting the feeling that my OOD toolset has reduced quite a lot to the very essence. That feeling was also magnified by reading <a href="http://www.amazon.com/gp/product/0321503627/ref=as_li_tf_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321503627">GOOS</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321503627" style="width: 0; height: 0; display: none; border: none !important;"> and pretty much everything written by <a href="http://twitter.com/jbrains">J. B. Rainsberger</a> <a href="http://jbrains.ca">here</a> and <a href="http://blog.thecodewhisperer.com/">here</a>.</p>
+
+<p>The first tool I use heavily (and I mean heavily, my mind has managed to get OCD about it) is duplication - or DRY. This tool alone makes any codebase a magnitude better. I've <a href="/category/dry/">written plenty</a> about DRY before.</p>
+
+<p>But, just yesterday I realized that other than that, I mainly concentrate on one thing, as I contemplated on <a href="http://twitter.com/#!/avivby/status/52471700167737344">twitter</a>:</p>
+
+<blockquote><p>I think I can sum up all my OOD skills with "wait, shouldn't this be in a different class/method?" Wondering if that's a good thing...</p></blockquote>
+
+<p>Yup, that's the trick. I was quickly assured by two amazing guys that have been doing this longer than I've been breathing, agile manifesto authors:</p>
+
+<blockquote><p><a href="http://twitter.com/#!/RonJeffries/status/52476402167066625">Ron Jeffries</a>: Yes it is a good thing. I would suspect you also note duplication?</p>
+
+<p><a href="http://twitter.com/#!/jwgrenning/status/52472057719558144">James Grenning</a>: Think of the alternative.. you are asking the right question</p></blockquote>
+
+<p>You see that? Noticing duplication and moving stuff somewhere else. That's all there's to it. This simple question directs at you the Single Responsibility Principle and generally, along with DRY, covers most of the bases needed to adhere to the <a href="http://www.jbrains.ca/permalink/the-four-elements-of-simple-design">elements of simple design</a>.</p>
+
+<p>The main question I ask myself now every time I think of a problem, start changing a function, write a test, and at just about anytime I'm coding is "is this the right place for this?" And quite often the answer is "no." Push this forward and beautiful designs show up, designs of short, cohesive classes. So, to sum it up: <em><strong>Embrace the Extract</strong></em>.</p>
+
+<p>You should <a href="http://feeds.feedburner.com/TheCodeDump">subscribe</a> to my feed and <a href="http://twitter.com/avivby">follow</a> me on twitter!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Notes from the 5th Israeli Software Craftsmanship Meeting]]></title>
+    <link href="http://www.codelord.net/2010/12/17/notes-from-the-5th-israeli-software-craftsmanship-meeting/"/>
+    <updated>2010-12-17T11:28:07+02:00</updated>
+    <id>http://www.codelord.net/2010/12/17/notes-from-the-5th-israeli-software-craftsmanship-meeting</id>
+    <content type="html"><![CDATA[<p>This week I had the pleasure to attend to the 5th meeting of our Software Craftsmanship group, and boy what a meeting it was. For the first time we've tried a different format that is 100% hands-on and reduced someone-talking-with-slides time to a minimum.</p>
+
+<p>The meeting was composed of 3 tables: a code review table where people actually brought code from home/work and discussed about with others, a TDD table where a veteran TDDer talked people through a Kata and a third table, led by yours truly, that aimed to introduce people to the concept of DRY and tackling some duplications problems.</p>
+
+<p>Unfortunately for me, this means I couldn't take part in the other tables, but from what I could pick up I must say it was really fun getting so much positive feedback for a meeting.</p>
+
+<p>The DRY table consisted of a Kata I've composed specifically to raise issues of duplication already a few minutes into it, which you can find <a href="/2010/12/11/serializer-kata-practicing-dry/">here</a>. It was amazing seeing people keep working on the Kata after the 1-hour dedicated to it was up, and I never expected to see such variety (Java, C#, Python, Ruby, JavaScript and PHP were all spotted)!</p>
+
+<p>The slides from my (extremely) short introduction to DRY are available here:</p>
+
+<script src="http://speakerdeck.com/embed/4f6dac1faa99e4002202a486.js"></script>
+
+
+<p>You should subscribe to <a href="http://feeds.feedburner.com/TheCodeDump">my</a> feed and follow me on <a href="http://twitter.com/avivby">twitter</a>!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Letting DRY Drive]]></title>
+    <link href="http://www.codelord.net/2010/11/09/letting-dry-drive/"/>
+    <updated>2010-11-09T07:19:20+02:00</updated>
+    <id>http://www.codelord.net/2010/11/09/letting-dry-drive</id>
+    <content type="html"><![CDATA[<p>The reason I <a href="/2010/11/02/short-intro-to-dry/">stress</a> <a href="/2010/11/03/taking-dry-further/">DRY</a> <a href="/2010/11/04/dry-dont-get-trigger-happy/">so much</a> is because it is one of the simplest yet most effective pieces of knowledge we have gained for software development. When I first read about DRY (in <a href="http://www.amazon.com/gp/product/020161622X?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=020161622X">The Pragmatic Programmer</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=020161622X" style="width: 0; height: 0; display: none; border: none !important;">) I got it's amazing strength in saving extra maintenance by making sure that changes will be localized as much as possible in the future. And I've used it as such for a couple years.</p>
+
+<p>Only after I started practicing TDD did I realize how significantly DRY can drive coding. Whenever I test drive code, the third step of the cycle, Refactor, is usually a lot about removing duplication. And the amazing part is that this alone drives a useful implementation. In the awesome book <a href="http://www.amazon.com/gp/product/0321146530?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321146530">TDD By Example</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321146530" style="width: 0; height: 0; display: none; border: none !important;">, Beck describes a method of implementing called Triangulation. It's for those rare occassions where you really have no real clue what way is best to solve the problem - the ground that allows TDD to flourish. In this method, you start by getting a couple of tests to pass with dumb implementations and then refactor to generalize the code and make it DRY. The mere act of DRYing your code can simply through a solution at you. I'm still amazed when this happens to me, both because of the sheer beauty of the process, and because it means I'm doing something right.</p>
+
+<p>About 5 years ago, when first heard about the concept of TDD, I wrote a greenfield project for about 5 months in what I believed was TDD. Only more than a year later did I realize that I wasn't doing TDD at all, but TFD (Test First Development). I did in fact write all my tests before I wrote production code, but I didn't let the tests <em>drive</em> the development. Now although that is better than not testing at all or TAD, it just wasn't it, and I didn't get why.</p>
+
+<p>Whenever I wrote a test, I already knew how the implementation was going to look, be it simple or complex. Sometimes I might have alreayd decided that I was going to add a decorator there, and then wrote the test that forced me to implement a decorator. This, of course, is wrong. When I learned to let go and stop micro-managing my code, things took off at a better direction.</p>
+
+<p>I write a simple test that explicitly uses the code as I would like to use it had someone else already imlpemented it. This is crucial, as it makes sure that I am not allowing myself to sustain a lousy interface simply because it's the easier one to implement. The harder part is to always disconnect yourself from prejudice - what you might think the code should become. Currently this is a deliberate effort for me, to make sure I'm not thinking a few steps further and adding what I think I'll need then too early. Even adding code I believe I'll just have to add anyway in about 2 tests is wrong.</p>
+
+<p>After making the test pass by the simplest way I could come up with I start DRYing the code up. I actually do more stuff, such as improving naming etc. but generally, DRY is the main force behind the changes in this phase for me. I listen to the code and try to make it. This is where knowing your refactorings well pays off. I might extract a method only to inline it 20 seconds later and extract a different part of it. I move things around a bit and see what feels right. Because I've already got the tests, there's no reason not to use them right away to see just how far I can stretch the code to my ideal vision.</p>
+
+<p>For me the magic is when I notice, after 30 minutes of doing this, that I've suddenly got a solution without realizing it. Suddenly the code falls into place. A lot of the times it turns out simpler than what I thought I'd turn out with.</p>
+
+<p>Jumping from basic DRY to full blown TDD isn't easy or straight forward, but let DRY drive you design for a while and see it grow on you. I've yet to meet someone that's given it a shot and disagreed this a whole new way to programming.</p>
+
+<p>You should subscribe to my <a href="http://feeds.feedburner.com/TheCodeDump">feed</a> and follow me on <a href="http://twitter.com/avivby">twitter</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[DRY: Don't Get Trigger Happy]]></title>
+    <link href="http://www.codelord.net/2010/11/04/dry-dont-get-trigger-happy/"/>
+    <updated>2010-11-04T20:11:38+02:00</updated>
+    <id>http://www.codelord.net/2010/11/04/dry-dont-get-trigger-happy</id>
+    <content type="html"><![CDATA[<p>Once you've started to assimilate DRY into your regular routine, it usually becomes addictive. The feedback loop constructed of removing moving parts, making stuff clearer and reducing chances of error simply gets you into a certain rhythm that's hard to get enough of.</p>
+
+<p>The problem is, that as with any skill, you have to learn to master even the corner cases and not just blindly follow a mantra. Following a mantra is good enough for starting everything, but there comes a time you have to experience and understand for yourself when using a rule of thumb is a good idea and when it isn't. So, let's now talk about the 'Ha' part of the <a href="http://en.wikipedia.org/wiki/Shuhari">ShuHaRi</a> cycle in DRY.</p>
+
+<p>We know that duplicate code is a code smell and a DRY violation that needs to be removed. But, as with any rule, it has exceptions. Taking the dumb example, look at this piece of code:</p>
+
+<p><div><script src='https://gist.github.com/662843.js?file='></script>
+<noscript><pre><code>for (int i = 0; i &lt; array.lenth; i++)
+	if (array[i] == 0)
+		bad_ones++;</code></pre></noscript></div>
+</p>
+
+<p>In the snippet above you can see the value '0' referenced twice. Is that a DRY violation? I'm sure you'll agree it isn't. After all, even though it is the same value that appears multiple times syntacticly, it has a different meaning semantically. The first zero is an initialization value and the other seems to indicate bad values in the array. The fact that they both are zero is meaningless and a coincidence. It might very well be that the next version will mark bad values as 'null', which surely shouldn't change the way the array index is initialized.  OK, so that was an easy one. Let's look at this next snippet, taking from some code whipped up solve the Game of Life:</p>
+
+<p><div><script src='https://gist.github.com/662849.js?file='></script>
+<noscript><pre><code>if cell.is_alive? and cell.neighbours in (2,3) then
+	cell.stay_alive
+elsif cell.is_dead? and cell.neighbours == 2 then
+	cell.live!
+end</code></pre></noscript></div>
+</p>
+
+<p>In that example, 2 appears twice also. Is that a DRY violation? After being in a <a href="/2010/05/10/notes-from-the-first-israeli-code-retreat/">code retreat</a>, and hearing from other code retreaters, I understand that many people that try and focus on DRY think that is in fact a DRY violation. After all, both occurrences refer to the number of living neighbours a cell has and the number is part of the rules of the problem domain. But, let's give this a bit more thought. Although both instances of 2 reference a rule of the game, they reference <em>different</em> rules of the game. Semantically, they are different. If we decide to change the minimal number of neighbours for a cell to stay alive it does not mean we will want to change the number of neighbours it takes to bring a cell to life.</p>
+
+<p>I hope you're catching my train of thought here. Now let's look at another example. This is a snippet of code one might get to while doing the famous Bowling Kata:</p>
+
+<p><div><script src='https://gist.github.com/662853.js?file='></script>
+<noscript><pre><code>if rolls[frameIndex] == 10:
+	score += rolls[frameIndex] + rolls[frameIndex + 1] + rolls[frameIndex + 2]
+	frameIndex++
+elif rolls[frameIndex] + rolls[frameIndex + 1] == 10:
+	score += rolls[frameIndex] + rolls[frameIndex + 1] + rolls[frameIndex + 2]
+	frameIndex += 2
+else:
+	score += rolls[frameIndex] + rolls[frameIndex + 1]
+	frameIndex += 2</code></pre></noscript></div>
+</p>
+
+<p>This snippet adds the current frame's score to the total score of the bowling game, taking into account whether the frame has a strike, a spare, or is a 'simple' frame. Now, you might notice there is some "duplication" here. I can tell you that when I started refactoring this code to make it look better, I had to think a bit whether the calculation of the score in the first branch and the second branch should be extracted to be the same method.
+ But again, this is a mere textual duplication, and not a violation of real DRY, which is duplication of <em>intent</em>. The first one takes the score of the strike frame itself and adds the strike bonus (2 next rolls), the other takes the score of the spare frame and adds the spare bonus (1 next roll), so even though it takes the same additions, it is not the same logic. The better way is of course this:</p>
+
+<p><div><script src='https://gist.github.com/662854.js?file='></script>
+<noscript><pre><code>if isStrike(frameIndex):
+	score += FULL_FRAME_SCORE + strikeFrameBonus(frameIndex)
+	frameIndex++
+elif isSpare(frameIndex):
+	score += FULL_FRAME_SCORE + spareFrameBonus(frameIndex)
+	frameIndex += 2
+else:
+	score += frameScore(frameIndex)
+	frameIndex += 2
+
+def strikeFrameScore(i): return rolls[i + 1] + rolls[i + 2]
+def spareFrameScore(i): return rolls[i + 2]
+</code></pre></noscript></div>
+</p>
+
+<p>This is a tricky one, and if you noticed it before reading give yourself a pat on the back! If you start and refactor this with an IDE, most IDEs will actually make a bit of a mess for you here, because they usually try and replace same occurrences of code once you extract a method, but here that would not be the better choice. Always keep an eye on your refactoring tools, because they, unlike you, can't tell the difference between syntactic duplication and semantic duplication!</p>
+
+<p>The big money of DRY comes when you learn to tell the difference between duplication of intent and mere duplication of text. This simple rule for judging your code helps you understand your code better, simply by making you actively consider what your real intention is.</p>
+
+<p>I've written more about DRY <a href="/2010/11/03/taking-dry-further/">here</a> and <a href="/2010/11/02/short-intro-to-dry/">here</a> if you'd like to hear more.</p>
+
+<p>You should subscribe to my <a href="http://feeds.feedburner.com/TheCodeDump">feed</a> and follow me on <a href="http://twitter.com/avivby">twitter</a>!</p>
+]]></content>
+  </entry>
+  
+</feed>

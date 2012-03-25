@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: rubinius | The Code Dump]]></title>
+  <link href="http://www.codelord.net/category/rubinius/atom.xml" rel="self"/>
+  <link href="http://www.codelord.net/"/>
+  <updated>2012-03-25T20:33:29+02:00</updated>
+  <id>http://www.codelord.net/</id>
+  <author>
+    <name><![CDATA[Aviv Ben-Yosef]]></name>
+    <email><![CDATA[aviv.by+blog@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Submitting your first patch to Rubinius]]></title>
+    <link href="http://www.codelord.net/2011/10/11/submitting-your-first-patch-to-rubinius/"/>
+    <updated>2011-10-11T07:02:04+02:00</updated>
+    <id>http://www.codelord.net/2011/10/11/submitting-your-first-patch-to-rubinius</id>
+    <content type="html"><![CDATA[<p>I always love helping interesting open source projects, and Rubinius is one of those great projects that are very cool to play with. In case you don't know it, Rubinius is a Ruby implementation written (almost) entirely in Ruby. Just playing with such a code base is quite interesting and whenever a peek around in the code I learn new stuff about Ruby.</p>
+
+<p>At the moment, the people at Rubinius are working hard on making it compatible with ruby 1.9, and so there are a lot of easy changes that are waiting for you to do and start contributing. I'd like to show you a quick walk-through of how to find such simple tasks and get started.</p>
+
+<h3>Setup</h3>
+
+<p>Clone the project from the GitHub <a href="https://github.com/rubinius/rubinius">repo</a>. Once that's done, to make sure that everything works properly do this:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>./configure
+</span><span class='line'>rake spec
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>The specs should be all passing on your machine. It will take a few minutes the first time, but afterwards whenever you make small changes it will be faster.</p>
+
+<h3>Finding interesting work</h3>
+
+<p>Of course you can submit whatever patch you find interesting, but in my opinion a quick way to get started is to find incompatibilities with 1.9. Fortunately for you, it's pretty easy to find those.</p>
+
+<p>Rubinius, along with the other Ruby implementations, uses mspec in order to have written specs of the language written in Ruby and is checked against that. These specs are similar to RSpec. Among other options, some specs are simply marked as having to pass only on Ruby 1.9 and of these, those that are currently failing are our hunt.</p>
+
+<p>I came up with this command in order to find and execute such 1.9 specs that were last reported by Rubinius developers to be failing:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bin/mspec tag --list fails -tx19 :ci_files
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>This command will list the RubySpecs that are tagged as failing on Rubinius in 1.9 mode.</p>
+
+<p>You should see plenty (at the time of this writing, over 500) of failing specs. Just pick something that seems easy enough to get started with.</p>
+
+<p>Once you spot a spec that looks interesting you can run it specifically and see the code. For example, if you see an interesting spec for String#squeeze, you can run it with:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bin/mspec -tx19 spec/ruby/core/string/squeeze_spec.rb
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>Doing some work</h3>
+
+<p>For example, let's look at one of the really simple specs I decided to get passing, you can see the commit <a href="https://github.com/rubinius/rubinius/commit/723fc5ee6c57267c92744b24a100c595375ef39c">here</a>. I wanted to make a simple change to the String#ord method, but only on 1.9 version. The way to do that on Rubinius is that many of the files, say string.rb now have also "string18.rb" and "string19.rb" that contain the code that differs. In my case, I just made a simple change to the version used on 1.9 by editing the ord method on the string19.rb file (in case the 19 and 18 files don't exist yet, you can simply create them like shown <a href="https://github.com/rubinius/rubinius/commit/42fe03c5e6b82b712dcdbdf5875581f854e21af7">here</a>).</p>
+
+<p>After you've made your changes, be sure to run the specs again and see that everything works. Before submitting it, you should make sure to run all specs thoroughly using the command rake spec. If all is well, just do the regular GitHub <a href="http://help.github.com/send-pull-requests/">pull-request dance</a> and off you go!</p>
+
+<p>Further than that, you can include in your pull request another commit that removes the failing tags from the specs you've just fixed. Find the appropriate file and just remove it, as you can see in <a href="https://github.com/rubinius/rubinius/commit/bfde3637a454eade1972a636dd8a1ad05d9fdc57">this commit</a>.</p>
+
+<p>For some more in depth review of how to start contributing to Rubinius, see this <a href="http://rubini.us/2011/10/18/contributing-to-rubinius/">excellent post</a> on the official blog.</p>
+
+<p>You should subscribe to my <a href="http://feeds.feedburner.com/TheCodeDump">feed</a> and follow me on <a href="http://twitter.com/avivby">twitter</a>!</p>
+]]></content>
+  </entry>
+  
+</feed>

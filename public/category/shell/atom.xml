@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: shell | The Code Dump]]></title>
+  <link href="http://www.codelord.net/category/shell/atom.xml" rel="self"/>
+  <link href="http://www.codelord.net/"/>
+  <updated>2012-03-25T20:33:29+02:00</updated>
+  <id>http://www.codelord.net/</id>
+  <author>
+    <name><![CDATA[Aviv Ben-Yosef]]></name>
+    <email><![CDATA[aviv.by+blog@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Shell Hackery: The Use of "cd ."]]></title>
+    <link href="http://www.codelord.net/2011/08/04/shell-hackery-the-use-of-cd/"/>
+    <updated>2011-08-04T06:36:15+03:00</updated>
+    <id>http://www.codelord.net/2011/08/04/shell-hackery-the-use-of-cd</id>
+    <content type="html"><![CDATA[<p>I have a nasty habit of going over my bash history every once in a while. Usually I sort commands by frequency to find stuff I can automate/alias. Last time I came across <code>cd .</code> and thought I'd write up a little explanation of why I find this seemingly useless command useful.</p>
+
+<p>So what does it do? <code>cd .</code> literally means "change directory to the current directory", which sounds like a no-op. The point is that sometimes the current directory is no longer the current directory! Let's start with an example.</p>
+
+<p>Say I have a git repository on my_repo/ and on its master branch there's a my_repo/folder directory and on its bugfix branch that directory doesn't exist. Now imagine I have a terminal window open after performing the following command:</p>
+
+<pre><code>cd my_repo/folder # now on branch master
+</code></pre>
+
+<p>And now, while that terminal is open I need to switch to the bugfix branch for a few minutes, do my thing and return to it. If I switch branches using a different terminal or some GUI tool, what becomes of my terminal's shell? When I switched to the bugfix branch, git essentially removed that directory the shell was in, and when I returned to the master branch, the directory was put back into place.</p>
+
+<p>So, one might expect that after switch back and forth between branches and returning to my original terminal, simply executing <code>ls -l</code> will show that everything is ok. But it won't. What I would actually see when running <code>ls -l</code> is that the current directory is empty!</p>
+
+<p>Oh no! Are all our files lost? Nope. They're right there in my_repo/folder, but our shell doesn't know that. To understand why, we need to dig a bit deeper. When a unix process accesses any file or directory, it obtains a file descriptor to it. That includes a shell's current directory - all throughout its lifetime, it has an open fd of the current dir. You can see that by running <code>lsof -p [your shell pid]</code>.</p>
+
+<p>When process A holds an open fd to a file/directory and process B removes that directory, what should happen? Unix doesn't have that file locking mechanism windows does. What it does do is remove the file from anywhere except still holding it somewhere til process A finishes working with it. What this means is that if, for example, you've got a file open in some software and accidentally "rm"ed the file, you can still recover the file because it's held somewhere by the open program. You can see an example for restoring files this way on linux <a href="http://www.linux.com/archive/articles/58142">here</a>.</p>
+
+<p>Back to our problem! Our shell process is now sitting with its current directory actually being some phantom directory that is no more. That means that even after we checked out the master branch again and the directory was already there, no one updated our shell regarding that. It does know it's in "my_repo/folder", though.</p>
+
+<p>That means that in order to quickly get our terminal back to being useable (say, we want <code>ls</code> to actually show stuff) we can, of course, be all lame, close the shell and open a new one. Or, we can "refresh" the file descriptor to the current directory. How?</p>
+
+<pre><code>cd .
+</code></pre>
+
+<p>Hope you learned something new!</p>
+
+<p>You should <a href="http://feeds.feedburner.com/TheCodeDump">subscribe</a> to my feed and <a href="http://twitter.com/avivby">follow</a> me on twitter!</p>
+]]></content>
+  </entry>
+  
+</feed>

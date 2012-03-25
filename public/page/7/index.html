@@ -1,0 +1,729 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>The Code Dump</title>
+  <meta name="author" content="Aviv Ben-Yosef">
+
+  
+  <meta name="description" content="As coders, we should always strive to get as much feedback as soon as possible. Agile tells us we should get frequent feedback from our customers in &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.codelord.net/page/7">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/TheCodeDump" rel="alternate" title="The Code Dump" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7925779-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">The Code Dump</a></h1>
+  
+    <h2>A place a coder rants at...</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/TheCodeDump" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.codelord.net" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/02/13/less-is-more/">Less Code is More</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-02-13T23:42:02+02:00" pubdate data-updated="true">Feb 13<span>th</span>, 2010</time>
+        
+         | <a href="/2010/02/13/less-is-more/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>As coders, we should always strive to get as much feedback as soon as possible. Agile tells us we should get frequent feedback from our customers in order to make sure we&#8217;re always on track. Unit testing and the green-bar loving are all about knowing exactly when your code breaks and when you&#8217;re safe.</p>
+
+<p>A kind of activity for which feedback is harder to get is our design. A big part of TDD is refactoring frequently. Refactoring often allows us to smooth out the design continuously as we work. The problem is, how can you tell you&#8217;ve done something good? On the one hand, creating abstractions is something good programmers do. On the other hand, taking that too far will usually cause more problems.</p>
+
+<p>When making bigger changes, the best feedback will be from getting another pair of eyeballs go over the change. Pairing is the best way for getting a second opinion. Code reviews can be effective too. Problem is, a lot of people don&#8217;t get to pair or review most of their code (and yeah, I know that <a href="http://bit.ly/aSClmK">makes Corey Haines a sad panda</a>).</p>
+
+<p>When I work by myself about the bigger things, there&#8217;s a handful of things I try to keep in mind, like the <a href="http://bit.ly/bs003B">SOLID principles</a>. But, the measure I like the most of how much shorter am I making the code. I&#8217;m not talking about obfuscating code. Readability is a must. I&#8217;m talking about abstractions that are really useful right now - they already make the code base smaller. Refactorings that make the code <a href="http://bit.ly/dizkHM">DRY</a> and thus shorter.</p>
+
+<p><img src="/images/posts_images/delete_key.jpg" width="150" height="150" title="Delete key" ></p>
+
+<p>Whenever I commit and git tells me I deleted more code than I inserted I get this fuzzy warm feeling. One of the <a href="http://bit.ly/cPw2Nr">agile manifesto principles</a> says &#8220;Simplicity - the art of maximizing the amount of work not done - is essential&#8221;. Problem is I&#8217;m not a perfect coder, and because of that I often perform more work than necessary. But I try to simplify my code when I notice this.</p>
+
+<p>Paul Graham has an <a href="http://bit.ly/ae8RfK">essay</a> where he once showed a way for him to know he&#8217;s making good progress with Arc, the language he created. He kept track of the number of lines it took him to implement an application (Hacker News) and whenever he made some changes he checked to see if they made the application simpler.</p>
+
+<p>Of course, as any rule, this one has exceptions. Eventually, you will need to add code! But, it always helps me see that what I thought was really good just adds clutter. Try and take a look at the output of <code>git log --shortstat</code> - do you tend to add more lines whenever you clean up?</p>
+
+<p>You should follow me on <a href="http://bit.ly/aU2CaB">twitter</a>!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/01/14/a-week-in-nowhere-for-better-code/">A Week in Nowhere for Better Code?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-01-14T19:53:04+02:00" pubdate data-updated="true">Jan 14<span>th</span>, 2010</time>
+        
+         | <a href="/2010/01/14/a-week-in-nowhere-for-better-code/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I finished my army service (in the Israel Defence Force) 6 months ago. Before anyone gets carried away, let me assure you my service had no Rambo-like scenes involved, but simply required me to do what I always do - code.</p>
+
+<p>But, it being an army and everything, everyone is required to do some &#8220;army&#8221; stuff every once in a while. One of those is at the heart of this post. About once a year, you&#8217;d get positioned in some far, remote and tiny base/settlement. During those weeks you are required to guard different posts, or patrol around the perimiter of the area.</p>
+
+<p>Let me paint you the picture a little clearer. How would you like having to leave your life, in order to spend a week (or two) in a place that can be only regarded as &#8216;nowhere&#8217;, and spend 10 hours a day doing nothing but looking at some desert mountains? Now, imagine you know no one of the other few that are with you, the room is a dump, and you don&#8217;t even want to hear about the showers? Oh, it gets better. At night the temprature can drop so much, that checking your weapon before going to sleep is just painful, and requires you to jiggle your fingers for 5 minutes before you get enough dexterity to actually do it?</p>
+
+<p><img src="/images/posts_images/view_from_nowhere.jpg" width="300" height="225" title="The view from nowhere" ></p>
+
+<p>The real deal, though, is that I find myself missing those weeks, a bit at least. Why would a geek think about a week with no keyboard, and actually just about zero contact with the outside world given that cell reception is scarse, and miss it? Well, that&#8217;s just the point!</p>
+
+<p>First of all, as any good geek, I stack a lot of books on my To Read List. Those weeks were where I did my most productive reading. I averaged a book a day, which required me to get an extra bag just for those. Can a week be really bad if you go to read all of <a href="http://www.amazon.com/gp/product/0345453743?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0345453743">The Hitchhiker&#8217;s Guide to the Galaxy</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0345453743" style="width: 0; height: 0; display: none; border: none !important;"> series, <a href="http://www.amazon.com/gp/product/0618574972?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0618574972">The Return of the King</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0618574972" style="width: 0; height: 0; display: none; border: none !important;"> and more?</p>
+
+<p>But that&#8217;s just a bonus, I read a lot either way. The main thing is that you just get time off that you don&#8217;t consider to be your free time / vacation. I&#8217;ll explain. When you use your few vacation days, you use them wisely. You take your spouse abroad and enjoy the world&#8217;s wonders. Any part of a day off I just lay around feels like a waste to me, which doesn&#8217;t let me just use the days off to relax.</p>
+
+<p>The problem is, that coders need time to zoom-out sometimes, in order to get new ideas. It was said before that if you&#8217;re stuck with a problem, you might get the insight by simply leaving your desk for a few minutes. But those insights are short-sighted. As you sling code, week after week, you get coder&#8217;s myopia. Every time I was sent away, I came back with a few ideas to make things better, or do things in a more productive way. It&#8217;s just amazing how simply stepping back for a week can help you realize problems you haven&#8217;t been able to grasp for months.</p>
+
+<p>Now, unsurprisingly, the vacation days you use never seem to have the same effect. Don&#8217;t get me wrong, I&#8217;m not suggesting you find your solitude in some desert with no cell reception (unless that&#8217;s your cup of tea). I think employers will gain by making sure they&#8217;re employees have 4 weeks of vacation a year, so that spending 2 days playing video games won&#8217;t feel like a waste. I think sending teams together on a trip for a few days won&#8217;t be as good as sending them to a conference where they will see new people and new opinions and ideas. The key here is not just the change of scenery, but also simply experiencing something different.</p>
+
+<p>Try to find a chance to zoom out and unwind, I bet it will do good to you and your team.</p>
+
+<p>You should follow me on <a href="http://twitter.com/avivby">twitter</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/01/12/every-coder-should-read-tdd-by-example/">Every Coder Should Read TDD By Example</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-01-12T23:39:18+02:00" pubdate data-updated="true">Jan 12<span>th</span>, 2010</time>
+        
+         | <a href="/2010/01/12/every-coder-should-read-tdd-by-example/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve just finished reading Kent Beck&#8217;s <a href="http://www.amazon.com/gp/product/0321146530?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321146530">TDD by Example</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321146530" style="width: 0; height: 0; display: none; border: none !important;">, and man, what a great reading that was. It was so good, I&#8217;m gonna put it in my top 10 books list (accompanied by other classics, like <a href="http://www.amazon.com/gp/product/020161622X?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=020161622X">The Pragmatic Programmer</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=020161622X" style="width: 0; height: 0; display: none; border: none !important;"> and Beck&#8217;s probably most known book, <a href="http://www.amazon.com/gp/product/0321278658?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321278658">Extreme Programming Explained</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321278658" style="width: 0; height: 0; display: none; border: none !important;">).</p>
+
+<p>I&#8217;ve been doing TDD (to an extent, say at least half of my production code) for the past 4 years or so. I was pretty sure I knew what the deal is, and there&#8217;s no doubt it&#8217;s paying off. I didn&#8217;t think there&#8217;s a lot more for me to learn. I thought to myself, &#8220;how much better can it get?&#8221;</p>
+
+<p>Lately, a lot of anti-TDD posts have been popping up on the interweb, which made me ponder a bit more about it. Furthermore, I&#8217;ve been exposed to more casts and the likes regarding TDD that made me think I just might be able to squeeze some more fun from my TDD.</p>
+
+<p>That&#8217;s when I realized my work place has a copy of the &#8220;TDD by Example&#8221; book. I&#8217;m a sucker for books, and having liked Kent&#8217;s writing so far, decided to add it to my book queue, and actually pushed it all the way to the top.</p>
+
+<p>It&#8217;s a very light and fun reading. The style is a lot to my taste, and easy to follow (even for someone whose mother tongue isn&#8217;t English). But other than the pure writing style, there are just so many gold nuggets in that book. Just about every page has something golden.</p>
+
+<p>Most coders will never have access to such a super-star-coder, that literally changed the way we work. This book is a great way to rub off some of that genius. The simplicity in which design decisions are explained is astonishing. I myself typed along all the code in the book as I read it. Sometimes I tried writing ahead, comparing my results to Kent&#8217;s, and every time I was surprised. The cleanliness he shows, the delicate thinking, truly amazing stuff.</p>
+
+<p>Other than that, given all the critisicm that&#8217;s been direct at TDD lately, the book explains in great detail what are TDD&#8217;s objectives, how it can be used productively, and what should you expect of it.</p>
+
+<p>And now, the really good stuff. The major pay-off I&#8217;m seeing currently, is that I found out a few ways to make TDD even better for me. Yes, the bug count is already low, but you can get it even lower. Not just that, picking up a few tips from Beck makes me think about the design of my code better, and simply make you a better coder.</p>
+
+<p>Actually, most of my TDD &#8221;education&#8221; is informal. Someone once explained the concept to me, and with time I refined my ways a bit using experience gained and knowledge found on the web. Reading <em>the</em> book on TDD, you find there are names for things you&#8217;ve already been doing, but never given much thought to. Moreover, there&#8217;s just that thing about naming things - sometimes it simply makes you understand them better.</p>
+
+<p>I think I&#8217;ll stop writing any further, before this will make me look like I&#8217;m stalking Beck. But really, you <strong>should read this book</strong>. It&#8217;s so good, I&#8217;m going to order my own copy simply to have it around. Yes, <em>that</em> good.</p>
+
+<p>You should follow me on twitter <a href="http://twitter.com/avivby">here</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/11/19/trying-to-find-coders-heaven/">Trying to Find Coder&#8217;s Heaven</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-11-19T22:33:06+02:00" pubdate data-updated="true">Nov 19<span>th</span>, 2009</time>
+        
+         | <a href="/2009/11/19/trying-to-find-coders-heaven/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I read a post today by Kent Beck:</p>
+
+<blockquote><p>The prices for programming have fallen so far that just programming for someone isn’t going to meet my financial goals (4 kids to get through college). For my own satisfaction I need to program but to meet my goals I need to do something more than “just” programming.</p><footer><strong>Kent Beck</strong> <cite><a href='http://www.threeriversinstitute.org/blog/?p=398'>What&#8217;s My Search Term</a></cite></footer></blockquote>
+
+
+<p>This one really surprised me. Beck is a pioneer, someone that&#8217;s made a difference in the way software development is done today. I remember reading &#8221;<a href="http://www.amazon.com/gp/product/0321278658?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321278658">Extreme Programming Explained</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321278658" style="width: 0; height: 0; display: none; border: none !important;">&#8221; a few years ago and thinking to myself &#8220;This guy is a genius!&#8221; It&#8217;s not just XP itself, he wasn&#8217;t the only one to talk about agile. Someone capable of communicating in such a clear, concise way that knows how to code practically has to be a rock star hacker.</p>
+
+<p>Maybe I was being naive, but I always liked thinking that if you&#8217;re just really good at programming, you&#8217;ll be able to land one of those dream jobs at a small software shop that pays good and spend the rest of your days happily hacking at your keyboard. And that&#8217;s if you&#8217;re a &#8220;regular&#8221; great coder. I thought people like Beck will likely get a good CTO/Guru job somewhere, make sure great code that customers love gets out and earn enough money to not have to worry too much about it. Or maybe be at a conference a week, giving inspiring talks and getting paid to do it great.</p>
+
+<p>This relates to something I&#8217;ve been thinking a lot about lately. I&#8217;ve been thinking what is the best path to choose for my road ahead. At one point you notice that you keep telling to yourself that if you were running the business, X would have been done differently. You know, the usual &#8216;my company would give 2 monitors to each developer&#8217;, or &#8216;I&#8217;d never hire someone that<em> only </em>seems good <em>enough</em>&#8217;, or &#8216;coders should be able to choose and get the best books around to read&#8217;. This, of course, doesn&#8217;t mean my current employer isn&#8217;t good, or that I don&#8217;t enjoy myself. I guess I&#8217;m one of those guys that notice things that bug them more than others.</p>
+
+<p>Anyway, as these things stack up, a question is raised, &#8220;Why not start my own thing?&#8221; After all, my end goal isn&#8217;t that far-fetched. I&#8217;ve been reading &#8221;<a href="http://www.amazon.com/gp/product/1430210788?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1430210788">Founders at Work</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=1430210788" style="width: 0; height: 0; display: none; border: none !important;">&#8221; lately. One of the best chapters there (though the whole book is awesome), is the one with Philip Greenspun, founder of ArsDigita. He describes his vision as simply getting brilliant people to write awesome software that customers love - the money should simply follow. This is an interesting business model, one that Joel Spolsky talks about in his chapter in the book too. He and his cofounder wanted to create a place great programmers will want to work at, assuming such a place will then be able to make money by creating great software.</p>
+
+<p>On the one hand, we&#8217;ve got ArsDigita, that did really well before biting the dust (though I doubt Greenspun is sorry he did it). On the other hand, there&#8217;s Fog Creek that seems to be doing pretty well for about 10 years now. This means that creating such a place is possible, as Joel has done, but if ArsDigita is dead, and Kent Beck isn&#8217;t in such a company right now, one has to wonder if simply being really good is enough.</p>
+
+<p>Joel said that he intended Fog Creek to start as a consulting company in order to get the capital for becoming an awesome software company, and that consulting companies are not likely to survive a lot of time, as consultants are usually first to go when a client isn&#8217;t making ends meet. I can&#8217;t help but agree with that.</p>
+
+<p>What is a coder to do? Sounds like starting your own place, and aiming at being best at what you do is a good idea and vision. Creating a software company that will either get bought somewhere along the road, or simply be profitable enough for you and your team of awesome hackers to code away happily will be like a dream come true. But there seems to be something missing there. That special ingredient that Fog Creek had and others didn&#8217;t.</p>
+
+<p>My quest for that missing part continues, until I&#8217;ll be able to start the best f***ing place for a hacker be at in Israel. And my best wishes to Kent Beck in finding the missing part to get to do what he loves doing, and does real good.</p>
+
+<p>You should follow me on twitter <a href="http://twitter.com/avivby">here</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/10/17/becoming-a-happier-hacker-actively-strive-to-work-with-other-hackers/">Becoming a Happier Hacker: Actively Strive to Work with Other Hackers</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-10-17T20:38:48+02:00" pubdate data-updated="true">Oct 17<span>th</span>, 2009</time>
+        
+         | <a href="/2009/10/17/becoming-a-happier-hacker-actively-strive-to-work-with-other-hackers/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>After a few years of working in the field, I&#8217;ve come to a conclusion: one of the best ways to evolve as a <a href="http://paulgraham.com/gba.html">hacker</a> is to work with other hackers. Not just that, I&#8217;d rather work alone than work with non-hackers. Wait, I can almost see you reaching to close this tab, mumbling to yourself this is nonsense. I&#8217;m not saying workplaces shouldn&#8217;t hire junior developers .I&#8217;m saying that working with people that don&#8217;t have Hacker Quality™ is frustrating.</p>
+
+<p>In my previous work place, about 90% of developers were &#8216;home brewed&#8217;. That means 90% of developers are kids that performed well enough on analytical exams to be put to a 4-month course and study basic programming concepts, and just enough Java to become certified code monkeys. Some, those with hacker quality, keep learning and become real stars after a couple of years. The majority remain grunts that never grow to consider their work as a craft.</p>
+
+<p>My experience with working with them is that the hackers make working so much more fun. You&#8217;ve got people to bounce ideas off, learn new things from, debate about tabs and spaces. The rest make work a nightmare, and made me want to get back to my high-school way of coding (all night long, alone in the dark, with some Iron Maiden).</p>
+
+<p>Being fed up with this, when I started working in a new place recently, I made a decision to try and surround myself with fellow hackers. First of all, you should start with the actual selection of a work place. Given my case (which was that I wasn&#8217;t going to start anything up by myself), I interviewed in lots of places, and chose the place that seemed to have the best and most hackers in, judging from the people I&#8217;ve interacted with in the interview process, and knowing some people from the company.</p>
+
+<p>Just getting to a good work place isn&#8217;t enough, because I&#8217;ve yet to hear about a place that is 100% hacker driven (other than start ups with 5 people). You should always try and work with the better guys around. Seems like interesting projects tend to gravitate towards hackers, wherever they are. Even if the better guys aren&#8217;t working with you on your current project, grab a coffee with them. Some chatting on whatever is going on with other hackers always makes you see things differently.</p>
+
+<p>Given that you usually can&#8217;t get rid of the less-competent guys (legally), your only next chance in increasing Hacker-to-Coder ratio is bringing in more hackers. If you know of any good hackers that might be in search of a job, get them an interview. Usually, that&#8217;s all it will take to get them in. Also, try and take an active part in the interviewing process. That will allow you to influence the type of people that you&#8217;ll work with, and maybe raise the bar a little bit.</p>
+
+<p>I really think that investing energy in the peopleware of the workplace accounts for 80% of the evolving of coders there. And, given that we coders rarely see daylight and spend most of the time at work, that&#8217;s the lion&#8217;s share of learning opportunities you&#8217;ll have. Maybe it sounds odd to put all this effort in a place that isn&#8217;t yours, but does it really matter who&#8217;s the founder? You&#8217;re there, and better make the best of the experience.</p>
+
+<p>All that leaves in the workplace is making sure your team encourages learning, experimenting and sharing (maybe I&#8217;ll cover it in another post sometime).</p>
+
+<p>You should follow me on twitter <a href="http://twitter.com/avivby">here</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/10/04/writing-a-buildbot-latent-build-slave/">Writing a BuildBot Latent Build Slave</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-10-04T21:33:24+02:00" pubdate data-updated="true">Oct 4<span>th</span>, 2009</time>
+        
+         | <a href="/2009/10/04/writing-a-buildbot-latent-build-slave/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>We&#8217;ve been working on creating a scalable and stable building and testing environment for our team.
+After some checking, <a href="http://buildbot.net">BuildBot</a> was found to be the best (for our needs, at least).</p>
+
+<p>Gathering the different abilities that are needed for testing our products, and the different limitations we&#8217;ve got in our testing lab, we came to the conclusion that using some sort of distribution framework is needed. Being the code monkeys that we are, we started designing a whole solution for integrating BuildBot with our distribution framework of choice, when looking at the BuildBot manual I saw it already has support for this concept, the Latent Buildslave !</p>
+
+<p>One small thing is, that adding support for a new one isn&#8217;t so clear. The <a href="http://djmitche.github.com/buildbot/docs/0.7.11/#Writing-New-Latent-Buildslaves">manual</a> simply states that one needs just to implement <code>start_instance</code> and <code>stop_instance</code> methods and be done with it, but, in my opinion, lacks some details, so here is what we figured:</p>
+
+<ol>
+<li>The <code>start_instance</code> method should return a <a href="http://twistedmatrix.com/projects/core/documentation/howto/defer.html"><code>deferred</code></a> that, when called, will return once a new build slave is ready to go.</li>
+<li>How do you return the new slave&#8217;s IP to BuildBot? No need! Once it will be connected, the master will figure it&#8217;s the one you just created (via <code>AbstractLatentBuildSlave.attached</code>).</li>
+<li>The actual value returned from <code>start_instance</code> is pretty insignificant (will be printed to the log, as the manual states).</li>
+<li>The <code>stop_instance</code> method is pretty much the same, and should take care of making the distribution framework aware that the allocated buildslave is free to be destroyed/reused.</li>
+</ol>
+
+
+<h3>Why don&#8217;t my latent slaves die?</h3>
+
+<p>As you may have noticed, once <code>start_instance</code> is called and a slave connects to the master, BuildBot is in no hurry to call your <code>stop_instance</code> once the build is completed. Actually, as far as BuildBot is concerned, that slave is there to stay (at least, as far as we figured). In case you&#8217;d rather to generate a new slave for each build, you will need to override the <code>buildFinished</code> method of the abstract slave, and in it call the <code>unsubstantiate</code> method. A bit of a headache, but that&#8217;s the way it is.</p>
+
+<p>Happy testing!</p>
+
+<p>P.S. If you&#8217;re using the latest BuildBot (from the git repository), try out the Console view, it&#8217;s really awesome!</p>
+
+<p>You should follow me on twitter <a href="http://twitter.com/avivby">here</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/08/12/bash-nitpicking-on-redirections/">Bash Nitpicking on Redirections</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-08-12T15:13:17+03:00" pubdate data-updated="true">Aug 12<span>th</span>, 2009</time>
+        
+         | <a href="/2009/08/12/bash-nitpicking-on-redirections/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This little excerpt from the bash man page explains the reason I just wasted 2 hours:</p>
+
+<blockquote><p>Note that the order of redirections is significant.  For example, the command
+<code>ls &gt; dirlist 2&gt;&amp;1</code>
+directs both standard output and standard error to the file dirlist, while the command
+<code>ls 2&gt;&amp;1 &gt; dirlist</code>
+directs only the standard output to file dirlist, because the standard error was duplicated as standard output before the standard output was redirected to dirlist.</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/06/28/fixing-equations-in-word-documents-converted-from-openoffice/">Fixing Equations in Word Documents Converted from OpenOffice</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-28T21:31:26+03:00" pubdate data-updated="true">Jun 28<span>th</span>, 2009</time>
+        
+         | <a href="/2009/06/28/fixing-equations-in-word-documents-converted-from-openoffice/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This is a short tip post. If you were ever frustrated with the fact that OpenOffice documents with equations don&#8217;t show up properly when converted to MS-Word documents you&#8217;re gonna love this!</p>
+
+<p>It&#8217;s a known problem that converted equations need to be &#8220;double clicked&#8221; in Word for it to re-render them and show up properly. Turns out someone has posted a great macro <a href="http://www.oooforum.org/forum/viewtopic.phtml?t=66787">here</a> that simply does that automatically for you and saves the need to go through the whole document manually (if you don&#8217;t remember how to set up a macro, like me, there are nice instructions <a href="http://www.officeletter.com/favtips/wordmacros.html">here</a>).</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/05/14/so-you-got-an-arduino/">So You Got an Arduino</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-14T23:19:47+03:00" pubdate data-updated="true">May 14<span>th</span>, 2009</time>
+        
+         | <a href="/2009/05/14/so-you-got-an-arduino/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>After playing around a bit with my new Arduino, I&#8217;ve gathered a list of a few things that I wish I knew when I started, as it would have saved some of my time. Hope it helps someone. Happy hacking!</p>
+
+<h4>There&#8217;s a builtin LED</h4>
+
+<p>This one I didn&#8217;t get right away. There&#8217;s a reason most of the examples in the tutorial sections refer to LEDs on pin 13 - there&#8217;s a small LED on the Duemilanove that&#8217;s already connected to that pin. It shines in orange (just like the TX/RX LEDs) if you write to that pin, but, of course, one can connect something else to that pin to use it.</p>
+
+<h4>That little button is the RESET button</h4>
+
+<p>This one might just be me being an idiot. I thought that little push button was a general purpose one. Well it&#8217;s not. It&#8217;s a reset button - whenever it gets pressed it resets the sketch running to the start. Boy, did I spend a lot of time pressing it and trying to debug my code til I figured it out&#8230;</p>
+
+<h4>There are builtin &#8220;software&#8221; pull-up resistors</h4>
+
+<p>Once you get you should connect a push-button, you might notice that every tutorial says you should use a pull-up resistor. Well, it turns out you can simply use a software one on the Arduino, and there&#8217;s no need to conenct one. After setting up the push-button pin as input:</p>
+
+<pre><code>pinMode(buttonPin, INPUT);
+</code></pre>
+
+<p>Simply tell the Arduino you need a pull-up resistor connected to it:</p>
+
+<pre><code>digitalWrite(buttonPin, HIGH);
+</code></pre>
+
+<p>For more information, read <a href="http://www.arduino.cc/en/Tutorial/DigitalPins">here</a>.</p>
+
+<h4>The &#8220;Serial&#8221; library doesn&#8217;t really require a serial connection</h4>
+
+<p>Even though Duemilanoves and other new Arduino-boards only have a USB connection, it turns out that the Serial library can still be used. Whatever you write using it shows up in the Serial Monitor in the development IDE and you can send data to the Arduino using it too!</p>
+
+<p>You should follow me on twitter <a href="http://twitter.com/avivby">here</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/05/14/my-hello-arduino/">My &#8220;Hello, Arduino&#8221;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-14T00:01:24+03:00" pubdate data-updated="true">May 14<span>th</span>, 2009</time>
+        
+         | <a href="/2009/05/14/my-hello-arduino/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I ordered an <a href="http://www.arduino.cc/en/Main/ArduinoBoardDuemilanove">Arduino Duemilanove</a> a few months ago, and other than simply testing it to see that it starts up I haven&#8217;t touched it. It&#8217;s been lying on my desk, making me feel guilty every time I saw it.</p>
+
+<p>Today, having a few spare hours and because I just finished reading &#8220;Programming Embedded Systems&#8221;, I decided it was time to finally do something with it.</p>
+
+<p>I spent ~3 hours soldering the Proto-Shield that came with it. It was the first time I ever did any soldering and I think it turned out OK, after some help from Dad.</p>
+
+<p>Then, I made a simple &#8216;Hello, World&#8217; application that changes LEDs according to a button press. What can I say, the amount of satisfaction from such a simple thing is so big! Maybe, it has to do with the fact that as a software developer, I rarely do things that have a physical effect.</p>
+
+<p>You should follow me on twitter <a href="http://twitter.com/avivby">here</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/page/8/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/page/6/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Aviv Ben-Yosef</h1>
+  <img src="https://api.twitter.com/1/users/profile_image?screen_name=avivby&amp;size=original" width="128" height="128" style="height: 128px; width: 128px; border-radius: 6px">
+  <p>An aspiring software craftsman and a happy hacker. More <a href="/about">about me</a>.</p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2012/03/07/slides-from-the-how-billguard-does-mongodb-talk/">Slides from the &#8220;How BillGuard does MongoDB&#8221; Talk</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/03/01/notes-from-the-agile-practitioners-2012-improving-your-tdd-workshop/">Notes from the Agile Practitioners 2012 Improving Your TDD Workshop</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/28/notes-from-the-israeli-software-craftsmanship-group-code-retreat/">Notes from the Israeli Software Craftsmanship Group Code Retreat</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/04/extend-your-toolbox-custom-matchers/">Extend Your Toolbox: Custom Matchers</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/01/28/stop-bitching-do-self-agile/">Stop Bitching: Do Self-Agile</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("avivby", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/avivby" class="twitter-follow-button" data-show-count="false">Follow @avivby</a>
+  
+</section>
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Aviv Ben-Yosef -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'codelord';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

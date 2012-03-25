@@ -1,0 +1,868 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>The Code Dump</title>
+  <meta name="author" content="Aviv Ben-Yosef">
+
+  
+  <meta name="description" content="Earlier today David Brailovsky and I gave a talk at the Israeli MongoDB meetup. Below you can find the slides. You should subscribe to my feed or &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.codelord.net">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/TheCodeDump" rel="alternate" title="The Code Dump" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7925779-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">The Code Dump</a></h1>
+  
+    <h2>A place a coder rants at...</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/TheCodeDump" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.codelord.net" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2012/03/07/slides-from-the-how-billguard-does-mongodb-talk/">Slides from the &#8220;How BillGuard does MongoDB&#8221; Talk</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-07T22:51:08+02:00" pubdate data-updated="true">Mar 7<span>th</span>, 2012</time>
+        
+         | <a href="/2012/03/07/slides-from-the-how-billguard-does-mongodb-talk/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Earlier today <a href="http://twitter.com/davidbrai">David Brailovsky</a> and I gave a talk at the <a href="http://meetup.com/mongo-il/">Israeli MongoDB meetup</a>. Below you can find the slides.</p>
+
+<script src="http://speakerdeck.com/embed/4f57b39faaef0c001f001048.js"></script>
+
+
+<p>You should <a href="http://feeds.feedburner.com/TheCodeDump">subscribe</a> to my feed or <a href="http://twitter.com/avivby">follow</a> me on twitter!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2012/03/01/notes-from-the-agile-practitioners-2012-improving-your-tdd-workshop/">Notes from the Agile Practitioners 2012 Improving Your TDD Workshop</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-01T08:01:16+02:00" pubdate data-updated="true">Mar 1<span>st</span>, 2012</time>
+        
+         | <a href="/2012/03/01/notes-from-the-agile-practitioners-2012-improving-your-tdd-workshop/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><blockquote><p>If you write a test and it passes, the question is if the previous step was too big.<br/>The DRY principle doesn&#8217;t talk about code, but knowledge.<br/>Clever is never something to be proud of in your code.</p><footer><strong>Corey Haines</strong> <cite>Improving Your TDD</cite></footer></blockquote>
+
+
+<p>A couple of days after <a href="/2012/02/28/notes-from-the-israeli-software-craftsmanship-group-code-retreat/">attending the code retreat</a> facilitated by him, I was fortunate to attend Corey Haines&#8217;s “<a href="http://agilepractitioners2012.com/conference-program/corey-haines-improving-your-tdd/">Improving Your TDD</a>” workshop at the <a href="http://agilepractitioners2012.com/">Agile Practitioners 2012</a> conference. These are some of my notes from the day.</p>
+
+<p>The workshop was intended at coders familiar with TDD and not introductory. I was very interested to see how in-depth TDD training looks, and also meet other coders from Israel that have been doing TDD for a few years. It was quite awesome to sit in a room where everyone felt comfortable with TDD and it wasn&#8217;t this new and hard thing. When the group shares this &#8220;advanced&#8221; technique, discussion can suddenly level up and we could all dive in to the nitty gritty stuff.</p>
+
+<p>During the day, Corey walked us through pretty much taking TDD apart and putting it back together. We started from the history of TDD and its predecessors (manual verification, test after, test first, etc.).</p>
+
+<p>The exercises throughout the day (that I especially enjoyed since I was pairing with <a href="http://twitter.com/theyonibomber">@theyonibomber</a>, my original pair as we were learning TDD together back in 2006) had this beautiful flow of making you smack right into a problem in the way most people do TDD.</p>
+
+<p>We discussed having the tests drive an implementation that we knew we did not want (like sorting easily become bubble sort) and how the (relatively new) <a href="http://cleancoder.posterous.com/the-transformation-priority-premise">Transformation Priority Premise</a> by Uncle Bob can help solve this.</p>
+
+<p>We then took another introspective look at our TDD process (aided by an exercise once more) that made us face the problem of &#8220;flailing&#8221; and &#8220;sitting in red&#8221; - basically the problem of trying to take a step too big in the next test and so falling off the good fast rhythm of &#8221;<a href="http://programmingtour.blogspot.com/2009/03/time-to-green-graphs-with-gary.html">time to green</a>&#8221;.</p>
+
+<p>We had a long discussion about these problems and how they are directly connected to the way we pick the next test. We all know that the next test should be the &#8220;simplest thing&#8221;, but how exactly do we define simple?</p>
+
+<p>I love having these discussions that jolt me and make me rethinks stuff I&#8217;ve long ago stopped paying attention to. Developer introspection is a thing of beauty and much power (Kent Beck tells that he wrote his incredible <a href="http://www.amazon.com/gp/product/013476904X/ref=as_li_ss_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=013476904X">Smalltalk Best Practice Patterns</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=013476904X" style="width: 0; height: 0; display: none; border: none !important;"/> and <a href="http://www.amazon.com/gp/product/0321413091/ref=as_li_ss_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=0321413091">Implementation Patterns</a> <img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321413091" style="width: 0; height: 0; display: none; border: none !important;"/>  books by simply stopping whenever he was about to type some code and have an explanation as to why he picked to do it that way).</p>
+
+<p>Corey even did a live demo of his TDD style and programming by wishful thinking. It was very interesting, but as all live demos go he had some trouble along the way. Workshop aside, it is not trivial for someone giving a training to admit a mistake done, and Corey gracefully handled the situation.</p>
+
+<p>All in all, the day was a very productive one and it still has me chewing on some of the lessons we learned. It&#8217;s fun realizing again that there&#8217;s no limit to how much one can sharpen a specific skill. Hat off to Corey and the conference organizers for making this happen!</p>
+
+<p>You should <a href="http://feeds.feedburner.com/TheCodeDump">subscribe</a> to my feed or <a href="http://twitter.com/avivby">follow</a> me on twitter!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2012/02/28/notes-from-the-israeli-software-craftsmanship-group-code-retreat/">Notes from the Israeli Software Craftsmanship Group Code Retreat</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-28T22:52:47+02:00" pubdate data-updated="true">Feb 28<span>th</span>, 2012</time>
+        
+         | <a href="/2012/02/28/notes-from-the-israeli-software-craftsmanship-group-code-retreat/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>A month ago I had the great pleasure of participating in a <a href="http://coderetreat.org/about">Code Retreat</a> here in Israel, which was facilitated by the amazing <a href="http://www.coreyhaines.com/">Corey Haines</a>. The event was so awesome and fun that I just put together a few tidbits that I think are worth sharing.</p>
+
+<p>This was actually the third code retreat that I took part in, but funny enough the first retreat where I was a plain participant. I&#8217;ve facilitated two code retreats previously, one at the <a href="http://globalday.coderetreat.org/">Global Day of Code Retreat 2011</a>, and one internal retreat at the <a href="http://en.wikipedia.org/wiki/Israel_Defense_Forces">IDF</a> unit I used to serve in.</p>
+
+<p>I wasn&#8217;t sure going to a third retreat would provide new take-aways, but it sure did!</p>
+
+<p>The first thing that was different from previous retreats was that Corey shared his views on coding. I was already familiar with most of the ideas that he mentioned, but he has a way of making ideas seem simpler that I originally thought, which is very powerful. I also loved seeing how other developers less familiar with these concepts reacted to them.</p>
+
+<p>I was surprised the problem can still be interesting after a couple dozen attempts. This is something I never thought I&#8217;d see. I&#8217;ve seen the code retreat problem (<a href="http://en.wikipedia.org/wiki/Conway's_Game_of_Life">Conway&#8217;s Game of Life</a>) solved a few dozen times previously, and wasn&#8217;t sure I&#8217;d still get a lot out of doing it a few times again this retreat. To my astonishment, every pair I worked with in the retreat brought with him new ideas and considerations, and Corey had us focus on different aspects of programming in each session (there were 5 sessions).</p>
+
+<p>I&#8217;m amazed that we could write the little function that checks whether two cells are neighbors in so many ways and still think hard about it. In one of the sessions, my pair, Elad Sofer, and I were debating the cleanliness of using euclidean distance for this back and force. Corey stood and listened to us talking, though we were speaking Hebrew and he couldn&#8217;t get too much out of it. When I asked him if he wanted us to switch to English, he had this Neo moment and said &#8220;I think I understand what you&#8217;re talking about&#8221; and a minute later he just chimed in and helped us point out the part of the code that wasn&#8217;t fitting in. Such a discussion over 2 lines of code - FUN!</p>
+
+<p>In general, I loved seeing the spark in people&#8217;s eyes and the full power of passionate developers, talking, discussing and caring about their code. As someone who cares about each and every character in source files, I had a blast being around the passionate people, all bathing in the glory of the joy of programming.</p>
+
+<p>Putting limitations on our code as we were solving the same problem kept making it appear as a total different problem. The things you can do when you&#8217;re strictly adhering to the 4 rules of simple design are so different of those that appear when you and your pair aren&#8217;t allowed to speak and just communicate via the code and the tests (no comments allowed! (which is always a good rule)).</p>
+
+<p>Another reason I had a blast was that because, to be honest, I picked the pairs I really wanted to work with, having only 5 precious sessions to work with people I never get to work with regularly (though given 5 more sessions, I would have liked to pair with a few more of the people who attended). Working only with people that I knew were awesome, though not necessarily worked with before was a great boost. My awesome pairs were <a href="https://twitter.com/#!/alonhorev">alonhorev</a>, <a href="https://twitter.com/#!/avihut">avihut</a>, <a href="https://twitter.com/#!/yonbergman">yonbergman</a>, <a href="https://twitter.com/#!/pembleton">pembleton</a> and <a href="https://twitter.com/#!/eladsof">eladsof</a>.</p>
+
+<p>We did TDD in all the sessions, but it was fun sometimes working with people out of their comfort zone, seeing how they react and how I had to be clearer. Sometimes it was just a matter of working in an editor they&#8217;re less familiar with, and sometimes I had to teach Ruby while we were at it. Having to formalize in words every thing you do has the power of making you aware of a lot of the little decisions you usually make unconsciously, which is always a great thing. And I loved picking up little tricks I didn&#8217;t know from my pairs.</p>
+
+<p>All in all, the retreat once again proved out to be an awesome opportunity to focus on the fact that we&#8217;re all doing this because we love coding, and reminding us that it&#8217;s fun and that we can always learn and become better at it.</p>
+
+<p>You should <a href="http://feeds.feedburner.com/TheCodeDump">subscribe</a> to my feed or <a href="http://twitter.com/avivby">follow</a> me on twitter!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2012/02/04/extend-your-toolbox-custom-matchers/">Extend Your Toolbox: Custom Matchers</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-04T14:53:41+02:00" pubdate data-updated="true">Feb 4<span>th</span>, 2012</time>
+        
+         | <a href="/2012/02/04/extend-your-toolbox-custom-matchers/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;d like to point out a really nice testing practice that I&#8217;ve been loving more and more lately.</p>
+
+<p>Just about every mature testing framework out there supports the concept of custom matchers, which provide us with the ability to define our very own assertions seamlessly into the tests. Even though this ability is quite old, we don&#8217;t see it used too often and I think that&#8217;s a shame. I&#8217;ve seen this practice heavily used in the mind expanding <a href="http://www.amazon.com/gp/product/0321503627?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=shr&amp;camp=213733&amp;creative=393185&amp;creativeASIN=0321503627">GOOS</a> book and just now am starting to realize its awesomeness.</p>
+
+<p>Note: examples in this post are shown in Ruby using <a href="https://github.com/dchelimsky/rspec/wiki/Custom-Matchers">RSpec&#8217;s matchers</a> but the concept is pretty much identical (as can be seen for example in Java&#8217;s <a href="http://code.google.com/p/hamcrest/wiki/Tutorial">Hamcrest Matchers</a>).</p>
+
+<h3>Matchers 101</h3>
+
+<p>Creating your own matcher usually means creating a Matcher class that performs the assertions, supplies human readable error messages and a nice constructor.</p>
+
+<p>Here&#8217;s an example from the <a href="https://github.com/dchelimsky/rspec/wiki/Custom-Matchers">RSpec documentation</a>:</p>
+
+<div><script src='https://gist.github.com/1737631.js?file=rspec_matcher.rb'></script>
+<noscript><pre><code>RSpec::Matchers.define :be_a_multiple_of do |expected|
+  match do |actual|
+    actual % expected == 0
+  end
+end</code></pre></noscript></div>
+
+
+<h3>Matchers increase readability and intent</h3>
+
+<p>As you should know, one of the <a href="http://c2.com/cgi/wiki?XpSimplicityRules">most important rules for design</a> is <em>Reveals Intent</em>. Take a quick look here, which way do you think reveals more intent?</p>
+
+<div><script src='https://gist.github.com/1737631.js?file=intent.rb'></script>
+<noscript><pre><code># This
+response['X-Runtime'].should =~ /[\d\.]+/
+
+# .. or this?
+response['X-Runtime'].should be_a_number</code></pre></noscript></div>
+
+
+<p>Also, which error message do you prefer? &#8220;expected false to be true&#8221; or something along the lines of &#8220;expected comment to be anonymous&#8221;?</p>
+
+<h3>Matchers create robust tests</h3>
+
+<p>The most important advantage of all is how using matchers easily allows you to steer away from fragile tests which are the bane of a lot of testing efforts.
+The mark of good tests is that a change in your code doesn&#8217;t require you to perform changes in multiple tests that don&#8217;t really care for the change.
+Take this code for example:</p>
+
+<div><script src='https://gist.github.com/1737631.js?file=sucky_non_dry.rb'></script>
+<noscript><pre><code>expected_comment = Comment.new(anonymous: true, user: &quot;the dude&quot;, reply_to: nil)
+commentor.should_receive(:add).with(expected_comment)</code></pre></noscript></div>
+
+
+<p>This might seem like a standard test, but that&#8217;s not really the case. A test should assert for a single piece of knowledge, and this test actually checks several. If the purpose of this test is to check the behavior of anonymous comments, why should it change if we no longer allow replies? Or if we no longer require users for posting comments?</p>
+
+<p>The magic of matchers is exactly here. You create a new matcher to check specifically the aspect your test cares about and <em>boom</em>, you&#8217;re decoupled!</p>
+
+<div><script src='https://gist.github.com/1737631.js?file=beautiful_and_dry.rb'></script>
+<noscript><pre><code>commentor.should_receive(:add).with(anonymous_comment)</code></pre></noscript></div>
+
+
+<p>This simple change makes your tests DRY and cool.</p>
+
+<p>Happy testing!</p>
+
+<p>Your should <a href="http://feeds.feedburner.com/TheCodeDump">subscribe</a> to my feed or <a href="http://twitter.com/avivby">follow</a> me on twitter!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2012/01/28/stop-bitching-do-self-agile/">Stop Bitching: Do Self-Agile</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-28T14:48:17+02:00" pubdate data-updated="true">Jan 28<span>th</span>, 2012</time>
+        
+         | <a href="/2012/01/28/stop-bitching-do-self-agile/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Continuing on this series of the <a href="/category/autonomouscraftsmanshipcore/">Autonomous Craftsmanship Core</a> we now reach the methodology problem.</p>
+
+<h3>“I want to do agile/craftsmanship/etc.”</h3>
+
+<p>The key is basically to put the rest of your team aside and focus on how you can do things like you think they should be done. You want to do &#8220;agile&#8221;? Open the manifesto, read the values, and think on how you can change your own process in order to further yourself the direction you want to get.</p>
+
+<h3>Development Practices</h3>
+
+<p>This one deserves a post of its own, but luckily for us I&#8217;ve <a href="/2011/11/28/stop-bitching-write-those-damn-tests/">already</a> <a href="/2011/12/18/stop-bitching-use-the-tools-you-want/">written</a> <a href="/2011/12/30/stop-bitching-it-doesnt-always-take-two-to-pair/">it</a>! You don&#8217;t need permission to write tests, use the right tools, and just coding in an awesome manner.</p>
+
+<h3>Your own mini iterations, planning and retrospectives</h3>
+
+<p>I think a big part of becoming a better developer is looking at how we work, analyze it, decide where we need practicing and then getting better at it, deliberately. Here are some examples from my own development process.</p>
+
+<h4>Pomodoros</h4>
+
+<p>I love pair programming. Love it. Love it so much, I find it hard to be productive without a pair when coding. I find that the crazy simple <a href="http://www.pomodorotechnique.com/">Pomodoro technique</a> is some kind of magic makes-me-focus-real-good drug. Anytime I&#8217;m doing tasks on my own I set up my little timer and burn down the todo list. Using pomodoros allows me to keep track of my time, focus, see how good are my estimations and waste less time on reddit. You don&#8217;t need anyone else on your team to &#8220;allow&#8221; you to do pomodoros. Just do it, and see magic happening.</p>
+
+<h4>Goals and Retrospectives</h4>
+
+<p>Just like in an agile team we plan sprints, have retrospectives and set goals, I do the same for myself, both at work and for my personal time. Every week I do a retrospective of the past week, think what I did wrong and what I like. I have monthly and weekly goals. I&#8217;ve got recurring tasks in OmniFocus to review my work. I write the reviews in Evernote and then create new goals and add them to OmniFocus. That way every week and month I can go over the last few weeks and see how I&#8217;m doing. For example, I can set goals for finishing a book, write some blog posts, communicate better at work, etc.</p>
+
+<h3>It&#8217;s up to you</h3>
+
+<p>Uncle Bob Martin said it&#8217;s not your boss&#8217;s responsibility to make sure you learn and become better, it&#8217;s yours. Once you realize this, stop waiting for things to get better by themselves and step up you can actively become better. I was surprised how many of these aspects coincide with what Seth Godin talks about in <a href="http://www.amazon.com/gp/product/1591843162/ref=as_li_ss_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=1591843162">Linchpin</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=1591843162" style="width: 0; height: 0; display: none; border: none !important;"/>. You have no excuses not to be doing better things. It&#8217;s you&#8217;re responsibility, so <strong>stop bitching and do awesome work.</strong></p>
+
+<p>You should <a href="http://feeds.feedburner.com/TheCodeDump">subscribe</a> to my feed or <a href="http://twitter.com/avivby">follow</a> me on twitter!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2012/01/06/looking-back-on-18-months-of-testing-and-tdd-at-a-startup/">Looking Back on 18 months of Testing and TDD at a Startup</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-06T22:34:25+02:00" pubdate data-updated="true">Jan 6<span>th</span>, 2012</time>
+        
+         | <a href="/2012/01/06/looking-back-on-18-months-of-testing-and-tdd-at-a-startup/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>As we&#8217;re approaching a year and half here at <a href="https://www.billguard.com">BillGuard</a>, I&#8217;ve started thinking back a bit about our testing habits and how well that&#8217;s turned out.</p>
+
+<p>I&#8217;ve seen a lot of posts about testing in startups, some saying startups shouldn&#8217;t bother to test because they&#8217;ll have to change the whole damn thing 5 minutes after they&#8217;re done, others claim testing is the only reason they were able to keep working. Here are some of my thoughts looking back.</p>
+
+<h3>Our Background</h3>
+
+<p>When we started, only two of us had a test-infected background out of the five technical guys, me being big on <a href="http://www.amazon.com/gp/product/0321146530/ref=as_li_ss_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=0321146530">TDD</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321146530" style="width: 0; height: 0; display: none; border: none !important;">. Two other developers never wrote tests before. We agreed that tests were important, but that&#8217;s about it. I set up a continuous integration server and with that we were off. With time, the habit of writing tests spread out among the team. Some are TDD passionate, some write tests after the fact, but we generally all believe that tests should be written extensively.</p>
+
+<p><img src="/images/posts_images/test_my_code.png" width="240" height="300"></p>
+
+<h3>Not everything is worth testing</h3>
+
+<p>We&#8217;ve seen several quite rapid changes to our UI. Having less tests in this area makes sense. We rely on QA for making sure all buttons are displayed etc. To make this clear: we have no selenium-like tests for UI components but have tests for most logic being done by the UI. I think this is generally a good practice, since having to maintain selenium tests would be hard when you throw things around a lot and change flows. Some basic automated sanity tests pretty much does it.</p>
+
+<h3>Everyone learned to love tests</h3>
+
+<p>I love seeing other guys in the team delete a line of code to see which test breaks and understand why it&#8217;s there. Even more I love the frowning face when no tests break. This addiction to tests shows how much value the team&#8217;s getting out of having solid tests, hands down. No need to stress this further I believe.</p>
+
+<h3>Tests save our asses repeatedly</h3>
+
+<p>Having an extensive suite of tests allows us to make rapid changes to our code base, as is needed in most startups, and rely on the solid tests to tell us whether we&#8217;ve screwed something up. All the code that has anything whatsoever to do with sensitive and important information is heavily tested which is a huge bonus and a necessity in our line of business (personal finance protection).</p>
+
+<h3>TDD is just magical with complex algorithms</h3>
+
+<p>We have quite a few complex algorithms that require multiple entities and ideas to perform. I find that the parts we&#8217;re most satisfied with maintainability-wise are the heavily TDD-ed algorithms we&#8217;ve got. Being written with rigorous TDD gives us so many advantages:</p>
+
+<ul>
+<li>This critical code usually has a lot less defects.</li>
+<li>The code is a lot more readable, well decomposed and allows for easy changing once we find out a need for tweaking the algorithms.</li>
+<li>Working in TDD magically forces us to form our problem domain better, making us have a language of our own in talking about the problem. This happens less naturally in other forms of working on algorithms.</li>
+</ul>
+
+
+<h3>Summing our testing experiences</h3>
+
+<p>All in all, I think the whole team would agree that dedicating time to writing thorough tests is proving itself valuable and because of that people are writing more and more tests without any of us ever stopping and saying &#8220;we should write tests&#8221; (well, I swear I didn&#8217;t do it too much). It happens naturally when people get the value out of it. It&#8217;s fun seeing how today BillGuard has become a company that organically values testing so much I don&#8217;t even feel a great need to stress it to new people because they&#8217;ll quickly see there&#8217;s no real other way. We&#8217;re far from being the poster children of <a href="http://www.amazon.com/gp/product/0132350882/ref=as_li_ss_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=0132350882">Clean Code</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0132350882" style="width: 0; height: 0; display: none; border: none !important;">, but I&#8217;ve got my fingers crossed.</p>
+
+<p>If you&#8217;re interested in accomplishing the same at your work, you might find <a href="/2011/11/28/stop-bitching-write-those-damn-tests/">this recent post</a> of mine of some help.</p>
+
+<p>You should <a href="http://feeds.feedburner.com/TheCodeDump">subscribe</a> to my feed or <a href="http://twitter.com/avivby">follow</a> me on twitter!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/12/30/stop-bitching-it-doesnt-always-take-two-to-pair/">Stop Bitching: It Doesn&#8217;t Always Take Two to Pair</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-30T18:02:55+02:00" pubdate data-updated="true">Dec 30<span>th</span>, 2011</time>
+        
+         | <a href="/2011/12/30/stop-bitching-it-doesnt-always-take-two-to-pair/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Pushing forward with the <a href="/category/autonomouscraftsmanshipcore/">Autonomous Craftsmanship Core series</a>. This week on our plate: How can you force pairing down the throat of your team even if they&#8217;re not really into it?</p>
+
+<p>I&#8217;ve already touched on this subject a few times before, especially since it&#8217;s one I find really important and had to handle a few times before.
+Pair programming feels to me like the best technique currently known to the software industry for making a team highly productive and have global code ownership. It&#8217;s one of those things that didn&#8217;t click right away when reading <a href="http://www.amazon.com/gp/product/0321278658/ref=as_li_tf_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321278658">Extreme Programming Explained</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321278658" style="width: 0; height: 0; display: none; border: none !important;">, but man did I get it wrong.</p>
+
+<p>I&#8217;ve loved pairing from the moment I started doing it and ever since I find it hard doing hard work without a pair by my side. The problem is that most of the software shops around are still not pairing regularly, making it hard for a pairing junky like me to have fun.</p>
+
+<p>So, how can we stop bitching about our team not pairing and actually get shit done with a pair? As opposed to the previous posts on the Autonomous Craftsmanship Core, this is not something one can do alone, and so is a bit harder to work around.</p>
+
+<p>Basically, <strong>not calling it pair programming</strong>. It might be a bit tricky socially, but it&#8217;s worth it. Some real examples:</p>
+
+<h3>Can you help me out?</h3>
+
+<p>If I have a short task (ideally - no more than 30-45 minutes) that I want some help with, I just find someone on my team and ask for some help. Hopefully, you&#8217;re not in a team where asking for help sounds problematic. Then, once you&#8217;re both on your computer and working on the problem - you&#8217;re pairing. That was easy, wasn&#8217;t it? Do it enough times (without looking like an idiot that always needs help) and your mates get acquainted to the idea fast.</p>
+
+<h3>Volunteer to help people</h3>
+
+<p>I love walking around the team and seeing what people are doing. Every once in a while, simply walking by someone and asking how are things going might trigger a &#8220;Take a look at this&#8221; response, and you can help a fellow coder get unstuck. I used to do this even outside of my team. Spending 15 minutes with someone to help him solve a problem and share some knowledge and technique in the meantime is just awesome.</p>
+
+<h3>Review code to be in the loop</h3>
+
+<p>I try and read most of the commits being done to projects I&#8217;m involved with. It has many advantages, and one of them is that I&#8217;m familiar with most of what&#8217;s going on around me. That means I might find little problems, ideas and changes that might help my team. I then just go to the person that made the changes and share my ideas. Sometimes that would drag us both into a short pairing session.</p>
+
+<p>These are basic techniques that I&#8217;ve found helpful several times. Even people that have never heard about pairing start liking it (if they really find you helpful and not annoying, of course). I just love seeing how after a few weeks, people come and ask for help if you&#8217;re not around, and how slowly the idea of doing some tasks together becomes obvious. I don&#8217;t have to have them call it pairing, and it doesn&#8217;t have to be 100% of the time. The bottom line is that good practices stick, even unconsciously.</p>
+
+<p>You should <a href="http://feeds.feedburner.com/TheCodeDump">subscribe</a> to my feed or <a href="http://twitter.com/avivby">follow</a> me on twitter!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/12/18/stop-bitching-use-the-tools-you-want/">Stop Bitching: Use the Tools You Want</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-18T23:52:15+02:00" pubdate data-updated="true">Dec 18<span>th</span>, 2011</time>
+        
+         | <a href="/2011/12/18/stop-bitching-use-the-tools-you-want/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Continuing on the thread of the <a href="/category/autonomouscraftsmanshipcore/">Autonomous Craftsmanship Core</a>, we reach another problem: &#8220;they&#8221; just won&#8217;t let you use the right tool, or in the right way. As I&#8217;ve said in the <a href="/2011/11/12/stop-bitching-the-autonomous-craftsmanship-core/">previous</a> <a href="/2011/11/28/stop-bitching-write-those-damn-tests/">posts</a> if anything is <em>so</em> bad you can&#8217;t work with it - leave; otherwise, you gotta learn how to make do.</p>
+
+<p>A <a href="http://www.amazon.com/gp/product/020161622X/ref=as_li_tf_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=020161622X">pragmatic programmer</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=020161622X" style="width: 0; height: 0; display: none; border: none !important;"> uses the right tool for the job. We all know that if you have a hammer, every problem looks like a nail. In this post I&#8217;m talking about the situation where you have an awesome toolbox right <em>there</em> and yet they&#8217;re forcing you to unscrew something with your pinky&#8217;s nail. Excruciating to your brain.</p>
+
+<p>The thing is, a lot of the times you can just use the right tools and the hell with everyone else. Yes, you can&#8217;t just write code in whatever programming language you want, but in a lot of other situations, you can do what you want to. I think this is best shown with a few examples:</p>
+
+<h3>&#8220;Don&#8217;t commit too much. Say once a day&#8221;</h3>
+
+<p>That&#8217;s a real quote a friend&#8217;s boss told him. Turns out committing multiple times a day is too messy. Most programmers might just sulk and do as they&#8217;re told, but with today&#8217;s technology you&#8217;re no longer bound to these stupid rules. Your team uses subversion? So what! You can use Git locally, do whatever you like, and just push once a day everything via <a href="http://trac.parrot.org/parrot/wiki/git-svn-tutorial">git-svn</a>. Same solutions are available for just about any VCS combination you can think of! I&#8217;ve done this several times working on projects with a VCS I didn&#8217;t want to mess with.</p>
+
+<h3>&#8220;We can&#8217;t have a CI server&#8221;</h3>
+
+<p>Why would someone be against that? Maybe your company doesn&#8217;t want to allocate a new server for such a &#8220;useless&#8221; thing, or maybe the system admins don&#8217;t have time for your little &#8220;developer toys.&#8221; Lucky for everyone, it&#8217;s no longer the case that you need complex setup for such stuff. It&#8217;s just a matter of looking around. For example, if you&#8217;re doing open source you just need to give <a href="http://travis-ci.org/">Travis</a> a look and see you&#8217;re suddenly all set. On the other hand if you&#8217;re code isn&#8217;t open sourced setting up a local <a href="http://jenkins-ci.org/">Jenkins</a> server is <em>so so</em> easy. You just double click a file and you&#8217;ve got it running. If your build isn&#8217;t too CPU hogging, you can run it on your box! And I&#8217;m almost certain you can find some server with some spare cycles to install it on.</p>
+
+<h3>Autonomous Craftsmen Make Do</h3>
+
+<p><img src="/images/posts_images/macgyver.jpg" width="300" height="200"></p>
+
+<p>That sums it up. A craftsman&#8217;s gotta do what a craftsman&#8217;s gotta do.</p>
+
+<p>You should <a href="http://feeds.feedburner.com/TheCodeDump">subscribe</a> to my feed and <a href="http://twitter.com/avivby">follow</a> me on twitter!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/12/10/your-brain-cares-about-code-style/">Your Brain Cares About Code Style</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-10T20:38:18+02:00" pubdate data-updated="true">Dec 10<span>th</span>, 2011</time>
+        
+         | <a href="/2011/12/10/your-brain-cares-about-code-style/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>My first team had (among many other great attributes) the custom of strictly following a style guide. It was followed so religiously, I&#8217;ve yet to come across another place that does so to the same extent. It wasn&#8217;t really written down anywhere, but after a couple of weeks of pairing with the other guys you got it.</p>
+
+<p>What does that mean exactly? It means that we wrote code that looked, to a large extent, like it was written like the same guy. We put 2 blank lines between regions. Members had a specific way of documenting. We even used the same idioms for creating empty lists etc. (Java).</p>
+
+<p>If we paired with someone and saw him indent the code the wrong way, we&#8217;d go all <em>OCD until it was fixed</em>. And it was regarded totally OK. We didn&#8217;t feel like we were nitpicking on each other. It was the way things got done. I even know a guy that would notice extra whitespace at the end of lines (without any IDE help).</p>
+
+<p>Ever since, whenever I see code written with careless indentation and whitespace I feel like the coder who wrote that just doesn&#8217;t care enough for the craft. Yes, <strong>No Whitespace - No Care</strong>!</p>
+
+<h3>What&#8217;s the big deal?</h3>
+
+<p>If code isn&#8217;t written in a consistent style in your team, whenever you come across code with the spacing a bit wrong, the first thing your head&#8217;s going to process is &#8221;<strong>I didn&#8217;t write this.</strong>&#8221; This is a natural feeling, and as we all know coders have a hard to restrain impulse to rewrite any piece of code they didn&#8217;t write. Once all the code looks the same, that feeling isn&#8217;t that hard and you can actually focus on the code itself and have a better sense of ownership. I know, it sounds stupid, but that&#8217;s the way our stupid minds work in.</p>
+
+<p>A big part of the <a href="http://www.amazon.com/gp/product/0321278658/ref=as_li_tf_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321278658">Extreme Programming</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321278658" style="width: 0; height: 0; display: none; border: none !important;"> principle Collective Code Ownership is obtained by simply keeping a consistent style. Anything important enough to become a core value of the only methodology that works must be worth the effort to take notice of.</p>
+
+<p>The next time you see code with reckless spacing, change it and let your teammates know. It might be hard at first but the end goal is important - the ability to fluidly read code, without feeling like you&#8217;re wearing someone else&#8217;s shoes.</p>
+
+<p>You should subscribe to my <a href="http://feeds.feedburner.com/TheCodeDump">blog</a> and follow me on <a href="http://twitter.com/avivby">twitter</a>!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/11/30/how-i-moved-my-wordpress-blog-from-dreamhost-to-a-free-ec2-instance/">How I Moved My WordPress Blog from Dreamhost to a Free EC2 Instance</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-30T23:23:43+02:00" pubdate data-updated="true">Nov 30<span>th</span>, 2011</time>
+        
+         | <a href="/2011/11/30/how-i-moved-my-wordpress-blog-from-dreamhost-to-a-free-ec2-instance/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Just recently my Dreamhost plan, the one this blog is hosted on, expired and I had to renew it. Seeing the amount of money they took charge me realize that surely I can find something cheaper than >$10/month. After some snooping around I&#8217;ve settled on moving my WordPress blog to EC2. This is my story.</p>
+
+<p><em>Disclaimer: this worked for me. If you lose your blog, too bad. Backup is your friend, my friend. You need some devops-chops to follow along.</em></p>
+
+<p>After being tipped of by a couple of friends, I decided to look into setting up my site on EC2. Basically, my blog is really small (the WordPress export file is about 2MB), and it&#8217;s not like I get tons of traffic. That alone means that for a year now I can use the EC2 free tier, making this blog cost pretty much nothing.</p>
+
+<h3>Initial setup</h3>
+
+<p>First step was to register and AWS account. I created a micro instance, which is enough for most blogs and free for a year. The AMI (image) of the instance I used was Bitnami&#8217;s prebundled WordPress image, which you can read more about <a href="http://bitnami.org/stack/wordpress">here</a>. Do make sure to create your instance on an EBS and not instance store. That means that the data will be persistent. Change the instance&#8217;s security group to allow connections to port 80 (HTTP) and port 22 (SSH) from any IP.</p>
+
+<p>You can assign a static IP to your instance for free! Just allocate a new Elastic IP on the EC2 console and attach it to your instance. Note that Elastic IPs cost nothing while attached, by if they aren&#8217;t attached your bill will start growing (after all, fresh IPs are a rare resource).</p>
+
+<p>So you&#8217;ve got your instance up, eh? You can point your browser to your instance&#8217;s public DNS name, like so http://ec2-something-something.com/wordpress and see the default WordPress hello page. Go to /wordpress/wp-admin to login as admin (the default bitnami user/password are user/bitnami). Here you can start and setup your blog again.</p>
+
+<h3>Importing</h3>
+
+<p>On your original blog, you can use the export utility and then import all your posts and comments to the new machine. Easy as pie. If you have a lot of plugins and configurations, you might want to search for one of the many plugins that do that for you. If you&#8217;re like me and only have a couple of plugins and one theme, installing them manually takes about 3 minutes.</p>
+
+<h3>Moving WordPress to the root of the site</h3>
+
+<p>If you&#8217;d like to move WordPress to the root of your site (/ instead of /wordpress), remove the path from the General settings page and then SSH to the machine. Replace the first two lines of the file /opt/bitnami/apps/wordpress/conf/wordpress.conf with:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='apache'><span class='line'><span class="nb">Alias</span> / <span class="s2">&quot;/opt/bitnami/apps/wordpress/htdocs/&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then, go to /opt/bitnami/apache2 and do:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo ./bin/apachectl restart
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Gotchas</h3>
+
+<p>Got permalinks? You&#8217;ll need to:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>chmod g+rw /opt/bitnami/apps/wordpress/htdocs/.htaccess
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Want to receive email notification for new comments etc.? You&#8217;ll need to do:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo apt-get install sendmail <span class="o">&amp;&amp;</span> sudo ln -s /usr/sbin/sendmail /usr/bin/sendmail
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you have attachments in any of your posts, you might need to fix the URL after the final move.</p>
+
+<h3>Testing</h3>
+
+<p>Make sure all your links, widgets etc. are working before making the final move. Post something, add a comment.</p>
+
+<h3>Going live</h3>
+
+<p>In the General settings panel, change the URL of the blog to your domain. Go to wherever you were hosted before, find the DNS panel and change the DNS entries for your blog. Danger: This is an &#8220;expert&#8221; step, and if you don&#8217;t know what it means, I recommend grabbing someone with more knowledge. Change the A records for your domain to point at the elastic IP you gave your instance. That&#8217;s it! Wait a bit for DNS propagation and everything should be working!</p>
+
+<h3>Backups</h3>
+
+<p>I found out about the <a href="http://wordpress.org/extend/plugins/wordpress-backup-to-dropbox/">backup to dropbox plugin</a>, which simply uploads all your blog to dropbox! Sweet, awesome and easy for small blogs!</p>
+
+<h3>Costs</h3>
+
+<p>So, using 1 micro instance with an EBS store of 10GB is free for the first year. Given nothing crazy in terms of network, you shouldn&#8217;t be paying at all for the first year, maybe about $1 a month. After that year passes, the instace and EBS store start kicking in. If you&#8217;re in it for the long run, like me, paying for the instance a year in advance costs about $9/month (3 years is like $7), and the EBS store costs $0.1 per GB, meaning $1. That&#8217;s about $10-$8/month, depending on how you pay for the instance. A great save compared to Dreamhost!</p>
+
+<p>You should <a href="http://feeds.feedburner.com/TheCodeDump">susbcribe</a> to my feed and <a href="http://twitter.com/avivby">follow</a> me on twitter!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/page/2/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Aviv Ben-Yosef</h1>
+  <img src="https://api.twitter.com/1/users/profile_image?screen_name=avivby&amp;size=original" width="128" height="128" style="height: 128px; width: 128px; border-radius: 6px">
+  <p>An aspiring software craftsman and a happy hacker. More <a href="/about">about me</a>.</p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2012/03/07/slides-from-the-how-billguard-does-mongodb-talk/">Slides from the &#8220;How BillGuard does MongoDB&#8221; Talk</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/03/01/notes-from-the-agile-practitioners-2012-improving-your-tdd-workshop/">Notes from the Agile Practitioners 2012 Improving Your TDD Workshop</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/28/notes-from-the-israeli-software-craftsmanship-group-code-retreat/">Notes from the Israeli Software Craftsmanship Group Code Retreat</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/04/extend-your-toolbox-custom-matchers/">Extend Your Toolbox: Custom Matchers</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/01/28/stop-bitching-do-self-agile/">Stop Bitching: Do Self-Agile</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("avivby", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/avivby" class="twitter-follow-button" data-show-count="false">Follow @avivby</a>
+  
+</section>
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Aviv Ben-Yosef -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'codelord';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

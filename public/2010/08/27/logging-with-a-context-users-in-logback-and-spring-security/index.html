@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Logging with a Context: Users in Logback and Spring Security - The Code Dump</title>
+  <meta name="author" content="Aviv Ben-Yosef">
+
+  
+  <meta name="description" content="During this hectic time of starting an amazing adventure we find that along many of the big and important challenges we have there is an endless &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.codelord.net/2010/08/27/logging-with-a-context-users-in-logback-and-spring-security">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/TheCodeDump" rel="alternate" title="The Code Dump" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7925779-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">The Code Dump</a></h1>
+  
+    <h2>A place a coder rants at...</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/TheCodeDump" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.codelord.net" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Logging with a Context: Users in Logback and Spring Security</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-08-27T19:14:17+03:00" pubdate data-updated="true">Aug 27<span>th</span>, 2010</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>During this hectic time of starting an amazing adventure we find that along many of the big and important challenges we have there is an endless stream of small technical problems that solving poorly means a lot of time will go to waste.</p>
+
+<p>One of these is proper logging in a way that will allow you see what your users are doing properly. Pretty quickly we came to the conclusion we want each log message to contain information about the user&#8217;s context, so we could easily understand what went wrong when a user tells us about it, and be able to track usage patterns.</p>
+
+<p>The simplest thing we thought of was creating our own logger wrapper to insert our special values, but didn&#8217;t like the idea of having to write our own logging interface all over again. We&#8217;re using Logback and Spring Security, and after some googling and stackoverflowing I&#8217;ve found this solution:</p>
+
+<p>We create simple Converters to insert the username and session ID to the logs, if present:</p>
+
+<div><script src='https://gist.github.com/553724.js?file=SessionConverter.java'></script>
+<noscript><pre><code>public class SessionConverter extends ClassicConverter {
+    @Override
+    public String convert(ILoggingEvent event) {
+        RequestAttributes attrs = RequestContextHolder.getRequestAttributes();
+        if (attrs != null) {
+            return attrs.getSessionId();
+        }
+        return &quot;NO_SESSION&quot;;
+    }
+}</code></pre></noscript></div>
+
+
+
+
+<div><script src='https://gist.github.com/553724.js?file=UserConverter.java'></script>
+<noscript><pre><code>public class UserConverter extends ClassicConverter {
+    @Override
+    public String convert(ILoggingEvent event) {
+       Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+       if (auth != null) {
+            return auth.getName();
+       }
+       return &quot;NO_USER&quot;;
+    }
+}</code></pre></noscript></div>
+
+
+<p>To make logback know where to find these converters, we add this little guy:</p>
+
+<div><script src='https://gist.github.com/553731.js?file='></script>
+<noscript><pre><code>public class PatternLayoutWithUserContext extends PatternLayout {
+    static {
+        PatternLayout.defaultConverterMap.put(
+            &quot;user&quot;, UserConverter.class.getName());
+        PatternLayout.defaultConverterMap.put(
+            &quot;session&quot;, SessionConverter.class.getName());
+    }
+}</code></pre></noscript></div>
+
+
+<p>And now all that&#8217;s left are configuration changes. Make your pattern contain our cool new keys (&#8220;%user&#8221; and &#8220;%session&#8221;):</p>
+
+<div><script src='https://gist.github.com/553738.js?file='></script>
+<noscript><pre><code>&lt;appender name=&quot;console&quot; class=&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;
+    &lt;encoder name=&quot;enc&quot; class=&quot;ch.qos.logback.core.encoder.LayoutWrappingEncoder&quot;&gt;
+        &lt;layout class=&quot;com.crowdspot.logging.PatternLayoutWithUserContext&quot;&gt;
+            &lt;param name=&quot;Pattern&quot; value=&quot;%d{HH:mm:ss.SSS} %-5level %logger{10} [%user %session] - %msg%n&quot; /&gt;
+        &lt;/layout&gt;
+    &lt;/encoder&gt;
+&lt;/appender&gt;</code></pre></noscript></div>
+
+
+<p>And this last part is needed for the session context thingie to work (as I was instructed on <a href="http://stackoverflow.com/questions/3542026/retrieving-session-id-with-spring-security">Stack Overflow</a>). We need to add a certain listener to our web.xml:</p>
+
+<div><script src='https://gist.github.com/553742.js?file='></script>
+<noscript><pre><code>&lt;listener&gt;
+    &lt;listener-class&gt;org.springframework.web.context.request.RequestContextListener&lt;/listener-class&gt;
+&lt;/listener&gt;</code></pre></noscript></div>
+
+
+<p>And that&#8217;s about it. Happy logging!</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Aviv Ben-Yosef</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-08-27T19:14:17+03:00" pubdate data-updated="true">Aug 27<span>th</span>, 2010</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/category/programming/'>Programming</a>, <a class='category' href='/category/techie/'>techie</a>
+    
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.codelord.net/2010/08/27/logging-with-a-context-users-in-logback-and-spring-security/" data-via="avivby" data-counturl="http://www.codelord.net/2010/08/27/logging-with-a-context-users-in-logback-and-spring-security/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2010/08/20/unleashing-your-enthusiasm-grunts-making-a-change/" title="Previous Post: Unleashing Your Enthusiasm: Grunts Making a Change">&laquo; Unleashing Your Enthusiasm: Grunts Making a Change</a>
+      
+      
+        <a class="basic-alignment right" href="/2010/09/30/pairing-for-a-better-future-grunts-making-a-change/" title="Next Post: Pairing for a Better Future: Grunts Making a Change">Pairing for a Better Future: Grunts Making a Change &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Aviv Ben-Yosef</h1>
+  <img src="https://api.twitter.com/1/users/profile_image?screen_name=avivby&amp;size=original" width="128" height="128" style="height: 128px; width: 128px; border-radius: 6px">
+  <p>An aspiring software craftsman and a happy hacker. More <a href="/about">about me</a>.</p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2012/03/07/slides-from-the-how-billguard-does-mongodb-talk/">Slides from the "How BillGuard does MongoDB" Talk</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/03/01/notes-from-the-agile-practitioners-2012-improving-your-tdd-workshop/">Notes from the Agile Practitioners 2012 Improving Your TDD Workshop</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/28/notes-from-the-israeli-software-craftsmanship-group-code-retreat/">Notes from the Israeli Software Craftsmanship Group Code Retreat</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/04/extend-your-toolbox-custom-matchers/">Extend Your Toolbox: Custom Matchers</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/01/28/stop-bitching-do-self-agile/">Stop Bitching: Do Self-Agile</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("avivby", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/avivby" class="twitter-follow-button" data-show-count="false">Follow @avivby</a>
+  
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Aviv Ben-Yosef -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'codelord';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.codelord.net/2010/08/27/logging-with-a-context-users-in-logback-and-spring-security/';
+        var disqus_url = 'http://www.codelord.net/2010/08/27/logging-with-a-context-users-in-logback-and-spring-security/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

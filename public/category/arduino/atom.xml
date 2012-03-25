@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: arduino | The Code Dump]]></title>
+  <link href="http://www.codelord.net/category/arduino/atom.xml" rel="self"/>
+  <link href="http://www.codelord.net/"/>
+  <updated>2012-03-25T20:33:29+02:00</updated>
+  <id>http://www.codelord.net/</id>
+  <author>
+    <name><![CDATA[Aviv Ben-Yosef]]></name>
+    <email><![CDATA[aviv.by+blog@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[So You Got an Arduino]]></title>
+    <link href="http://www.codelord.net/2009/05/14/so-you-got-an-arduino/"/>
+    <updated>2009-05-14T23:19:47+03:00</updated>
+    <id>http://www.codelord.net/2009/05/14/so-you-got-an-arduino</id>
+    <content type="html"><![CDATA[<p>After playing around a bit with my new Arduino, I've gathered a list of a few things that I wish I knew when I started, as it would have saved some of my time. Hope it helps someone. Happy hacking!</p>
+
+<h4>There's a builtin LED</h4>
+
+<p>This one I didn't get right away. There's a reason most of the examples in the tutorial sections refer to LEDs on pin 13 - there's a small LED on the Duemilanove that's already connected to that pin. It shines in orange (just like the TX/RX LEDs) if you write to that pin, but, of course, one can connect something else to that pin to use it.</p>
+
+<h4>That little button is the RESET button</h4>
+
+<p>This one might just be me being an idiot. I thought that little push button was a general purpose one. Well it's not. It's a reset button - whenever it gets pressed it resets the sketch running to the start. Boy, did I spend a lot of time pressing it and trying to debug my code til I figured it out...</p>
+
+<h4>There are builtin "software" pull-up resistors</h4>
+
+<p>Once you get you should connect a push-button, you might notice that every tutorial says you should use a pull-up resistor. Well, it turns out you can simply use a software one on the Arduino, and there's no need to conenct one. After setting up the push-button pin as input:</p>
+
+<pre><code>pinMode(buttonPin, INPUT);
+</code></pre>
+
+<p>Simply tell the Arduino you need a pull-up resistor connected to it:</p>
+
+<pre><code>digitalWrite(buttonPin, HIGH);
+</code></pre>
+
+<p>For more information, read <a href="http://www.arduino.cc/en/Tutorial/DigitalPins">here</a>.</p>
+
+<h4>The "Serial" library doesn't really require a serial connection</h4>
+
+<p>Even though Duemilanoves and other new Arduino-boards only have a USB connection, it turns out that the Serial library can still be used. Whatever you write using it shows up in the Serial Monitor in the development IDE and you can send data to the Arduino using it too!</p>
+
+<p>You should follow me on twitter <a href="http://twitter.com/avivby">here</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[My "Hello, Arduino"]]></title>
+    <link href="http://www.codelord.net/2009/05/14/my-hello-arduino/"/>
+    <updated>2009-05-14T00:01:24+03:00</updated>
+    <id>http://www.codelord.net/2009/05/14/my-hello-arduino</id>
+    <content type="html"><![CDATA[<p>I ordered an <a href="http://www.arduino.cc/en/Main/ArduinoBoardDuemilanove">Arduino Duemilanove</a> a few months ago, and other than simply testing it to see that it starts up I haven't touched it. It's been lying on my desk, making me feel guilty every time I saw it.</p>
+
+<p>Today, having a few spare hours and because I just finished reading "Programming Embedded Systems", I decided it was time to finally do something with it.</p>
+
+<p>I spent ~3 hours soldering the Proto-Shield that came with it. It was the first time I ever did any soldering and I think it turned out OK, after some help from Dad.</p>
+
+<p>Then, I made a simple 'Hello, World' application that changes LEDs according to a button press. What can I say, the amount of satisfaction from such a simple thing is so big! Maybe, it has to do with the fact that as a software developer, I rarely do things that have a physical effect.</p>
+
+<p>You should follow me on twitter <a href="http://twitter.com/avivby">here</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>ANTLRv3 Integration with Eclipse - The Code Dump</title>
+  <meta name="author" content="Aviv Ben-Yosef">
+
+  
+  <meta name="description" content="I&#8217;ve been working on a pet project of mine, junit-converter, recently. It&#8217;s intended to help people migrate from JUnit 3 to JUnit 4, by &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.codelord.net/2008/06/20/antlrv3-integration-with-eclipse">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/TheCodeDump" rel="alternate" title="The Code Dump" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7925779-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">The Code Dump</a></h1>
+  
+    <h2>A place a coder rants at...</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/TheCodeDump" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.codelord.net" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">ANTLRv3 Integration with Eclipse</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-06-20T13:49:15+03:00" pubdate data-updated="true">Jun 20<span>th</span>, 2008</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I&#8217;ve been working on a pet project of mine, <a href="http://junit-converter.sf.net">junit-converter</a>, recently. It&#8217;s intended to help people migrate from JUnit 3 to JUnit 4, by adding required annotations and such, but it&#8217;s far from perfect. junit-converter is based on TestNG&#8217;s converter that uses Java&#8217;s Doclet.</p>
+
+<p>For those who aren&#8217;t familiar with it, Doclet is something that allows you to process annotations added to javadoc comments and things like that, and it has some code-parsing capabilities that are being used in the TestNG converter.</p>
+
+<p>Now, almost a year after publishing the first junit-converter version that&#8217;s based on the Doclet processing I&#8217;ve come to the decision that there has to be a better way for doing this. I&#8217;ve considered many options that I will write about some other time, but have finally come to the result that <a href="http://www.antlr.org">Antlr</a> seems like the best candidate out there.</p>
+
+<p>I&#8217;ve been using it for a few weeks now and had some difficulties getting it to work pragmatically with eclipse. The main problem with antlr (and anything else that generates code automatically) is that eclipse isn&#8217;t aware of the changes and because of that doesn&#8217;t compile the right files etc&#8217;. At the beginning I used to manually run the antlr compiler after every change I&#8217;ve made to the grammar and then refresh the files that were generated in eclipse. This of course was really annoying.</p>
+
+<p>Later, I created an ANT build.xml file that parses the grammar only when needed and ran it manually, which was a bit simpler, but still no winner there.</p>
+
+<p>Then, at last, I came up with the most comfortable configuration so far. I&#8217;ve added to my project another builder (under build preferences), an ant builder. It used my build.xml file and I configured eclipse to build using it every time I save (just like it does with its builtin compiler). After making a few tweaks so it won&#8217;t compile unless needed it was pretty fast and not annoying (considering the grammar isn&#8217;t where the majority of the changes are anyway).</p>
+
+<p>So, just in case someone else wants an already ready build.xml file for this purpose I&#8217;m attaching mine. Notice that I&#8217;m running antlr using the ant execute task as the built-in task in ant doesn&#8217;t support antlr 3 and I didn&#8217;t want to add another dependency to my code for the published task on antlr&#8217;s site.</p>
+
+<p>I hope this helps someone, and if anyone has a better way of doing this I&#8217;d like to hear about it!</p>
+
+<div><script src='https://gist.github.com/2182506.js?file='></script>
+<noscript><pre><code>&lt;target name=&quot;compile&quot; depends=&quot;compile-grammar&quot;&gt;
+    &lt;javac srcdir=&quot;${src}&quot; destdir=&quot;${build}&quot;&gt;
+        &lt;classpath refid=&quot;classpath.base&quot;/&gt;
+    &lt;/javac&gt;
+&lt;/target&gt;
+
+&lt;target name=&quot;compile-grammar&quot; depends=&quot;-check_grammar_needs_compile&quot;
+        if=&quot;grammarBuildRequired&quot;&gt;
+    &lt;java classname=&quot;org.antlr.Tool&quot; failonerror=&quot;true&quot;&gt;
+        &lt;arg value=&quot;${grammar-file}&quot;/&gt;
+        &lt;classpath refid=&quot;classpath.antlr&quot;/&gt;
+    &lt;/java&gt;
+&lt;/target&gt;
+
+&lt;target name=&quot;-check_grammar_needs_compile&quot;&gt;
+    &lt;uptodate property=&quot;grammarBuildRequired&quot; targetfile=&quot;${grammar-file}&quot;
+        srcfile=&quot;${grammar-java-file}&quot;/&gt;
+&lt;/target&gt;</code></pre></noscript></div>
+
+
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Aviv Ben-Yosef</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-06-20T13:49:15+03:00" pubdate data-updated="true">Jun 20<span>th</span>, 2008</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.codelord.net/2008/06/20/antlrv3-integration-with-eclipse/" data-via="avivby" data-counturl="http://www.codelord.net/2008/06/20/antlrv3-integration-with-eclipse/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2008/05/06/multiple-threads-testing-idioms-in-java/" title="Previous Post: Multiple Threads Testing Idioms In Java">&laquo; Multiple Threads Testing Idioms In Java</a>
+      
+      
+        <a class="basic-alignment right" href="/2008/07/09/dont-write-voodoo-code/" title="Next Post: Don't Write Voodoo Code!">Don't Write Voodoo Code! &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Aviv Ben-Yosef</h1>
+  <img src="https://api.twitter.com/1/users/profile_image?screen_name=avivby&amp;size=original" width="128" height="128" style="height: 128px; width: 128px; border-radius: 6px">
+  <p>An aspiring software craftsman and a happy hacker. More <a href="/about">about me</a>.</p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2012/03/07/slides-from-the-how-billguard-does-mongodb-talk/">Slides from the "How BillGuard does MongoDB" Talk</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/03/01/notes-from-the-agile-practitioners-2012-improving-your-tdd-workshop/">Notes from the Agile Practitioners 2012 Improving Your TDD Workshop</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/28/notes-from-the-israeli-software-craftsmanship-group-code-retreat/">Notes from the Israeli Software Craftsmanship Group Code Retreat</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/04/extend-your-toolbox-custom-matchers/">Extend Your Toolbox: Custom Matchers</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/01/28/stop-bitching-do-self-agile/">Stop Bitching: Do Self-Agile</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("avivby", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/avivby" class="twitter-follow-button" data-show-count="false">Follow @avivby</a>
+  
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Aviv Ben-Yosef -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'codelord';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.codelord.net/2008/06/20/antlrv3-integration-with-eclipse/';
+        var disqus_url = 'http://www.codelord.net/2008/06/20/antlrv3-integration-with-eclipse/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

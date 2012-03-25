@@ -1,0 +1,319 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Serializer Kata: Practicing DRY - The Code Dump</title>
+  <meta name="author" content="Aviv Ben-Yosef">
+
+  
+  <meta name="description" content="This kata is intended to help one practice the DRY principle (Don&#8217;t Repeat Yourself). You can read more about DRY here. A few notes: After &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.codelord.net/2010/12/11/serializer-kata-practicing-dry">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/TheCodeDump" rel="alternate" title="The Code Dump" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7925779-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">The Code Dump</a></h1>
+  
+    <h2>A place a coder rants at...</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/TheCodeDump" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.codelord.net" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Serializer Kata: Practicing DRY</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-12-11T19:46:14+02:00" pubdate data-updated="true">Dec 11<span>th</span>, 2010</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This kata is intended to help one practice the DRY principle (Don&#8217;t Repeat Yourself). You can read more about DRY <a href="/category/dry/">here</a>.</p>
+
+<p>A few notes:</p>
+
+<ul>
+<li>After completing a step in the Kata and before moving on to the next, take the time to make sure your code&#8217;s duplication ≤ 0</li>
+<li>For the sake of focus, you may ignore matters of character escaping, encoding, error handling, object graph cycles and the likes</li>
+<li>Our focus is on <strong>reducing duplication</strong>, it is <strong>not finishing</strong> the kata</li>
+</ul>
+
+
+<p>In this Kata, our goal is to implement 2 simple object serializers. One serializer is to <a href="http://en.wikipedia.org/wiki/XML">XML</a>, the other is to <a href="http://en.wikipedia.org/wiki/JSON">JSON</a>.</p>
+
+<ol>
+<li>Support serializing  a class without any members
+
+<ol>
+<li>To XML: EmptyClass -> &lt;EmptyClass&gt;&lt;/EmptyClass&gt;</li>
+<li>To JSON: EmptyClass -> {}</li>
+</ol>
+</li>
+<li>Add support for serializing a class&#8217; integer members
+
+<ol>
+<li>To XML: IntClass(a=1, b=2) -> &lt;IntClass&gt;&lt;a&gt;1&lt;/a&gt;&lt;b&gt;2&lt;/b&gt;&lt;/IntClass&gt;</li>
+<li>To JSON: IntClass(a=1, b=2) -> { &#8220;a&#8221;: 1, &#8220;b&#8221;: 2 }</li>
+</ol>
+</li>
+<li>Add support for serializing a class&#8217; string members
+
+<ol>
+<li>To XML: StrClass(a=&#8221;first&#8221;, b=&#8221;second&#8221;) -> &lt;StrClass&gt;&lt;a&gt;first&lt;/a&gt;&lt;b&gt;second&lt;/b&gt;&lt;/StrClass&gt;</li>
+<li>To JSON: StrClass(a=&#8221;first&#8221;, b=&#8221;second&#8221;) -> { &#8220;a&#8221;: &#8220;first&#8221;, &#8220;b&#8221;: &#8220;second&#8221; }</li>
+</ol>
+</li>
+<li>Add support for serializing a class&#8217; other class members
+
+<ol>
+<li>To XML: CompositeClass(inner=(a=1)) -> &lt;CompositeClass&gt;&lt;inner&gt;&lt;a&gt;1&lt;/a&gt;&lt;/inner&gt;&lt;/CompositeClass&gt;</li>
+<li>To JSON: CompositeClass(inner=(a=1)) -> { &#8220;inner&#8221;: { &#8220;a&#8221;: 1 } }</li>
+</ol>
+</li>
+</ol>
+
+
+<p>If you found this interesting subscribe to my <a href="http://feeds.feedburner.com/TheCodeDump">feed</a> and follow me on <a href="http://twitter.com/avivby">twitter</a>!</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Aviv Ben-Yosef</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-12-11T19:46:14+02:00" pubdate data-updated="true">Dec 11<span>th</span>, 2010</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/category/programming/'>Programming</a>, <a class='category' href='/category/scil/'>SCIL</a>, <a class='category' href='/category/clean-code/'>clean code</a>, <a class='category' href='/category/software-craftsmanship/'>software craftsmanship</a>
+    
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.codelord.net/2010/12/11/serializer-kata-practicing-dry/" data-via="avivby" data-counturl="http://www.codelord.net/2010/12/11/serializer-kata-practicing-dry/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2010/11/24/liskov-substitution-principle-violation-spotted-in-the-wild/" title="Previous Post: Liskov Substitution Principle Violation Spotted in the Wild">&laquo; Liskov Substitution Principle Violation Spotted in the Wild</a>
+      
+      
+        <a class="basic-alignment right" href="/2010/12/17/notes-from-the-5th-israeli-software-craftsmanship-meeting/" title="Next Post: Notes from the 5th Israeli Software Craftsmanship Meeting">Notes from the 5th Israeli Software Craftsmanship Meeting &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Aviv Ben-Yosef</h1>
+  <img src="https://api.twitter.com/1/users/profile_image?screen_name=avivby&amp;size=original" width="128" height="128" style="height: 128px; width: 128px; border-radius: 6px">
+  <p>An aspiring software craftsman and a happy hacker. More <a href="/about">about me</a>.</p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2012/03/07/slides-from-the-how-billguard-does-mongodb-talk/">Slides from the "How BillGuard does MongoDB" Talk</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/03/01/notes-from-the-agile-practitioners-2012-improving-your-tdd-workshop/">Notes from the Agile Practitioners 2012 Improving Your TDD Workshop</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/28/notes-from-the-israeli-software-craftsmanship-group-code-retreat/">Notes from the Israeli Software Craftsmanship Group Code Retreat</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/04/extend-your-toolbox-custom-matchers/">Extend Your Toolbox: Custom Matchers</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/01/28/stop-bitching-do-self-agile/">Stop Bitching: Do Self-Agile</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("avivby", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/avivby" class="twitter-follow-button" data-show-count="false">Follow @avivby</a>
+  
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Aviv Ben-Yosef -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'codelord';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.codelord.net/2010/12/11/serializer-kata-practicing-dry/';
+        var disqus_url = 'http://www.codelord.net/2010/12/11/serializer-kata-practicing-dry/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

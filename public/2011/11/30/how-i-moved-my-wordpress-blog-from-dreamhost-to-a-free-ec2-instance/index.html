@@ -1,0 +1,342 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>How I Moved My WordPress Blog from Dreamhost to a Free EC2 Instance - The Code Dump</title>
+  <meta name="author" content="Aviv Ben-Yosef">
+
+  
+  <meta name="description" content="Just recently my Dreamhost plan, the one this blog is hosted on, expired and I had to renew it. Seeing the amount of money they took charge me &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.codelord.net/2011/11/30/how-i-moved-my-wordpress-blog-from-dreamhost-to-a-free-ec2-instance">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/TheCodeDump" rel="alternate" title="The Code Dump" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7925779-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">The Code Dump</a></h1>
+  
+    <h2>A place a coder rants at...</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/TheCodeDump" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.codelord.net" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">How I Moved My WordPress Blog from Dreamhost to a Free EC2 Instance</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-30T23:23:43+02:00" pubdate data-updated="true">Nov 30<span>th</span>, 2011</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Just recently my Dreamhost plan, the one this blog is hosted on, expired and I had to renew it. Seeing the amount of money they took charge me realize that surely I can find something cheaper than >$10/month. After some snooping around I&#8217;ve settled on moving my WordPress blog to EC2. This is my story.</p>
+
+<p><em>Disclaimer: this worked for me. If you lose your blog, too bad. Backup is your friend, my friend. You need some devops-chops to follow along.</em></p>
+
+<p>After being tipped of by a couple of friends, I decided to look into setting up my site on EC2. Basically, my blog is really small (the WordPress export file is about 2MB), and it&#8217;s not like I get tons of traffic. That alone means that for a year now I can use the EC2 free tier, making this blog cost pretty much nothing.</p>
+
+<h3>Initial setup</h3>
+
+<p>First step was to register and AWS account. I created a micro instance, which is enough for most blogs and free for a year. The AMI (image) of the instance I used was Bitnami&#8217;s prebundled WordPress image, which you can read more about <a href="http://bitnami.org/stack/wordpress">here</a>. Do make sure to create your instance on an EBS and not instance store. That means that the data will be persistent. Change the instance&#8217;s security group to allow connections to port 80 (HTTP) and port 22 (SSH) from any IP.</p>
+
+<p>You can assign a static IP to your instance for free! Just allocate a new Elastic IP on the EC2 console and attach it to your instance. Note that Elastic IPs cost nothing while attached, by if they aren&#8217;t attached your bill will start growing (after all, fresh IPs are a rare resource).</p>
+
+<p>So you&#8217;ve got your instance up, eh? You can point your browser to your instance&#8217;s public DNS name, like so http://ec2-something-something.com/wordpress and see the default WordPress hello page. Go to /wordpress/wp-admin to login as admin (the default bitnami user/password are user/bitnami). Here you can start and setup your blog again.</p>
+
+<h3>Importing</h3>
+
+<p>On your original blog, you can use the export utility and then import all your posts and comments to the new machine. Easy as pie. If you have a lot of plugins and configurations, you might want to search for one of the many plugins that do that for you. If you&#8217;re like me and only have a couple of plugins and one theme, installing them manually takes about 3 minutes.</p>
+
+<h3>Moving WordPress to the root of the site</h3>
+
+<p>If you&#8217;d like to move WordPress to the root of your site (/ instead of /wordpress), remove the path from the General settings page and then SSH to the machine. Replace the first two lines of the file /opt/bitnami/apps/wordpress/conf/wordpress.conf with:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='apache'><span class='line'><span class="nb">Alias</span> / <span class="s2">&quot;/opt/bitnami/apps/wordpress/htdocs/&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then, go to /opt/bitnami/apache2 and do:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo ./bin/apachectl restart
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Gotchas</h3>
+
+<p>Got permalinks? You&#8217;ll need to:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>chmod g+rw /opt/bitnami/apps/wordpress/htdocs/.htaccess
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Want to receive email notification for new comments etc.? You&#8217;ll need to do:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo apt-get install sendmail <span class="o">&amp;&amp;</span> sudo ln -s /usr/sbin/sendmail /usr/bin/sendmail
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you have attachments in any of your posts, you might need to fix the URL after the final move.</p>
+
+<h3>Testing</h3>
+
+<p>Make sure all your links, widgets etc. are working before making the final move. Post something, add a comment.</p>
+
+<h3>Going live</h3>
+
+<p>In the General settings panel, change the URL of the blog to your domain. Go to wherever you were hosted before, find the DNS panel and change the DNS entries for your blog. Danger: This is an &#8220;expert&#8221; step, and if you don&#8217;t know what it means, I recommend grabbing someone with more knowledge. Change the A records for your domain to point at the elastic IP you gave your instance. That&#8217;s it! Wait a bit for DNS propagation and everything should be working!</p>
+
+<h3>Backups</h3>
+
+<p>I found out about the <a href="http://wordpress.org/extend/plugins/wordpress-backup-to-dropbox/">backup to dropbox plugin</a>, which simply uploads all your blog to dropbox! Sweet, awesome and easy for small blogs!</p>
+
+<h3>Costs</h3>
+
+<p>So, using 1 micro instance with an EBS store of 10GB is free for the first year. Given nothing crazy in terms of network, you shouldn&#8217;t be paying at all for the first year, maybe about $1 a month. After that year passes, the instace and EBS store start kicking in. If you&#8217;re in it for the long run, like me, paying for the instance a year in advance costs about $9/month (3 years is like $7), and the EBS store costs $0.1 per GB, meaning $1. That&#8217;s about $10-$8/month, depending on how you pay for the instance. A great save compared to Dreamhost!</p>
+
+<p>You should <a href="http://feeds.feedburner.com/TheCodeDump">susbcribe</a> to my feed and <a href="http://twitter.com/avivby">follow</a> me on twitter!</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Aviv Ben-Yosef</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-30T23:23:43+02:00" pubdate data-updated="true">Nov 30<span>th</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/category/devops/'>devops</a>, <a class='category' href='/category/ec2/'>ec2</a>, <a class='category' href='/category/techie/'>techie</a>
+    
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.codelord.net/2011/11/30/how-i-moved-my-wordpress-blog-from-dreamhost-to-a-free-ec2-instance/" data-via="avivby" data-counturl="http://www.codelord.net/2011/11/30/how-i-moved-my-wordpress-blog-from-dreamhost-to-a-free-ec2-instance/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2011/11/28/stop-bitching-write-those-damn-tests/" title="Previous Post: Stop Bitching: Write Those Damn Tests">&laquo; Stop Bitching: Write Those Damn Tests</a>
+      
+      
+        <a class="basic-alignment right" href="/2011/12/10/your-brain-cares-about-code-style/" title="Next Post: Your Brain Cares About Code Style">Your Brain Cares About Code Style &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Aviv Ben-Yosef</h1>
+  <img src="https://api.twitter.com/1/users/profile_image?screen_name=avivby&amp;size=original" width="128" height="128" style="height: 128px; width: 128px; border-radius: 6px">
+  <p>An aspiring software craftsman and a happy hacker. More <a href="/about">about me</a>.</p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2012/03/07/slides-from-the-how-billguard-does-mongodb-talk/">Slides from the "How BillGuard does MongoDB" Talk</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/03/01/notes-from-the-agile-practitioners-2012-improving-your-tdd-workshop/">Notes from the Agile Practitioners 2012 Improving Your TDD Workshop</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/28/notes-from-the-israeli-software-craftsmanship-group-code-retreat/">Notes from the Israeli Software Craftsmanship Group Code Retreat</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/04/extend-your-toolbox-custom-matchers/">Extend Your Toolbox: Custom Matchers</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/01/28/stop-bitching-do-self-agile/">Stop Bitching: Do Self-Agile</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("avivby", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/avivby" class="twitter-follow-button" data-show-count="false">Follow @avivby</a>
+  
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Aviv Ben-Yosef -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'codelord';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.codelord.net/2011/11/30/how-i-moved-my-wordpress-blog-from-dreamhost-to-a-free-ec2-instance/';
+        var disqus_url = 'http://www.codelord.net/2011/11/30/how-i-moved-my-wordpress-blog-from-dreamhost-to-a-free-ec2-instance/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

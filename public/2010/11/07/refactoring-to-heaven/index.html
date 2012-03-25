@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Refactoring to Heaven - The Code Dump</title>
+  <meta name="author" content="Aviv Ben-Yosef">
+
+  
+  <meta name="description" content="My last blog was about how many people refer to refactoring as the wrong thing. For completeness of discussion I&#8217;d like to talk about what a &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.codelord.net/2010/11/07/refactoring-to-heaven">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/TheCodeDump" rel="alternate" title="The Code Dump" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7925779-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">The Code Dump</a></h1>
+  
+    <h2>A place a coder rants at...</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/TheCodeDump" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.codelord.net" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Refactoring to Heaven</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-11-07T07:52:56+02:00" pubdate data-updated="true">Nov 7<span>th</span>, 2010</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>My <a href="/2010/11/06/refactoring-youre-doing-it-wrong/">last blog</a> was about how many people refer to refactoring as the wrong thing. For completeness of discussion I&#8217;d like to talk about what a lot of people seemed to not get in my previous post. I said that the &#8216;Big Refactoring&#8217; is the new &#8216;Big Redesign in the Sky&#8217;, and got a bunch of questions along the linse of &#8220;so we&#8217;re never supposed to redesign?&#8221;</p>
+
+<p>Well, of course that&#8217;s not the case. Even the best programmers occasionally dig themselves into a hole that will require some effort to get out of. The point is that the best thing to do is never to take those 2 days to 2 weeks period just for doing that refactoring. That is never the right approach to solve such a problem.</p>
+
+<p><img src="/images/posts_images/stairway_to_heaven.jpg" width="300" height="225"></p>
+
+<p>First of all, I&#8217;ve seen many times that it was intended to spend &#8220;only&#8221; 2 days (which is already a huge amount of time) to do some refactoring, but 2 days in, the dev team found it they actually need 2 more days because of extra complications they&#8217;ve got, and the team&#8217;s lucky if after a week of hard work they still have a working system, not to mention better.</p>
+
+<p>Another problem with that is, once the devs think they have a picture in mind of this perfect redesign that management won&#8217;t let them take a week to get to (with good reason!), a lot developers stop thinking about how to make the current code better. It&#8217;s just let&#8217;s add this hack here, because management won&#8217;t let us do this the right way. That&#8217;s BS. Will you come to your dentist 3 days in a row for &#8216;general groundwork&#8217; before have a 2 hour filling? I thought so.</p>
+
+<p>Programming is about adding value. Don&#8217;t get me wrong, I like writing elegant and clean code as much as the next guy (actually, probably a bit more given I walk around with one of <a href="http://butunclebob.com/ArticleS.UncleBob.GreenWristBand">these</a>). But, what we&#8217;re hired to do is solve problems and help someone&#8217;s life by doing it. If all we do is bitch about how the design could be better, we&#8217;re only benefiting ourselves, and not doing a good job at it.</p>
+
+<p>So what is the right way? Well, the right way is to pull things off towards the right direction, in steady and controlled baby steps. I&#8217;ve seen this work, and I&#8217;ve heard from much better programmers than myself that they&#8217;ve got it working multiple times. After spending a day in an awesome <a href="http://www.threeriversinstitute.org/blog/?page_id=379">Responsive Design</a> workshop by Kent Beck, I was a bit amazed to hear there are so many ways of pushing design towards a better place in baby steps. Up until that point I would have done it anyway, but Kent taught me there&#8217;s actually an art to it.</p>
+
+<p>Do you think it&#8217;s impossible in your case because &#8220;X is too big&#8221;? Well, say you&#8217;ve got N steps in your redesign, all are safe atomic changes. Many of the times you might think the order of steps you&#8217;ve came up with simply won&#8217;t do and it will be too hard to do it without the big blunder. But, think about it this way: Those N steps have N! (N-factorial) different ways to be ordered. What are the odds that none of those ways will solve your problem? I&#8217;ve yet to see when this is not the case (and this, among others, is why you should spend the time with better and more experienced coders, such as Kent).</p>
+
+<p>Yes, it means that &#8220;2 day refactoring&#8221; of yours will probably be spread over 2 weeks (which is just might have done anyway). But it also means that no matter what happens during those 2 weeks, you&#8217;re always on the safe side. Find out after 2 days that your idea simply won&#8217;t cut it? Well, no biggie. The code still works, and you added features those 2 days. Find out it&#8217;ll take longer? Yeah, so what. We&#8217;re doing a few small steps a day anyway. The awesome thing is that you&#8217;ve got time to learn during the work what you may have thought up wrong and use that as input for the next parts of the refactoring. No rush here. And I think the most important point is that if you simply spend 30 minutes a day to refactor things at the right direction, weaved into your daily work and refactorings, you&#8217;ll get it done without have to pitch your Big Redesign to management.</p>
+
+<p>This allows you to simply do what you&#8217;re supposed to do: add value to customers daily, while making sure the system stays responsive to future changes. And that, my friends, is how the big refactoring should be done.</p>
+
+<p>You should subscribe to my <a href="http://feeds.feedburner.com/TheCodeDump">feed</a> and follow me on <a href="http://twitter.com/avivby">twitter</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Aviv Ben-Yosef</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-11-07T07:52:56+02:00" pubdate data-updated="true">Nov 7<span>th</span>, 2010</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/category/programming/'>Programming</a>, <a class='category' href='/category/clean-code/'>clean code</a>, <a class='category' href='/category/pragprowrimo2010/'>pragprowrimo2010</a>, <a class='category' href='/category/software-craftsmanship/'>software craftsmanship</a>
+    
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.codelord.net/2010/11/07/refactoring-to-heaven/" data-via="avivby" data-counturl="http://www.codelord.net/2010/11/07/refactoring-to-heaven/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2010/11/06/refactoring-youre-doing-it-wrong/" title="Previous Post: Refactoring: You're Doing it Wrong">&laquo; Refactoring: You're Doing it Wrong</a>
+      
+      
+        <a class="basic-alignment right" href="/2010/11/09/letting-dry-drive/" title="Next Post: Letting DRY Drive">Letting DRY Drive &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Aviv Ben-Yosef</h1>
+  <img src="https://api.twitter.com/1/users/profile_image?screen_name=avivby&amp;size=original" width="128" height="128" style="height: 128px; width: 128px; border-radius: 6px">
+  <p>An aspiring software craftsman and a happy hacker. More <a href="/about">about me</a>.</p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2012/03/07/slides-from-the-how-billguard-does-mongodb-talk/">Slides from the "How BillGuard does MongoDB" Talk</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/03/01/notes-from-the-agile-practitioners-2012-improving-your-tdd-workshop/">Notes from the Agile Practitioners 2012 Improving Your TDD Workshop</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/28/notes-from-the-israeli-software-craftsmanship-group-code-retreat/">Notes from the Israeli Software Craftsmanship Group Code Retreat</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/04/extend-your-toolbox-custom-matchers/">Extend Your Toolbox: Custom Matchers</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/01/28/stop-bitching-do-self-agile/">Stop Bitching: Do Self-Agile</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("avivby", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/avivby" class="twitter-follow-button" data-show-count="false">Follow @avivby</a>
+  
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Aviv Ben-Yosef -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'codelord';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.codelord.net/2010/11/07/refactoring-to-heaven/';
+        var disqus_url = 'http://www.codelord.net/2010/11/07/refactoring-to-heaven/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

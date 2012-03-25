@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: SOLID | The Code Dump]]></title>
+  <link href="http://www.codelord.net/category/solid/atom.xml" rel="self"/>
+  <link href="http://www.codelord.net/"/>
+  <updated>2012-03-25T20:33:29+02:00</updated>
+  <id>http://www.codelord.net/</id>
+  <author>
+    <name><![CDATA[Aviv Ben-Yosef]]></name>
+    <email><![CDATA[aviv.by+blog@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Design is Simpler Now: Embrace the Extract]]></title>
+    <link href="http://www.codelord.net/2011/03/30/design-is-simpler-now-embrace-the-extract/"/>
+    <updated>2011-03-30T06:40:49+02:00</updated>
+    <id>http://www.codelord.net/2011/03/30/design-is-simpler-now-embrace-the-extract</id>
+    <content type="html"><![CDATA[<p>For the past 5 years or so I've been searching for ways to produce better designed code. I hate the fact I basically can't put my finger on why certain designs aren't as good as others.</p>
+
+<p>That's why I was really blown away when I first learned about the <a href="http://www.amazon.com/gp/product/0135974445/ref=as_li_tf_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0135974445">SOLID</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0135974445" style="width: 0; height: 0; display: none; border: none !important;"> principles and started practicing <a href="http://www.amazon.com/gp/product/0321146530/ref=as_li_tf_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321146530">TDD</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321146530" style="width: 0; height: 0; display: none; border: none !important;">. At last I have found rules that gave me the capability to weigh designs, and a process that helped push me towards what feels like better code.</p>
+
+<p>But even 5 rules were too much for me!</p>
+
+<p>SOLID, no doubt, drives better design. My problem was incorporating it natively with my every day coding. Call me dumb, but I just can't bring myself to contemplate 5 different aspects whenever I whip up a class. I still find it as an excellent checklist to go through when I'm considering refactorings, but thinking about it constantly just drained a big part of my concentration.</p>
+
+<p>For a few months now I've been getting the feeling that my OOD toolset has reduced quite a lot to the very essence. That feeling was also magnified by reading <a href="http://www.amazon.com/gp/product/0321503627/ref=as_li_tf_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321503627">GOOS</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321503627" style="width: 0; height: 0; display: none; border: none !important;"> and pretty much everything written by <a href="http://twitter.com/jbrains">J. B. Rainsberger</a> <a href="http://jbrains.ca">here</a> and <a href="http://blog.thecodewhisperer.com/">here</a>.</p>
+
+<p>The first tool I use heavily (and I mean heavily, my mind has managed to get OCD about it) is duplication - or DRY. This tool alone makes any codebase a magnitude better. I've <a href="/category/dry/">written plenty</a> about DRY before.</p>
+
+<p>But, just yesterday I realized that other than that, I mainly concentrate on one thing, as I contemplated on <a href="http://twitter.com/#!/avivby/status/52471700167737344">twitter</a>:</p>
+
+<blockquote><p>I think I can sum up all my OOD skills with "wait, shouldn't this be in a different class/method?" Wondering if that's a good thing...</p></blockquote>
+
+<p>Yup, that's the trick. I was quickly assured by two amazing guys that have been doing this longer than I've been breathing, agile manifesto authors:</p>
+
+<blockquote><p><a href="http://twitter.com/#!/RonJeffries/status/52476402167066625">Ron Jeffries</a>: Yes it is a good thing. I would suspect you also note duplication?</p>
+
+<p><a href="http://twitter.com/#!/jwgrenning/status/52472057719558144">James Grenning</a>: Think of the alternative.. you are asking the right question</p></blockquote>
+
+<p>You see that? Noticing duplication and moving stuff somewhere else. That's all there's to it. This simple question directs at you the Single Responsibility Principle and generally, along with DRY, covers most of the bases needed to adhere to the <a href="http://www.jbrains.ca/permalink/the-four-elements-of-simple-design">elements of simple design</a>.</p>
+
+<p>The main question I ask myself now every time I think of a problem, start changing a function, write a test, and at just about anytime I'm coding is "is this the right place for this?" And quite often the answer is "no." Push this forward and beautiful designs show up, designs of short, cohesive classes. So, to sum it up: <em><strong>Embrace the Extract</strong></em>.</p>
+
+<p>You should <a href="http://feeds.feedburner.com/TheCodeDump">subscribe</a> to my feed and <a href="http://twitter.com/avivby">follow</a> me on twitter!</p>
+]]></content>
+  </entry>
+  
+</feed>

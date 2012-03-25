@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Short Intro to DRY - The Code Dump</title>
+  <meta name="author" content="Aviv Ben-Yosef">
+
+  
+  <meta name="description" content="If you&#8217;re just starting to learn programming you might be feeling the need for a few solid guidelines for producing better code right now. &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.codelord.net/2010/11/02/short-intro-to-dry">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/TheCodeDump" rel="alternate" title="The Code Dump" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7925779-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">The Code Dump</a></h1>
+  
+    <h2>A place a coder rants at...</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/TheCodeDump" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.codelord.net" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Short Intro to DRY</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-11-02T21:43:24+02:00" pubdate data-updated="true">Nov 2<span>nd</span>, 2010</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>If you&#8217;re just starting to learn programming you might be feeling the need for a few solid guidelines for producing better code right now. Joining an industry with so many Best Practices, Rules of Thumb and The Right Things is not easy and certainly not too welcoming for newbies.</p>
+
+<p>One of the best programming mantras that everyone can understand and use for better code right away is DRY - Don&#8217;t Repeat Yourself. DRY is about removing duplication from the code base at pretty much every level, and this, I believe, is one of the pillars of good software engineering.</p>
+
+<p>Academia rarely talks about DRY with enough stress. I&#8217;ve heard something like it only twice. Once, when I was told to use constants instead of magic numbers. This is maybe the simplest way to get started with DRY - replace magic numbers that you use several times in your code with a constant. All of a sudden the numbers got a real meaning but the more important thing is that changing the value becomes a no-brainer. Want to send more bytes with every packet? Just update the constant! That&#8217;s real value right there, instead of having to start searching files for the current number, and distinguishing between the times 512 is the packet size and when it&#8217;s just the maximal file size.</p>
+
+<p>Another reference to DRY in Academia is &#8220;Reuse&#8221;. Reuse is the holy grail of software engineering. I know that after taking a few courses it seemed that Reuse is that peace of mind only OOP Gurus can get to by writing speckless code with good design. Although in academic courses you&#8217;re not likely to see real reuse and examples of code that reaches this goal in a good way, this is still a DRY manifestation that&#8217;s easy for a lot of people to grasp. What&#8217;s a better way to refrain from repeating myself than to not write new code at all and use that GenericAwesomeThing class I created before?</p>
+
+<p>But, as with many things, those 2 well-rehearsed topics are only the tip of the DRY iceberg. Once you get it into your head that DRY is one of the easiest and most effective ways to get better and cleaner code, you&#8217;ll start seeing its violations left and right.</p>
+
+<p>The easiest way to spot DRY violations is by looking at your typing. Pretty much any time you catch yourself using copy and paste, you know you&#8217;re doing it wrong. The mear act of copying some code around means, literally, you&#8217;re repeating the same thing somewhere else. Spotting those is usually a happy occasion, an opportunity to learn. This usually means you&#8217;re code is missing some basic abstraction to make that idea you&#8217;re trying to replicate a concrete concept of your system.</p>
+
+<p>For example, whenever I copy a few lines from a method I know I probably need to extract a method. There are so many advantages to simply sticking to this as a golden rule that Uncle Bob is calling this &#8220;Extract till you Drop&#8221;. Practice DRY enough and &#8220;Extract Method&#8221; will become a regular coding step. It is no longer a &#8220;refactoring&#8221;. It is no longer a &#8220;task&#8221;. For me, it&#8217;s as simple as adding a variable, or writing a loop. It&#8217;s a tool, the simplest we&#8217;ve got.</p>
+
+<p>But until you get familiar enough with extracting methods, you should be aware of these acts of copying stuff around and fight them with wrath. If extracting methods scares you, I&#8217;d start with even simpler stuff. Are you using the same string a couple of times, e.g. &#8220;Error: &#8221; is all over your code? Keep it DRY! Some simple computation appears a few times? Keep it DRY!</p>
+
+<p>To start the ball rolling in the craftsmanship direction and adhering to what people that are wiser than you and I, keeping things DRY is a pretty simple, sure-fire way to do things better. Keep your watch for patterns that look all too similar. Imagine your keyboard has a DRY key that simply removes the duplication, be it by extracting a method, a constant or a class.</p>
+
+<p>Try sticking a DRY post it to your monitor and do your best for a week. You will likely gain a whole new perspective of your code and learn to notice minute details you used to disregard. The magic is that once you start following DRY, you will also notice that the amount of places you need to go through to make changes is decreasing. There&#8217;s nothing better than finding that change you wanted to make is a one-line change, as there&#8217;s nothing more frustrating than finding out you now need to untangle 8 snippets in 5 files in order to get that simple change done.</p>
+
+<p>DRY is a power tool you should master quickly and add to your tool box. I&#8217;ve written more about taking DRY further <a href="http://feeds.feedburner.com/TheCodeDump">here</a>.</p>
+
+<p>You should subscribe to my <a href="http://feeds.feedburner.com/TheCodeDump">feed</a> and follow me on <a href="http://twitter.com/avivby">twitter</a>.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Aviv Ben-Yosef</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-11-02T21:43:24+02:00" pubdate data-updated="true">Nov 2<span>nd</span>, 2010</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/category/dry/'>DRY</a>, <a class='category' href='/category/programming/'>Programming</a>, <a class='category' href='/category/clean-code/'>clean code</a>, <a class='category' href='/category/pragprowrimo2010/'>pragprowrimo2010</a>, <a class='category' href='/category/software-craftsmanship/'>software craftsmanship</a>, <a class='category' href='/category/tips/'>tips</a>
+    
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.codelord.net/2010/11/02/short-intro-to-dry/" data-via="avivby" data-counturl="http://www.codelord.net/2010/11/02/short-intro-to-dry/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2010/10/01/pairing-for-life/" title="Previous Post: Pairing for Life">&laquo; Pairing for Life</a>
+      
+      
+        <a class="basic-alignment right" href="/2010/11/03/taking-dry-further/" title="Next Post: Taking DRY Further">Taking DRY Further &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Aviv Ben-Yosef</h1>
+  <img src="https://api.twitter.com/1/users/profile_image?screen_name=avivby&amp;size=original" width="128" height="128" style="height: 128px; width: 128px; border-radius: 6px">
+  <p>An aspiring software craftsman and a happy hacker. More <a href="/about">about me</a>.</p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2012/03/07/slides-from-the-how-billguard-does-mongodb-talk/">Slides from the "How BillGuard does MongoDB" Talk</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/03/01/notes-from-the-agile-practitioners-2012-improving-your-tdd-workshop/">Notes from the Agile Practitioners 2012 Improving Your TDD Workshop</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/28/notes-from-the-israeli-software-craftsmanship-group-code-retreat/">Notes from the Israeli Software Craftsmanship Group Code Retreat</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/04/extend-your-toolbox-custom-matchers/">Extend Your Toolbox: Custom Matchers</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/01/28/stop-bitching-do-self-agile/">Stop Bitching: Do Self-Agile</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("avivby", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/avivby" class="twitter-follow-button" data-show-count="false">Follow @avivby</a>
+  
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Aviv Ben-Yosef -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'codelord';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.codelord.net/2010/11/02/short-intro-to-dry/';
+        var disqus_url = 'http://www.codelord.net/2010/11/02/short-intro-to-dry/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

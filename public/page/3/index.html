@@ -1,0 +1,864 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>The Code Dump</title>
+  <meta name="author" content="Aviv Ben-Yosef">
+
+  
+  <meta name="description" content="A few months ago we had to decide on some framework/environment to use for our devops needs. I&#8217;ve blogged about my experiences with Puppet and &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.codelord.net/page/3">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/TheCodeDump" rel="alternate" title="The Code Dump" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7925779-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">The Code Dump</a></h1>
+  
+    <h2>A place a coder rants at...</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/TheCodeDump" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.codelord.net" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/07/27/why-i-regret-choosing-rightscale/">Why I Regret Choosing RightScale</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-07-27T21:10:58+03:00" pubdate data-updated="true">Jul 27<span>th</span>, 2011</time>
+        
+         | <a href="/2011/07/27/why-i-regret-choosing-rightscale/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>A few months ago we had to decide on some framework/environment to use for our devops needs. I&#8217;ve blogged about my experiences with <a href="/2010/12/19/using-puppet-to-automatically-configure-new-ec2-instances/">Puppet</a> and <a href="/2011/03/07/using-chef-to-automatically-configure-new-ec2-instances/">Chef</a> on EC2. Somehow, we eventually ended up using <a href="http://www.rightscale.com">RightScale</a>.</p>
+
+<p>Quick disclaimer: this is not a rant and I don&#8217;t intend any bashing. It&#8217;s just a report of my impression from using it.</p>
+
+<p>RightScale provide a system for configuring and managing your cloud infrastructure, from defining how servers are created to monitoring and changing them. RightScale has a few nice features. It has a pretty nice clustering setup of MySQL solution for EC2. It also has decent monitoring and alerting capabilities.</p>
+
+<p>My main problem with it, though, is that they basically took a few steps backwards from all other known solutions, making my life so much harder. I&#8217;ve pointed most if not all of these issues to RightScale on twitter and private emails, yet I can&#8217;t imagine seeing these issues solved any time soon.</p>
+
+<h4>Scripting (Dis)Abilities</h4>
+
+<p>If you&#8217;ve used Chef or Puppet, you probably got hooked on the ease of managing and creating your own set up scripts. RightScale&#8217;s solution, RightScripts is a weaker, 1990ish kind of solution:</p>
+
+<ul>
+<li>No templates - remember the days you had files with placeholders like <code>@@REPLACE_HERE@@</code> to <code>sed</code> out? Know how nice are real templates in Chef for example, where you can use .erb files? Well, with RightScale it&#8217;s all gone again. Sed away.</li>
+<li>No dependencies - RightScale do have a nice RightScript to install MySQL. Problem is, it depends on a bunch of other scripts and there just isn&#8217;t any link to it. Install it, hopefully find a reference for dependency name in README. Install dependency. Look for its dependencies. Error prone and tiresome.</li>
+<li>Made up version control model - No longer can you use git to update and manage your scripts. RightScale has a dumb-down version control system where you can &#8220;commit&#8221; changes to scripts you make. These aren&#8217;t accessible locally on your machine and lack all the nice features of real VCS: can&#8217;t grep, can&#8217;t search history. You can&#8217;t do a <code>git status</code> and see what has changed all over your servers. Chaos.</li>
+<li>Scripts are edited in text areas - that&#8217;s right. That means I&#8217;m constantly copying the script from the browser to vim, edit it, copy back and save.</li>
+<li>No easy sharing of scripts - with Chef you could download cookbooks from all over the internet. With RightScale you&#8217;re limited to a closed and pretty empty market of rightscripts.</li>
+<li>No composability - say you&#8217;ve got a generic script to attach an EBS volume to a server. Want to attach 2? Thought you can just call the script twice with different parameters? Wrong! You can&#8217;t. Only option is to copy and paste the script with a new name and new parameter names.</li>
+</ul>
+
+
+<p>Some of these issues might be solved soon, since RightScale seem to be working on enabling use of Chef for scripts. We&#8217;ve tried to set up this beta on our installation but got a lot of exceptions and left it as it is for now.</p>
+
+<h4>Mouse Control</h4>
+
+<p>The UI is centered around clicking way too much. They&#8217;re pretty nice monitoring dashboard per machine is not configurable. That means that for each and every server we have a routine of doing over a few graphs, clicking and dragging stuff the way we like them. Want to change alert type of a server? Click them all one by one. Need to run a script on all your servers? Click, click, click. This is a painstakingly slow process that makes me feel undervalued each and every time.</p>
+
+<h4>No Automatic Updates</h4>
+
+<p>The beauty of systems like Chef and Puppet is that you can make a change in the configuration and it will automatically get to all of your servers. That&#8217;s not the case here. You have to go over each server, figure its state and then run the proper scripts.</p>
+
+<h4>Bottom Line</h4>
+
+<p>If you have decent coding ability and know your way around a server, chances are you&#8217;d be better off no using RightScale. There&#8217;s just so much you&#8217;ll be missing out and a major time waste. I truly hope to see these issues taken cared of, but I think we&#8217;re far from it.</p>
+
+<p>You should <a href="http://feeds.feedburner.com/TheCodeDump">subscribe</a> to my feed and <a href="http://twitter.com/avivby">follow</a> me on twitter!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/07/25/in-the-mind-of-a-master-programmer/">In the Mind of a Master Programmer</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-07-25T20:39:47+03:00" pubdate data-updated="true">Jul 25<span>th</span>, 2011</time>
+        
+         | <a href="/2011/07/25/in-the-mind-of-a-master-programmer/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>He would probably object to me calling him that, but I&#8217;ve long ago realized Kent Beck is one of the precious few who deserve the title &#8220;a mastermind&#8221;. With <a href="http://www.amazon.com/gp/product/0321278658/ref=as_li_tf_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=217145&amp;creative=399381&amp;creativeASIN=0321278658">Extreme Programming</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321278658&camp=217145&creative=399381" style="width: 0; height: 0; display: none; border: none !important;">, <a href="http://www.amazon.com/gp/product/0321146530/ref=as_li_tf_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=217145&amp;creative=399381&amp;creativeASIN=0321146530">Test Driven Development</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321146530&camp=217145&creative=399381" style="width: 0; height: 0; display: none; border: none !important;">, <a href="http://www.threeriversinstitute.org/blog/?cat=6">Responsive Design</a>, the <a href="http://www.jbrains.ca/permalink/the-four-elements-of-simple-design">Four Elements of Simple Design</a> and more under his belt, who can claim otherwise?</p>
+
+<p>After attending a workshop of his about a year ago and listening to him talk a whole day I was astonished. I tried to pick his brains to understand what makes him tick. Of course there are many factors here - reading over 10,000 books and being smarter than most would help anyone. But something a bit less common takes a major part in this in my opinion, what Kent told me he has: a &#8221;<em>habit of desperately wanting things to make sense&#8221;</em> and his ability to take things apart until they do.</p>
+
+<p>I recently picked up another of Kent&#8217;s books, <a href="http://www.amazon.com/gp/product/0321413091/ref=as_li_tf_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=217145&amp;creative=399381&amp;creativeASIN=0321413091">Implementation Patterns</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321413091&camp=217145&creative=399381" style="width: 0; height: 0; display: none; border: none !important;">. I love this book because it shows exactly that: his process of thinking and breaking things apart in order to understand them. The book provides a rare glimpse to his method of decomposition. Since I&#8217;ve been coding for years, a lot of the patterns made sense to me or seemed trivial. But the &#8220;magic&#8221; is the fact he was able to put into words things that for me were just hunches. Actually explaining what makes you sense a method is too long or what is a proper name for a variable is something I&#8217;ve never seen done with such care to specifics.</p>
+
+<p>Because it&#8217;s such a quick read, I think anyone will benefit by reading Implementation Patterns. More than helping you understand our craft better, it will provide a new outlook on decomposing and judging your designs and pretty much everything else.</p>
+
+<p>You should <a href="http://feeds.feedburner.com/TheCodeDump">subscribe</a> to my feed and <a href="http://twitter.com/avivby">follow</a> me on twitter!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/06/20/input-validation-means-more-than-javascript/">Input Validation means more than Javascript</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-20T06:14:56+03:00" pubdate data-updated="true">Jun 20<span>th</span>, 2011</time>
+        
+         | <a href="/2011/06/20/input-validation-means-more-than-javascript/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So much has been written about security before, that I never thought I&#8217;d end up writing something about it. Then again, I never thought one of the top <a href="http://consumerist.com/2011/06/how-hackers-stole-200000-citi-accounts-by-exploiting-basic-browser-vulnerability.html">U.S. banks will get hacked</a> simply by twiddling digits in a URL.</p>
+
+<p>Basically, the only thing you should take away from this post is that when it comes to external data - trust no one. And I mean absolutely no one.</p>
+
+<p>I think and hope that by now most web developers know not to trust data that users entered in input fields. That trust is what gave birth to <a href="http://en.wikipedia.org/wiki/SQL_injection">SQL injections</a>. Nowadays, just about no one should be exposed to such a lame problem, especially since pretty much every ORM framework out there protects you from these. But checking your input fields is just the beginning.</p>
+
+<p>Every form of input you accept, even indirect input, is still untrusted input. I just want to go over a few examples, because you all should have this in mind:</p>
+
+<p><strong>URLs</strong> - Just like I mentioned above, CitiBank got hacked simply because someone noticed an integer on his browser address bar and started incrementing it. Any parameter you accept from a URL should be examined. Accessing an email by id? Make sure it corresponds with the current user. Always.</p>
+
+<p><strong>Form arguments/JSON</strong> - These are just the same thing as validating input fields. Everyone should know by now that it&#8217;s wrong to trust and validation done on the client side, since every moderately capable person can craft his own POST/GET requests and bypass any validation. Validate everything on the server. And don&#8217;t use the client as a place to put some state in, unless it really belongs there. I can&#8217;t tell you how many ecommerce sites I&#8217;ve seen that pass the price of products along your regular forms as hidden input fields. From that point it&#8217;s just a few right clicks in firebug and you&#8217;re gonna get that LCD TV for $1.</p>
+
+<p><strong>Cookies</strong> - Again, these are inputs generated from your clients. Yeah, you put the cookie there in the first place, but since you put it there your users had the chance to do whatever they want to it. So, putting in a cookie any kind of integer means it has to be validated again on the server side, just like a URL parameter. Any data you put there might have been mangled. The solution is to either not use cookies for anything like that, or sign your cookies the way Rails does.</p>
+
+<p><strong>Really anything possible</strong> - Have you ever used a service that allowed you to update certain stuff via email? That&#8217;s, for example, another form of input. You wouldn&#8217;t want someone to change some URL/number in the email when he&#8217;s replying and get access to a different user&#8217;s data, would you?</p>
+
+<p>These are really just the tip of iceberg, but I&#8217;m constantly surprised to see how many around us are popping up web sites with no thought given to these problems. Just a tiny bit of thinking can prevent you from topping reddit for being a lame developer.</p>
+
+<p>You should subscribe to my <a href="http://feeds.feedburner.com/TheCodeDump">feed</a> and follow me on <a href="http://twitter.com/avivby">twitter</a>!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/06/18/statistics-of-62k-passwords/">Statistics of 62K Passwords</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-18T11:09:54+03:00" pubdate data-updated="true">Jun 18<span>th</span>, 2011</time>
+        
+         | <a href="/2011/06/18/statistics-of-62k-passwords/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>A couple of days ago, <a href="http://lulzsecurity.com/">LulzSec</a> published a batch of 62K random logins (emails and passwords). At first, I grabbed it in order to make sure that neither me nor anyone on my contacts had his passwords revealed. Later I decided to run a few stats on this rare dump of data. Following are a few interesting facts.</p>
+
+<h3>Password length</h3>
+
+<p>The dump&#8217;s average password length is 7.63. I was surprised, because I thought most users would use something like 4 characters, but then remembered a lot of sites nowadays enforce a a 6-8 character limit minimum, so this makes sense. As you should know, and as you can find in <a href="http://www.amazon.com/gp/product/1593271441/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=217145&amp;creative=399381&amp;creativeASIN=1593271441">Hacking: The Art of Exploitation</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=1593271441&camp=217145&creative=399381" style="width: 0; height: 0; display: none; border: none !important;">, longer passwords are greatly harder to crack, so this is definitely a case where size does matter.</p>
+
+<p>Here&#8217;s a short graph depicting the distribution of password length (Note that edge groups have less than 10 passwords and so aren&#8217;t really seen here):</p>
+
+<p><img src="/images/posts_images/passwords.png" alt="Passwords by length" /></p>
+
+<h3>Common Passwords</h3>
+
+<p>Not surprisingly, the most common password is 123456 with 569 occurrences, followed by its &#8220;more secure&#8221; cousin 123456789 with 184. The 3rd most common password is&#8230; &#8220;password&#8221; (132 occurrences)! The other top-10 passwords are interesting - some are plain words such as &#8220;romance&#8221;, &#8220;mystery&#8221;, &#8220;tigger&#8221; and &#8220;shadow&#8221;, &#8220;102030&#8221; makes quite a few appearances.</p>
+
+<p>The 10th most used password is quite intriguing actually - &#8220;ajcuivd289&#8221;. Everyone on the internet seem baffled as to the source of this password. My guess would have to be it&#8217;s some worm that resets the accounts it hacked into to it. <em>Edit</em>: As Marc comments below, the logins with these passwords seem &#8220;clustered&#8221;, which makes it more likely that these are actually the result of some bot creating accounts. Thanks Marc!</p>
+
+<p>A couple hundred passwords are just not-so-random keyboard taps (&#8220;123qwe&#8221;, &#8220;asdf1234&#8221;, etc.). 789 passwords are taken exactly from the username, and twice that many are part of the username followed by some digits (most seem like birth years).</p>
+
+<h3>Inside Passwords</h3>
+
+<p>12179 of the passwords are all numeric, some are 14 digits long! That&#8217;s just crazy. While 34717 (that&#8217;s more than half) of the passwords contain any digits, only 1262 contain capital letters and 533 contain special characters!</p>
+
+<h3>Some Common Words</h3>
+
+<p>418 passwords contain the word &#8220;love&#8221;. &#8220;sex&#8221; is in 125, &#8220;jesus&#8221; in 67. More people prefer cats (414) to dogs (291). And the language battle - 6 javas, 2 pythons and 17 &#8220;ruby&#8221;s (guess which one is also a name).</p>
+
+<p>I&#8217;d like to sum this up with urging you to never use the same password twice and use a password manager in order to generate secure passwords! Using a password manager ensures that even if a certain site is breached, it doesn&#8217;t mean all of your passwords are revealed, and secure paswords are just harder to brute force.</p>
+
+<p>You should subscribe to my <a href="http://feeds.feedburner.com/TheCodeDump">feed</a> and follow me on <a href="http://twitter.com/avivby">twitter</a>!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/04/03/sometimes-tests-have-to-fail/">Sometimes Tests Have to Fail</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-04-03T20:40:18+03:00" pubdate data-updated="true">Apr 3<span>rd</span>, 2011</time>
+        
+         | <a href="/2011/04/03/sometimes-tests-have-to-fail/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>A friend asked me about a common problem that pops up in real-world projects and testing: What do you do when you test code with random properties?</p>
+
+<p>A simple example might be handing out jobs to a few workers. If your algorithm for doing that is random, you can usually assert that no one of 3 workers gets all 10 jobs, for example. But, being random, that assert should eventually fail. We&#8217;ll assume that with the frequency the team runs the tests, a failure is expected every few days.</p>
+
+<p>Surely no one wants to see the tests fail a couple times a week (especially if you&#8217;re keeping score for who broke the build). On the other hand, you&#8217;d like to keep the tests. What is a pragmatic coder to do?</p>
+
+<p>If you&#8217;re not that meticulous to your suite rarely failing, you might just leave it as it is, which, I think, sucks.</p>
+
+<p>The mega-tester&#8217;s approach, which I&#8217;ve tried in the past, is usually to stub out the random number generator with values that make sure the failures won&#8217;t happen. This is usually cost-effective only for the simplest of cases, and the more complex ones results in brittle tests that are coupled to the implementation and that might need to be changed frequently.</p>
+
+<p>What I rather is to postpone the problem! Say we change our test&#8217;s parameters to 10 workers and 3000 jobs. The chances of one worker getting all jobs becomes quite minor. This tweak of parameters in the test is usually simple to do and can guarantee quite a safety net.</p>
+
+<p>And still, sometimes bad stuff happen. 64bit hash collisions are somewhere, out there in the world. If you&#8217;re one of those guys that are bugged by that chance, I give you a simple JUnit rule that will retry a specific test in case it fails, making it twice as unlikely to fail. Those 64bit collisions are now more like 128bit! woohoo!</p>
+
+<p>The rule allows you to simply annotate a test to make it retry in case it fails:</p>
+
+<div><script src='https://gist.github.com/897229.js?file=RetrierTest.java'></script>
+<noscript><pre><code>public class RetrierTest {
+  private static int count = 0;
+
+  @Rule public RetryRule rule = new RetryRule();
+    
+  @Test
+  @Retry
+  public void failsFirst() throws Exception {
+    count++;
+    assertEquals(2, count);
+  }
+}</code></pre></noscript></div>
+
+
+<p>And the implementation is as simple as:</p>
+
+<div><script src='https://gist.github.com/897229.js?file=Retry.java'></script>
+<noscript><pre><code>@Retention(RetentionPolicy.RUNTIME)
+public @interface Retry {}
+</code></pre></noscript></div>
+
+
+
+
+<div><script src='https://gist.github.com/897229.js?file=RetryRule.java'></script>
+<noscript><pre><code>public class RetryRule implements MethodRule {
+  @Override public Statement apply(final Statement base, final FrameworkMethod method, Object target) {
+    return new Statement() {
+      @Override public void evaluate() throws Throwable {
+        try {
+          base.evaluate();
+        } catch (Throwable t) {
+          Retry retry = method.getAnnotation(Retry.class);
+          if (retry != null) {
+            base.evaluate();
+          } else {
+            throw t;
+          }
+        }
+      }
+    };
+  }
+}
+</code></pre></noscript></div>
+
+
+<p>With the tests so unlikely to fail, I&#8217;d start a lottery at work for whoever breaks them.</p>
+
+<p>Happy testing!</p>
+
+<p>You should <a href="http://feeds.feedburner.com/TheCodeDump">subscribe</a> to my feed and <a href="http://twitter.com/avivby">follow</a> me on twitter!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/04/01/testing-techniques-managing-external-resources/">Testing Techniques: Managing External Resources</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-04-01T06:45:32+03:00" pubdate data-updated="true">Apr 1<span>st</span>, 2011</time>
+        
+         | <a href="/2011/04/01/testing-techniques-managing-external-resources/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>A friend approached me with one of the known problems in the testing world - How do you keep external resources under a test harness? Having heard the question a few times before, I thought I&#8217;d share my thoughts, and mainly put together the common advice that drifts around the web.</p>
+
+<h3>The Dilemma</h3>
+
+<p>Nowadays, it&#8217;s hard to get more than a 100 lines of code before adding an external resource to our code. It might be a web service to manage something, or some convoluted API to receive data from or just about anything. Usually, writing tests for code that directly talks with these resources using the resources themselves is very problematic, for numerous reasons:</p>
+
+<ul>
+<li><p>It significantly slows the tests, because it requires network access and processing on the service&#8217;s side.</p></li>
+<li><p>It might cost you money, send emails, tweet stuff and do things you&#8217;d rather not do 300 times a day as you run your tests.</p></li>
+<li><p>Making your code handle error conditions with the service is hard or impossible, as you can&#8217;t control when those occur.</p></li>
+</ul>
+
+
+<p>Basically, all of these factors usually amount up to you having crappy tests that you rarely run. That sucks.</p>
+
+<h3>Decouple &amp; Isolate</h3>
+
+<p>The best solution I&#8217;m aware of is simply isolating the thing. We usually strive to wrap whatever service we&#8217;re using with a single-point interface. The decoupling is great since I&#8217;ve yet to encounter a service with an API that matched my thinking of the domain problem. Wrapping it up allows us to keep using our own language and logic throughout the system.</p>
+
+<p>A benefit of that is we now have a simple interface or facade we need to stub/mock out during tests. That&#8217;s usually relatively easy, and allows us to run our tests blazingly fast and test all those hard to reach to corner cases.</p>
+
+<h3>But what if the service changes?</h3>
+
+<p>That&#8217;s the finishing touch. You should still maintain a suite of tests that run against the real service. Those should be the plain tests that make sure you&#8217;re using the API right and that would break if anything you&#8217;re relying on changes. These tests won&#8217;t be part of your regular suite that gets run constantly. Instead have your CI server run them daily/weekly and let you know when something changes.</p>
+
+<p>This puts us basically in a win-win situation, with us being able to run our tests quickly and yet have the assurance that we won&#8217;t miss API changes and the likes.</p>
+
+<p>Happy testing!</p>
+
+<p>You should <a href="http://feeds.feedburner.com/TheCodeDump">subscribe</a> to my feed and <a href="http://twitter.com/avivby">follow</a> me on twitter!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/03/30/design-is-simpler-now-embrace-the-extract/">Design is Simpler Now: Embrace the Extract</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-03-30T06:40:49+02:00" pubdate data-updated="true">Mar 30<span>th</span>, 2011</time>
+        
+         | <a href="/2011/03/30/design-is-simpler-now-embrace-the-extract/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>For the past 5 years or so I&#8217;ve been searching for ways to produce better designed code. I hate the fact I basically can&#8217;t put my finger on why certain designs aren&#8217;t as good as others.</p>
+
+<p>That&#8217;s why I was really blown away when I first learned about the <a href="http://www.amazon.com/gp/product/0135974445/ref=as_li_tf_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0135974445">SOLID</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0135974445" style="width: 0; height: 0; display: none; border: none !important;"> principles and started practicing <a href="http://www.amazon.com/gp/product/0321146530/ref=as_li_tf_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321146530">TDD</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321146530" style="width: 0; height: 0; display: none; border: none !important;">. At last I have found rules that gave me the capability to weigh designs, and a process that helped push me towards what feels like better code.</p>
+
+<p>But even 5 rules were too much for me!</p>
+
+<p>SOLID, no doubt, drives better design. My problem was incorporating it natively with my every day coding. Call me dumb, but I just can&#8217;t bring myself to contemplate 5 different aspects whenever I whip up a class. I still find it as an excellent checklist to go through when I&#8217;m considering refactorings, but thinking about it constantly just drained a big part of my concentration.</p>
+
+<p>For a few months now I&#8217;ve been getting the feeling that my OOD toolset has reduced quite a lot to the very essence. That feeling was also magnified by reading <a href="http://www.amazon.com/gp/product/0321503627/ref=as_li_tf_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321503627">GOOS</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321503627" style="width: 0; height: 0; display: none; border: none !important;"> and pretty much everything written by <a href="http://twitter.com/jbrains">J. B. Rainsberger</a> <a href="http://jbrains.ca">here</a> and <a href="http://blog.thecodewhisperer.com/">here</a>.</p>
+
+<p>The first tool I use heavily (and I mean heavily, my mind has managed to get OCD about it) is duplication - or DRY. This tool alone makes any codebase a magnitude better. I&#8217;ve <a href="/category/dry/">written plenty</a> about DRY before.</p>
+
+<p>But, just yesterday I realized that other than that, I mainly concentrate on one thing, as I contemplated on <a href="http://twitter.com/#!/avivby/status/52471700167737344">twitter</a>:</p>
+
+<blockquote><p>I think I can sum up all my OOD skills with &#8220;wait, shouldn&#8217;t this be in a different class/method?&#8221; Wondering if that&#8217;s a good thing&#8230;</p></blockquote>
+
+<p>Yup, that&#8217;s the trick. I was quickly assured by two amazing guys that have been doing this longer than I&#8217;ve been breathing, agile manifesto authors:</p>
+
+<blockquote><p><a href="http://twitter.com/#!/RonJeffries/status/52476402167066625">Ron Jeffries</a>: Yes it is a good thing. I would suspect you also note duplication?</p>
+
+<p><a href="http://twitter.com/#!/jwgrenning/status/52472057719558144">James Grenning</a>: Think of the alternative.. you are asking the right question</p></blockquote>
+
+<p>You see that? Noticing duplication and moving stuff somewhere else. That&#8217;s all there&#8217;s to it. This simple question directs at you the Single Responsibility Principle and generally, along with DRY, covers most of the bases needed to adhere to the <a href="http://www.jbrains.ca/permalink/the-four-elements-of-simple-design">elements of simple design</a>.</p>
+
+<p>The main question I ask myself now every time I think of a problem, start changing a function, write a test, and at just about anytime I&#8217;m coding is &#8220;is this the right place for this?&#8221; And quite often the answer is &#8220;no.&#8221; Push this forward and beautiful designs show up, designs of short, cohesive classes. So, to sum it up: <em><strong>Embrace the Extract</strong></em>.</p>
+
+<p>You should <a href="http://feeds.feedburner.com/TheCodeDump">subscribe</a> to my feed and <a href="http://twitter.com/avivby">follow</a> me on twitter!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/03/27/crafting-up-community-is-key/">Crafting Up - Community is Key</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-03-27T22:12:30+02:00" pubdate data-updated="true">Mar 27<span>th</span>, 2011</time>
+        
+         | <a href="/2011/03/27/crafting-up-community-is-key/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>It&#8217;s been almost a year now since the founding of our local <a href="http://scil.eventbrite.com/">Software Craftsmanship</a> group. This, for me, is a huge dream-come-true.</p>
+
+<p>For years I&#8217;ve been looking for a good community around here to join, went to several meetups and looked around to no avail. My frustration grew about a year ago when I noticed the Chicago community is so buzzing with activity, people there have a meetup every day almost. That&#8217;s why when <a href="http://twitter.com/urilavi">Uri</a> started organizing the first meeting I jumped in whole-heartedly.</p>
+
+<p>In just a few months the meeting has influenced me quite a lot. First of all I got to meet a lot of new, smart and interesting people I never would have otherwise. It&#8217;s not easy to find people that are as passionate about our profession as I am, yet our group didn&#8217;t disappoint me.</p>
+
+<p>The meetings also supply my need to pair with new people. Pair programming is a magical way of working and sharing knowledge, and I&#8217;ve yet to have a session with a new pair without picking up something new. I love the first minutes where we have to find a common language to get things started, and even more the high fives of getting a green bar.</p>
+
+<p>Also, a good community is the best way to get feedback. I can say I&#8217;m trying to leech this to the max. I&#8217;ve already gave talks/sessions at 2 meetings, bugging people frequently on twitter and the mailing list. A varied community of like minded people allows you to get different outlooks and insights to things you&#8217;ve been neck-deep in for a while.</p>
+
+<p>And last but not least, a good community might make magic stuff happen. I don&#8217;t know how, but I&#8217;m sure our group had something to do with the fact some of us got to have dinner with <a href="http://twitter.com/unclebobmartin">Uncle Bob</a> and <a href="http://twitter.com/schuchert">Brett Schuchert</a>, two awesome coders and <a href="http://www.amazon.com/gp/product/0132350882/ref=as_li_tf_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0132350882">Clean Code</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0132350882" style="width: 0; height: 0; display: none; border: none !important;"> authors, on their last visit here.</p>
+
+<p>Bottom line, be part of a community, and if there isn&#8217;t one around you help start it! It&#8217;s a great source of <a href="http://apprenticeship-patterns.labs.oreilly.com/ch04.html#kindred_spirits">kindred spirits</a>, an invaluable and rare resource!</p>
+
+<p>You should <a href="http://feeds.feedburner.com/TheCodeDump">subscribe</a> to my feed and <a href="http://twitter.com/avivby">follow</a> me on twitter!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/03/09/making-embedded-github-gists-show-up-on-rss-readers/">Making Embedded GitHub Gists Show Up on RSS Readers</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-03-09T06:45:20+02:00" pubdate data-updated="true">Mar 9<span>th</span>, 2011</time>
+        
+         | <a href="/2011/03/09/making-embedded-github-gists-show-up-on-rss-readers/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Just a quick let-you-know: I found out that the gists I use to embed code in my posts don&#8217;t show up on RSS readers (e.g. Google Reader).</p>
+
+<p>I know how annoying it is not to be able to read a blog fully from my reader for me, and so found a nice Wordpress plugin called <a href="http://wordpress.org/extend/plugins/embed-github-gist/">Embed GitHub Gist</a> that handling embedding gists elegantly and also automatically makes sure the code will be displayed even on readers.</p>
+
+<p>I&#8217;ve even updated my latest post (about Chef and EC2) to work with it, and new posts from now on will look good too :)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/03/07/using-chef-to-automatically-configure-new-ec2-instances/">Using Chef to Automatically Configure New EC2 Instances</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-03-07T21:56:38+02:00" pubdate data-updated="true">Mar 7<span>th</span>, 2011</time>
+        
+         | <a href="/2011/03/07/using-chef-to-automatically-configure-new-ec2-instances/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This is a follow up post to my <a href="/2010/12/19/using-puppet-to-automatically-configure-new-ec2-instances/">post about using Puppet</a> to get the same result. In the comments to that post I was told by a few people that chef can make my life easier and I decided to give a try. Here&#8217;s what I came up with.</p>
+
+<p>In this post, as in the previous one, our goal is to be able to start a new EC2 instance with one command, which will in turn be created and started with Apache running.</p>
+
+<p>First of all, instead of having to set up our own server to tell the newly created instances what to do, we are going to use a hosted chef server on Opscode&#8217;s server. The hosting is free for 5 nodes, and so you can try this out without having to pay them. Go to <a href="http://opscode.com">Opscode&#8217;s site</a> and register a new user, then also add a new organization.</p>
+
+<p>On our system, we need to start by installing chef. You will also want to install the dependencies needed to make chef talk with EC2 (these are not installed automatically when installing the gem because they&#8217;re optional):</p>
+
+<div><script src='https://gist.github.com/859076.js?file=install.sh'></script>
+<noscript><pre><code>gem install chef net-ssh net-ssh-multi fog highline</code></pre></noscript></div>
+
+
+<p>Now, we need to setup a chef repository. This repository will contain our cookbooks (libraries that contain recipes, which are scripts for doing stuff, like installing apache) and roles (which map recipes to nodes), among other stuff. To get it run:</p>
+
+<div><script src='https://gist.github.com/859076.js?file=clone.sh'></script>
+<noscript><pre><code>git clone git://github.com/opscode/chef-repo.git</code></pre></noscript></div>
+
+
+<p>In the repository create a .chef directory. Now back on Opscode&#8217;s site, you need to download 3 files: your organization&#8217;s validator key, your user&#8217;s key and a generated knife.rb. Once installed, copy them all to the .chef directory:</p>
+
+<div><script src='https://gist.github.com/859076.js?file=cp.sh'></script>
+<noscript><pre><code>cp USERNAME.pem ORGANIZATION-validator.pem knife.rb .chef</code></pre></noscript></div>
+
+
+<p>These will be used by the new instances to connect to Opscode and identify themselves as truly being created by you (this saves us from having to hack an awkward solution for this to work on Puppet).  Add to your knife.rb file your AWS credentials:</p>
+
+<div><script src='https://gist.github.com/859076.js?file=knife.rb'></script>
+<noscript><pre><code>knife[:aws_access_key_id]     = &quot;Your AWS Access Key&quot;
+knife[:aws_secret_access_key] = &quot;Your AWS Secret Access Key&quot; </code></pre></noscript></div>
+
+
+<p>We will now fetch the apache2 cookbook, which will allow us to install apache on our instances by adding a single configuration line. To download an existing cookbook, do the following:</p>
+
+<div><script src='https://gist.github.com/859076.js?file=download.sh'></script>
+<noscript><pre><code>knife cookbook site vendor apache2</code></pre></noscript></div>
+
+
+<p>You can see what other cookbooks are made available by looking around <a href="http://github.com/opscode/cookbooks">here</a>. Now, we&#8217;ll create a role for our instances. Create the file roles/appserver.rb with this data:</p>
+
+<div><script src='https://gist.github.com/859076.js?file=appserver.rb'></script>
+<noscript><pre><code>name &quot;appserver&quot;
+description &quot;An application server&quot;
+run_list(%w{
+  recipe[apache2]
+})</code></pre></noscript></div>
+
+
+<p>And to update our Opscode server with the new cookbook and role:</p>
+
+<div><script src='https://gist.github.com/859076.js?file=upload.sh'></script>
+<noscript><pre><code>knife cookbook upload apache2
+knife role from file roles/appserver.rb</code></pre></noscript></div>
+
+
+<p>We&#8217;re getting really close now! You should have a security group define in AWS that has port 22 (SSH) open, for knife to be able to connect to it and configure it, and port 80 (HTTP) for our Apache to be available. I called mine &#8220;chef&#8221;. You will also need to decide with AMI (image) to use, you can find a list of AMIs supplied by Opscode <a href="http://wiki.opscode.com/display/chef/Amazon+EC2+AMIs+with+Chef">here</a>.  And now, to create an instance with one command line, as promised:</p>
+
+<div><script src='https://gist.github.com/859076.js?file=create.sh'></script>
+<noscript><pre><code>knife ec2 server create &quot;role[appserver]&quot; --image ami-f0e20899 \
+   --groups chef --ssh-user ubuntu --ssh-key my-key</code></pre></noscript></div>
+
+
+<p>This will take a while, as knife will create the instance, connect to it, install ruby, chef itself, apache etc. Once it says it has finished simply copy the public DNS of the newly created image (it should be printed once knife finishes) and open it in your browser. My, what a sense of accomplishment one gets from seeing the string &#8220;It works!&#8221;</p>
+
+<p>I find this a lot easier, cleaner, stream-lined and fun. I&#8217;m still learning the ropes with chef, but it has already surprised by being easy to change, being completely git-integrated and by Opscode&#8217;s fast support (even for non-paying customers). You can dig further <a href="http://wiki.opscode.com/display/chef/Quick+Start">in</a> <a href="http://wiki.opscode.com/display/chef/Launch+Cloud+Instances+with+Knife">these</a> <a href="http://help.opscode.com/kb/start/how-to-get-started">links</a>.</p>
+
+<p>You should <a href="http://feeds.feedburner.com/TheCodeDump">subscribe</a> to my feed and <a href="http://twitter.com/avivby">follow</a> me on twitter!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/page/4/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/page/2/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Aviv Ben-Yosef</h1>
+  <img src="https://api.twitter.com/1/users/profile_image?screen_name=avivby&amp;size=original" width="128" height="128" style="height: 128px; width: 128px; border-radius: 6px">
+  <p>An aspiring software craftsman and a happy hacker. More <a href="/about">about me</a>.</p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2012/03/07/slides-from-the-how-billguard-does-mongodb-talk/">Slides from the &#8220;How BillGuard does MongoDB&#8221; Talk</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/03/01/notes-from-the-agile-practitioners-2012-improving-your-tdd-workshop/">Notes from the Agile Practitioners 2012 Improving Your TDD Workshop</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/28/notes-from-the-israeli-software-craftsmanship-group-code-retreat/">Notes from the Israeli Software Craftsmanship Group Code Retreat</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/04/extend-your-toolbox-custom-matchers/">Extend Your Toolbox: Custom Matchers</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/01/28/stop-bitching-do-self-agile/">Stop Bitching: Do Self-Agile</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("avivby", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/avivby" class="twitter-follow-button" data-show-count="false">Follow @avivby</a>
+  
+</section>
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Aviv Ben-Yosef -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'codelord';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

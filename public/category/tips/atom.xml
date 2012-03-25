@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: tips | The Code Dump]]></title>
+  <link href="http://www.codelord.net/category/tips/atom.xml" rel="self"/>
+  <link href="http://www.codelord.net/"/>
+  <updated>2012-03-25T20:33:29+02:00</updated>
+  <id>http://www.codelord.net/</id>
+  <author>
+    <name><![CDATA[Aviv Ben-Yosef]]></name>
+    <email><![CDATA[aviv.by+blog@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Using Puppet to Automatically Configure New EC2 Instances]]></title>
+    <link href="http://www.codelord.net/2010/12/19/using-puppet-to-automatically-configure-new-ec2-instances/"/>
+    <updated>2010-12-19T22:30:48+02:00</updated>
+    <id>http://www.codelord.net/2010/12/19/using-puppet-to-automatically-configure-new-ec2-instances</id>
+    <content type="html"><![CDATA[<p><em>Note: I posted an update about doing the same with chef <a href="/2011/03/07/using-chef-to-automatically-configure-new-ec2-instances/">here</a>.</em></p>
+
+<p>This is a quickie techie post that summarizes a few hours of learning that I wish someone else had put up on the web before me. I assume some knowledge about Puppet, and recommend the <a href="http://www.amazon.com/gp/product/1430230576/ref=as_li_tf_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=217145&amp;creative=399381&amp;creativeASIN=1430230576">Pro Puppet</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=1430230576&camp=217145&creative=399381" style="width: 0; height: 0; display: none; border: none !important;"> book and heard good stuff about <a href="http://www.amazon.com/gp/product/1849515387/ref=as_li_ss_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=1849515387">Puppet 2.7 Cookbook</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=1849515387" style="width: 0; height: 0; display: none; border: none !important;">.</p>
+
+<p>So, I wanted to be able to configure via Puppet the way our new instances should be configured, and then be able to easily spawn new instances that will get configured by said puppet. The first part is <a href="https://help.ubuntu.com/10.10/serverguide/C/puppet.html">installing</a> puppetmaster. I decided to manually setup an EC2 instance that will act as the puppet master:</p>
+
+<p><div><script src='https://gist.github.com/747614.js?file=install_master.sh'></script>
+<noscript><pre><code>aptitude install puppetmaster
+echo &quot;127.0.0.1 puppet&quot; &gt;&gt; /etc/hosts</code></pre></noscript></div>
+</p>
+
+<p>Under /etc/puppet/manifests/site.pp we place the "main" entry point for the configuration. This is the file that is responsible for including the rest of the files. I copied the structure from somewhere where the actual classes were put under /etc/puppet/manifests/classes and import it in site.pp. Do note that currently this setup only supports a single type of node, but supporting more should be doable using <a href="http://docs.puppetlabs.com/guides/external_nodes.html">external nodes</a> to classify the node types.</p>
+
+<p><div><script src='https://gist.github.com/747614.js?file=site.pp'></script>
+<noscript><pre><code>import &quot;classes/*&quot;
+
+node default {
+        include default_node
+}</code></pre></noscript></div>
+</p>
+
+<p><div><script src='https://gist.github.com/747614.js?file=classes/default_node.pp'></script>
+<noscript><pre><code>class default_node {
+  package { 'apache2':
+    ensure =&gt; installed
+  }
+  service { 'apache2':
+    ensure =&gt; true,
+    enable =&gt; true,
+    require =&gt; Package['apache2'],
+  }
+}</code></pre></noscript></div>
+</p>
+
+<h2>Auto-signing new instances</h2>
+
+<p>A common problem with puppet setups is that whenever a new puppet connects to the puppet master it hands it a certificate which you then have to automatically sign before the puppetmaster will agree to configure it. This is problematic in setups like mine where I want to be able to spawn new instances with a script and don't hassle with jumping between the machines right after the certificate was sent and approving it. I found two ways to circumvent this:</p>
+
+<h3>1. Simply auto-signing everything and relying on firewalls</h3>
+
+<p>In case you can allow yourself to firewall the puppetmaster port (tcp/8140) to be only accessible to trusted instances, you do not actually need to sign the certificates, you can tell puppet to trust whatever it gets and leave the security in the hands of your trusty firewall. With EC2 this is extremely easy:</p>
+
+<ul>
+<li>Setup a security group, I'll call mine "puppets"</li>
+<li>Add a security exception to the puppetmaster that allows access to all instances in the "puppets" group</li>
+<li>Create all puppet instances in the "puppets" security group</li>
+<li>Configure puppet to automatically sign all requests: echo "*" > /etc/puppet/autosign.conf</li>
+</ul>
+
+
+<p>I decided to go with this solution since it's simpler and less likely to get broken. I didn't see it documented anywhere else. The downside is that you've got to have your puppetmaster on EC2 too.</p>
+
+<h3>2. Automatically identifying new instances and adding them</h3>
+
+<p>This is a solution I saw mentioned a few times online. Using the <a href="http://aws.amazon.com/developertools/351?_encoding=UTF8&amp;jiveRedirect=1">EC2 API tools</a> write a script that gets the DNS names of all the trusted instances you've got and write them. Once you have this getting it to run with a cron job every minute will do the trick. This can be done with sophisticated scripts, but for my (<em>very initial</em>) testing, this seemed to work:</p>
+
+<p><div><script src='https://gist.github.com/747614.js?file=cron'></script>
+<noscript><pre><code>* * * * * ec2-describe-instances | grep ^INSTANCE  | awk '{print $4}' &gt; /etc/puppet/autosign.conf</code></pre></noscript></div>
+</p>
+
+<h2>Getting new instances to connect to the master</h2>
+
+<p>The last piece of the puzzle. Since we use Ubuntu, we could simply use the <a href="http://alestic.com/2009/04/official-ubuntu-ec2">Canonical-supplied AMIs</a>. These support <a href="http://alestic.com/2009/06/ec2-user-data-scripts">user-data scripts</a> that are executed as root once the system boots. Below is a simple script that does this:</p>
+
+<ol>
+<li>Update the instance</li>
+<li>Add the "puppet" entry to DNS - puppet expects the master to be accessible via "puppet" DNS resolution. This little snippet gets the current IP of the master via our DNS name and writes it to /etc/hosts</li>
+<li>Install &amp; enable puppet and voila!</li>
+</ol>
+
+
+<p><div><script src='https://gist.github.com/747614.js?file=start_puppet.sh'></script>
+<noscript><pre><code>#!/bin/bash
+
+set -e -x
+
+# Needed so that the aptitude/apt-get operations will not be interactive
+export DEBIAN_FRONTEND=noninteractive
+
+apt-get update &amp;&amp; apt-get -y upgrade 
+
+# Find the current IP of the puppet master and make &quot;puppet&quot; point to it
+puppet_master_ip=$(host my_puppet_master.company.com | grep &quot;has address&quot; | head -1 | awk '{print $NF}')
+echo $puppet_master_ip puppet &gt;&gt; /etc/hosts
+
+aptitude -y install puppet 
+
+# Enable the puppet client
+sed -i /etc/default/puppet -e 's/START=no/START=yes/'
+
+service puppet restart</code></pre></noscript></div>
+</p>
+
+<p>Once all of this is up and running, creating a new instance is as easy as:</p>
+
+<pre><code>ec2-run-instances -g puppets --user-data-file start_puppet.sh -t m1.small -k key-pair ami-a403f7cd
+</code></pre>
+
+<p>Happy puppeting!</p>
+
+<p>You should subscribe to my <a href="http://feeds.feedburner.com/TheCodeDump">feed</a> and follow me on <a href="http://twitter.com/avivby">twitter</a>!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Short Intro to DRY]]></title>
+    <link href="http://www.codelord.net/2010/11/02/short-intro-to-dry/"/>
+    <updated>2010-11-02T21:43:24+02:00</updated>
+    <id>http://www.codelord.net/2010/11/02/short-intro-to-dry</id>
+    <content type="html"><![CDATA[<p>If you're just starting to learn programming you might be feeling the need for a few solid guidelines for producing better code right now. Joining an industry with so many Best Practices, Rules of Thumb and The Right Things is not easy and certainly not too welcoming for newbies.</p>
+
+<p>One of the best programming mantras that everyone can understand and use for better code right away is DRY - Don't Repeat Yourself. DRY is about removing duplication from the code base at pretty much every level, and this, I believe, is one of the pillars of good software engineering.</p>
+
+<p>Academia rarely talks about DRY with enough stress. I've heard something like it only twice. Once, when I was told to use constants instead of magic numbers. This is maybe the simplest way to get started with DRY - replace magic numbers that you use several times in your code with a constant. All of a sudden the numbers got a real meaning but the more important thing is that changing the value becomes a no-brainer. Want to send more bytes with every packet? Just update the constant! That's real value right there, instead of having to start searching files for the current number, and distinguishing between the times 512 is the packet size and when it's just the maximal file size.</p>
+
+<p>Another reference to DRY in Academia is "Reuse". Reuse is the holy grail of software engineering. I know that after taking a few courses it seemed that Reuse is that peace of mind only OOP Gurus can get to by writing speckless code with good design. Although in academic courses you're not likely to see real reuse and examples of code that reaches this goal in a good way, this is still a DRY manifestation that's easy for a lot of people to grasp. What's a better way to refrain from repeating myself than to not write new code at all and use that GenericAwesomeThing class I created before?</p>
+
+<p>But, as with many things, those 2 well-rehearsed topics are only the tip of the DRY iceberg. Once you get it into your head that DRY is one of the easiest and most effective ways to get better and cleaner code, you'll start seeing its violations left and right.</p>
+
+<p>The easiest way to spot DRY violations is by looking at your typing. Pretty much any time you catch yourself using copy and paste, you know you're doing it wrong. The mear act of copying some code around means, literally, you're repeating the same thing somewhere else. Spotting those is usually a happy occasion, an opportunity to learn. This usually means you're code is missing some basic abstraction to make that idea you're trying to replicate a concrete concept of your system.</p>
+
+<p>For example, whenever I copy a few lines from a method I know I probably need to extract a method. There are so many advantages to simply sticking to this as a golden rule that Uncle Bob is calling this "Extract till you Drop". Practice DRY enough and "Extract Method" will become a regular coding step. It is no longer a "refactoring". It is no longer a "task". For me, it's as simple as adding a variable, or writing a loop. It's a tool, the simplest we've got.</p>
+
+<p>But until you get familiar enough with extracting methods, you should be aware of these acts of copying stuff around and fight them with wrath. If extracting methods scares you, I'd start with even simpler stuff. Are you using the same string a couple of times, e.g. "Error: " is all over your code? Keep it DRY! Some simple computation appears a few times? Keep it DRY!</p>
+
+<p>To start the ball rolling in the craftsmanship direction and adhering to what people that are wiser than you and I, keeping things DRY is a pretty simple, sure-fire way to do things better. Keep your watch for patterns that look all too similar. Imagine your keyboard has a DRY key that simply removes the duplication, be it by extracting a method, a constant or a class.</p>
+
+<p>Try sticking a DRY post it to your monitor and do your best for a week. You will likely gain a whole new perspective of your code and learn to notice minute details you used to disregard. The magic is that once you start following DRY, you will also notice that the amount of places you need to go through to make changes is decreasing. There's nothing better than finding that change you wanted to make is a one-line change, as there's nothing more frustrating than finding out you now need to untangle 8 snippets in 5 files in order to get that simple change done.</p>
+
+<p>DRY is a power tool you should master quickly and add to your tool box. I've written more about taking DRY further <a href="http://feeds.feedburner.com/TheCodeDump">here</a>.</p>
+
+<p>You should subscribe to my <a href="http://feeds.feedburner.com/TheCodeDump">feed</a> and follow me on <a href="http://twitter.com/avivby">twitter</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Avoid the perils of coder customers]]></title>
+    <link href="http://www.codelord.net/2010/02/20/avoid-the-perils-of-coder-customers/"/>
+    <updated>2010-02-20T21:44:29+02:00</updated>
+    <id>http://www.codelord.net/2010/02/20/avoid-the-perils-of-coder-customers</id>
+    <content type="html"><![CDATA[<p>﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿Coders are the worst customers ever. The sooner you wrap your head around that, the better. Actually, any customer that's technical is a bad customer, but nothing trumps coders. That fact is not intuitive, or at least wasn't for me, but it can be really painful to find it out by yourself. So here, I just saved you some agony.</p>
+
+<p>Why are coders bad customers? First, let me say that even though coder-customers are a hard group to work with, they usually have really interesting problems to solve. After all, if it was simple they'd usually do it themselves. But, being coders, they think it's acceptable to tell you how to do your job.</p>
+
+<p>When you work with coders, the usual ticket/email/water-cooler chat will be of the form "you need to add an option for specifying X of type Y instead of the current options". At this point they'll usually start telling you how to implement that and how easy it is. If you're like me, at this point your instinct will be to crank out the code and make your customer happy. Resist that urge like the plague!</p>
+
+<p>Whenever I receive such a ticket, I dismiss everything in it. What I do next is come up to whoever suggested it, and ask "<strong>What is it that you're trying to do?</strong>" Usually, this will result in exactly the same technical do-this-and-that explanation. Take a deep breath and ask the question again. This will usually be enough, but sometimes may require a couple more tries. That's how you're supposed to gather requirements - <strong>understand the problem at hand</strong>.</p>
+
+<p>The main advantage of being a pain-in-the-ass and making sure you understand what it is you're supposed to implement is because every coder should know exactly what his code is doing. A lot has been said about understanding the domain you're working in, and simply implementing things handed to you is not the way to become knowledgeable in your domain.</p>
+
+<p>Furthermore, once you hear what people are trying to do you might think of a better way of doing it, you being fully immersed in the existing code. Actually, more often than not you'll see it's actually already possible to do it! And best of all, you might simply decide that's not a fair use of your code, and reject the ticket. How could you have made such a decision without knowing the actual problem you were asked to solve? No way.</p>
+
+<p>Saying "no" to features is one of the most important design skills to master, and a tricky one. After all, turning to your keyboard, hacking the code and saying "presto!" is more fun at first. But that way of working leads to a code-base that you don't really know. I've seen systems that were driven this way by technical users. 3 years later, there were rogue database fields that no one knew why there were being updated, and weird log files in awkward formats. Whenever someone tried removing one of those he found out it broke some dusty cron-job that seemed to use it instead of doing something sane (and do I really need to mention the code was a tangled, convoluted mess?).</p>
+
+<p>Ask why, mindfully consider and then decide. There's no really other way, unless you'd like to meet Code Cthulhu.</p>
+
+<p>You should follow me on <a href="http://bit.ly/aU2CaB">twitter</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Stop Coding in the Middle Ages]]></title>
+    <link href="http://www.codelord.net/2010/02/16/stop-coding-in-the-middle-ages/"/>
+    <updated>2010-02-16T08:41:35+02:00</updated>
+    <id>http://www.codelord.net/2010/02/16/stop-coding-in-the-middle-ages</id>
+    <content type="html"><![CDATA[<p>Aren't you sick of wasting your time, your team's time and precious build cycles for finding the stupidest mistakes ever? I know I'm far more interested in solving the real problems at hand than chasing stupid syntax errors. And even if you don't mind, you really shouldn't let your teammates substitute for a decent tool.</p>
+
+<p>Up until 15 years ago, I think it was very common for people to hack away at code for a good length of time, and once they got enough done, they'd try and compile the damn thing and start correcting the syntax errors, import things they forgot to, etc. This probably was because 15 years ago is the middle ages in computer-land, and compiling constantly was something people couldn't even dream about on the little PCs we used to code on.</p>
+
+<p>Nowadays, you can't find more than a handful of static-language coders that won't use a full featured IDE. C, Java, C# - other than a few freaky kernel hackers, I doubt anyone does real development outside an IDE in those languages. Today's IDEs will tell you that you made a mistake about 2 seconds before you did. I never stop being amazed at how smart Eclipse is - and the first time I had to whip up some Java code in Vim, I felt handicapped.</p>
+
+<p>What I find puzzling, is that people that are using the best available languages today, have suddenly decided that using the proper tool isn't that important. Dynamic languages like Python and Ruby are not as easy to write awesome IDEs for, and therefore there aren't many around that are mature enough, which is why it's very common to see people use Emacs/Vim for coding them. Now don't get me wrong, I've tried a few Python IDEs, but I'm still sticking with my Emacs. But when you use dynamic languages, you have to keep in mind you are even more prone of errors that will slip by. Even if you TDD, and your test coverage is extremely high, a typo might still get past your tests. Do you really want a production failure because you forgot to import an exception? (And do you really want to <a href="http://bit.ly/cKRZAK">upset Agnes</a>?)</p>
+
+<p>About 2 weeks into my decision to stick with Emacs I started searching for simple tools that will protect me from my stupidity. It takes 10 minutes to find and install flymake with pyflakes (Python tool) support. Presto! No more typos in variable names, no more useless imports lying around. What surprised me is that a lot of my teammates, which I have respect for and are good programmers, did not use any of these. Time and time again our continuous integration system will report an error on a file and once I opened the file Emacs would show me the bad line marked with red, with no way of not noticing it.</p>
+
+<p>I don't like wasting my time, and I'm sure you don't either. Stop being lazy (in the bad way). Stop making me angry. Get out of the middle ages. Yesterday we got everyone on my team to add pyflakes to their vim. Took 3 minutes to install. The problem is that it took more time to get them to install. "Nah, Vim already highlights syntax, there's no need for more". Oh really? After 10 minutes of searching I found a file that pyflakes showed a real problem in, and another, and another. "Hmmm, where do I download that plugin?" Win!</p>
+
+<p>Do yourself, your team and your build slaves a favor, and start using some modern tools. I promise it will be worth it, money-back-guarantee. And remember, if your team is still churning butter, <a href="/2009/04/04/sometimes-all-it-takes-is-a-little-push/">sometimes all it takes is a little push</a> (and sometimes you can plant bugs in their files).</p>
+
+<p>You should follow me on <a href="http://bit.ly/aU2CaB">twitter</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Less Code is More]]></title>
+    <link href="http://www.codelord.net/2010/02/13/less-is-more/"/>
+    <updated>2010-02-13T23:42:02+02:00</updated>
+    <id>http://www.codelord.net/2010/02/13/less-is-more</id>
+    <content type="html"><![CDATA[<p>As coders, we should always strive to get as much feedback as soon as possible. Agile tells us we should get frequent feedback from our customers in order to make sure we're always on track. Unit testing and the green-bar loving are all about knowing exactly when your code breaks and when you're safe.</p>
+
+<p>A kind of activity for which feedback is harder to get is our design. A big part of TDD is refactoring frequently. Refactoring often allows us to smooth out the design continuously as we work. The problem is, how can you tell you've done something good? On the one hand, creating abstractions is something good programmers do. On the other hand, taking that too far will usually cause more problems.</p>
+
+<p>When making bigger changes, the best feedback will be from getting another pair of eyeballs go over the change. Pairing is the best way for getting a second opinion. Code reviews can be effective too. Problem is, a lot of people don't get to pair or review most of their code (and yeah, I know that <a href="http://bit.ly/aSClmK">makes Corey Haines a sad panda</a>).</p>
+
+<p>When I work by myself about the bigger things, there's a handful of things I try to keep in mind, like the <a href="http://bit.ly/bs003B">SOLID principles</a>. But, the measure I like the most of how much shorter am I making the code. I'm not talking about obfuscating code. Readability is a must. I'm talking about abstractions that are really useful right now - they already make the code base smaller. Refactorings that make the code <a href="http://bit.ly/dizkHM">DRY</a> and thus shorter.</p>
+
+<p><img src="/images/posts_images/delete_key.jpg" width="150" height="150" title="Delete key" ></p>
+
+<p>Whenever I commit and git tells me I deleted more code than I inserted I get this fuzzy warm feeling. One of the <a href="http://bit.ly/cPw2Nr">agile manifesto principles</a> says "Simplicity - the art of maximizing the amount of work not done - is essential". Problem is I'm not a perfect coder, and because of that I often perform more work than necessary. But I try to simplify my code when I notice this.</p>
+
+<p>Paul Graham has an <a href="http://bit.ly/ae8RfK">essay</a> where he once showed a way for him to know he's making good progress with Arc, the language he created. He kept track of the number of lines it took him to implement an application (Hacker News) and whenever he made some changes he checked to see if they made the application simpler.</p>
+
+<p>Of course, as any rule, this one has exceptions. Eventually, you will need to add code! But, it always helps me see that what I thought was really good just adds clutter. Try and take a look at the output of <code>git log --shortstat</code> - do you tend to add more lines whenever you clean up?</p>
+
+<p>You should follow me on <a href="http://bit.ly/aU2CaB">twitter</a>!</p>
+]]></content>
+  </entry>
+  
+</feed>

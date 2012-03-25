@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: code retreat | The Code Dump]]></title>
+  <link href="http://www.codelord.net/category/code-retreat/atom.xml" rel="self"/>
+  <link href="http://www.codelord.net/"/>
+  <updated>2012-03-25T20:33:29+02:00</updated>
+  <id>http://www.codelord.net/</id>
+  <author>
+    <name><![CDATA[Aviv Ben-Yosef]]></name>
+    <email><![CDATA[aviv.by+blog@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Notes from the Israeli Software Craftsmanship Group Code Retreat]]></title>
+    <link href="http://www.codelord.net/2012/02/28/notes-from-the-israeli-software-craftsmanship-group-code-retreat/"/>
+    <updated>2012-02-28T22:52:47+02:00</updated>
+    <id>http://www.codelord.net/2012/02/28/notes-from-the-israeli-software-craftsmanship-group-code-retreat</id>
+    <content type="html"><![CDATA[<p>A month ago I had the great pleasure of participating in a <a href="http://coderetreat.org/about">Code Retreat</a> here in Israel, which was facilitated by the amazing <a href="http://www.coreyhaines.com/">Corey Haines</a>. The event was so awesome and fun that I just put together a few tidbits that I think are worth sharing.</p>
+
+<p>This was actually the third code retreat that I took part in, but funny enough the first retreat where I was a plain participant. I've facilitated two code retreats previously, one at the <a href="http://globalday.coderetreat.org/">Global Day of Code Retreat 2011</a>, and one internal retreat at the <a href="http://en.wikipedia.org/wiki/Israel_Defense_Forces">IDF</a> unit I used to serve in.</p>
+
+<p>I wasn't sure going to a third retreat would provide new take-aways, but it sure did!</p>
+
+<p>The first thing that was different from previous retreats was that Corey shared his views on coding. I was already familiar with most of the ideas that he mentioned, but he has a way of making ideas seem simpler that I originally thought, which is very powerful. I also loved seeing how other developers less familiar with these concepts reacted to them.</p>
+
+<p>I was surprised the problem can still be interesting after a couple dozen attempts. This is something I never thought I'd see. I've seen the code retreat problem (<a href="http://en.wikipedia.org/wiki/Conway's_Game_of_Life">Conway's Game of Life</a>) solved a few dozen times previously, and wasn't sure I'd still get a lot out of doing it a few times again this retreat. To my astonishment, every pair I worked with in the retreat brought with him new ideas and considerations, and Corey had us focus on different aspects of programming in each session (there were 5 sessions).</p>
+
+<p>I'm amazed that we could write the little function that checks whether two cells are neighbors in so many ways and still think hard about it. In one of the sessions, my pair, Elad Sofer, and I were debating the cleanliness of using euclidean distance for this back and force. Corey stood and listened to us talking, though we were speaking Hebrew and he couldn't get too much out of it. When I asked him if he wanted us to switch to English, he had this Neo moment and said "I think I understand what you're talking about" and a minute later he just chimed in and helped us point out the part of the code that wasn't fitting in. Such a discussion over 2 lines of code - FUN!</p>
+
+<p>In general, I loved seeing the spark in people's eyes and the full power of passionate developers, talking, discussing and caring about their code. As someone who cares about each and every character in source files, I had a blast being around the passionate people, all bathing in the glory of the joy of programming.</p>
+
+<p>Putting limitations on our code as we were solving the same problem kept making it appear as a total different problem. The things you can do when you're strictly adhering to the 4 rules of simple design are so different of those that appear when you and your pair aren't allowed to speak and just communicate via the code and the tests (no comments allowed! (which is always a good rule)).</p>
+
+<p>Another reason I had a blast was that because, to be honest, I picked the pairs I really wanted to work with, having only 5 precious sessions to work with people I never get to work with regularly (though given 5 more sessions, I would have liked to pair with a few more of the people who attended). Working only with people that I knew were awesome, though not necessarily worked with before was a great boost. My awesome pairs were <a href="https://twitter.com/#!/alonhorev">alonhorev</a>, <a href="https://twitter.com/#!/avihut">avihut</a>, <a href="https://twitter.com/#!/yonbergman">yonbergman</a>, <a href="https://twitter.com/#!/pembleton">pembleton</a> and <a href="https://twitter.com/#!/eladsof">eladsof</a>.</p>
+
+<p>We did TDD in all the sessions, but it was fun sometimes working with people out of their comfort zone, seeing how they react and how I had to be clearer. Sometimes it was just a matter of working in an editor they're less familiar with, and sometimes I had to teach Ruby while we were at it. Having to formalize in words every thing you do has the power of making you aware of a lot of the little decisions you usually make unconsciously, which is always a great thing. And I loved picking up little tricks I didn't know from my pairs.</p>
+
+<p>All in all, the retreat once again proved out to be an awesome opportunity to focus on the fact that we're all doing this because we love coding, and reminding us that it's fun and that we can always learn and become better at it.</p>
+
+<p>You should <a href="http://feeds.feedburner.com/TheCodeDump">subscribe</a> to my feed or <a href="http://twitter.com/avivby">follow</a> me on twitter!</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: puppet | The Code Dump]]></title>
+  <link href="http://www.codelord.net/category/puppet/atom.xml" rel="self"/>
+  <link href="http://www.codelord.net/"/>
+  <updated>2012-03-25T20:33:29+02:00</updated>
+  <id>http://www.codelord.net/</id>
+  <author>
+    <name><![CDATA[Aviv Ben-Yosef]]></name>
+    <email><![CDATA[aviv.by+blog@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Why I Regret Choosing RightScale]]></title>
+    <link href="http://www.codelord.net/2011/07/27/why-i-regret-choosing-rightscale/"/>
+    <updated>2011-07-27T21:10:58+03:00</updated>
+    <id>http://www.codelord.net/2011/07/27/why-i-regret-choosing-rightscale</id>
+    <content type="html"><![CDATA[<p>A few months ago we had to decide on some framework/environment to use for our devops needs. I've blogged about my experiences with <a href="/2010/12/19/using-puppet-to-automatically-configure-new-ec2-instances/">Puppet</a> and <a href="/2011/03/07/using-chef-to-automatically-configure-new-ec2-instances/">Chef</a> on EC2. Somehow, we eventually ended up using <a href="http://www.rightscale.com">RightScale</a>.</p>
+
+<p>Quick disclaimer: this is not a rant and I don't intend any bashing. It's just a report of my impression from using it.</p>
+
+<p>RightScale provide a system for configuring and managing your cloud infrastructure, from defining how servers are created to monitoring and changing them. RightScale has a few nice features. It has a pretty nice clustering setup of MySQL solution for EC2. It also has decent monitoring and alerting capabilities.</p>
+
+<p>My main problem with it, though, is that they basically took a few steps backwards from all other known solutions, making my life so much harder. I've pointed most if not all of these issues to RightScale on twitter and private emails, yet I can't imagine seeing these issues solved any time soon.</p>
+
+<h4>Scripting (Dis)Abilities</h4>
+
+<p>If you've used Chef or Puppet, you probably got hooked on the ease of managing and creating your own set up scripts. RightScale's solution, RightScripts is a weaker, 1990ish kind of solution:</p>
+
+<ul>
+<li>No templates - remember the days you had files with placeholders like <code>@@REPLACE_HERE@@</code> to <code>sed</code> out? Know how nice are real templates in Chef for example, where you can use .erb files? Well, with RightScale it's all gone again. Sed away.</li>
+<li>No dependencies - RightScale do have a nice RightScript to install MySQL. Problem is, it depends on a bunch of other scripts and there just isn't any link to it. Install it, hopefully find a reference for dependency name in README. Install dependency. Look for its dependencies. Error prone and tiresome.</li>
+<li>Made up version control model - No longer can you use git to update and manage your scripts. RightScale has a dumb-down version control system where you can "commit" changes to scripts you make. These aren't accessible locally on your machine and lack all the nice features of real VCS: can't grep, can't search history. You can't do a <code>git status</code> and see what has changed all over your servers. Chaos.</li>
+<li>Scripts are edited in text areas - that's right. That means I'm constantly copying the script from the browser to vim, edit it, copy back and save.</li>
+<li>No easy sharing of scripts - with Chef you could download cookbooks from all over the internet. With RightScale you're limited to a closed and pretty empty market of rightscripts.</li>
+<li>No composability - say you've got a generic script to attach an EBS volume to a server. Want to attach 2? Thought you can just call the script twice with different parameters? Wrong! You can't. Only option is to copy and paste the script with a new name and new parameter names.</li>
+</ul>
+
+
+<p>Some of these issues might be solved soon, since RightScale seem to be working on enabling use of Chef for scripts. We've tried to set up this beta on our installation but got a lot of exceptions and left it as it is for now.</p>
+
+<h4>Mouse Control</h4>
+
+<p>The UI is centered around clicking way too much. They're pretty nice monitoring dashboard per machine is not configurable. That means that for each and every server we have a routine of doing over a few graphs, clicking and dragging stuff the way we like them. Want to change alert type of a server? Click them all one by one. Need to run a script on all your servers? Click, click, click. This is a painstakingly slow process that makes me feel undervalued each and every time.</p>
+
+<h4>No Automatic Updates</h4>
+
+<p>The beauty of systems like Chef and Puppet is that you can make a change in the configuration and it will automatically get to all of your servers. That's not the case here. You have to go over each server, figure its state and then run the proper scripts.</p>
+
+<h4>Bottom Line</h4>
+
+<p>If you have decent coding ability and know your way around a server, chances are you'd be better off no using RightScale. There's just so much you'll be missing out and a major time waste. I truly hope to see these issues taken cared of, but I think we're far from it.</p>
+
+<p>You should <a href="http://feeds.feedburner.com/TheCodeDump">subscribe</a> to my feed and <a href="http://twitter.com/avivby">follow</a> me on twitter!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Using Chef to Automatically Configure New EC2 Instances]]></title>
+    <link href="http://www.codelord.net/2011/03/07/using-chef-to-automatically-configure-new-ec2-instances/"/>
+    <updated>2011-03-07T21:56:38+02:00</updated>
+    <id>http://www.codelord.net/2011/03/07/using-chef-to-automatically-configure-new-ec2-instances</id>
+    <content type="html"><![CDATA[<p>This is a follow up post to my <a href="/2010/12/19/using-puppet-to-automatically-configure-new-ec2-instances/">post about using Puppet</a> to get the same result. In the comments to that post I was told by a few people that chef can make my life easier and I decided to give a try. Here's what I came up with.</p>
+
+<p>In this post, as in the previous one, our goal is to be able to start a new EC2 instance with one command, which will in turn be created and started with Apache running.</p>
+
+<p>First of all, instead of having to set up our own server to tell the newly created instances what to do, we are going to use a hosted chef server on Opscode's server. The hosting is free for 5 nodes, and so you can try this out without having to pay them. Go to <a href="http://opscode.com">Opscode's site</a> and register a new user, then also add a new organization.</p>
+
+<p>On our system, we need to start by installing chef. You will also want to install the dependencies needed to make chef talk with EC2 (these are not installed automatically when installing the gem because they're optional):</p>
+
+<p><div><script src='https://gist.github.com/859076.js?file=install.sh'></script>
+<noscript><pre><code>gem install chef net-ssh net-ssh-multi fog highline</code></pre></noscript></div>
+
+Now, we need to setup a chef repository. This repository will contain our cookbooks (libraries that contain recipes, which are scripts for doing stuff, like installing apache) and roles (which map recipes to nodes), among other stuff. To get it run:
+<div><script src='https://gist.github.com/859076.js?file=clone.sh'></script>
+<noscript><pre><code>git clone git://github.com/opscode/chef-repo.git</code></pre></noscript></div>
+
+In the repository create a .chef directory. Now back on Opscode's site, you need to download 3 files: your organization's validator key, your user's key and a generated knife.rb. Once installed, copy them all to the .chef directory:
+<div><script src='https://gist.github.com/859076.js?file=cp.sh'></script>
+<noscript><pre><code>cp USERNAME.pem ORGANIZATION-validator.pem knife.rb .chef</code></pre></noscript></div>
+
+These will be used by the new instances to connect to Opscode and identify themselves as truly being created by you (this saves us from having to hack an awkward solution for this to work on Puppet).  Add to your knife.rb file your AWS credentials:
+<div><script src='https://gist.github.com/859076.js?file=knife.rb'></script>
+<noscript><pre><code>knife[:aws_access_key_id]     = &quot;Your AWS Access Key&quot;
+knife[:aws_secret_access_key] = &quot;Your AWS Secret Access Key&quot; </code></pre></noscript></div>
+
+We will now fetch the apache2 cookbook, which will allow us to install apache on our instances by adding a single configuration line. To download an existing cookbook, do the following:
+<div><script src='https://gist.github.com/859076.js?file=download.sh'></script>
+<noscript><pre><code>knife cookbook site vendor apache2</code></pre></noscript></div>
+
+You can see what other cookbooks are made available by looking around <a href="http://github.com/opscode/cookbooks">here</a>. Now, we'll create a role for our instances. Create the file roles/appserver.rb with this data:
+<div><script src='https://gist.github.com/859076.js?file=appserver.rb'></script>
+<noscript><pre><code>name &quot;appserver&quot;
+description &quot;An application server&quot;
+run_list(%w{
+  recipe[apache2]
+})</code></pre></noscript></div>
+
+And to update our Opscode server with the new cookbook and role:
+<div><script src='https://gist.github.com/859076.js?file=upload.sh'></script>
+<noscript><pre><code>knife cookbook upload apache2
+knife role from file roles/appserver.rb</code></pre></noscript></div>
+
+We're getting really close now! You should have a security group define in AWS that has port 22 (SSH) open, for knife to be able to connect to it and configure it, and port 80 (HTTP) for our Apache to be available. I called mine "chef". You will also need to decide with AMI (image) to use, you can find a list of AMIs supplied by Opscode <a href="http://wiki.opscode.com/display/chef/Amazon+EC2+AMIs+with+Chef">here</a>.  And now, to create an instance with one command line, as promised:
+<div><script src='https://gist.github.com/859076.js?file=create.sh'></script>
+<noscript><pre><code>knife ec2 server create &quot;role[appserver]&quot; --image ami-f0e20899 \
+   --groups chef --ssh-user ubuntu --ssh-key my-key</code></pre></noscript></div>
+</p>
+
+<p>This will take a while, as knife will create the instance, connect to it, install ruby, chef itself, apache etc. Once it says it has finished simply copy the public DNS of the newly created image (it should be printed once knife finishes) and open it in your browser. My, what a sense of accomplishment one gets from seeing the string "It works!"</p>
+
+<p>I find this a lot easier, cleaner, stream-lined and fun. I'm still learning the ropes with chef, but it has already surprised by being easy to change, being completely git-integrated and by Opscode's fast support (even for non-paying customers). You can dig further <a href="http://wiki.opscode.com/display/chef/Quick+Start">in</a> <a href="http://wiki.opscode.com/display/chef/Launch+Cloud+Instances+with+Knife">these</a> <a href="http://help.opscode.com/kb/start/how-to-get-started">links</a>.</p>
+
+<p>You should <a href="http://feeds.feedburner.com/TheCodeDump">subscribe</a> to my feed and <a href="http://twitter.com/avivby">follow</a> me on twitter!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Using Puppet to Automatically Configure New EC2 Instances]]></title>
+    <link href="http://www.codelord.net/2010/12/19/using-puppet-to-automatically-configure-new-ec2-instances/"/>
+    <updated>2010-12-19T22:30:48+02:00</updated>
+    <id>http://www.codelord.net/2010/12/19/using-puppet-to-automatically-configure-new-ec2-instances</id>
+    <content type="html"><![CDATA[<p><em>Note: I posted an update about doing the same with chef <a href="/2011/03/07/using-chef-to-automatically-configure-new-ec2-instances/">here</a>.</em></p>
+
+<p>This is a quickie techie post that summarizes a few hours of learning that I wish someone else had put up on the web before me. I assume some knowledge about Puppet, and recommend the <a href="http://www.amazon.com/gp/product/1430230576/ref=as_li_tf_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=217145&amp;creative=399381&amp;creativeASIN=1430230576">Pro Puppet</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=1430230576&camp=217145&creative=399381" style="width: 0; height: 0; display: none; border: none !important;"> book and heard good stuff about <a href="http://www.amazon.com/gp/product/1849515387/ref=as_li_ss_tl?ie=UTF8&amp;tag=thcodu02-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=1849515387">Puppet 2.7 Cookbook</a><img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=1849515387" style="width: 0; height: 0; display: none; border: none !important;">.</p>
+
+<p>So, I wanted to be able to configure via Puppet the way our new instances should be configured, and then be able to easily spawn new instances that will get configured by said puppet. The first part is <a href="https://help.ubuntu.com/10.10/serverguide/C/puppet.html">installing</a> puppetmaster. I decided to manually setup an EC2 instance that will act as the puppet master:</p>
+
+<p><div><script src='https://gist.github.com/747614.js?file=install_master.sh'></script>
+<noscript><pre><code>aptitude install puppetmaster
+echo &quot;127.0.0.1 puppet&quot; &gt;&gt; /etc/hosts</code></pre></noscript></div>
+</p>
+
+<p>Under /etc/puppet/manifests/site.pp we place the "main" entry point for the configuration. This is the file that is responsible for including the rest of the files. I copied the structure from somewhere where the actual classes were put under /etc/puppet/manifests/classes and import it in site.pp. Do note that currently this setup only supports a single type of node, but supporting more should be doable using <a href="http://docs.puppetlabs.com/guides/external_nodes.html">external nodes</a> to classify the node types.</p>
+
+<p><div><script src='https://gist.github.com/747614.js?file=site.pp'></script>
+<noscript><pre><code>import &quot;classes/*&quot;
+
+node default {
+        include default_node
+}</code></pre></noscript></div>
+</p>
+
+<p><div><script src='https://gist.github.com/747614.js?file=classes/default_node.pp'></script>
+<noscript><pre><code>class default_node {
+  package { 'apache2':
+    ensure =&gt; installed
+  }
+  service { 'apache2':
+    ensure =&gt; true,
+    enable =&gt; true,
+    require =&gt; Package['apache2'],
+  }
+}</code></pre></noscript></div>
+</p>
+
+<h2>Auto-signing new instances</h2>
+
+<p>A common problem with puppet setups is that whenever a new puppet connects to the puppet master it hands it a certificate which you then have to automatically sign before the puppetmaster will agree to configure it. This is problematic in setups like mine where I want to be able to spawn new instances with a script and don't hassle with jumping between the machines right after the certificate was sent and approving it. I found two ways to circumvent this:</p>
+
+<h3>1. Simply auto-signing everything and relying on firewalls</h3>
+
+<p>In case you can allow yourself to firewall the puppetmaster port (tcp/8140) to be only accessible to trusted instances, you do not actually need to sign the certificates, you can tell puppet to trust whatever it gets and leave the security in the hands of your trusty firewall. With EC2 this is extremely easy:</p>
+
+<ul>
+<li>Setup a security group, I'll call mine "puppets"</li>
+<li>Add a security exception to the puppetmaster that allows access to all instances in the "puppets" group</li>
+<li>Create all puppet instances in the "puppets" security group</li>
+<li>Configure puppet to automatically sign all requests: echo "*" > /etc/puppet/autosign.conf</li>
+</ul>
+
+
+<p>I decided to go with this solution since it's simpler and less likely to get broken. I didn't see it documented anywhere else. The downside is that you've got to have your puppetmaster on EC2 too.</p>
+
+<h3>2. Automatically identifying new instances and adding them</h3>
+
+<p>This is a solution I saw mentioned a few times online. Using the <a href="http://aws.amazon.com/developertools/351?_encoding=UTF8&amp;jiveRedirect=1">EC2 API tools</a> write a script that gets the DNS names of all the trusted instances you've got and write them. Once you have this getting it to run with a cron job every minute will do the trick. This can be done with sophisticated scripts, but for my (<em>very initial</em>) testing, this seemed to work:</p>
+
+<p><div><script src='https://gist.github.com/747614.js?file=cron'></script>
+<noscript><pre><code>* * * * * ec2-describe-instances | grep ^INSTANCE  | awk '{print $4}' &gt; /etc/puppet/autosign.conf</code></pre></noscript></div>
+</p>
+
+<h2>Getting new instances to connect to the master</h2>
+
+<p>The last piece of the puzzle. Since we use Ubuntu, we could simply use the <a href="http://alestic.com/2009/04/official-ubuntu-ec2">Canonical-supplied AMIs</a>. These support <a href="http://alestic.com/2009/06/ec2-user-data-scripts">user-data scripts</a> that are executed as root once the system boots. Below is a simple script that does this:</p>
+
+<ol>
+<li>Update the instance</li>
+<li>Add the "puppet" entry to DNS - puppet expects the master to be accessible via "puppet" DNS resolution. This little snippet gets the current IP of the master via our DNS name and writes it to /etc/hosts</li>
+<li>Install &amp; enable puppet and voila!</li>
+</ol>
+
+
+<p><div><script src='https://gist.github.com/747614.js?file=start_puppet.sh'></script>
+<noscript><pre><code>#!/bin/bash
+
+set -e -x
+
+# Needed so that the aptitude/apt-get operations will not be interactive
+export DEBIAN_FRONTEND=noninteractive
+
+apt-get update &amp;&amp; apt-get -y upgrade 
+
+# Find the current IP of the puppet master and make &quot;puppet&quot; point to it
+puppet_master_ip=$(host my_puppet_master.company.com | grep &quot;has address&quot; | head -1 | awk '{print $NF}')
+echo $puppet_master_ip puppet &gt;&gt; /etc/hosts
+
+aptitude -y install puppet 
+
+# Enable the puppet client
+sed -i /etc/default/puppet -e 's/START=no/START=yes/'
+
+service puppet restart</code></pre></noscript></div>
+</p>
+
+<p>Once all of this is up and running, creating a new instance is as easy as:</p>
+
+<pre><code>ec2-run-instances -g puppets --user-data-file start_puppet.sh -t m1.small -k key-pair ami-a403f7cd
+</code></pre>
+
+<p>Happy puppeting!</p>
+
+<p>You should subscribe to my <a href="http://feeds.feedburner.com/TheCodeDump">feed</a> and follow me on <a href="http://twitter.com/avivby">twitter</a>!</p>
+]]></content>
+  </entry>
+  
+</feed>
