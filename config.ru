@@ -7,6 +7,9 @@ $root = ::File.dirname(__FILE__)
 
 use Rack::Rewrite do
   r301 %r{/tag/(.*)}, '/category/$1'
+  r301 %r{.*}, 'http://www.codelord.net$&', :if => Proc.new {|rack_env|
+    rack_env['SERVER_NAME'] == 'codelord.net'
+  }
 end
 
 class SinatraStaticServer < Sinatra::Base  
