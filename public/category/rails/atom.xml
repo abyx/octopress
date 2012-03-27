@@ -4,7 +4,7 @@
   <title><![CDATA[Category: rails | The Code Dump]]></title>
   <link href="http://www.codelord.net/category/rails/atom.xml" rel="self"/>
   <link href="http://www.codelord.net/"/>
-  <updated>2012-03-25T22:57:11+02:00</updated>
+  <updated>2012-03-27T07:04:34+02:00</updated>
   <id>http://www.codelord.net/</id>
   <author>
     <name><![CDATA[Aviv Ben-Yosef]]></name>
@@ -397,7 +397,7 @@ end</code></pre></noscript></div>
 end</code></pre></noscript></div>
 </p>
 
-<p>I'll let you work out the details for actually migrating the data yourself - this post has already ran long enough. I urge you to read more in the gem's source code <a href="https://github.com/Nimster/RailsLookup/blob/master/lib/active_record/lookup.rb">here</a>. There are some tricks I've omitted to make rails be able to support calls like Car.find_by_car_type_and_color "Compact", :blue (when the actual SQL query should be asking about car_type_id = 1), and some more options for setting the lookup itself, handling Car.where(type: "Compact") or multiple classes using a single lookup.</p>
+<p>I'll let you work out the details for actually migrating the data yourself - this post has already ran long enough. I urge you to read more in the gem's source code <a href="https://github.com/Nimster/RailsLookup/">here</a>. There are some tricks I've omitted to make rails be able to support calls like Car.find_by_car_type_and_color "Compact", :blue (when the actual SQL query should be asking about car_type_id = 1), and some more options for setting the lookup itself, handling Car.where(type: "Compact") or multiple classes using a single lookup.</p>
 
 <p>I hope this helped you and saved a lot of time and frustration. I'd like to thank Aviv for hosting me here. If you don't already, read the rest of his blog, you're sure to learn something useful! Follow me on twitter: <a href="http://twitter.com/nimrodpriell">@nimrodpriell</a></p>
 ]]></content>

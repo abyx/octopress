@@ -474,7 +474,7 @@ end</code></pre></noscript></div>
 end</code></pre></noscript></div>
 
 
-<p>I&#8217;ll let you work out the details for actually migrating the data yourself - this post has already ran long enough. I urge you to read more in the gem&#8217;s source code <a href="https://github.com/Nimster/RailsLookup/blob/master/lib/active_record/lookup.rb">here</a>. There are some tricks I&#8217;ve omitted to make rails be able to support calls like Car.find_by_car_type_and_color &#8220;Compact&#8221;, :blue (when the actual SQL query should be asking about car_type_id = 1), and some more options for setting the lookup itself, handling Car.where(type: &#8220;Compact&#8221;) or multiple classes using a single lookup.</p>
+<p>I&#8217;ll let you work out the details for actually migrating the data yourself - this post has already ran long enough. I urge you to read more in the gem&#8217;s source code <a href="https://github.com/Nimster/RailsLookup/">here</a>. There are some tricks I&#8217;ve omitted to make rails be able to support calls like Car.find_by_car_type_and_color &#8220;Compact&#8221;, :blue (when the actual SQL query should be asking about car_type_id = 1), and some more options for setting the lookup itself, handling Car.where(type: &#8220;Compact&#8221;) or multiple classes using a single lookup.</p>
 
 <p>I hope this helped you and saved a lot of time and frustration. I&#8217;d like to thank Aviv for hosting me here. If you don&#8217;t already, read the rest of his blog, you&#8217;re sure to learn something useful! Follow me on twitter: <a href="http://twitter.com/nimrodpriell">@nimrodpriell</a></p>
 </div>

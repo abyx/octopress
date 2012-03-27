@@ -201,6 +201,6 @@ will automatically create the migration. This is the required migration
 
 {% gist 1129113 %}
 
-I'll let you work out the details for actually migrating the data yourself - this post has already ran long enough. I urge you to read more in the gem's source code [here](https://github.com/Nimster/RailsLookup/blob/master/lib/active_record/lookup.rb). There are some tricks I've omitted to make rails be able to support calls like Car.find_by_car_type_and_color "Compact", :blue (when the actual SQL query should be asking about car_type_id = 1), and some more options for setting the lookup itself, handling Car.where(type: "Compact") or multiple classes using a single lookup.
+I'll let you work out the details for actually migrating the data yourself - this post has already ran long enough. I urge you to read more in the gem's source code [here](https://github.com/Nimster/RailsLookup/). There are some tricks I've omitted to make rails be able to support calls like Car.find_by_car_type_and_color "Compact", :blue (when the actual SQL query should be asking about car_type_id = 1), and some more options for setting the lookup itself, handling Car.where(type: "Compact") or multiple classes using a single lookup.
 
 I hope this helped you and saved a lot of time and frustration. I'd like to thank Aviv for hosting me here. If you don't already, read the rest of his blog, you're sure to learn something useful! Follow me on twitter: [@nimrodpriell](http://twitter.com/nimrodpriell)
