@@ -15,4 +15,4 @@ I'm a software developer from Israel and have been programming and fascinated by
 
 I love reading about code, writing about code and, of course, writing code !
 
-Among other things, I work at [BillGuard](http://www.billguard.com).
+Among other things, I work at [BillGuard](http://www.billguard.com) and am a panelist on the [TRuby Podcast](http://rauchy.net/truby) (Hebrew podcast about Ruby).
