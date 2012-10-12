@@ -27,7 +27,7 @@ Though IFTTT's feed triggers allow matching, which would hopefully would have al
 
 ### The workaround
 
-I spent an hour whipping up a simple proxy tornado server running on Heroku that does the easy filtering job by itself and set IFTTT to poll that thread. The code hacky code is available [here][5] (you would have to excuse the poor name I chose).
+I spent an hour whipping up a simple proxy tornado server running on Heroku that does the easy filtering job by itself and set IFTTT to poll that thread. The hacky code is available [here][5] (you would have to excuse the poor name I chose).
 
 ## The future
 
