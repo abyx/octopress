@@ -3,10 +3,8 @@
 <span class="categories">
   {% if post %}
     {{ post.categories | category_links }}
-    {{ post.tags | tag_links }}
   {% else %}
     {{ page.categories | category_links }}
-    {{ page.tags | tag_links }}
   {% endif %}
 </span>
 {% endunless %}
