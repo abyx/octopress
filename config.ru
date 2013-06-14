@@ -10,6 +10,7 @@ use Rack::Rewrite do
   r301 %r{.*}, 'http://www.codelord.net$&', :if => Proc.new {|rack_env|
     rack_env['SERVER_NAME'] == 'codelord.net'
   }
+  r301 %r{^/(20\d\d.*[^/])$}, '/$1/'
 end
 
 class SinatraStaticServer < Sinatra::Base  
