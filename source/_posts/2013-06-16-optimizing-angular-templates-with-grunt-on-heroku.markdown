@@ -1,8 +1,9 @@
 ---
 layout: post
-title: "Optimizing Anagular Templates with Grunt on Heroku"
+title: "Optimizing Angular Templates with Grunt on Heroku"
 date: 2013-06-16 22:37
 comments: true
+alias: /2013/06/16/optimizing-anagular-templates-with-grunt-on-heroku/
 categories: 
 - Programming
 - angular
