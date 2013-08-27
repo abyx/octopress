@@ -38,7 +38,7 @@ All of a sudden we can also click on the text and the checkbox will change value
 
 ## Awesomer labeling
 
-There's another syntax for associating labels with inputs which I prefer. The problem with the above synatx is that it requires us to have a specific ID for each input element to then put in the label's `for` attribute. This is usually messy and even requires extra coding if, for example, you're generating forms on the fly.
+There's another syntax for associating labels with inputs which I prefer. The problem with the above syntax is that it requires us to have a specific ID for each input element to then put in the label's `for` attribute. This is usually messy and even requires extra coding if, for example, you're generating forms on the fly.
 
 Lucky for us, if a label contains a single input element it is automatically associated with it, meaning we can now write:
 
