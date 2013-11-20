@@ -15,6 +15,6 @@ I'm a software engineer from Israel and have been programming and fascinated by 
 
 I love reading about code, writing about code and, of course, writing code !
 
-I am currently off to a new adventure, starting my own thing, while doing some part-time freelancing.
+I am currently off to a new adventure, [Deflect.io](http://www.deflect.io), while doing some part-time freelancing.
 
-Among other things, I worked at [BillGuard](http://www.billguard.com) and am a panelist on the [Mobile and Beer Podcast](http://www.mobileandbeer.com) (Hebrew) and [TRuby Podcast](http://rauchy.net/truby) (Hebrew podcast about Ruby).
+Among other things, I worked at [BillGuard](http://www.billguard.com) and am a panelist on the [Mobile and Beer Podcast](http://www.mobileandbeer.com) (Hebrew).
