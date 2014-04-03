@@ -68,7 +68,7 @@ app.directive('mailboxEdit', function() {
         },
         // We make sure the "mailboxes" directive is somewhere above us
         require: '^mailboxes',
-        // "mailboxesCtrl" is the money maker!
+        // "mailboxesCtrl" is the "mailboxes" directive's controller
         link: function(scope, element, attrs, mailboxesCtrl) {
             // Now we can use mailboxesCtrl.editContext
         }
@@ -86,7 +86,7 @@ app.directive('mailboxes', function() {
 });
 {% endcodeblock %}
 
-As you can see above, using `require` means our directive can get a parent's controller and reference it. The simpler HTML would now be:
+As you can see above, using `require` means our directive can get a parent's controller and reference it (`mailboxesCtrl`), as specified in the Angular docs [here](http://docs.angularjs.org/guide/directive#creating-directives-that-communicate). The simpler HTML would now be:
 
 {% codeblock lang:html %}
 <div mailboxes>
