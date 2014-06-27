@@ -3,13 +3,8 @@ require "bundler/setup"
 require "stringex"
 
 ## -- Rsync Deploy config -- ##
-# Be sure your public key is listed in your server's ~/.ssh/authorized_keys file
-ssh_user       = "user@domain.com"
-ssh_port       = "22"
-document_root  = "~/website.com/"
-rsync_delete   = false
-rsync_args     = ""  # Any extra arguments to pass to rsync
-deploy_default = "rsync"
+deploy_default = "s3"
+bucket_name = "www.codelord.net"
 
 # This will be configured for you when you run config_deploy
 deploy_branch  = "gh-pages"
@@ -302,6 +297,24 @@ task :set_root_dir, :dir do |t, args|
     rm_rf public_dir
     mkdir_p "#{public_dir}#{dir}"
     puts "## Site's root directory is now '/#{dir.sub(/^\//, '')}' ##"
+  end
+end
+
+desc "deploy to Amazon S3 using s3cmd"
+task :s3, :bucket do |t, args|
+  puts 'Amazon S3 Deployment'
+  if args.bucket
+    bucket = args.bucket
+  else 
+    if bucket_name != ""
+      bucket = bucket_name
+    else
+      bucket = get_stdin("Enter the s3 bucket name")
+    end
+  end
+
+  cd "#{public_dir}" do
+    ok_failed system("s3cmd sync . --verbose --delete-removed --acl-public --reduced-redundancy s3://#{bucket}/")
   end
 end
 
