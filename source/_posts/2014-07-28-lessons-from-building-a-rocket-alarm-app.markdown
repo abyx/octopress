@@ -13,7 +13,7 @@ categories:
 
 #### Air raid sirens 101
 
-If you’ve never had to leave in rocket range and duck for shelter (like most of the western world) here’s how it basically works: all of a sudden you hear [this lovely sound](https://www.youtube.com/watch?v=w-3_D9b_z8Y) booming across the city and now you have to run for shelter within 15-90 seconds (depending on your distance from Gaza strip).
+If you’ve never had to live in rocket range and duck for shelter (like most of the western world) here’s how it basically works: all of a sudden you hear [this lovely sound](https://www.youtube.com/watch?v=w-3_D9b_z8Y) booming across the city and now you have to run for shelter within 15-90 seconds (depending on your distance from Gaza strip).
 
 A lot of apartments in Israel have a safe room that you can run to, but older buildings don’t which means you usually go to the stairs, since they are considered safer than the rest of the building. You then spend 10 minutes with your neighbors (or strangers that ran inside from the street), waiting for the rockets to fall or be [intercepted by the Iron Dome](https://www.youtube.com/watch?v=m1WSjuidJVw).
 
