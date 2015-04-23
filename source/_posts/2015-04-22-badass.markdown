@@ -1,0 +1,52 @@
+---
+layout: post
+title: "Badass"
+date: 2015-04-22 00:09:57 +0300
+comments: true
+categories: 
+- books
+- badass
+- Programming
+---
+
+In our industry there are plenty of thought leaders, thinkers, authors. A lot has been written about the craft of making products - how to increase engagement, how to have better traction, improve your funnels, using gamification, blah blah blah.
+
+Not a lot, though, focus their vision on the actual *users* of these products. Instead of putting so much effort into sucking more money and time from our users, always thinking *me me me*, it is remarkable to think about the users' wellbeing. Is having people on your site for an average of 4 minutes per visit instead of 3 better? Shouldn't we optimize our products so that they get the most value in the least amount of time?
+
+Not a lot think like this. Kathy Sierra is one of the few, and is an exemplar of how we should strive to look at and treat our users. And more than just that, she has spent *years* learning so much about these things and articulating her learning so well that it would be a tremendous shame if we, as an industry, disregard this extraordinary opportunity to learn from her.
+
+She has recently released her new book, [Badass: Making Users Awesome](https://www.amazon.com/Badass-Making-Awesome-Kathy-Sierra/dp/1491919019/ref=as_sl_pc_ss_til?tag=thcodu02-20&linkCode=w01&linkId=EHA5TIIXZ6HVNHZW&creativeASIN=1491919019), which is **the best book I've read in years** - hands down. I haven't published a book review in my blog for over 4 years, this book was so good I had to sit down and write this (I'm actually working on some interesting AngularJS posts but decided this book is much more valuable for you guys). I've been very intrigued by her ideas for a while, since I've watched her talks that relate to much from the book, [here](https://vimeo.com/54469442) and [here](https://vimeo.com/81625882). Watch those videos, then if you'll go and read it now - you can stop reading this right here. Everything she wrote is better than the rest of this text.
+
+## Apps that make you fat
+
+This glorious book is intended to help us understand how to make products that make their users better - make them badasses. To teach this, Kathy goes through so many wonderfully interesting topics where each chapter is worth the cost of the book by itself.
+
+It starts with understanding how motivation works, why users would want learn how to do things and how we can use that to help them keep going and get better. This is under the viewpoint that if you actually help users be better and achieve things they truly want and care about you will have the best kind of marketing engine, which she calls WOFO - Word OF Obvious. If your product is that good, obviously they'll spread the word.
+
+Then we go into understanding expertise - badass-ness. What makes an expert an expert? What is the right way to become an expert in some context? Deliberate practice for building skills, perceptual exposure and other tools are introduced to help us guide users. But even if we put users aside, this is invaluable for anyone that still wants to keep getting better and learn new things.
+
+Another interesting topic is cognitive resources and how our brain works. While this too is in the context of designing products to treat users optimally, it also shines a light into how we ourselves work. I suddenly realized why I do somethings that I do, became aware of habits and their causes, and understood how to better use them to my advantage. 
+
+It then goes on to explain how cognitive resources and will power are connected so that bad apps that make us work harder will eventually drain our will power so we won't be able to say "no" to that piece of cake. This and more interworkings of the brain are fascinating in my opinion.
+
+Really, go get it. It's really packed with lots of interesting details, great business advice and even some life changing wisdom.
+
+<!-- Begin MailChimp Signup Form -->
+<link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+    #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+    /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+       We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+<form action="http://codelord.us6.list-manage.com/subscribe/post?u=78b36f07d7d2e7e91eb8deee3&amp;id=c9a8d439c8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <label for="mce-EMAIL">Liked this? Sign up to my newsletter to get more (~2 mails a month)</label>
+    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required style="display: inline">
+    <input type="hidden" value="" name="SIGNUP_URL" class="email" id="mce-SIGNUP_URL">
+    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" style="display: inline">
+</form>
+</div>
+<script type="text/javascript">
+document.getElementById('mce-SIGNUP_URL').value = document.location.href;
+</script>
+<!--End mc_embed_signup-->
