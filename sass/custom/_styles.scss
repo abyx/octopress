@@ -8,3 +8,16 @@ body {
 body #content article {
     font-size: 0.85em;
 }
+
+#mc_embed_signup  {
+    #mce-EMAIL {
+        border-radius: 4px 0 0 4px;
+        margin-right: 0;
+        border-color: #aaa;
+    }
+
+    #mc-embedded-subscribe {
+        border-radius: 0 4px 4px 0;
+        height: 31px;
+    }
+}
