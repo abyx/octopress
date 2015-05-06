@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "AngularJS: Notifying about changes from services to controllers"
-date: 2015-04-29 18:00:51 +0300
+date: 2015-05-04 18:00:51 +0300
 comments: true
 categories: 
 - programming
@@ -30,7 +30,7 @@ angular.module('app').factory('NotifyingService', function($rootScope) {
     return {
         subscribe: function(scope, callback) {
             var handler = $rootScope.$on('notifying-service-event', callback);
-            $scope.$on('$destroy', handler);
+            scope.$on('$destroy', handler);
         },
 
         notify: function() {
