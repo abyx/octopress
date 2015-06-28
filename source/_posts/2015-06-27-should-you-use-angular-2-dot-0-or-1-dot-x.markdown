@@ -15,6 +15,8 @@ If you're new to this world and want to get started with a new project you might
 
 And those are valid questions. After all, what are you supposed to think when every newsletter and forum are filled with articles about Angular 2's forms, architecture, new router, Typescript, etc.? Why would the community push out so many articles about writing simple apps in Angular 2 if it shouldn't be used?
 
+{% img /images/posts_images/angular_question.png %}
+
 **The executive summary**: There's no Angular 2 *to use*, so Angular 1 is still the way to go.
 
 ## A bit more details
