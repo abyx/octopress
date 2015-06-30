@@ -7,6 +7,8 @@ categories:
 - Programming
 - angular
 - angularjs
+facebook:
+    image: /images/posts_images/angular_question.png
 ---
 
 This question might seem trivial, but I keep seeing it pop up again and again everywhere in the Angular community. With all respect to the maintainers, they've managed to confuse quite a lot of smart people with this.
