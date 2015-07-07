@@ -37,7 +37,7 @@ There's a growing number of handy extensions and snippets for Angular. Here are 
 
 [Print debugging](https://en.wikipedia.org/wiki/Debugging#Techniques) is always useful, but sometimes `console.log`s alone are not enough. For these cases Angular provides us with a very nice little filter that even [the docs](https://docs.angularjs.org/api/ng/filter/json) say is just for debugging - the `json` filter.
 
-Have some model or scope you want to see easily? Just print it: `<pre>{{ someModel | json }}</pre>` (Using `pre` means you'll see the json properly formatted).
+Have some model or scope you want to see easily? Just print it: `<pre>{% raw %}{{ someModel | json }}{% endraw %}</pre>` (Using `pre` means you'll see the json properly formatted).
 
 ## Bugs be gone
 
