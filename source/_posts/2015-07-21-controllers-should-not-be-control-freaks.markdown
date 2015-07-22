@@ -7,6 +7,8 @@ categories:
 - Programming
 - angular
 - angularjs
+facebook:
+    image: /images/posts_images/angular-thin.png
 ---
 
 It's super easy to get baffled about what *should* you put inside your controllers. Especially if your background is with frameworks touting MVC, you might think that the name "controller" in Angular indicates some kind of *control*.
