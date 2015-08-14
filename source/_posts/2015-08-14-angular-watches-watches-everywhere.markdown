@@ -3,7 +3,8 @@ layout: post
 title: "Angular: Watches, Watches Everywhere"
 date: 2015-08-14 10:35:40 +0300
 comments: true
-categories: 
+facebook:
+    image: /images/posts_images/watches_everywhere.png
 ---
 
 You can only go so long in your Angular path before starting to learn about performance in Angular and some of its common problems.
@@ -17,6 +18,8 @@ A “watch” is Angular’s mechanism for keeping track of a specific expressio
 Not all watches were created equal, especially from a performance perspective. By defaults watches are shallow and so pretty quick. But if, for example, you use a deep watch on a huge list, don’t be surprised if it adds a lag to your app.
 
 # The Common Types of Watches
+
+{% img /images/posts_images/watches_everywhere.png %}
 
 ## The `$watch`
 
