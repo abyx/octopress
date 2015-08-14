@@ -7,10 +7,7 @@ title: 'Stop Bitching: Do Self-Agile'
 comments: true
 wordpress_id: '715'
 categories:
-- Programming
-- agile
 - autonomouscraftsmanshipcore
-- software craftsmanship
 ---
 
 Continuing on this series of the [Autonomous Craftsmanship Core](/category/autonomouscraftsmanshipcore/) we now reach the methodology problem.

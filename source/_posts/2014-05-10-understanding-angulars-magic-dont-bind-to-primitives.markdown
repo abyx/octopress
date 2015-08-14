@@ -3,13 +3,6 @@ layout: post
 title: "Understanding Angular's Magic: Don't Bind to Primitives"
 date: 2014-05-10 18:29:03 +0300
 comments: true
-categories: 
-- Programming
-- angular
-- angularjs
-- javascript
-- frontend
-- webdev
 ---
 
 If you do Angular, chances are you've seen the rule “Don't bind to primitives” quite a few times. In this post I'll dig into one such example where using primitives causes problems:  a list of `<input>` elements, each bound to a string.

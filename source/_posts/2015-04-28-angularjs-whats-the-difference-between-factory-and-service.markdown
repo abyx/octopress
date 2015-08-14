@@ -3,9 +3,6 @@ layout: post
 title: "AngularJS: What's the difference between factory and service?"
 date: 2015-04-28 23:25:10 +0300
 comments: true
-categories: 
-- programming
-- angularjs
 ---
 
 When getting started with Angular it can be a bit overwhelming to try and make sense of all the different tools and types of components that are available to us.

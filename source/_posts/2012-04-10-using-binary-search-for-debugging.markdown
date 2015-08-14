@@ -3,8 +3,6 @@ layout: post
 title: "Using Binary Search for Debugging"
 date: 2012-04-10 23:24
 comments: true
-categories: 
-- Programming
 ---
 
 Practically every developer alive has heard about binary search and knows how it can be used for quickly finding something in a sorted array. It's no surprise given how easy it is to grasp and how amazingly efficient it is. Just think that finding something in an array of 1000 elements only takes 8 checks. That's magic!

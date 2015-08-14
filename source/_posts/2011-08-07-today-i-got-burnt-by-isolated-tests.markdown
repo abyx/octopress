@@ -7,9 +7,6 @@ title: Today I Got Burnt by Isolated Tests
 comments: true
 wordpress_id: '440'
 categories:
-- Programming
-- testing
-- goos
 - tdd
 ---
 

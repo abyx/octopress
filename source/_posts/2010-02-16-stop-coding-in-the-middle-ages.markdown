@@ -6,9 +6,6 @@ status: publish
 title: Stop Coding in the Middle Ages
 comments: true
 wordpress_id: '126'
-categories:
-- Programming
-- tips
 ---
 
 Aren't you sick of wasting your time, your team's time and precious build cycles for finding the stupidest mistakes ever? I know I'm far more interested in solving the real problems at hand than chasing stupid syntax errors. And even if you don't mind, you really shouldn't let your teammates substitute for a decent tool.

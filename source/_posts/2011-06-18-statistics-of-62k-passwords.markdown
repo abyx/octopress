@@ -6,9 +6,6 @@ status: publish
 title: Statistics of 62K Passwords
 comments: true
 wordpress_id: '383'
-categories:
-- Programming
-- security
 ---
 
 A couple of days ago, [LulzSec](http://lulzsecurity.com/) published a batch of 62K random logins (emails and passwords). At first, I grabbed it in order to make sure that neither me nor anyone on my contacts had his passwords revealed. Later I decided to run a few stats on this rare dump of data. Following are a few interesting facts.

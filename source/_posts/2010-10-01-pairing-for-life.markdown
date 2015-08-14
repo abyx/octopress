@@ -6,10 +6,6 @@ status: publish
 title: Pairing for Life
 comments: true
 wordpress_id: '228'
-categories:
-- Programming
-- agile
-- software craftsmanship
 ---
 
 A few years ago I joined a team of Java developers without me having any real-world experience in it. The first project I did on that team was with another teammate, that's now a good friend. Luckily for me, we did the whole project pairing. It was the first time ever I had done pair programming and I really liked it.

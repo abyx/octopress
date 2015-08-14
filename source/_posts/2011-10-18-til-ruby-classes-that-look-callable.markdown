@@ -6,9 +6,6 @@ status: publish
 title: 'TIL: Ruby Classes that Look Callable'
 comments: true
 wordpress_id: '478'
-categories:
-- Programming
-- ruby
 ---
 
 One of the concept I had to get used to moving from Python to Ruby was that regular objects aren't callable, and that there was a closed set of objects that can be called. Meaning that where in Python it was possible for any class to implement __call__ and so allow us to call it with obj(), Ruby doesn't allow this. One of the advantages of that syntax in Python is that each class implements its constructor using this. For example:

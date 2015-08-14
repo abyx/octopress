@@ -7,8 +7,6 @@ title: Sometimes Tests Have to Fail
 comments: true
 wordpress_id: '376'
 categories:
-- Programming
-- testing
 - tdd
 ---
 

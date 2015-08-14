@@ -3,10 +3,6 @@ layout: post
 title: "Don't allow your team to just go through the motions"
 date: 2013-01-13 21:30
 comments: true
-categories: 
-- Programming
-- agile
-- softwarecraftsmanship
 ---
 
 So many people I know claim to be doing agile, and are crafting software, and whatever. Unfortunately, from my experience it is clear that while everyone like saying they do stuff, they aren't actually doing it.

@@ -3,10 +3,6 @@ layout: post
 title: "AngularJS 1.3 Taste: Async Validators"
 date: 2014-11-02 16:51:45 +0200
 comments: true
-categories: 
-- Programming
-- angular
-- angularjs
 ---
 
 AngularJS 1.3 is finally released and brought a lot of [very cool features](http://angularjs.blogspot.com/2014/10/angularjs-130-superluminal-nudge.html). I decided to focus on one that, when you need it, will save you lots of time and hassle.

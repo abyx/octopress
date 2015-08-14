@@ -3,9 +3,6 @@ layout: post
 title: "Don't Use Yeoman's Default Angular File Structure"
 date: 2014-10-08 10:07:00 +0300
 comments: true
-categories: 
-- Programming
-- angularjs
 ---
 
 Yeoman is a very handy tool, and I've used its angular-generator to generate a basic structure for several new projects before. You should use it if you'd like to have it worry about all of your project's build process (minification, uglifying, compiling SASS, etc.).

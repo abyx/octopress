@@ -3,9 +3,6 @@ layout: post
 title: "Bad Commit Messages Hall of Shame"
 date: 2015-03-16 21:11:12 +0200
 comments: true
-categories: 
-- Programming
-- git
 ---
 
 Too many of us just go through the motions with Git and other version control systems without dedicating enough thought to *why* we do the things we do. This kind of cargo cult programming is so common I don’t think I’ve seen a single team where this wasn’t the case for some of the members in it.

@@ -6,10 +6,6 @@ status: publish
 title: Notes from the Israeli Software Craftsmanship Group Code Retreat
 comments: true
 wordpress_id: '741'
-categories:
-- Programming
-- code retreat
-- software craftsmanship
 ---
 
 A month ago I had the great pleasure of participating in a [Code Retreat](http://coderetreat.org/about) here in Israel, which was facilitated by the amazing [Corey Haines](http://www.coreyhaines.com/). The event was so awesome and fun that I just put together a few tidbits that I think are worth sharing.

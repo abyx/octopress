@@ -3,11 +3,6 @@ layout: post
 title: "Using Evernote for Fun and Profit"
 date: 2012-04-20 17:55
 comments: true
-categories: 
-- Programming
-- Evernote
-- lifehacks
-- tech
 ---
 
 I wanted to share how much I'm in love with the collection of bits called [Evernote](http://www.evernote.com/). It is by far one of the best lifehacks I've found in the past year and I just had to spread the word to those that haven't started using it yet.

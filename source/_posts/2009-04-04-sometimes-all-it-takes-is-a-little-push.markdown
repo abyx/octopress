@@ -6,8 +6,6 @@ status: publish
 title: Sometimes all it takes is a little push
 comments: true
 wordpress_id: '25'
-categories:
-- Programming
 ---
 
 Soon, I will be leaving my workplace for the past 3.5+ years, and that has got me to do some retrospective. One thing I've been reflecting on is how good programmers seem to move towards better programming/working habits that are shown to them and how easy it can be sometimes to make a difference.

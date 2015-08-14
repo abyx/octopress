@@ -6,8 +6,6 @@ status: publish
 title: How To Pull an All-Nighter
 comments: true
 wordpress_id: '10'
-categories:
-- Programming
 ---
 
 Our team has recently received a brand new 50' plasma display. After some brainstorming we've decided we want to display on it a live dashboard that will be used for all sorts of stuff - an [information radiator](http://www.agileadvice.com/archives/2005/05/information_rad.html) about current projects, displaying online information from production systems, pulling snapshots from different web-cams in our organization etc. Basically, we wanted to make it look **Hot!**

@@ -3,8 +3,6 @@ layout: post
 title: "My First 5 Minutes Learning AngularJS"
 date: 2013-03-23 10:52
 comments: true
-categories: 
-- Programming
 ---
 
 There's been [some](https://news.ycombinator.com/item?id=5406857) [debate](https://news.ycombinator.com/item?id=5424419) [online](https://twitter.com/wycats/status/315177556305408001) this week about how hard or easy it is to learn Ember. It just so happened that a couple of days ago I spent a couple of hours starting to learn about AngularJS and I thought I'd share how the first 5 minutes went.

@@ -7,8 +7,6 @@ title: 'Stop Bitching: It Doesn''t Always Take Two to Pair'
 comments: true
 wordpress_id: '689'
 categories:
-- Programming
-- agile
 - autonomouscraftsmanshipcore
 ---
 

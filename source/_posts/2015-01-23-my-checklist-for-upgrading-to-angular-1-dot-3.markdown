@@ -3,10 +3,6 @@ layout: post
 title: "My checklist for upgrading to Angular 1.3"
 date: 2015-01-23 11:06:16 +0200
 comments: true
-categories: 
-- Programming
-- angularjs
-- angular
 ---
 
 Angular’s 1.3 version was released a few months ago. Of course that the moment it was out I tried it with one of the bigger projects we’ve been working on. And of course I saw that so many things were broken (due to dependencies that haven’t caught all the related bugs yet) and just reverted and decided to wait a bit for things to ripen.

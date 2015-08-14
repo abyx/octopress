@@ -3,9 +3,6 @@ layout: post
 title: "AngularJS: Notifying about changes from services to controllers"
 date: 2015-05-04 18:00:51 +0300
 comments: true
-categories: 
-- programming
-- angularjs
 ---
 
 Once you write enough Angular code you (hopefully) start pushing off as much logic as you can from your controllers to services (note: I'm saying "services" as in the general concept, but technically these are [usually factories](/2015/04/28/angularjs-whats-the-difference-between-factory-and-service/)).

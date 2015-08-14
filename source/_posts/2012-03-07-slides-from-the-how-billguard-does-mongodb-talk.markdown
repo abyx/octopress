@@ -6,11 +6,6 @@ status: publish
 title: Slides from the "How BillGuard does MongoDB" Talk
 comments: true
 wordpress_id: '752'
-categories:
-- Programming
-- billguard
-- mongodb
-- talks
 ---
 
 Earlier today [David Brailovsky](http://twitter.com/davidbrai) and I gave a talk at the [Israeli MongoDB meetup](http://meetup.com/mongo-il/). Below you can find the slides.

@@ -3,10 +3,6 @@ layout: post
 title: "My Angular Debugging Tips"
 date: 2015-07-07 23:02:42 +0300
 comments: true
-categories: 
-- Programming
-- angular
-- angularjs
 facebook:
     image: /images/posts_images/angular-debug.png
 ---

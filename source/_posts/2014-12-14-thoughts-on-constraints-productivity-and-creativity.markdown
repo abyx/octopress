@@ -3,10 +3,6 @@ layout: post
 title: "Thoughts on Constraints, Productivity and Creativity"
 date: 2014-12-14 17:51:42 +0200
 comments: true
-categories: 
-- Programming
-- freelance
-- consulting
 ---
 
 You've surely heard people say how constraints are sometimes exactly what you need to jumpstart creativity or get more things done. I had a feeling this was indeed the case, but recently noticed how this profoundly influences my work and is part of the reason my business is successful.

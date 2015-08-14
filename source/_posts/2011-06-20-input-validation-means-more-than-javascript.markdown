@@ -6,9 +6,6 @@ status: publish
 title: Input Validation means more than Javascript
 comments: true
 wordpress_id: '397'
-categories:
-- Programming
-- security
 ---
 
 So much has been written about security before, that I never thought I'd end up writing something about it. Then again, I never thought one of the top [U.S. banks will get hacked](http://consumerist.com/2011/06/how-hackers-stole-200000-citi-accounts-by-exploiting-basic-browser-vulnerability.html) simply by twiddling digits in a URL.

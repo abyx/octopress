@@ -3,10 +3,6 @@ layout: post
 title: "CSS Tip: Stop Your Buttons from Flickering"
 date: 2013-11-12 16:05
 comments: true
-categories: 
-- Programming
-- css
-- javascript
 ---
 
 With the rise of flat design and it taking over the whole web, I've got this pet peeve with buttons that "wiggle" on hover. It's becoming more and more common to have buttons where in one state they are flat and just have a nice background color, and in the hover state the background color changes and a border is added. Let's have a look:

@@ -6,9 +6,6 @@ status: publish
 title: New version of JUnitConverter is out
 comments: true
 wordpress_id: '18'
-categories:
-- Programming
-- junit
 ---
 
 I just uploaded the latest version of [JUnitConverter](http://junit-converter.sourceforge.net/) (yeah, I'm no big on design), and thought it would be the right chance to talk about it here.

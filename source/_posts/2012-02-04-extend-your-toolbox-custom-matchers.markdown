@@ -7,11 +7,7 @@ title: 'Extend Your Toolbox: Custom Matchers'
 comments: true
 wordpress_id: '726'
 categories:
-- Programming
-- testing
 - DRY
-- ruby
-- software craftsmanship
 - tdd
 ---
 

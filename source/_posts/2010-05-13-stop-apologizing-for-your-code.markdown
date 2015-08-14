@@ -6,8 +6,6 @@ status: publish
 title: Stop Apologizing for Your Code
 comments: true
 wordpress_id: '179'
-categories:
-- Programming
 ---
 
 Have a habit of apologizing for your code before showing it to someone else? _You're doing it wrong._

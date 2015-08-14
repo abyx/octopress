@@ -3,9 +3,6 @@ layout: post
 title: "CSS Tip: Differentiate Classes Used in Scripts"
 date: 2014-01-03 17:23
 comments: true
-categories: 
-- css
-- Programming
 ---
 
 This one is short but so good that I find myself having to reintroduce it in every project I work on and to most developers I work with.

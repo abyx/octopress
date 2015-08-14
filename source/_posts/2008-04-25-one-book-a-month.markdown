@@ -6,8 +6,6 @@ status: publish
 title: One Book A Month
 comments: true
 wordpress_id: '16'
-categories:
-- Programming
 ---
 
 I've always loved books. I remember the vacation between 5th and 6th grades, my mother took me to the local library to get a subscription. I used to read 3 books a day during that vacation.

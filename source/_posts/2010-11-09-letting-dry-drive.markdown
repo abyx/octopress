@@ -7,11 +7,7 @@ title: Letting DRY Drive
 comments: true
 wordpress_id: '265'
 categories:
-- pragprowrimo2010
-- Programming
-- clean code
 - DRY
-- software craftsmanship
 ---
 
 The reason I [stress](/2010/11/02/short-intro-to-dry/) [DRY](/2010/11/03/taking-dry-further/) [so much](/2010/11/04/dry-dont-get-trigger-happy/) is because it is one of the simplest yet most effective pieces of knowledge we have gained for software development. When I first read about DRY (in [The Pragmatic Programmer](http://www.amazon.com/gp/product/020161622X?ie=UTF8&tag=thcodu02-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=020161622X)<img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=020161622X" style="width: 0; height: 0; display: none; border: none !important;">) I got it's amazing strength in saving extra maintenance by making sure that changes will be localized as much as possible in the future. And I've used it as such for a couple years.

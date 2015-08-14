@@ -3,10 +3,6 @@ layout: post
 title: "Angular Performance Diagnosis 101"
 date: 2015-08-03 23:42:51 +0300
 comments: true
-categories: 
-- Programming
-- angular
-- angularjs
 facebook:
     image: /images/posts_images/angular-performance.png
 ---

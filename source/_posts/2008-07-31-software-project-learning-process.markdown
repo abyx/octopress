@@ -6,8 +6,6 @@ status: publish
 title: Software Project Learning Process
 comments: true
 wordpress_id: '8'
-categories:
-- Programming
 ---
 
 Recently, a new guy has joined my team and is in the process of taking over one of the systems that's currently in my control. The guy, as most of the other people in my workplace, is the product of the organization's own "[Java School](http://www.joelonsoftware.com/articles/ThePerilsofJavaSchools.html)" ("WHY?", you're yelling to yourself? That has to do with the special properties of my workplace, which can't really be disclosed).

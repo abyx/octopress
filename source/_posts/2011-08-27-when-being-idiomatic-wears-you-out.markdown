@@ -6,9 +6,6 @@ status: publish
 title: When being idiomatic wears you out
 comments: true
 wordpress_id: '453'
-categories:
-- Programming
-- software craftsmanship
 ---
 
 I believe that when learning a new programming language, it's really important to learn its idioms and use them. I've written procedural C-like code in Java, and bloated Java-like code in Python, but only once you start using a language "like it was meant to" can you really say you've started mastering it. Had I not read [Effective Java](http://www.amazon.com/gp/product/0321356683/ref=as_li_tf_tl?ie=UTF8&tag=thcodu02-20&linkCode=as2&camp=217145&creative=399381&creativeASIN=0321356683)<img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0321356683&camp=217145&creative=399381" style="width: 0; height: 0; display: none; border: none !important;"> I don't think I could have ever written a sensible line in this language.

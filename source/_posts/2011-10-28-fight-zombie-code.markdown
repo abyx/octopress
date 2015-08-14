@@ -7,8 +7,6 @@ title: Fight Zombie Code
 comments: true
 wordpress_id: '490'
 categories:
-- Programming
-- software craftsmanship
 - tdd
 ---
 

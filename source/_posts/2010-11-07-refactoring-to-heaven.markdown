@@ -6,11 +6,6 @@ status: publish
 title: Refactoring to Heaven
 comments: true
 wordpress_id: '254'
-categories:
-- pragprowrimo2010
-- Programming
-- clean code
-- software craftsmanship
 ---
 
 My [last blog](/2010/11/06/refactoring-youre-doing-it-wrong/) was about how many people refer to refactoring as the wrong thing. For completeness of discussion I'd like to talk about what a lot of people seemed to not get in my previous post. I said that the 'Big Refactoring' is the new 'Big Redesign in the Sky', and got a bunch of questions along the linse of "so we're never supposed to redesign?"

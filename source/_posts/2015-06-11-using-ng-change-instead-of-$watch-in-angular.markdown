@@ -3,10 +3,6 @@ layout: post
 title: "Using ng-change instead of $watch in Angular"
 date: 2015-06-11 18:15:13 +0300
 comments: true
-categories: 
-- Programming
-- angular
-- angularjs
 ---
 
 In the olden days, before you used MVC frameworks such as Angular, you were probably used to doing stuff like this in jQuery:

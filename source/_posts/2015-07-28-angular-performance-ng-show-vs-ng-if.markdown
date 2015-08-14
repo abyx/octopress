@@ -3,10 +3,6 @@ layout: post
 title: "Angular Performance: ng-show vs ng-if"
 date: 2015-07-28 22:09:02 +0300
 comments: true
-categories: 
-- Programming
-- angular
-- angularjs
 facebook:
     image: /images/posts_images/show-vs-if.png
 ---

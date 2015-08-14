@@ -3,10 +3,6 @@ layout: post
 title: "Spare Me Your Fake HTML Controls"
 date: 2012-06-23 13:57
 comments: true
-categories: 
-- Programming
-- web
-- html
 ---
 
 If you spend as much time on the web as I do, you sure have been a victim of fake HTML controls abuse. Both as a user of websites and as a developer I've wasted time, effort and nerves on the trivial things getting harder just to make them a bit more _pretty_. I wanted to list all of the reasons these fake controls suck, which one can also treat as the list of things to pay attention to if you're inclined to write them anyway.

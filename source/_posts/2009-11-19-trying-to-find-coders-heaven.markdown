@@ -6,8 +6,6 @@ status: publish
 title: Trying to Find Coder's Heaven
 comments: true
 wordpress_id: '61'
-categories:
-- Programming
 ---
 
 I read a post today by Kent Beck:

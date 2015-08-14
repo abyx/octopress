@@ -6,9 +6,6 @@ status: publish
 title: Stop Wasting My Code
 comments: true
 wordpress_id: '329'
-categories:
-- Programming
-- YAGNI
 ---
 
 During my service in the army I had the opportunity to move around some electronic equipment from place to place. A lot of it was pretty old (and by that I mean it predates me), but worked perfectly where it was. We had systems running for decades without a problem, but once we unplugged them and moved them to a different room they went dead.

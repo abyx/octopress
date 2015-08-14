@@ -7,10 +7,6 @@ title: Say No to Null Checks
 comments: true
 wordpress_id: '267'
 categories:
-- Programming
-- testing
-- clean code
-- software craftsmanship
 - tdd
 ---
 

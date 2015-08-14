@@ -6,10 +6,6 @@ status: publish
 title: 'Case Study: Single Responsibility Principle Violation'
 comments: true
 wordpress_id: '159'
-categories:
-- Programming
-- clean code
-- software craftsmanship
 ---
 
 Having recently finished the amazing PPP book (more [here](/2010/05/02/agile-software-development-you-will-never-code-the-same-again/)) my code-sense is getting better in putting the finger on the smells in code that make it painful for me to use. This is the story of one of them, in [Buildbot](http://buildbot.net/).

@@ -7,11 +7,7 @@ title: 'Book Review: Growing Object-Oriented Software'
 comments: true
 wordpress_id: '315'
 categories:
-- Programming
 - books
-- clean code
-- goos
-- software craftsmanship
 - tdd
 ---
 

@@ -3,7 +3,6 @@ layout: post
 title: "I take it back: Don't read a book a month"
 date: 2015-01-02 10:51:35 +0200
 comments: true
-categories: 
 ---
 
 About 7 years ago I posted my first post on this blog - [One Book A Month](/2008/04/25/one-book-a-month/). In it I make the point of the importance of reading and constantly learning: the person that stops learning that stops living. I attribute a lot of my success to the fact that I constantly try to learn new things.

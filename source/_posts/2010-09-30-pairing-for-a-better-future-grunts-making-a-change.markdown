@@ -6,10 +6,6 @@ status: publish
 title: 'Pairing for a Better Future: Grunts Making a Change'
 comments: true
 wordpress_id: '220'
-categories:
-- Programming
-- agile
-- software craftsmanship
 ---
 
 If you've read just about any of my posts you probably know I'm one of those guys that don't really go for the "live and let live" mantra when it comes to code. If you're looking for a way to make your work place better (even in extremely small baby steps), one of the best moves is pairing.

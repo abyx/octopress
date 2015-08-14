@@ -6,9 +6,6 @@ status: publish
 title: Notes From the (First?) Israeli Code Retreat
 comments: true
 wordpress_id: '173'
-categories:
-- Programming
-- software craftsmanship
 ---
 
 Today I had the honor of running a Code Retreat right here in our little country.

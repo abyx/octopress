@@ -3,12 +3,6 @@ layout: post
 title: "Writing More Maintainable Angular.js Directives"
 date: 2014-03-30 18:55
 comments: true
-categories: 
-- Programming
-- angular
-- angularjs
-- web
-- javascript
 ---
 
 Directives are, essentially, the most powerful building blocks we have in Angular, yet for beginners they are incredibly easy to get messed up.

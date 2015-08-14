@@ -3,8 +3,6 @@ layout: post
 title: "It Depends"
 date: 2014-09-20 10:33:30 +0300
 comments: true
-categories: 
-- Programming
 ---
 
 *“Should we use AngularJS, Ember or Backbone?”  

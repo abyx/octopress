@@ -3,10 +3,6 @@ layout: post
 title: "Please use hasOwnProperty: short story of a hack"
 date: 2014-03-14 23:14
 comments: true
-categories: 
-- programming
-- javascript
-- security
 ---
 
 I know a lot of developers, when writing JavaScript, tend to neglect `hasOwnProperty`. I can understand it, too. First, it takes a lot of writing: compare `if (foo.hasOwnProperty('bar'))` to `if (foo.bar)`. Also, some coders assume that if the object you're handling is a simple object you created yourself and that you know it has no prototype inheritance, then `hasOwnProperty` is useless.

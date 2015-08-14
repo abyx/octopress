@@ -3,10 +3,6 @@ layout: post
 title: "Frontend Driven Development"
 date: 2014-02-20 21:51
 comments: true
-categories: 
-- programming
-- frontend
-- backend
 ---
 
 For years, whenever I worked on a new feature I would first figure out the backend and get a rough implementation of the server side solution. Only then would I move on to the other parts.

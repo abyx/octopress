@@ -7,12 +7,7 @@ title: Taking DRY Further
 comments: true
 wordpress_id: '239'
 categories:
-- pragprowrimo2010
-- Programming
-- techie
-- clean code
 - DRY
-- software craftsmanship
 ---
 
 After learning to [spot basic DRY](/2010/11/02/short-intro-to-dry/) violations, such as code you've just copied from somewhere, it's time to learn how to use DRY to drive a lot more in your system.

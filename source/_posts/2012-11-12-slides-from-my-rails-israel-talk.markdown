@@ -3,12 +3,6 @@ layout: post
 title: Slides from my Rails Israel Talk
 date: 2012-11-12 19:53
 comments: true
-categories: 
-- Programming
-- ruby
-- talks
-- RailsIsrael
-- rspec
 ---
 
 Earlier today I gave a talk at [Rails Israel](http://railsisrael.com) about being more awesome with RSpec.

@@ -7,11 +7,7 @@ title: 'Design is Simpler Now: Embrace the Extract'
 comments: true
 wordpress_id: '365'
 categories:
-- Programming
 - DRY
-- goos
-- OOD
-- SOLID
 ---
 
 For the past 5 years or so I've been searching for ways to produce better designed code. I hate the fact I basically can't put my finger on why certain designs aren't as good as others.

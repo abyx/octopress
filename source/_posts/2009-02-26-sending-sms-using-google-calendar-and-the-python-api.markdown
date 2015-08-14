@@ -6,8 +6,6 @@ status: publish
 title: Sending SMS using Google Calendar's python API
 comments: true
 wordpress_id: '17'
-categories:
-- Programming
 ---
 
 Soon another semester will start. And, like every semester, I received the list of assignments that are due, with their deadlines. Up till now I used to type into Google Calendar each deadline and set SMS reminders, to make sure I won't forget to hand the assignment, but this time I realized I've had enough of this, and don't feel like entering 30 different tasks over and over again, set the sms reminders etc.

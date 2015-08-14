@@ -7,7 +7,6 @@ title: In the Mind of a Master Programmer
 comments: true
 wordpress_id: '404'
 categories:
-- Programming
 - books
 - tdd
 ---

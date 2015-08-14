@@ -3,10 +3,6 @@ layout: post
 title: "Quick Tip: Firing Up Rubinius to Dig into Ruby Source"
 date: 2012-05-06 22:51
 comments: true
-categories: 
-- ruby
-- rubinius
-- Programming
 ---
 
 The other day I came across another great use-case for [Rubinius](http://rubini.us) that might be useful for a lot of developers.

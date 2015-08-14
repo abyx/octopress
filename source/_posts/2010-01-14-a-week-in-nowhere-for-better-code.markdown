@@ -6,8 +6,6 @@ status: publish
 title: A Week in Nowhere for Better Code?
 comments: true
 wordpress_id: '92'
-categories:
-- Programming
 ---
 
 I finished my army service (in the Israel Defence Force) 6 months ago. Before anyone gets carried away, let me assure you my service had no Rambo-like scenes involved, but simply required me to do what I always do - code.

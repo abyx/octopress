@@ -3,12 +3,6 @@ layout: post
 title: "Stop Using Key Up Events When You Don't Need To"
 date: 2013-11-07 19:49
 comments: true
-categories: 
-- css
-- javascript
-- html
-- angular
-- angularjs
 ---
 
 A common task for web developers is capturing the case where the user presses the enter/return key on his keyboard when filling out a form, instead of clicking the "submit" button. 

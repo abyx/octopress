@@ -6,9 +6,6 @@ status: publish
 title: Less Code is More
 comments: true
 wordpress_id: '118'
-categories:
-- Programming
-- tips
 ---
 
 As coders, we should always strive to get as much feedback as soon as possible. Agile tells us we should get frequent feedback from our customers in order to make sure we're always on track. Unit testing and the green-bar loving are all about knowing exactly when your code breaks and when you're safe.

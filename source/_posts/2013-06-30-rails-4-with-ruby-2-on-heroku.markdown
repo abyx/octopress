@@ -3,11 +3,6 @@ layout: post
 title: "Rails 4 with Ruby 2 on Heroku"
 date: 2013-06-30 21:20
 comments: true
-categories: 
-- programming
-- heroku
-- rails
-- ruby
 ---
 
 A few days ago I started a new project, and thought why not go with the latest and greatest, Rails 4 and Ruby 2.  

@@ -6,8 +6,6 @@ status: publish
 title: Multiple Threads Testing Idioms In Java
 comments: true
 wordpress_id: '4'
-categories:
-- Programming
 ---
 
 Today I needed to make a few modification to one of our older Java applications. So, first thing's first - I checked out the latest copy and ran the test suite. Surprisingly enough all the tests passed. But, something wasn't right. I caught the glimpse of a stack trace flipping by in Eclipse's console window. Scrolling up to it I found out an AssertionError was thrown. How come the tests passed?

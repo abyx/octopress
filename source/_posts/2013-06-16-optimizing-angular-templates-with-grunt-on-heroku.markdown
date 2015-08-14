@@ -4,11 +4,6 @@ title: "Optimizing Angular Templates with Grunt on Heroku"
 date: 2013-06-16 22:37
 comments: true
 alias: /2013/06/16/optimizing-anagular-templates-with-grunt-on-heroku/
-categories: 
-- Programming
-- angular
-- angularjs
-- heroku
 ---
 
 So it's been a few months now of developing with AngularJS and we finally needed to do some optimizing. Specifically, we felt the need to bundle the dozens of separate HTML template files into a single file to save time on roundtrips to the server (especially with the latency heroku's servers are showing in Israel).

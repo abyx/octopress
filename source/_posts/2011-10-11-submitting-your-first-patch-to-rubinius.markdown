@@ -6,11 +6,6 @@ status: publish
 title: Submitting your first patch to Rubinius
 comments: true
 wordpress_id: '463'
-categories:
-- Programming
-- github
-- rubinius
-- ruby
 ---
 
 I always love helping interesting open source projects, and Rubinius is one of those great projects that are very cool to play with. In case you don't know it, Rubinius is a Ruby implementation written (almost) entirely in Ruby. Just playing with such a code base is quite interesting and whenever a peek around in the code I learn new stuff about Ruby.

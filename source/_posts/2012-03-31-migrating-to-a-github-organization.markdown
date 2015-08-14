@@ -3,11 +3,6 @@ layout: post
 title: "Migrating to a GitHub Organization"
 date: 2012-03-31 17:19
 comments: true
-categories: 
-- Programming
-- github
-- git
-- billguard
 ---
 
 Recently we finally made the move to a GitHub organization. For the past 18 months or so we've been using private repositories on our CTO's personal GitHub account. Having reached the maximum number of allowed collaborators on a personal account, we decided to make the move.

@@ -3,11 +3,6 @@ layout: post
 title: "AngularJS: Decisions, Decisions & My Preferred Choices"
 date: 2014-05-26 07:26:34 +0300
 comments: true
-categories: 
-- Programming
-- webdev
-- angular
-- angularjs
 ---
 
 Angular is the land of too much free choice. You are faced with decision after decision, over and over again. Choice is good, but sometimes too much choice can cause paralysis. Let's take a look at some of these choice and what I usually go with:

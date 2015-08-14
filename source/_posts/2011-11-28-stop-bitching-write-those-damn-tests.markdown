@@ -7,10 +7,7 @@ title: 'Stop Bitching: Write Those Damn Tests'
 comments: true
 wordpress_id: '510'
 categories:
-- Programming
-- agile
 - autonomouscraftsmanshipcore
-- software craftsmanship
 ---
 
 Diving deeper into the idea of the [Autonomous Craftsmanship Core](/2011/11/12/stop-bitching-the-autonomous-craftsmanship-core/), this time I'd like to talk about one of the first problems a lot of developers face when wanting to start doing clean code.

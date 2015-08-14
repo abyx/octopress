@@ -7,12 +7,7 @@ title: Adding GOOS Sauce to GWT MVP
 comments: true
 wordpress_id: '289'
 categories:
-- Programming
-- clean code
-- goos
-- software craftsmanship
 - tdd
-- testing
 ---
 
 For a few months now I've been using [Google Web Toolkit](http://code.google.com/webtoolkit/). One thing that was bothering me was that even when following the praised MVP (Model-View-Presenter) pattern as per the documentation, you pretty quickly get into messy land.

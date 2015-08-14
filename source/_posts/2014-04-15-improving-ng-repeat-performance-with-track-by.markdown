@@ -3,12 +3,6 @@ layout: post
 title: "Improving ng-repeat Performance with “track by”"
 date: 2014-04-15 20:31
 comments: true
-categories: 
-- Programming
-- angular
-- angularjs
-- webdev
-- frontend
 ---
 
 Probably one of the very first things you learned doing with Angular was how to use `ngRepeat`. It's so easy and simple, you gotta love it. Here's an example:

@@ -7,11 +7,7 @@ title: Notes from the 5th Israeli Software Craftsmanship Meeting
 comments: true
 wordpress_id: '293'
 categories:
-- Programming
-- clean code
 - DRY
-- SCIL
-- software craftsmanship
 ---
 
 This week I had the pleasure to attend to the 5th meeting of our Software Craftsmanship group, and boy what a meeting it was. For the first time we've tried a different format that is 100% hands-on and reduced someone-talking-with-slides time to a minimum.

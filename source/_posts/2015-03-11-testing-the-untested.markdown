@@ -4,8 +4,6 @@ title: "Testing the Untested"
 date: 2015-03-11 20:33:36 +0200
 comments: true
 categories: 
-- Programming
-- testing
 - tdd
 ---
 

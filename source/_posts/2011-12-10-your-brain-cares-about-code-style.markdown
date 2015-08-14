@@ -6,9 +6,6 @@ status: publish
 title: Your Brain Cares About Code Style
 comments: true
 wordpress_id: '670'
-categories:
-- Programming
-- software craftsmanship
 ---
 
 My first team had (among many other great attributes) the custom of strictly following a style guide. It was followed so religiously, I've yet to come across another place that does so to the same extent. It wasn't really written down anywhere, but after a couple of weeks of pairing with the other guys you got it.

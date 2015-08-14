@@ -6,11 +6,6 @@ status: publish
 title: Python (nose) Test Coverage on Buildbot
 comments: true
 wordpress_id: '155'
-categories:
-- Programming
-- testing
-- buildbot
-- nose
 ---
 
 Once we got our builds happily running on Buildbot, there's really no reason not to add coverage since it's so easy (especially if you get bragging rights over your non-TDDers teammates).

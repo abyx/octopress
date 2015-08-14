@@ -6,11 +6,6 @@ status: publish
 title: 'Refactoring: You''re Doing it Wrong'
 comments: true
 wordpress_id: '248'
-categories:
-- pragprowrimo2010
-- clean code
-- Programming
-- software craftsmanship
 ---
 
 I've been writing [quite](/2010/11/02/short-intro-to-dry/) [a](/2010/11/03/taking-dry-further/) [bit](/2010/11/04/dry-dont-get-trigger-happy/) about DRY lately, but I think it's time to take a few steps back and talk about something even more fundamental, refactoring. Today, refactoring as a concept is pretty common. I think it's even passed the buzzword stage. It's still not too known in academia (I've yet to hear the term mentioned in my studies), but given that most IDEs come with refactoring support or have supplementary tools for it, people are familiar with the term.

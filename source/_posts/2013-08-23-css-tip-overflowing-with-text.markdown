@@ -3,10 +3,6 @@ layout: post
 title: "CSS Tip: Overflowing with Text"
 date: 2013-08-23 13:14
 comments: true
-categories: 
-- programming
-- css
-- css3
 ---
 
 Simply making sure some text that might be long doesn't break our layout is trivial, but I've seen several CSS newbies have trouble with this or simply miss it altogether just to have QA (or worse, a user) file a bug about it.

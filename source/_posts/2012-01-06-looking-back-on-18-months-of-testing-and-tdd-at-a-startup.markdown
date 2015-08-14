@@ -7,9 +7,6 @@ title: Looking Back on 18 months of Testing and TDD at a Startup
 comments: true
 wordpress_id: '701'
 categories:
-- Programming
-- testing
-- billguard
 - tdd
 ---
 

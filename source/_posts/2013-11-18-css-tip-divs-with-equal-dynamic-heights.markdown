@@ -3,12 +3,6 @@ layout: post
 title: "CSS Tip: DIVs with Equal Dynamic Heights"
 date: 2013-11-18 18:19
 comments: true
-categories: 
-- css
-- programming
-- html
-- html5
-- javascript
 ---
 
 Continuing my series of short CSS tips I'd like to share a trick I was taught by [a friend](http://twitter.com/davidbrai) a few years ago when we were working on some new layout for our web app.

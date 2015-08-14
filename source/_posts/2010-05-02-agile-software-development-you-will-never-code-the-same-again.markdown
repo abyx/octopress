@@ -7,9 +7,7 @@ title: 'Agile Software Development: You Will Never Code The Same Again'
 comments: true
 wordpress_id: '148'
 categories:
-- Programming
 - books
-- software craftsmanship
 ---
 
 How often do you get to work along some coding superstar that's been at it for decades? If you're anything like me, the answer is "never". That's why I've recently decided to go after books that are aimed to fill this gap exactly. The latest is ["Agile Software Development: Principles, Patterns, and Practices"](http://www.amazon.com/gp/product/0135974445?ie=UTF8&tag=thcodu02-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0135974445)<img src="http://www.assoc-amazon.com/e/ir?t=thcodu02-20&l=as2&o=1&a=0135974445" style="width: 0; height: 0; display: none; border: none !important;"> by the one and only, [Uncle Bob](http://bit.ly/c9CPQn) (the previous is ["TDD by example"](/2010/01/12/every-coder-should-read-tdd-by-example/), which gets 5 stars from me too).

@@ -6,9 +6,6 @@ status: publish
 title: My "Hello, Arduino"
 comments: true
 wordpress_id: '32'
-categories:
-- Programming
-- arduino
 ---
 
 I ordered an [Arduino Duemilanove](http://www.arduino.cc/en/Main/ArduinoBoardDuemilanove) a few months ago, and other than simply testing it to see that it starts up I haven't touched it. It's been lying on my desk, making me feel guilty every time I saw it.

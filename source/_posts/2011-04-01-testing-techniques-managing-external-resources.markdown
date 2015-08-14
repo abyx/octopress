@@ -7,8 +7,6 @@ title: 'Testing Techniques: Managing External Resources'
 comments: true
 wordpress_id: '372'
 categories:
-- Programming
-- testing
 - tdd
 ---
 

@@ -6,10 +6,6 @@ status: publish
 title: You Owe it to Yourself to be Old-School
 comments: true
 wordpress_id: '335'
-categories:
-- Programming
-- lowlevel
-- oldschool
 ---
 
 I love watching House. My favorite episodes are those where he manages to debug an illness not by knowing an obscure desease, but by having the holistic knowledge of how the body works and thus being able to deduce the real problem.

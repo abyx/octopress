@@ -3,10 +3,6 @@ layout: post
 title: "Lessons from Building a Rocket Alarm App"
 date: 2014-07-28 15:42:36 +0300
 comments: false
-categories: 
-- Progamming
-- ios
-- appstore
 ---
 
 3 weeks ago Hamas started firing more than a hundred rockets a day at Israel. After almost sleeping through the sirens one time, I decided that enough is enough and went looking for a way to write an app for it. The iPhone had a single app that would constantly alert with a delay (of usually several minutes) - we couldn’t fly with that.

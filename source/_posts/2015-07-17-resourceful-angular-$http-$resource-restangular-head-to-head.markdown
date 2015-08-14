@@ -3,10 +3,6 @@ layout: post
 title: "Resourceful Angular: $http, $resource and Restangular head to head"
 date: 2015-07-17 00:19:06 +0300
 comments: true
-categories: 
-- Programming
-- angular
-- angularjs
 ---
 
 Probably the most common task you do in your Angular app is making REST requests. You'd think something like this, which is at the core of any SPA, would have a consensus in the community about the Right Way™ to do it.

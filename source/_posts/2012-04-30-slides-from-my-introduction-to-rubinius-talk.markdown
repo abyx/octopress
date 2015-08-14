@@ -3,10 +3,6 @@ layout: post
 title: Slides from my "Introduction to Rubinius" Talk
 date: 2012-04-30 20:54
 comments: true
-categories: 
-- Programming
-- ruby
-- talks
 ---
 
 Earlier today I gave a talk at the [Israeli Ruby Underground meetup](http://www.meetup.com/IsraelRubyUnderground/events/46244082/) about Rubinius, including a **quick hacking session** showing how one can remove `else` from `unless`. Below you can find the slides.

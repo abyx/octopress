@@ -3,9 +3,6 @@ layout: post
 title: "Do-It-Yourself Twitter Triggers for IFTTT"
 date: 2013-06-21 13:59
 comments: true
-categories: 
-- twitter
-- ifttt
 ---
 
 I like twitter, but some parts of it, like the fact you simply can't get all of your past tweets once you go over 3000 or so, make me crazy. Once I realized twitter data is write only, I started backing up my tweets and favorites to Evernote using the great [IFTTT](http://ifttt.com) service.

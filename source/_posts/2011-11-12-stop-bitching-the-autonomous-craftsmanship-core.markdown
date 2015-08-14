@@ -7,10 +7,7 @@ title: 'Stop Bitching: the Autonomous Craftsmanship Core'
 comments: true
 wordpress_id: '504'
 categories:
-- Programming
-- agile
 - autonomouscraftsmanshipcore
-- software craftsmanship
 ---
 
 A lot of developers I know keep bitching about how their team isn't as passionate as they'd like it to be, or about their boss not letting them do things like it should be done. They get into this habit and never advance in the right direction because something is holding them back. I know this situation well, I'm usually _one of these_ guys.

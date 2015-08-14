@@ -6,10 +6,6 @@ status: publish
 title: 'Guest Post: Lookup Tables with Ruby-on-Rails'
 comments: true
 wordpress_id: '427'
-categories:
-- Programming
-- guestposts
-- rails
 ---
 
 _This is a guest-post by Nimrod Priell ([@nimrodpriell](http://twitter.com/nimrodpriell)) about the kind of time-saving tricks that I'm amazed are so easy to pull off in Rails_

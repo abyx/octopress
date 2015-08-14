@@ -6,10 +6,6 @@ status: publish
 title: nose doesn't discover tests on Solaris
 comments: true
 wordpress_id: '138'
-categories:
-- Programming
-- techie
-- testing
 ---
 
 **Note:** this is a technical post, to help poor souls that google this :)

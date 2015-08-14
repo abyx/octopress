@@ -3,10 +3,6 @@ layout: post
 title: "Generic HTTP Error Handling in AngularJS"
 date: 2014-06-25 06:39:30 +0300
 comments: true
-categories: 
-- Programming
-- angular
-- angularjs
 ---
 
 Lately during development at one of our clients, [Ravello Systems](http://www.ravellosystems.com), we decided we wanted better HTTP error handling.

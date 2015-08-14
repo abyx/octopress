@@ -6,8 +6,6 @@ status: publish
 title: Don't Write Voodoo Code!
 comments: true
 wordpress_id: '6'
-categories:
-- Programming
 ---
 
 Recently I started the process of handing one of my projects to a new programmer. The guy's OK and has talent, but is very inexperienced and hasn't had a chance to write real, production-quality code.

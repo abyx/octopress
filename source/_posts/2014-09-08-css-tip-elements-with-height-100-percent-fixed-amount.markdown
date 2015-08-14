@@ -3,9 +3,6 @@ layout: post
 title: "CSS Tip: Elements with Height 100% - Fixed Amount"
 date: 2014-09-08 18:14:10 +0300
 comments: true
-categories: 
-- Programming
-- css
 ---
 
 A quick tip that I just find myself smiling whenever I use it successfully and feel dumb for not using it earlier:

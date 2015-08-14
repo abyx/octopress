@@ -3,12 +3,6 @@ layout: post
 title: "What I Wish I Knew Writing My First Billing System"
 date: 2014-04-22 16:44
 comments: true
-categories: 
-- Programming
-- billing
-- stripe
-- paypal
-- api
 ---
 
 Billing code is probably the scariest that most coders get to work with. After all, for most of us it's not everyday that we write code that *literally* moves money around.

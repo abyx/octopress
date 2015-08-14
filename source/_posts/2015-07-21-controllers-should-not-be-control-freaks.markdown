@@ -3,10 +3,6 @@ layout: post
 title: "Controllers Should Not Be Control Freaks"
 date: 2015-07-21 23:23:01 +0300
 comments: true
-categories: 
-- Programming
-- angular
-- angularjs
 facebook:
     image: /images/posts_images/angular-thin.png
 ---

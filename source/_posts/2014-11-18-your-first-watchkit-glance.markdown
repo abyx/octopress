@@ -3,10 +3,6 @@ layout: post
 title: "Your First WatchKit Glance"
 date: 2014-11-18 23:15:53 +0200
 comments: true
-categories: 
-- Programming
-- watchkit
-- ios
 ---
 
 WatchKit is finally out, and of course I started playing with it right away.

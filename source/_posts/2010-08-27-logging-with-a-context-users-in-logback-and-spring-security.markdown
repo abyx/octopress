@@ -6,9 +6,6 @@ status: publish
 title: 'Logging with a Context: Users in Logback and Spring Security'
 comments: true
 wordpress_id: '214'
-categories:
-- Programming
-- techie
 ---
 
 During this hectic time of starting an amazing adventure we find that along many of the big and important challenges we have there is an endless stream of small technical problems that solving poorly means a lot of time will go to waste.

@@ -3,10 +3,6 @@ layout: post
 title: "Should You Use Angular 2.0 or 1.x?"
 date: 2015-06-27 13:46:01 +0300
 comments: true
-categories: 
-- Programming
-- angular
-- angularjs
 facebook:
     image: /images/posts_images/angular_question.png
 ---

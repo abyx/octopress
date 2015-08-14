@@ -7,10 +7,6 @@ title: 'Case Study: Refactoring Interfaces with TDDed Tests'
 comments: true
 wordpress_id: '190'
 categories:
-- Programming
-- testing
-- clean code
-- software craftsmanship
 - tdd
 ---
 

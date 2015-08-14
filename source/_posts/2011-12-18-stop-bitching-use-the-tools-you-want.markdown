@@ -7,10 +7,7 @@ title: 'Stop Bitching: Use the Tools You Want'
 comments: true
 wordpress_id: '682'
 categories:
-- Programming
 - autonomouscraftsmanshipcore
-- pragmatic
-- software craftsmanship
 ---
 
 Continuing on the thread of the [Autonomous Craftsmanship Core](/category/autonomouscraftsmanshipcore/), we reach another problem: "they" just won't let you use the right tool, or in the right way. As I've said in the [previous](/2011/11/12/stop-bitching-the-autonomous-craftsmanship-core/) [posts](/2011/11/28/stop-bitching-write-those-damn-tests/) if anything is _so_ bad you can't work with it - leave; otherwise, you gotta learn how to make do.

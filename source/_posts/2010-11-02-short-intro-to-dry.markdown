@@ -7,12 +7,7 @@ title: Short Intro to DRY
 comments: true
 wordpress_id: '234'
 categories:
-- pragprowrimo2010
-- Programming
-- clean code
 - DRY
-- software craftsmanship
-- tips
 ---
 
 If you're just starting to learn programming you might be feeling the need for a few solid guidelines for producing better code right now. Joining an industry with so many Best Practices, Rules of Thumb and The Right Things is not easy and certainly not too welcoming for newbies.

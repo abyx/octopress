@@ -3,8 +3,6 @@ layout: post
 title: "Prefer Code that Runs Once"
 date: 2014-08-27 18:22:25 +0300
 comments: true
-categories: 
-- Programming
 ---
 
 While working with clients I've noticed that a lot of startups that are in the "move fast" mentality seem to abuse the great tools we now have.

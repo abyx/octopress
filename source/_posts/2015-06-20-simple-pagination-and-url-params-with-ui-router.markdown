@@ -3,11 +3,6 @@ layout: post
 title: "Simple pagination and URL params with ui-router"
 date: 2015-06-20 19:10:14 +0300
 comments: true
-categories: 
-- programming
-- angular
-- angularjs
-- ui-router
 ---
 
 ui-router *rocks*. There's a reason it's become the de facto router in Angular. Its power is in its versatility, but it takes time to master all the different knobs it has to offer.

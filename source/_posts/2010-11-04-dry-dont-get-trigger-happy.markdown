@@ -7,11 +7,7 @@ title: 'DRY: Don''t Get Trigger Happy'
 comments: true
 wordpress_id: '243'
 categories:
-- pragprowrimo2010
-- clean code
 - DRY
-- Programming
-- software craftsmanship
 ---
 
 Once you've started to assimilate DRY into your regular routine, it usually becomes addictive. The feedback loop constructed of removing moving parts, making stuff clearer and reducing chances of error simply gets you into a certain rhythm that's hard to get enough of.

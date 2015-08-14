@@ -3,10 +3,6 @@ layout: post
 title: "Don't use $http's .success()"
 date: 2015-05-25 23:16:00 +0300
 comments: true
-categories: 
-- programming
-- angular
-- angularjs
 ---
 
 An example of performing AJAX requests in Angular is probably the second thing you ever saw when getting into Angular (right after an example showing off two way binding). It does look very sexy and easy when you look at it, since most examples look something like this:

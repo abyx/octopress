@@ -6,11 +6,6 @@ status: publish
 title: Why I Regret Choosing RightScale
 comments: true
 wordpress_id: '416'
-categories:
-- Programming
-- chef
-- ec2
-- puppet
 ---
 
 A few months ago we had to decide on some framework/environment to use for our devops needs. I've blogged about my experiences with [Puppet](/2010/12/19/using-puppet-to-automatically-configure-new-ec2-instances/) and [Chef](/2011/03/07/using-chef-to-automatically-configure-new-ec2-instances/) on EC2. Somehow, we eventually ended up using [RightScale](http://www.rightscale.com).

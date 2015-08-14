@@ -6,12 +6,6 @@ status: publish
 title: Using Chef to Automatically Configure New EC2 Instances
 comments: true
 wordpress_id: '348'
-categories:
-- Programming
-- techie
-- chef
-- ec2
-- puppet
 ---
 
 This is a follow up post to my [post about using Puppet](/2010/12/19/using-puppet-to-automatically-configure-new-ec2-instances/) to get the same result. In the comments to that post I was told by a few people that chef can make my life easier and I decided to give a try. Here's what I came up with.

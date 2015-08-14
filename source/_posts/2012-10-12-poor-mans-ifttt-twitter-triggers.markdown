@@ -3,12 +3,6 @@ layout: post
 title: "Poor Man's IFTTT Twitter Triggers Hack"
 date: 2012-10-12 16:53
 comments: true
-categories: 
-- Programming
-- Twitter
-- IFTTT
-- python
-- tornado
 ---
 
 Ever since IFTTT were [forced to remote][1] Twitter triggers I, as many others I'm sure, was having problems getting similar, trivial tasks done without a lot of work.

@@ -3,9 +3,6 @@ layout: post
 title: "Why I Don't Believe in Refactoring Tasks"
 date: 2012-06-04 06:53
 comments: true
-categories: 
-- Programming
-- refactoring
 ---
 
 Recently, we were talking about tackling an area of our code base in which we have accrued a large technical debt, and what would be the best way to get rid of it.

@@ -6,10 +6,6 @@ status: publish
 title: How I Moved My WordPress Blog from Dreamhost to a Free EC2 Instance
 comments: true
 wordpress_id: '660'
-categories:
-- techie
-- devops
-- ec2
 ---
 
 Just recently my Dreamhost plan, the one this blog is hosted on, expired and I had to renew it. Seeing the amount of money they took charge me realize that surely I can find something cheaper than >$10/month. After some snooping around I've settled on moving my WordPress blog to EC2. This is my story.

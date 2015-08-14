@@ -6,11 +6,6 @@ status: publish
 title: 'Serializer Kata: Practicing DRY'
 comments: true
 wordpress_id: '279'
-categories:
-- Programming
-- clean code
-- SCIL
-- software craftsmanship
 ---
 
 This kata is intended to help one practice the DRY principle (Don't Repeat Yourself). You can read more about DRY [here](/category/dry/).

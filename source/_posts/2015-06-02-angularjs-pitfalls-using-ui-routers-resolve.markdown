@@ -3,11 +3,6 @@ layout: post
 title: "AngularJS: Pitfalls using ui-router's resolve"
 date: 2015-06-02 23:53:55 +0300
 comments: true
-categories: 
-- angular
-- angularjs
-- programming
-- ui-router
 ---
 
 If you've been doing Angular any amount of time, I hope you've found and started using the great [ui-router](https://github.com/angular-ui/ui-router) library. It truly helps when building anything that's larger than a simple project.

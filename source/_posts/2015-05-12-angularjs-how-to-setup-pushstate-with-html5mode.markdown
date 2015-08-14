@@ -3,10 +3,6 @@ layout: post
 title: "AngularJS: How to setup pushState with html5Mode"
 date: 2015-05-12 22:44:40 +0300
 comments: true
-categories: 
-- programming
-- angular
-- angularjs
 ---
 
 One of the nice features of Angular is the built-in support it has to use "real" looking URLs such as `/stuff/` instead of URLs with hashes/fragments, e.g. `#/stuff` (which we've gotten used to in the SPA world).

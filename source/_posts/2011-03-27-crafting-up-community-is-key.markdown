@@ -6,10 +6,6 @@ status: publish
 title: Crafting Up - Community is Key
 comments: true
 wordpress_id: '361'
-categories:
-- Programming
-- SCIL
-- software craftsmanship
 ---
 
 It's been almost a year now since the founding of our local [Software Craftsmanship](http://scil.eventbrite.com/) group. This, for me, is a huge dream-come-true.

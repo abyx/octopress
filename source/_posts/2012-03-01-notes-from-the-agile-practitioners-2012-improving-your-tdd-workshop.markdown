@@ -7,11 +7,7 @@ title: Notes from the Agile Practitioners 2012 Improving Your TDD Workshop
 comments: true
 wordpress_id: '745'
 categories:
-- Programming
-- agile
-- software craftsmanship
 - tdd
-- testing
 ---
 
 {% blockquote Corey Haines, Improving Your TDD %}

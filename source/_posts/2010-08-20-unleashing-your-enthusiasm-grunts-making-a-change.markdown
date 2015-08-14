@@ -7,9 +7,6 @@ title: 'Unleashing Your Enthusiasm: Grunts Making a Change'
 comments: true
 wordpress_id: '207'
 categories:
-- Programming
-- clean code
-- software craftsmanship
 - tdd
 ---
 

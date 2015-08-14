@@ -6,9 +6,6 @@ status: publish
 title: 'Stepping Up: Do the Pre-Commit Skim'
 comments: true
 wordpress_id: '497'
-categories:
-- Programming
-- software craftsmanship
 ---
 
 I'm always looking for the easiest way to make my code better, or to train myself to pay more attention to the quality of the code I produce. My latest find is quite obvious yet so very powerful I had to share. Simply put, it's just _going over your code once more before a commit_.

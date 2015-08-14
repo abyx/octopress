@@ -3,13 +3,6 @@ layout: post
 title: "Rack Params Magic Even Got Stripe CTF Creators"
 date: 2012-08-30 08:42
 comments: true
-categories: 
-- Programming
-- Hacking
-- rack
-- rails
-- ruby
-- stripe
 ---
 
 I've recently had a lot of fun taking part in the [Stripe Capture The Flag](https://stripe-ctf.com) (CTF) game. It's basically a game where one has to go through several levels, finding different vulnerabilities in order to advance. This time the vulnerabilities were web-related, such as XSS, SQL injections, etc.  

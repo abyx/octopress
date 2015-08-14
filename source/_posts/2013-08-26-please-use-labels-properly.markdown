@@ -3,10 +3,6 @@ layout: post
 title: "Please Use Labels Properly"
 date: 2013-08-26 23:08
 comments: true
-categories: 
-- css
-- html
-- programming
 ---
 
 Another issue that I frequently see junior web developers have trouble with is proper use of the `<label>` element.

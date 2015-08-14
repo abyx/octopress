@@ -6,9 +6,6 @@ status: publish
 title: Avoid the perils of coder customers
 comments: true
 wordpress_id: '132'
-categories:
-- Programming
-- tips
 ---
 
 ﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿Coders are the worst customers ever. The sooner you wrap your head around that, the better. Actually, any customer that's technical is a bad customer, but nothing trumps coders. That fact is not intuitive, or at least wasn't for me, but it can be really painful to find it out by yourself. So here, I just saved you some agony.

@@ -3,9 +3,6 @@ layout: post
 title: "Adapting Scroll Views to iOS 7"
 date: 2013-10-18 18:27
 comments: true
-categories: 
-- Programming
-- ios
 ---
 
 In order to get to know some of the differences in iOS 7 and practice transitioning from iOS 6, I decided to transition a little toy app that consisted of a screen similar to the Messages.app: a navigation bar, most of the screen taken by a scroll view with content and on the bottom a text view and a button for adding more content to the scroll view. The app is extremely basic, but resizes properly when the keyboard is shown and, as in Messages.app, scrolls to the bottom of the content when the text view is focused and when a new message has been added.

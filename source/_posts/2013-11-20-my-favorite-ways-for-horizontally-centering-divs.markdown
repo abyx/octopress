@@ -3,13 +3,6 @@ layout: post
 title: "My Favorite Ways for Horizontally Centering DIVs"
 date: 2013-11-20 12:20
 comments: true
-categories: 
-- programming
-- css
-- css3
-- javascript
-- html
-- html5
 ---
 
 Since there are so many ways of horizontally centering DIVs I thought I'd list my favorite ones and in which cases they're applicable.

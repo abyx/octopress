@@ -3,10 +3,6 @@ layout: post
 title: "AngularJS: Dynamically loading directives"
 date: 2015-05-19 22:46:52 +0300
 comments: true
-categories: 
-- Programming
-- angularjs
-- angular
 ---
 
 It’s hard to write a webapp today without some sort of dynamic feed/list: Facebook’s news feed has photos, text statuses, ads, Twitter’s feed has promoted tweets, image tweets, retweets, and maybe you have a chat/messaging feed in your app with text, videos, photos and stickers.

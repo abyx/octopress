@@ -6,11 +6,6 @@ status: publish
 title: 'Shell Hackery: The Use of "cd ."'
 comments: true
 wordpress_id: '421'
-categories:
-- Programming
-- techie
-- bash
-- shell
 ---
 
 I have a nasty habit of going over my bash history every once in a while. Usually I sort commands by frequency to find stuff I can automate/alias. Last time I came across `cd .` and thought I'd write up a little explanation of why I find this seemingly useless command useful.

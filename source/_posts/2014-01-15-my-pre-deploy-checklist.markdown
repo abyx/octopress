@@ -3,13 +3,6 @@ layout: post
 title: "My Pre-Deploy Checklist"
 date: 2014-01-15 21:58
 comments: true
-categories: 
-- Programming
-- html
-- css
-- javascript
-- webdev
-- frontend
 ---
 
 I’m not particularly fond of checklists in my work process, but there’s one that I find very valuable whenever I use it, and usually regret it later when I haven’t.  
