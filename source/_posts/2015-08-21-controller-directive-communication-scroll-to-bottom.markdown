@@ -67,7 +67,7 @@ angular.module('chat').directive('chatMessageList', function() {
       list: '=chatMessageList'
     },
 
-    template: '<div class="chat-list">' +
+    template: '<div class="js-chat-list">' +
                 '<div ng-repeat="message in list">' + 
                   '{% raw %}{{message.text}}{% endraw %}' + 
                 '</div>' +
