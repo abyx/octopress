@@ -20,4 +20,61 @@ body #content article {
         border-radius: 0 4px 4px 0;
         height: 31px;
     }
+
+    &.cta {
+        padding: 1em;
+        border: 1px solid #aaa;
+        background: #fcfcfc;
+        max-width: 520px;
+        margin-bottom: 1em;
+
+        label {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 0.5em;
+            display: block;
+        }
+
+        #mce-EMAIL {
+            border-radius: 4px 0 0 4px;
+            border: 1px solid #aaa;
+            margin: 0;
+            font-size: 1em;
+            height: 2em;
+            box-sizing: border-box;
+            padding-left: 0.5em;
+            line-height: 2em;
+            width: 70%;
+            max-width: calc(100% - 100px);
+
+            &::-webkit-input-placeholder,
+            &::-moz-placeholder,
+            &:-moz-placeholder,
+            &:-ms-input-placeholder {
+                color: #212121;
+            }
+        }
+
+        #mc-embedded-subscribe {
+            border-radius: 0 4px 4px 0;
+            height: 2em;
+            font-size: 1em;
+            box-sizing: border-box;
+            margin: 0;
+            border: none;
+            background-color: #aaa;
+            color: white;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #777;
+            }
+        }
+
+        .promise {
+            margin-top: 0.5em;
+            font-size: 0.8em;
+            font-style: italic;
+        }
+    }
 }
