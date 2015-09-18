@@ -3,10 +3,10 @@
 # ----------------------- #
 
 url: http://www.codelord.net
-title: The Code Dump
-subtitle: A place a coder rants at...
+title: codelord.net
+subtitle: Code, Angular, iOS and more by Aviv Ben-Yosef
 author: Aviv Ben-Yosef
-simple_search: http://google.com/search
+#simple_search: http://google.com/search
 description: Blog of Aviv Ben-Yosef @avivby
 keywords: Aviv Ben-Yosef,codelord.net,@avivby,Aviv Ben-Yosef linkedin,Aviv Ben-Yosef facebook
 

@@ -210,16 +210,28 @@ $border-style: 2px solid $secondary-text-color;
   font-family: Menlo, Monaco, "Andale Mono", "Lucida Console", "Courier New", monospace;
 }
 
+//.sans-serif-font-bold {
+//  font-family: "Fjalla One", "Helvetica Neue", Arial, sans-serif;
+//}
+//
+//.sans-serif-font {
+//  font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
+//}
+//
+//.default-font {
+//  font-family: "PT Serif", Georgia, Times, "Times New Roman", serif;
+//}
+
 .sans-serif-font-bold {
-  font-family: "Fjalla One", "Helvetica Neue", Arial, sans-serif;
+  font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .sans-serif-font {
-  font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
+  font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .default-font {
-  font-family: "PT Serif", Georgia, Times, "Times New Roman", serif;
+  font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 
@@ -238,7 +250,7 @@ body {
   -webkit-text-size-adjust: none; /* prevent mobile safari from resizing text */
   background-color: #fff;
   color: $text-color;
-  text-align: center;
+  //text-align: center;
   width: 54%;
   margin: 0 auto;
 }
@@ -460,7 +472,7 @@ body {
       font-size: 62.000px;
       font-size: 3.1rem;
       font-weight: bold;
-      text-transform: uppercase;
+      //text-transform: uppercase;
       margin-bottom: 7.640px;
       margin-bottom: 0.382rem;
 
@@ -636,7 +648,7 @@ article {
       @extend .sans-serif-font;
       color: $secondary-text-color;
       line-height: 1.184rem;
-      text-align: center;
+      //text-align: center;
 
       time {
         @extend .margin-bottom-large;
@@ -663,7 +675,7 @@ article {
   h2 {
     font-size: 30.56px;
     font-size: 1.528rem; /* 1.618 - 0.09 */
-    text-transform: uppercase;
+    //text-transform: uppercase;
     margin-top: 52.358px;
     margin-top: 2.618rem;
     margin-bottom: 9.046px;
