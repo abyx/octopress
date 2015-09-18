@@ -12,6 +12,8 @@
 //    font-size: 0.85em;
 //}
 
+$default-font-weight: 300;
+
 #mc_embed_signup  {
     #mce-EMAIL {
         border-radius: 4px 0 0 4px;
@@ -73,7 +75,7 @@
             min-width: auto;
             padding: 0 1em;
             line-height: 2em;
-            font-weight: normal;
+            font-weight: $default-font-weight;
             box-shadow: none;
             -webkit-appearance: none;
 
@@ -224,14 +226,17 @@ $border-style: 2px solid $secondary-text-color;
 
 .sans-serif-font-bold {
   font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: $default-font-weight;
 }
 
 .sans-serif-font {
   font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: $default-font-weight;
 }
 
 .default-font {
   font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: $default-font-weight;
 }
 
 
@@ -346,7 +351,7 @@ sub {
   bottom: -0.4rem;
 }
 
-img#portrait {
+img.portrait {
   float: right;
   border-radius: 125px;
   margin-left: 20px;
@@ -884,7 +889,7 @@ article {
       padding: 0.732rem 0;
 
       li {
-        font-weight: normal;
+        font-weight: $default-font-weight;
       }
 
       li + li {
@@ -925,7 +930,7 @@ article {
     margin-bottom: 5.016rem !important; /* 4.236 + 0.452 */
   }
 
-  img#portrait {
+  img.portrait {
     display: block;
     float: none;
     width: 200px;
