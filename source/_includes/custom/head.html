@@ -5,3 +5,15 @@
 <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
 -->
 <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic" rel="stylesheet" type="text/css">
+{% if page.facebook.image %}
+<meta property="og:image" content="{{ site.url }}{{ page.facebook.image }}" />
+<meta property="twitter:card" content="summary" />
+<meta property="twitter:site" content="@avivby" />
+<meta property="twitter:creator" content="@avivby" />
+<meta property="twitter:url" content="{% if canonical %}{{ canonical }}{% else %}{{ site.url }}{% endif %}" />
+<meta property="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
+<meta property="twitter:description" content="{{ description | strip_html | condense_spaces | truncate:200 }}" />
+<meta property="twitter:image:src" content="{{ site.url }}{{ page.facebook.image }}" />
+{% else %}
+<meta property="og:image" content="{{ site.url }}/images/codelord-logo.png" />
+{% endif %}
