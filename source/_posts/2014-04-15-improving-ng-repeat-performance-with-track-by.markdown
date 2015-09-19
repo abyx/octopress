@@ -15,7 +15,7 @@ Probably one of the very first things you learned doing with Angular was how to 
 </ul>
 {% endcodeblock %}
 
-### The problem
+## The problem
 
 Now say you have a button above that list to refresh it.
 
@@ -31,7 +31,7 @@ In something of a more real-world use case, where instead of our simple example 
 
 Why would Angular do this? Behind the scenes `ngRepeat` adds a `$$hashKey` property to each task to keep track of it. If you replace the original tasks with new tasks objects from the server, even if those are in fact *totally identical* to your original tasks, they won't have the `$$hashKey` property and so `ngRepeat` won't know they represent the same elements.
 
-### The annoying solution
+## The annoying solution
 
 The first solution that comes to mind to most developers is to not replace the whole `$scope.tasks` list, but update **in place** all the existing tasks objects with the data you received from the server. That would work because it means `$$hashKey` property would be left intact in the original objects.
 
@@ -40,7 +40,7 @@ But that's not fun, is it? I hate surgically tinkering with objects, as it is er
 {% img /images/posts_images/not_good_enough.gif Not good enough! %}
 
 
-### `track by` to the rescue
+## `track by` to the rescue
 
 In Angular 1.2 a new addition was made to the syntax of `ngRepeat`: the amazingly awesome `track by` clause. It allows you to specify your own key for `ngRepeat` to identify objects by, instead of just generating unique IDs.
 
@@ -51,18 +51,13 @@ To get a better feel of the difference this makes, see [this fiddle](http://jsfi
 It's really that easy to get a quick little boost in performance that also saves you writing annoying code.
 
 <!-- Begin MailChimp Signup Form -->
-<link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
-<style type="text/css">
-    #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
-    /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-       We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-</style>
-<div id="mc_embed_signup">
+<div id="mc_embed_signup" class="cta">
 <form action="http://codelord.us6.list-manage.com/subscribe/post?u=78b36f07d7d2e7e91eb8deee3&amp;id=c9a8d439c8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <label for="mce-EMAIL">Don't miss the next Angular and frontend tip, subscribe! (~2 mails a month)</label>
+    <label for="mce-EMAIL">Get more Angular performance and Angular 2 tips - Subscribe!</label>
     <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required style="display: inline"><!--
     --><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" style="display: inline">
     <input type="hidden" value="" name="SIGNUP_URL" class="email" id="mce-SIGNUP_URL">
+    <div class="promise">~3 mails a month, unsubscribe anytime, no spam, promise!</div>
 </form>
 </div>
 <script type="text/javascript">
