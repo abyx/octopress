@@ -35,6 +35,7 @@ $default-font-weight: 300;
 
         label {
             font-size: 1.3em;
+            line-height: 1.25em;
             font-weight: bold;
             margin-bottom: 0.5em;
             display: block;
@@ -88,6 +89,36 @@ $default-font-weight: 300;
             margin-top: 0.5em;
             font-size: 0.8em;
             font-style: italic;
+        }
+    }
+}
+
+// sumome
+
+body.sumome-vex-open {
+    overflow: auto !important;
+}
+
+.sumome-vex.sumome-popup {
+    position: initial !important;
+    z-index: initial !important;
+    top: initial !important;
+    right: initial !important;
+    bottom: initial !important;
+    left: initial !important;
+
+    .sumome-vex-overlay {
+        display: none !important;
+    }
+
+    .sumome-vex-content {
+        position: fixed !important;
+        bottom: 20px !important;
+        right: 20px !important;
+        max-width: 90% !important;
+
+        .sumome-popup-button {
+            background: #65a672 !important;
         }
     }
 }
