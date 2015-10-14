@@ -27,7 +27,7 @@ I prefer to use directives with a `controller` function and not use `link`. That
 
 # A basic example: controller turned directive
 
-Here’s a *very basic* that we’ll turn into a controller ([plunk](http://plnkr.co/edit/7I0GhjSywmdcrBy9yHGU?p=preview)):
+Here’s a *very basic* controller that we’ll turn into a directive ([plunk](http://plnkr.co/edit/7I0GhjSywmdcrBy9yHGU?p=preview)):
 
 ```javascript
 module.controller('MessagesCtrl', function() {
@@ -101,7 +101,7 @@ This resulted in a little more boilerplate but we got rid of the controller. Alo
 
 # The way forward
 
-As I said, I’m still figuring this out along with you. But so far I’ve found this to be simpler. For a long time I’ve avoided creating controllers except for routing endpoints. Now I just don’t use that as well. Having everything be a controller means less metal overload and a simpler file structure.
+As I said, I’m still figuring this out along with you. But so far I’ve found this to be simpler. For a long time I’ve avoided creating controllers except for routing endpoints. Now I just don’t use that as well. Having everything be a directive means less mental overload and a simpler file structure.
 
 If you’ve been toying with this too I’d love to hear your thoughts and techniques.
 
