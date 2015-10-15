@@ -40,9 +40,9 @@ Angular’s `$timeout` is tightly integrated into the whole testing suite and [n
 `$timeout` returns a promise that resolves once the function has finished running (e.g. show a modal). This way if you ever need to do something once a timeout has run you don’t need to [construct a promise yourself](http://www.codelord.net/2015/10/07/angular-2-preparation-killing-controllers/):
 
 ```javascript
-$timeout(1000, function() {
+$timeout(function() {
   // Do something
-}).then(function() {
+}, 1000).then(function() {
   // You know the timeout is done here
 });
 ```
@@ -56,13 +56,13 @@ If you google you might find outdated “tricks”. Those will tell you that per
 So even if you ever happen to need to squeeze this a bit to make your app performant you can do something like this:
 
 ```javascript
-$timeout(1000, function() {
+$timeout(function() {
   if (actuallyNeedToUpdateAngular()) {
     $scope.$apply(function() {
       // Do someting here
     });
   }
-}, false); // <-- Note the 3rd argument!
+}, 1000, false); // <-- Note the 3rd argument!
 ```
 
 Another use case is to use `invokeApply` in order to have a timeout that only triggers a digest on a sub-scope and not the whole scope hierarchy. This is very advanced voodoo, but you can see an example of that [here](http://blog.500tech.com/is-reactjs-fast/).
