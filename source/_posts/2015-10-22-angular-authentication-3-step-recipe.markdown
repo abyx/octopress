@@ -36,13 +36,14 @@ Depending on how your authentication works this will change a bit. If the server
 In other cases you get a token from your server. Then you need to make sure future requests use it. Your code will probably look something like this:
 
 ```javascript
-angular.module('app').factory('Authenticator', function($http) {
+module.factory('Authenticator', function($http) {
   return {
     login: function login(user, password) {
       return $http.post('/login',
                         {user: user, password: password})
         .then(function(response) {
-          $http.defaults.headers.common['X-My-Auth-Header'] = response.data.token;
+          var token = response.data.token;
+          $http.defaults.headers.common['My-Header'] = token;
       });
     }
   };
@@ -62,10 +63,12 @@ Ideally, the next time you make a request, the server will respond with a 401 st
 Now, you just need to take the user back to the login page. Angular has a nifty tool just for this purpose: [HTTP interceptors](https://docs.angularjs.org/api/ng/service/$http#interceptors). These let you write code that executes whenever you get a certain response.
 
 ```javascript
-angular.module('app').factory('AuthInterceptor', function($state, $q) {
+module.factory('AuthInterceptor', function($injector, $q) {
   return {
     responseError: function responseError(rejection) {
-      if (rejection.status === 401 && rejection.config.url !== '/login') {
+      if (rejection.status === 401
+            && rejection.config.url !== '/login') {
+        var $state = $injector.get('$state');
         $state.go('login');
       }
       return $q.reject(rejection);
@@ -73,7 +76,7 @@ angular.module('app').factory('AuthInterceptor', function($state, $q) {
   };
 });
 
-angular.module('app').config(function($httpProvider) {
+module.config(function($httpProvider) {
   $httpProvider.interceptors.push('AuthInterceptor');
 });
 ```
