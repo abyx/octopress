@@ -1,18 +1,35 @@
-<!-- Begin MailChimp Signup Form -->
-<div id="mc_embed_signup" class="cta">
-<form action="http://codelord.us6.list-manage.com/subscribe/post?u=78b36f07d7d2e7e91eb8deee3&amp;id=c9a8d439c8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    {% if page.cta_message %}
-    <label for="mce-EMAIL">{{ page.cta_message }}</label>
-    {% else %}
-    <label for="mce-EMAIL">Write maintainable Angular, learn the best practices and get prepared for 2.0!</label>
-    {% endif %}
-    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required style="display: inline"><!--
-    --><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" style="display: inline">
-    <input type="hidden" value="" name="SIGNUP_URL" class="email" id="mce-SIGNUP_URL">
-    <div class="promise">~3 mails a month, unsubscribe anytime, no spam. Promise!</div>
-</form>
-</div>
-<script type="text/javascript">
-document.getElementById('mce-SIGNUP_URL').value = document.location.href;
-</script>
-<!--End mc_embed_signup-->
+<div class="ck_form ck_naked">
+
+  <div class="ck_form_fields">
+
+    <div id='ck_success_msg'  style='display:none;'>
+      <p>Success! You rock. You&#x27;ll get some knowledge shipped to your inbox soon. Let&#x27;s do this!</p>
+    </div>
+
+    <!--  Form starts here  -->
+    <form id="ck_subscribe_form" class="ck_subscribe_form" action="https://app.convertkit.com/landing_pages/7872/subscribe" data-remote="true">
+      {% if page.cta_message %}
+      <h2>{{ page.cta_message }}</h2>
+      {% else %}
+      <h2>Write maintainable Angular, learn the best practices and get prepared for 2.0!</h2>
+      {% endif %}
+      <input type="hidden" value="{&quot;form_style&quot;:&quot;naked&quot;,&quot;embed_style&quot;:&quot;inline&quot;,&quot;embed_trigger&quot;:&quot;scroll_percentage&quot;,&quot;scroll_percentage&quot;:&quot;70&quot;,&quot;delay_seconds&quot;:&quot;10&quot;,&quot;display_position&quot;:&quot;br&quot;,&quot;display_devices&quot;:&quot;all&quot;,&quot;days_no_show&quot;:&quot;15&quot;,&quot;converted_behavior&quot;:&quot;show&quot;}" id="ck_form_options"></input>
+      <input type="hidden" name="id" value="7872" id="landing_page_id"></input>
+      <div class="ck_errorArea">
+        <div id="ck_error_msg" style="display:none">
+          <p>There was an error submitting your subscription. Please try again.</p>
+        </div>
+      </div>
+      <div class="ck_control_group ck_email_field_group">
+        <label class="ck_label" for="ck_emailField" style="display: none">Email Address</label>
+          <input type="text" name="first_name" class="ck_first_name" id="ck_firstNameField" placeholder="First Name"></input>
+          <input type="email" name="email" class="ck_email_address" id="ck_emailField" placeholder="Email Address" required></input>
+      </div>
+
+      <button class="subscribe_button ck_subscribe_button btn fields" id='ck_subscribe_button'>
+        Subscribe
+      </button>
+    </form>
+  </div>
+
+ </div>
