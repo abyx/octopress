@@ -5,6 +5,7 @@ date: 2015-10-14 18:04:05 +0300
 comments: true
 facebook:
     image: /images/ng-codelord.png
+cta_message: "Really understand Angular, prepare for 2.0 and write maintainble Angular!"
 ---
 
 When you just got started doing Angular you probably had a couple of times where you used `setTimeout()` without giving it much thought. Then, you noticed that something wasn’t working right. Changes weren’t happening when you expected them to happen.
@@ -71,17 +72,4 @@ Another use case is to use `invokeApply` in order to have a timeout that only tr
 
 Yes, we have come full circle to the exact same knowledge you had before, but now you have *understanding*. Knowledge is power my friend!
 
-<!-- Begin MailChimp Signup Form -->
-<div id="mc_embed_signup" class="cta">
-<form action="http://codelord.us6.list-manage.com/subscribe/post?u=78b36f07d7d2e7e91eb8deee3&amp;id=c9a8d439c8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <label for="mce-EMAIL">Really understand Angular, prepare for 2.0 and write maintainble Angular!</label>
-    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required style="display: inline"><!--
-    --><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" style="display: inline">
-    <input type="hidden" value="" name="SIGNUP_URL" class="email" id="mce-SIGNUP_URL">
-    <div class="promise">~3 mails a month, unsubscribe anytime, no spam, promise!</div>
-</form>
-</div>
-<script type="text/javascript">
-document.getElementById('mce-SIGNUP_URL').value = document.location.href;
-</script>
-<!--End mc_embed_signup-->
+{% render_partial _posts/_partials/cta.markdown %}

@@ -31,17 +31,4 @@ Not necessarily. Make sure your code doesn’t assume that a certain directive w
 
 This might become a problem if those initializations are on the heavy side and having them run multiple times starts causing a performance issue. Just be on the look out for your [app getting slow](http://www.codelord.net/2015/08/03/angular-performance-diagnosis-101/) and you should be all right.
 
-<!-- Begin MailChimp Signup Form -->
-<div id="mc_embed_signup" class="cta">
-<form action="http://codelord.us6.list-manage.com/subscribe/post?u=78b36f07d7d2e7e91eb8deee3&amp;id=c9a8d439c8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <label for="mce-EMAIL">Don't miss out on the next Angular tips, subscribe!</label>
-    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required style="display: inline"><!--
-    --><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" style="display: inline">
-    <input type="hidden" value="" name="SIGNUP_URL" class="email" id="mce-SIGNUP_URL">
-    <div class="promise">~3 mails a month, unsubscribe anytime, no spam, promise!</div>
-</form>
-</div>
-<script type="text/javascript">
-document.getElementById('mce-SIGNUP_URL').value = document.location.href;
-</script>
-<!--End mc_embed_signup-->
+{% render_partial _posts/_partials/cta.markdown %}

@@ -5,6 +5,7 @@ date: 2015-11-06 15:55:24 +0200
 comments: true
 facebook:
     image: /images/ng-codelord.png
+cta_message: "Get more guides of maintainble Angular and learn how to prepare for 2.0!"
 ---
 
 We all have to get input from users, validate it and act on it. But everywhere I look I see developers that aren’t using Angular’s form capabilities to their full potential.
@@ -154,18 +155,4 @@ Angular keeps track of whether the user has interacted with an input, i.e. focus
 
 Check out a live example of the resulting form [here](http://abyx.github.io/angular-form-validation-example), and the source [here](https://github.com/abyx/angular-form-validation-example). In it you can see a bonus: how to use Angular’s forms to style the error messages and the form in invalid states.
 
-
-<!-- Begin MailChimp Signup Form -->
-<div id="mc_embed_signup" class="cta">
-<form action="http://codelord.us6.list-manage.com/subscribe/post?u=78b36f07d7d2e7e91eb8deee3&amp;id=c9a8d439c8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <label for="mce-EMAIL">Get more guides of maintainble Angular and learn how to prepare for 2.0!</label>
-    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required style="display: inline"><!--
-    --><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" style="display: inline">
-    <input type="hidden" value="" name="SIGNUP_URL" class="email" id="mce-SIGNUP_URL">
-    <div class="promise">~3 mails a month, unsubscribe anytime, no spam. Promise!</div>
-</form>
-</div>
-<script type="text/javascript">
-document.getElementById('mce-SIGNUP_URL').value = document.location.href;
-</script>
-<!--End mc_embed_signup-->
+{% render_partial _posts/_partials/cta.markdown %}

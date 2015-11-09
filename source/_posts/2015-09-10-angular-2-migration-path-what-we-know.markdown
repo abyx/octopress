@@ -5,6 +5,7 @@ date: 2015-09-10 06:21:24 +0300
 comments: true
 facebook:
     image: /images/posts_images/migration-path.png
+cta_message: "Subscribe to learn how to prepare for Angular 2, avoid pitfalls and have a smooth migration!"
 ---
 
 The main concern among us Angular developers recently has been the future of our existing Angular 1 apps. The community was abuzz with fears of apps they won’t be able to upgrade:
@@ -49,17 +50,4 @@ These changes mean most libraries we use should still operate nicely even if the
 
 My answer remains the same as it was [a couple of months ago](http://www.codelord.net/2015/06/27/should-you-use-angular-2-dot-0-or-1-dot-x/): **Not yet**. You should start making sure your app is in shape for easier migration. More on that in the upcoming posts.
 
-<!-- Begin MailChimp Signup Form -->
-<div id="mc_embed_signup" class="cta">
-<form action="http://codelord.us6.list-manage.com/subscribe/post?u=78b36f07d7d2e7e91eb8deee3&amp;id=c9a8d439c8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <label for="mce-EMAIL">Subscribe to learn how to prepare for Angular 2 &amp; avoid pitfalls!</label>
-    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required style="display: inline"><!--
-    --><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" style="display: inline">
-    <input type="hidden" value="" name="SIGNUP_URL" class="email" id="mce-SIGNUP_URL">
-    <div class="promise">~3 mails a month, unsubscribe anytime, no spam, promise!</div>
-</form>
-</div>
-<script type="text/javascript">
-document.getElementById('mce-SIGNUP_URL').value = document.location.href;
-</script>
-<!--End mc_embed_signup-->
+{% render_partial _posts/_partials/cta.markdown %}

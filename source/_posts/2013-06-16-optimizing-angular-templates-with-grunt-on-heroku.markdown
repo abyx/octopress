@@ -69,18 +69,4 @@ https://github.com/heroku/heroku-buildpack-nodejs.git
 
 Have fun! For more in-depth Angular stuff you might find [this book](http://www.amazon.com/gp/product/B00CJLFF8K?ie=UTF8&camp=213733&creative=393177&creativeASIN=B00CJLFF8K&linkCode=shr&tag=thcodu02-20&qid=1371412376&sr=8-2&keywords=angularjs) useful.
 
-<!-- Begin MailChimp Signup Form -->
-<link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
-<style type="text/css">
-    #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
-    /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-       We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-</style>
-<div id="mc_embed_signup">
-<form action="http://codelord.us6.list-manage.com/subscribe/post?u=78b36f07d7d2e7e91eb8deee3&amp;id=c9a8d439c8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <label for="mce-EMAIL">Subscribe to my mailing list for exclusive updates</label>
-    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required style="display: inline">
-    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" style="display: inline">
-</form>
-</div>
-<!--End mc_embed_signup-->
+{% render_partial _posts/_partials/cta.markdown %}

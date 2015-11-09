@@ -5,6 +5,7 @@ date: 2015-10-29 17:53:57 +0200
 comments: true
 facebook:
     image: /images/ng-codelord.png
+cta_message: "Get the next authentication guides, prepare for 2.0 and write maintainble Angular!"
 ---
 
 In my [last post](http://www.codelord.net/2015/10/22/angular-authentication-3-step-recipe/) we saw the simple 3 step recipe for adding basic authentication in your Angular app.
@@ -80,17 +81,4 @@ In those scenarios I usually go with using a service to store the objects that I
 
 Since the last post I got several requests to discuss more features, like admin only pages, etc. Subscribe below so you won’t miss them and feel free to comment if you have other ideas I should add to the mix!
 
-<!-- Begin MailChimp Signup Form -->
-<div id="mc_embed_signup" class="cta">
-<form action="http://codelord.us6.list-manage.com/subscribe/post?u=78b36f07d7d2e7e91eb8deee3&amp;id=c9a8d439c8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <label for="mce-EMAIL">Get the next authentication guides, prepare for 2.0 and write maintainble Angular!</label>
-    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required style="display: inline"><!--
-    --><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" style="display: inline">
-    <input type="hidden" value="" name="SIGNUP_URL" class="email" id="mce-SIGNUP_URL">
-    <div class="promise">~3 mails a month, unsubscribe anytime, no spam, promise!</div>
-</form>
-</div>
-<script type="text/javascript">
-document.getElementById('mce-SIGNUP_URL').value = document.location.href;
-</script>
-<!--End mc_embed_signup-->
+{% render_partial _posts/_partials/cta.markdown %}

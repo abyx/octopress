@@ -5,6 +5,7 @@ date: 2015-10-22 18:26:44 +0300
 comments: true
 facebook:
     image: /images/ng-codelord.png
+cta_message: "Get the next authentication guides, prepare for 2.0 and write maintainble Angular!"
 ---
 
 Authentication seems like something that literally 100% of people using Angular would want to do. Yet you need to bake something on your own not knowing if your approach is right. Angular doesn’t come with any baked support for authentication. (Did that surprise you? It surprised me the first time I heard.)
@@ -100,17 +101,4 @@ This is the basic recipe. With it you’ve got a working system you can actually
 
 There are endless tweaks to make: add a log out button, redirect back to where you were after login, special admin-only pages, persisting tokens in local storage, etc. I’ll be posting guides to some of these soon. Leave a comment if you’d like me to expand on any specific feature.
 
-<!-- Begin MailChimp Signup Form -->
-<div id="mc_embed_signup" class="cta">
-<form action="http://codelord.us6.list-manage.com/subscribe/post?u=78b36f07d7d2e7e91eb8deee3&amp;id=c9a8d439c8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <label for="mce-EMAIL">Get the next authentication guides, prepare for 2.0 and write maintainble Angular!</label>
-    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required style="display: inline"><!--
-    --><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" style="display: inline">
-    <input type="hidden" value="" name="SIGNUP_URL" class="email" id="mce-SIGNUP_URL">
-    <div class="promise">~3 mails a month, unsubscribe anytime, no spam, promise!</div>
-</form>
-</div>
-<script type="text/javascript">
-document.getElementById('mce-SIGNUP_URL').value = document.location.href;
-</script>
-<!--End mc_embed_signup-->
+{% render_partial _posts/_partials/cta.markdown %}

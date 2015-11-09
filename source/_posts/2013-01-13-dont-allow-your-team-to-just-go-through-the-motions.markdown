@@ -21,18 +21,4 @@ Are your retrospectives just 30 minutes that you're waiting to get over with, wi
 
 There's a reason software developers have grown to hate process, and it's because most of the times process is just that, stuff that needs to be done without a lot of benefit or apparent logic. Make sure you and your team know why you're doing stuff, that's the only way to get better.
 
-<!-- Begin MailChimp Signup Form -->
-<link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
-<style type="text/css">
-    #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
-    /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-       We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-</style>
-<div id="mc_embed_signup">
-<form action="http://codelord.us6.list-manage.com/subscribe/post?u=78b36f07d7d2e7e91eb8deee3&amp;id=c9a8d439c8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <label for="mce-EMAIL">Subscribe to my mailing list for exclusive updates</label>
-    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required style="display: inline">
-    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" style="display: inline">
-</form>
-</div>
-<!--End mc_embed_signup-->
+{% render_partial _posts/_partials/cta.markdown %}

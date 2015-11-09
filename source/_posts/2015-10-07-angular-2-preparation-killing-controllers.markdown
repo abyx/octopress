@@ -5,6 +5,7 @@ date: 2015-10-07 18:00:54 +0300
 comments: true
 facebook:
     image: /images/ng-codelord.png
+cta_message: "Learn how to prepare for 2.0 and write maintainble Angular!"
 ---
 
 Controllers are *dying*. The [migration path](http://www.codelord.net/2015/09/10/angular-2-migration-path-what-we-know/) doesn’t even make a reference of them. Once controllers were a cornerstone of Angular. Now we’re all trying to sweep them under the carpet.
@@ -105,17 +106,4 @@ As I said, I’m still figuring this out along with you. But so far I’ve found
 
 If you’ve been toying with this too I’d love to hear your thoughts and techniques.
 
-<!-- Begin MailChimp Signup Form -->
-<div id="mc_embed_signup" class="cta">
-<form action="http://codelord.us6.list-manage.com/subscribe/post?u=78b36f07d7d2e7e91eb8deee3&amp;id=c9a8d439c8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <label for="mce-EMAIL">Learn how to prepare for 2.0 and write maintainble Angular!</label>
-    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required style="display: inline"><!--
-    --><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" style="display: inline">
-    <input type="hidden" value="" name="SIGNUP_URL" class="email" id="mce-SIGNUP_URL">
-    <div class="promise">~3 mails a month, unsubscribe anytime, no spam, promise!</div>
-</form>
-</div>
-<script type="text/javascript">
-document.getElementById('mce-SIGNUP_URL').value = document.location.href;
-</script>
-<!--End mc_embed_signup-->
+{% render_partial _posts/_partials/cta.markdown %}

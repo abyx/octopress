@@ -5,6 +5,7 @@ date: 2015-08-03 23:42:51 +0300
 comments: true
 facebook:
     image: /images/posts_images/angular-performance.png
+cta_message: "Subscribe to receive more advanced Angular techniques and performance pitfalls to avoid!"
 ---
 
 Angular can feel magical but it is not a magic bullet. That magic comes with a cost, and that cost sometimes means slow/laggy apps.
@@ -62,22 +63,4 @@ The easiest way is to get a feel for your improvements by checking it out with n
 
 That's it for now. May your digests be always fast!
 
-<!-- Begin MailChimp Signup Form -->
-<link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
-<style type="text/css">
-    #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
-    /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-       We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-</style>
-<div id="mc_embed_signup">
-<form action="http://codelord.us6.list-manage.com/subscribe/post?u=78b36f07d7d2e7e91eb8deee3&amp;id=c9a8d439c8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <label for="mce-EMAIL">Don't miss the next Angular and frontend tip, subscribe! (~2 mails a month)</label>
-    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required style="display: inline"><!--
-    --><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" style="display: inline">
-    <input type="hidden" value="" name="SIGNUP_URL" class="email" id="mce-SIGNUP_URL">
-</form>
-</div>
-<script type="text/javascript">
-document.getElementById('mce-SIGNUP_URL').value = document.location.href;
-</script>
-<!--End mc_embed_signup-->
+{% render_partial _posts/_partials/cta.markdown %}

@@ -5,6 +5,7 @@ date: 2015-09-24 06:31:01 +0300
 comments: true
 facebook:
     image: /images/ng-codelord.png
+cta_message: "Learn how to use Angular like it was meant to be used - Subscribe!"
 ---
 
 Using promises is tricky at first. Every newcomer to Angular will be flustered about them. It’s super easy to get lost at first between all the different nitpicks: promise chaining, `$http`’s special promises, the asynchronous nature of it all, etc.
@@ -92,17 +93,4 @@ Basically, the main reason is:
 
 Finally, a nice example of good `$q.defer()` use: `ng-file-upload` - [code here](https://github.com/danialfarid/ng-file-upload/blob/86e4f42725e0d1ccadc2250066671dd3c8affaee/src/resize.js#L31). That’s exactly the case where the library is handling some asynchronous event that is unrelated to Angular (a file upload) and would like to provide the user with a promise for the completion.
 
-<!-- Begin MailChimp Signup Form -->
-<div id="mc_embed_signup" class="cta">
-<form action="http://codelord.us6.list-manage.com/subscribe/post?u=78b36f07d7d2e7e91eb8deee3&amp;id=c9a8d439c8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <label for="mce-EMAIL">Learn how to use Angular like it was meant to be used - Subscribe!</label>
-    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required style="display: inline"><!--
-    --><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" style="display: inline">
-    <input type="hidden" value="" name="SIGNUP_URL" class="email" id="mce-SIGNUP_URL">
-    <div class="promise">~3 mails a month, unsubscribe anytime, no spam, promise!</div>
-</form>
-</div>
-<script type="text/javascript">
-document.getElementById('mce-SIGNUP_URL').value = document.location.href;
-</script>
-<!--End mc_embed_signup-->
+{% render_partial _posts/_partials/cta.markdown %}
