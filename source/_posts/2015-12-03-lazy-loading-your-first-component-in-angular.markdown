@@ -5,7 +5,7 @@ date: 2015-12-03 17:18:53 +0200
 comments: true
 facebook:
     image: /images/ng-codelord.png
-cta_message: "Get more tips for managing big Angular projects, like adding lazy loading to your build!"
+cta_message: "Get more maintainable Angular tips and write Angular like it was meant to be written"
 ---
 
 A lot of web developers that come to Angular from other MVC frameworks are surprised to learn that there’s no official support for lazy loading.
