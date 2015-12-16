@@ -2,6 +2,7 @@
 layout: nil
 ---
 User-agent: *
-Disallow: 
+Disallow: /ng2-interest/
+Disallow: /ng2-interest
 
 Sitemap: {{ site.url }}/sitemap.xml 
