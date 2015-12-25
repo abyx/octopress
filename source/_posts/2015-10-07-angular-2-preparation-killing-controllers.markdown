@@ -96,7 +96,7 @@ This resulted in a little more boilerplate but we got rid of the controller. Alo
 
 **Defining routes**: You no longer need to supply a controller in your ui-router or ng-route configuration. Just pass a simple template such as `<messages></messages>`.
 
-**ui-router resolves are harder**: I’ve long stopped using resolve because it has so many [pitfalls](http://www.codelord.net/2015/06/02/angularjs-pitfalls-using-ui-routers-resolve/). But, you can get access to `resolve`d stuff via `$state.$current.locals` in your directives. I’ll note that ng-route’s resolve works similarly with `$route.current.locals`.
+**ui-router resolves are harder**: I’ve long stopped using resolve because it has so many [pitfalls](http://www.codelord.net/2015/06/02/angularjs-pitfalls-using-ui-routers-resolve/). But, you can get access to `resolve`d stuff, see [here](http://www.codelord.net/2015/12/25/configuring-components-with-ui-router-and-ngroute/).
 
 **Some widgets love controllers**: If you’re using widgets such as ui-bootstrap’s modals you will see they love controllers. It’s still possible to use them without controllers. The above workaround works.
 
