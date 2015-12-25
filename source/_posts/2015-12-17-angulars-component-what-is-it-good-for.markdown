@@ -92,6 +92,7 @@ But, using it saves so much boilerplate.
 And, non-component directives should be rare, which means they’ll stand out even more.
 
 That’s why, in my opinion, using this new syntax is worthwhile.
+You can read the full docs about it [here](https://docs.angularjs.org/api/ng/type/angular.Module#component).
 
 So, start using `.component()` once 1.5 is out: you have unlocked a new skill!
 
