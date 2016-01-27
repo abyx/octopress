@@ -3,7 +3,8 @@ layout: post
 title: "Adding the first Angular 2 component to your Angular 1 app"
 date: 2016-01-14 12:54:22 +0200
 comments: true
-categories: 
+facebook:
+    image: /images/ng-codelord.png
 cta_message: "Learn how to upgrade your Angular 1 app easily, step by step!"
 cta_form: 18090
 ---
