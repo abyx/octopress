@@ -2,6 +2,7 @@
 layout: post
 title: "Setting up SEO in an Angular app"
 date: 2016-01-20 11:42:26 +0200
+comments: true
 facebook:
     image: /images/ng-codelord.png
 cta_message: "Let me know when that Stairway to Angular 2.0 Heaven course is ready!"
