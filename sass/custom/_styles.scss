@@ -4,13 +4,10 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
 
-//body {
-//    font-family: $sans !important;
-//}
-//
-//body #content article {
-//    font-size: 0.85em;
-//}
+img.center_img {
+    display: block;
+    margin: 0 auto;
+}
 
 $default-font-weight: 300;
 
