@@ -5,7 +5,8 @@ date: 2015-09-24 06:31:01 +0300
 comments: true
 facebook:
     image: /images/ng-codelord.png
-cta_message: "Learn how to use Angular like it was meant to be used - Subscribe!"
+cta_message: "Learn how to upgrade your Angular 1 app easily, step by step!"
+cta_form: 74718
 ---
 
 Using promises is tricky at first. Every newcomer to Angular will be flustered about them. It’s super easy to get lost at first between all the different nitpicks: promise chaining, `$http`’s special promises, the asynchronous nature of it all, etc.
@@ -91,6 +92,24 @@ Basically, the main reason is:
 
 **You’re converting a callback API to be promise-based:** For example, if you wrap a jQuery plugin to work in Angular. Callbacks are not as fun as promises. To kickstart the promise chain and convert callbacks you have the create the first promise.
 
-Finally, a nice example of good `$q.defer()` use: `ng-file-upload` - [code here](https://github.com/danialfarid/ng-file-upload/blob/86e4f42725e0d1ccadc2250066671dd3c8affaee/src/resize.js#L31). That’s exactly the case where the library is handling some asynchronous event that is unrelated to Angular (a file upload) and would like to provide the user with a promise for the completion.
+I've written about actually creating promises [here](http://www.codelord.net/2016/07/10/properly-wrapping-native-javascript-with-%24q-promises/).
+
+<hr>
+
+Do you have an existing Angular 1.x app that makes you worried about its future?  
+You don't want your app to be *left behind* and become *legacy code*.  
+But it's not easy clearing the time to learn Angular 2.  
+And who has the energy to convince management that you need to change frameworks, delay your schedules and do the Big Ol' Rewrite?
+
+But what if you could make sure your app keeps its options open?  
+What if you could make it future-proof, all the while *shipping features like a boss*?  
+You'll work in a codebase that uses the latest and greatest, have easy maintenance and happy stakeholders!
+
+The *Future-proof Angular Guide* can help you get there.  
+With this no-fluff course you'll learn how to quickly adapt your existing Angular 1.x app to the latest components paradigm, as you go about your regular work.  
+You'll gradually turn your app into something that is modern and idiomatic, converting directives and getting rid of controllers.  
+And then, once your app is shaped The Right Way™, you'll be able to keep shipping like a boss, and have your options open.
+
+Sign up to be notified when the course is ready (and get more of these pragmatic Angular posts in the meantime).
 
 {% render_partial _posts/_partials/cta.markdown %}
