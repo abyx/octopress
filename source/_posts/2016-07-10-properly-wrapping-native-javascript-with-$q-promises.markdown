@@ -9,7 +9,7 @@ cta_message: "Learn how to upgrade your Angular 1 app easily, step by step!"
 cta_form: 74695
 ---
 
-One of most popular posts ever is the post about how a lot of Angular developers are [using $q wrong](http://www.codelord.net/2015/09/24/$q-dot-defer-youre-doing-it-wrong/) (specifically `$q.defer()`).
+One of my most popular posts ever is the post about how a lot of Angular developers are [using $q wrong](http://www.codelord.net/2015/09/24/$q-dot-defer-youre-doing-it-wrong/) (specifically `$q.defer()`).
 
 Yes, in the vast majority of cases, you don’t really need to create a promise by your own from scratch.
 
@@ -37,7 +37,7 @@ function preloadImage(imgSrc) {
   img.on('load', deferred.resolve);
   img.on('error', deferred.reject);
   img.attr('src', imgSrc);
-  return img.promise;
+  return deferred.promise;
 }
 ```
 
