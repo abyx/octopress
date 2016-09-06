@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Angular Interview Question Deep Dive: Implement ng-click"
-date: 2016-09-02 23:22:13 +0300
+date: 2016-09-06 16:22:13 +0300
 comments: true
 facebook:
     image: /images/ng-codelord.png
