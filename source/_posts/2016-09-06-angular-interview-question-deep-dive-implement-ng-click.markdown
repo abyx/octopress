@@ -96,7 +96,7 @@ angular.module('app').directive('betterClick', function($parse) {
       var callbackFn = $parse($attrs.betterClick);
       $element.on('click', function($event) {
         $scope.$apply(function() {
-          fn($scope, {$event: $event});
+          callbackFn($scope, {$event: $event});
         });
       });
     }
