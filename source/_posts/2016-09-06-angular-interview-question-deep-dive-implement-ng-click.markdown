@@ -109,7 +109,7 @@ angular.module('app').directive('betterClick', function($parse) {
 Well, first of all, you can see that we’ve dumped the `scope` thing altogether, which means that this directive doesn’t create a new scope at all, but instead simply makes use of whatever scope it’s already in.
 
 But, since we’re not using the dandy `&` binding anymore, we have to do some work on our own.
-We would like to get the callback like you would with `ng-click`: `<div better-click="clicked($event)></div>`.
+We would like to get the callback like you would with `ng-click`: `<div better-click="clicked($event)"></div>`.
 
 To get a hold of the function that we should call, we’re using the `$attrs` object to get the expression that we should use for the callback: `$attrs.betterClick`.
 
