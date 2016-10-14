@@ -8,6 +8,13 @@ facebook:
 cta_message: "Know when to start writing 2.0 and learn how you can start preparing ahead today!"
 ---
 
+***Update***: See the updated post, now that 2.0 is final, [here](http://www.codelord.net/2016/10/09/angular-2-is-out-should-you-start-using-it/).
+
+Original post continues below.
+
+<hr>
+
+
 This question might seem trivial, but I keep seeing it pop up again and again everywhere in the Angular community. With all respect to the maintainers, they've managed to confuse quite a lot of smart people with this.
 
 If you're new to this world and want to get started with a new project you might have wondered whether you should use 1.x or "jump straight" to Angular 2. On the other hand, if you've already got Angular experience you're probably getting worried about the impending changes and wondered whether you should start adapting to it.
