@@ -1,15 +1,12 @@
 ---
 layout: post
 title: "Configuring components with ui-router and ngRoute"
-date: 2015-12-25 10:35:53 +0200
+date: 2016-10-25 10:35:53 +0200
 comments: true
 facebook:
     image: /images/ng-codelord.png
 cta_message: "Learn how to upgrade your Angular 1 app easily, step by step!"
 cta_form: 116225
-extra_head: |
-    <meta http-equiv="refresh" content="0; url=/2016/10/25/configuring-components-with-ui-router-and-ngroute/">
-    <link rel="canonical" href="http://www.codelord.net/2016/10/25/configuring-components-with-ui-router-and-ngroute/" />
 ---
 
 Angular 1.5’s `.component()` method is very cool, as I wrote about [previously](http://www.codelord.net/2015/12/17/angulars-component-what-is-it-good-for/).
