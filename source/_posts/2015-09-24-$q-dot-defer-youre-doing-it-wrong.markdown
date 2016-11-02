@@ -5,7 +5,7 @@ date: 2015-09-24 06:31:01 +0300
 comments: true
 facebook:
     image: /images/ng-codelord.png
-cta_message: "Learn how to upgrade your Angular 1 app easily, step by step!"
+cta_message: "Stop doing things wrong, subscribe!"
 cta_form: 74718
 ---
 
@@ -24,6 +24,8 @@ And guess what? I think that *nearly everyone that uses it does it unnecessarily
 First, a disclaimer: this isn’t some sort of shaming. I used to write lots of code just like this. I want to show how common this problem is with real code and no handwaving.
 
 I opened GitHub’s code search and started looking for people using `$q.defer()`. In the first 3 pages of results I saw about 2 actual valid use cases. *Yeeeep.*
+
+{% render_partial _posts/_partials/cta.markdown %}
 
 ## You don’t need defer to create a simple-valued promise
 
@@ -96,20 +98,22 @@ I've written about actually creating promises [here](http://www.codelord.net/201
 
 <hr>
 
-Do you have an existing Angular 1.x app that makes you worried about its future?  
-You don't want your app to be *left behind* and become *legacy code*.  
-But it's not easy clearing the time to learn Angular 2.  
-And who has the energy to convince management that you need to change frameworks, delay your schedules and do the Big Ol' Rewrite?
+You want to do Angular *the right way*.  
+You hate spending time working on a project, only to find it's completely wrong a month later.  
+But, as you try to get things right, you end up staring at the blinking cursor in your IDE, not sure what to type.  
+Every line of code you write means making decisions, and it's paralyzing.  
 
-But what if you could make sure your app keeps its options open?  
-What if you could make it future-proof, all the while *shipping features like a boss*?  
-You'll work in a codebase that uses the latest and greatest, have easy maintenance and happy stakeholders!
+You look at blog posts, tutorials, videos, but each is a bit different.  
+Now you need to *reverse engineer every advice* to see what version of Angular it was written for, how updated it is, and whether it fits the current way of doing things.
 
-The *Future-proof Angular Guide* can help you get there.  
-With this no-fluff course you'll learn how to quickly adapt your existing Angular 1.x app to the latest components paradigm, as you go about your regular work.  
-You'll gradually turn your app into something that is modern and idiomatic, converting directives and getting rid of controllers.  
-And then, once your app is shaped The Right Way™, you'll be able to keep shipping like a boss, and have your options open.
+What if you knew the *Angular Way* of doing things?  
+Imagine knocking down your tasks and spending your brain cycles on your product's core.  
+Wouldn't it be nice to know Angular like a second language?
 
-Sign up to be notified when the course is ready (and get more of these pragmatic Angular posts in the meantime).
+You can write modern, clean and future-ready Angular right now.  
+Sign up below and get more of these helpful posts, free!  
+Always up to date and I've already done all the research for you.
+
+And be the first the hear about my Modern Angular 1.x book - writing future proof Angular right now.
 
 {% render_partial _posts/_partials/cta.markdown %}
