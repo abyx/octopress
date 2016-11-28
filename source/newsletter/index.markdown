@@ -5,7 +5,7 @@ comments: false
 sharing: false
 footer: true
 cta_message: "Subscribe to get the latest about modern Angular 1.x"
-cta_form: 129509
+cta_form: 131082
 ---
 
 {% render_partial _posts/_partials/cta.markdown %}
