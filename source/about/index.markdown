@@ -1,10 +1,11 @@
 ---
-date: '2015-08-24 22:43:55'
 layout: page
+title: About
 slug: about-2
 status: publish
-title: About
 wordpress_id: '15'
+comments: false
+sharing: false
 ---
 
 {% img portrait /images/aviv.jpg %}
