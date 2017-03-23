@@ -9,6 +9,10 @@ cta_message: "Learn how to upgrade your Angular 1 app easily, step by step!"
 cta_form: 27514
 ---
 
+*Update:* The component router has finally been officially deprecated and discontinued.
+You *should not be using it*.
+This post is here for posterity's sake, but it goes to show how flakey our industry can really be.
+
 A new router for Angular 1.x was announced over a year ago.
 That router is usually called the Component Router, but you may have seen the name “new router” (or `ngNewRouter`) thrown around.
 

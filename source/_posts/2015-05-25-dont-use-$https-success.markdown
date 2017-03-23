@@ -5,6 +5,9 @@ date: 2015-05-25 23:16:00 +0300
 comments: true
 ---
 
+*Update:* as of Angular 1.6, the `.success()` and `.error()` methods on `$http` promises have been removed.
+If you're trying to upgrade your project's Angular version and came across these errors, you've come to the right place to see how to get rid of it.
+
 An example of performing AJAX requests in Angular is probably the second thing you ever saw when getting into Angular (right after an example showing off two way binding). It does look very sexy and easy when you look at it, since most examples look something like this:
 
 ```javascript
