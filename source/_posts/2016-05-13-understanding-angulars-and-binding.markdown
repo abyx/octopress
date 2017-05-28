@@ -14,7 +14,7 @@ Most famously, there’s [services vs. factories](http://www.codelord.net/2015/0
 More recently we now have [components vs. directives](http://www.codelord.net/2015/12/17/angulars-component-what-is-it-good-for/).
 
 Another thing that I’ve seen people get mad about time after time is the `&` binding for passing functions to directives/components.
-“The & callback binding trips me up EVERY TIME I just it.”
+“The & callback binding trips me up EVERY TIME I just hate it.”
 
 Let’s understand exactly what it is.
 Once you grok it, you’ll never get it wrong again.
