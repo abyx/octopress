@@ -74,10 +74,10 @@ Yes, you can start rewriting your code to use the explicit syntax. But it’s er
 
 If you have minification it means you already have some sort of build process in order.
 
-In that case, it’s usually dead simple to add another step to the build process that automatically adds the explicit syntax to your code. *Never waste a keypress.*
+In that case, it’s usually dead simple to add another step to the build process that automatically adds the explicit syntax to your code, you just need to provide it with little hints. *Never waste a keypress.*
 
-The de-facto standard is to use [ng-annotate](https://github.com/olov/ng-annotate). It's a very simple tool that you can just drop in as part of your build process, right before minification. It essentially just goes over your Angular code and rewrites it to have the explicit dependency injection syntax. Check out the project page for information and examples.
+The de-facto standard is to use [babel-plugin-angularjs-annotate](https://github.com/schmod/babel-plugin-angularjs-annotate). It's a very simple tool that you can just drop in as part of your build process, right before minification. It essentially just goes over your Angular code and rewrites it to have the explicit dependency injection syntax. I've written more about it [here](http://www.codelord.net/2017/06/18/ng-annotate-deprecated-what-that-means-for-your-projects/).
 
-Voila. Configuring ng-annotate (which usually means copying 5 lines to your build file) will save you time and make your project minification-ready. w00t!
+Voila. Configuring it will save you time and make your project minification-ready. w00t!
 
 {% render_partial _posts/_partials/cta.markdown %}

@@ -51,8 +51,9 @@ Service.$inject = ['$http'];
 
 That’s all there’s to it, if you insist on adding these manually.
 
-But please, stop doing it *like an animal*, and incorporate something like [ng-annotate](https://github.com/olov/ng-annotate).
-Given that you’re using ES6, you very likely already transpiling your code into ES5, and ng-annotate can simply go over your code at that point and add these as necessary.
+But please, stop doing it *like an animal*, and incorporate something like [babel-plugin-angularjs-annotate](https://github.com/schmod/babel-plugin-angularjs-annotate).
+Given that you’re using ES6, you very likely already transpiling your code into ES5, and this plugin can simply go over your code at that point and add these as necessary, given little hints.
+I've written more about it [here](http://www.codelord.net/2017/06/18/ng-annotate-deprecated-what-that-means-for-your-projects/).
 
 Keep it classy! `</dadpun>`
 
