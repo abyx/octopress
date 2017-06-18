@@ -9,7 +9,7 @@ cta_message: "Subscribe to get the latest about modern Angular 1.x"
 cta_form: 223947
 ---
 
-Templates in AngularJS quite powerful, but just because something can be done in the template doesn’t mean you _should_ do it there.
+Templates in AngularJS are quite powerful, but just because something can be done in the template doesn’t mean you _should_ do it there.
 The separation between controller and template can be vague in Angular, which is why I have a couple of guidelines which I consider to be best practices in any Angular project.
 
 One of those rules of thumb is: *Don’t do in the template what can be done elsewhere.*
