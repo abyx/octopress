@@ -19,6 +19,12 @@
 <meta property="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
 <meta property="twitter:description" content="{{ description | strip_html | condense_spaces | truncate:200 }}" />
 
+{% if page.style %}
+<style type="text/css">
+    {{ page.style }}
+</style>
+{% endif %}
+
 <script src="https://app.convertkit.com/assets/CKJS4.js?v=21" async></script>
 <script src="https://app.convertkit.com/landing_pages/7875.js"></script>
 
