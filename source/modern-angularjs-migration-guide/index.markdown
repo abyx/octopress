@@ -3,10 +3,14 @@ layout: page
 title: "Modern AngularJS Migration Guide"
 comments: false
 sharing: false
-footer: true
+footer: false
 cta_message: "Be the first to learn when it's out (soon!)"
 cta_form: 226957
 style: |
+    html {
+        border: none;
+    }
+
     header {
         display: none;
     }
@@ -15,13 +19,17 @@ style: |
         display: none;
     }
 
+    body {
+        background: rgba(29, 211, 228, 0.05);
+    }
+
     body > nav {
         display: none;
     }
 
     h2 {
         line-height: 1.3em;
-        color: #73A477;
+        color: #1dd3e4;
     }
 
     article p {
@@ -54,10 +62,15 @@ style: |
         flex-shrink: 0;
     }
 
+    .hero:hover .hero-intro .header .book-image {
+        transform: rotate(10deg);
+        transition: 0.15s all linear;
+    }
+
     .hero .hero-intro .header h1 {
         font-size: 2.5rem;
         line-height: 1.3em;
-        color: #73A477;
+        color: #1dd3e4;
         padding-right: 0.8em;
         margin: 0;
     }
@@ -70,8 +83,8 @@ style: |
     }
 
     .hero .buttons a {
-        background: #73A477;
-        border: 1px solid #73A477;
+        background: #1dd3e4;
+        border: 1px solid #1dd3e4;
         border-radius: 4px;
         font-size: 1.5rem;
         color: white;
@@ -88,6 +101,50 @@ style: |
     .hero .buttons a:hover {
         transform: scale(1.1);
         filter: brightness(1.1);
+    }
+
+    .packages {
+        padding-top: 2em;
+    }
+
+    .packages .package {
+        border: 1px solid #1dd3e4;
+        border-radius: 4px;
+        padding: 2em 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2em;
+    }
+
+    .packages .package h3 {
+        color: #1dd3e4;
+        margin: 0 0 1em;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    .packages .package button {
+        background: #1dd3e4;
+        border: 1px solid #1dd3e4;
+        border-radius: 4px;
+        font-size: 1.5rem;
+        color: white;
+        padding: 0.3em 0.5em;
+        cursor: pointer;
+        display: inline-block;
+        transition: 0.15s all linear;
+    }
+
+    .packages .package button:hover {
+        transform: scale(1.1);
+        filter: brightness(1.1);
+    }
+
+    .strike {
+        text-decoration: line-through;
+        text-decoration-color: red;
+        -webkit-text-decoration-color: red;
     }
 ---
 
@@ -173,7 +230,7 @@ Then you'll master the gradual approach for transitioning even the bigger projec
 
         <ul>
             <li>The detailed <strong>migration guide</strong> (95 page PDF)</li>
-            <li>A <strong>consulting session</strong> with the author to plan your tailored migration &emdash; Usually valued at <span class="strike">$800</span></li>
+            <li>A <strong>consulting session</strong> with the author to plan your tailored migration&mdash;Valued at <span class="strike">$800</span></li>
             <li>Access to an <strong>exclusive Slack community</strong> of fellow migrators</li>
             <li>Migration cheatsheet</li>
         </ul>
