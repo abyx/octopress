@@ -149,6 +149,10 @@ style: |
         align-self: center;
     }
 
+    .author {
+        margin: 2em 0;
+    }
+
     .author .group {
         display: flex;
         align-items: center;
@@ -161,6 +165,20 @@ style: |
         width: 200px;
         height: 200px;
         border-radius: 100%;
+        max-width: 15vw;
+        max-height: 15vw;
+        flex-shrink: 0;
+        flex-grow: 0;
+        margin: 0 2em 0 1em;
+    }
+
+    .author .group .author-bio h2 {
+        margin-top: 0;
+        text-align: left;
+    }
+
+    .author .group .author-bio p {
+        margin: 0;
     }
 ---
 
@@ -246,7 +264,7 @@ Then you'll master the gradual approach for transitioning even the bigger projec
 
         <ul>
             <li>The detailed <strong>migration guide</strong> (95 page PDF)</li>
-            <li>A <strong>consulting session</strong> with the author to plan your tailored migration&mdash;Valued at <span class="strike">$800</span></li>
+            <li>A <strong>consulting session</strong> with the author to plan your tailored migration (<span class="strike">$800</span> value)</li>
             <li>Access to an <strong>exclusive Slack community</strong> of fellow migrators</li>
             <li>Migration cheatsheet</li>
         </ul>
@@ -295,14 +313,15 @@ Then you'll master the gradual approach for transitioning even the bigger projec
 </div>
 
 <div class="author">
-    <h2>About the Author</h2>
-
     <div class="group">
         <div class="author-image"></div>
         <div class="author-bio">
-            Hey there, my name's Aviv Ben-Yosef.
-            As part of my consulting business, I've helped dozens of companies with their AngularJS projects over the last 4+ years.
-            With my courses, trainings and articles I've literally helped over a million developers, and have one of the biggest AngularJS newsletter, with over 6,000 subscribers.
+            <h2>About the Author</h2>
+            <p>
+                Hey there, my name's Aviv Ben-Yosef.
+                As part of my consulting business, I've helped dozens of companies with their AngularJS projects over the last 4+ years.
+                With my courses, trainings and articles I've literally helped over a million developers, and have one of the biggest AngularJS newsletter, with over 6,000 subscribers.
+            </p>
         </div>
     </div>
 </div>
