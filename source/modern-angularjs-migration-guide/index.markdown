@@ -1,21 +1,112 @@
 ---
 layout: page
 title: "Modern AngularJS Migration Guide"
-date: 2017-06-18 18:43
 comments: false
 sharing: false
 footer: true
 cta_message: "Be the first to learn when it's out (soon!)"
 cta_form: 226957
 style: |
+    header {
+        display: none;
+    }
+
+    footer {
+        display: none;
+    }
+
+    body > nav {
+        display: none;
+    }
+
     h2 {
         line-height: 1.3em;
+        color: #73A477;
     }
 
     article p {
         max-width: 28em;
     }
+
+    ul {
+        list-style-type: circle;
+    }
+
+    .ck_form_container {
+        display: none !important;
+    }
+
+    .hero {
+        margin-top: 2em;
+    }
+
+    .hero .hero-intro .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .hero .hero-intro .header .book-image {
+        background-image: url(/images/mamg_cover.png);
+        height: 344px;
+        width: 267px;
+        background-size: cover;
+        flex-shrink: 0;
+    }
+
+    .hero .hero-intro .header h1 {
+        font-size: 2.5rem;
+        line-height: 1.3em;
+        color: #73A477;
+        padding-right: 0.8em;
+        margin: 0;
+    }
+
+    .hero .buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2em;
+    }
+
+    .hero .buttons a {
+        background: #73A477;
+        border: 1px solid #73A477;
+        border-radius: 4px;
+        font-size: 1.5rem;
+        color: white;
+        padding: 0.3em 0.5em;
+        cursor: pointer;
+        display: inline-block;
+        transition: 0.15s all linear;
+    }
+
+    .hero .buttons a:first-child {
+        margin-right: 1em;
+    }
+
+    .hero .buttons a:hover {
+        transform: scale(1.1);
+        filter: brightness(1.1);
+    }
 ---
+
+<div class="hero">
+    <div class="hero-intro">
+        <div class="header">
+            <h1>
+                Upgrade to<br>
+                <em>AngularJS 1.6</em><br>
+                Without a Rewrite
+            </h1>
+            <div class="book-image"></div>
+        </div>
+        <div class="buttons">
+            <a href="#packages">Buy Now</a>
+            <a href="#sample">Get a Free Sample</a>
+        </div>
+    </div>
+</div>
 
 ## You've been maintaining this AngularJS project for a while and it seems to be getting obsolete by the day
 
@@ -74,5 +165,49 @@ Imagine: answers on Stack Overflow actually being relevant, free performance imp
 
 To learn the quickest and safest way to work on a modern and maintainable codebase again - buy the **Modern AngularJS Migration Guide**.
 Then you'll master the gradual approach for transitioning even the bigger projects, cool as a cucumber, and at your own pace.
+
+<div class="packages" id="packages">
+
+    <div class="package">
+        <h3>Hands-On Consulting Package</h3>
+
+        <ul>
+            <li>The detailed <strong>migration guide</strong> (95 page PDF)</li>
+            <li>A <strong>consulting session</strong> with the author to plan your tailored migration &emdash; Usually valued at <span class="strike">$800</span></li>
+            <li>Access to an <strong>exclusive Slack community</strong> of fellow migrators</li>
+            <li>Migration cheatsheet</li>
+        </ul>
+
+        <button>Buy Now for <span class="strike">$600</span> $500</button>
+    </div>
+
+    <div class="package">
+        <h3>Pro Package</h3>
+
+        <ul>
+            <li>The detailed <strong>migration guide</strong> (95 page PDF)</li>
+            <li>Access to an <strong>exclusive Slack community</strong> of fellow migrators</li>
+            <li>Migration cheatsheet</li>
+        </ul>
+
+        <button>Buy Now for <span class="strike">$79</span> $59</button>
+    </div>
+
+    <div class="package">
+        <h3>Just the Book</h3>
+
+        <ul>
+            <li>The detailed <strong>migration guide</strong> (95 page PDF)</li>
+            <li>Get a triest and tested migration path</li>
+            <li>Upgrade your app on-the-go</li>
+        </ul>
+
+        <button>Buy Now for <span class="strike">$49</span> $39</button>
+    </div>
+
+</div>
+
+<div class="sample" id="sample">
+</div>
 
 {% render_partial _posts/_partials/cta.markdown %}
