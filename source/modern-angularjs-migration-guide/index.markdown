@@ -30,10 +30,18 @@ style: |
     h2 {
         line-height: 1.3em;
         color: #1dd3e4;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    article p, article h2, article > ul {
+        max-width: 28rem;
+        margin-right: auto;
+        margin-left: auto;
     }
 
     article p {
-        max-width: 28em;
+        text-align: justify;
     }
 
     ul {
@@ -82,7 +90,11 @@ style: |
         margin-top: 2em;
     }
 
-    .hero .buttons a {
+    .hero .buttons a:first-child {
+        margin-right: 1em;
+    }
+
+    .cta-btn {
         background: #1dd3e4;
         border: 1px solid #1dd3e4;
         border-radius: 4px;
@@ -94,11 +106,8 @@ style: |
         transition: 0.15s all linear;
     }
 
-    .hero .buttons a:first-child {
-        margin-right: 1em;
-    }
 
-    .hero .buttons a:hover {
+    .cta-btn:hover {
         transform: scale(1.1);
         filter: brightness(1.1);
     }
@@ -115,6 +124,7 @@ style: |
         flex-direction: column;
         align-items: center;
         margin-top: 2em;
+        background-color: white;
     }
 
     .packages .package h3 {
@@ -124,27 +134,33 @@ style: |
         font-weight: bold;
     }
 
-    .packages .package button {
-        background: #1dd3e4;
-        border: 1px solid #1dd3e4;
-        border-radius: 4px;
-        font-size: 1.5rem;
-        color: white;
-        padding: 0.3em 0.5em;
-        cursor: pointer;
-        display: inline-block;
-        transition: 0.15s all linear;
-    }
-
-    .packages .package button:hover {
-        transform: scale(1.1);
-        filter: brightness(1.1);
-    }
-
     .strike {
         text-decoration: line-through;
         text-decoration-color: red;
         -webkit-text-decoration-color: red;
+    }
+
+    .sample {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sample .cta-btn {
+        align-self: center;
+    }
+
+    .author .group {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .author .group .author-image {
+        background-image: url(/images/aviv_thumb.jpg);
+        background-size: cover;
+        width: 200px;
+        height: 200px;
+        border-radius: 100%;
     }
 ---
 
@@ -159,8 +175,8 @@ style: |
             <div class="book-image"></div>
         </div>
         <div class="buttons">
-            <a href="#packages">Buy Now</a>
-            <a href="#sample">Get a Free Sample</a>
+            <a class="cta-btn" href="#packages">Buy Now</a>
+            <a class="cta-btn" href="#sample">Get a Free Sample</a>
         </div>
     </div>
 </div>
@@ -235,7 +251,7 @@ Then you'll master the gradual approach for transitioning even the bigger projec
             <li>Migration cheatsheet</li>
         </ul>
 
-        <button>Buy Now for <span class="strike">$600</span> $500</button>
+        <button class="cta-btn">Buy Now for <span class="strike">$600</span> $500</button>
     </div>
 
     <div class="package">
@@ -247,7 +263,7 @@ Then you'll master the gradual approach for transitioning even the bigger projec
             <li>Migration cheatsheet</li>
         </ul>
 
-        <button>Buy Now for <span class="strike">$79</span> $59</button>
+        <button class="cta-btn">Buy Now for <span class="strike">$79</span> $59</button>
     </div>
 
     <div class="package">
@@ -259,12 +275,36 @@ Then you'll master the gradual approach for transitioning even the bigger projec
             <li>Upgrade your app on-the-go</li>
         </ul>
 
-        <button>Buy Now for <span class="strike">$49</span> $39</button>
+        <button class="cta-btn">Buy Now for <span class="strike">$49</span> $39</button>
     </div>
 
 </div>
 
 <div class="sample" id="sample">
+
+    <h2>Get a Free Chapter</h2>
+
+    <p>
+        Not convinced this book's right for you yet?
+        That's ok.
+        You can get a sample chapter free directly to your inbox.
+    </p>
+
+    <button class="cta-btn">Get Your Free Sample</button>
+
+</div>
+
+<div class="author">
+    <h2>About the Author</h2>
+
+    <div class="group">
+        <div class="author-image"></div>
+        <div class="author-bio">
+            Hey there, my name's Aviv Ben-Yosef.
+            As part of my consulting business, I've helped dozens of companies with their AngularJS projects over the last 4+ years.
+            With my courses, trainings and articles I've literally helped over a million developers, and have one of the biggest AngularJS newsletter, with over 6,000 subscribers.
+        </div>
+    </div>
 </div>
 
 {% render_partial _posts/_partials/cta.markdown %}
