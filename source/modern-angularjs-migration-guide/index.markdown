@@ -132,6 +132,11 @@ style: |
         margin: 0 0 1em;
         font-size: 2rem;
         font-weight: bold;
+        text-align: center;
+    }
+
+    .packages .package ul {
+        max-width: 80%;
     }
 
     .strike {
@@ -260,28 +265,17 @@ Then you'll master the gradual approach for transitioning even the bigger projec
 <div class="packages" id="packages">
 
     <div class="package">
-        <h3>Hands-On Consulting Package</h3>
+        <h3>The Complete Consulting Package</h3>
 
         <ul>
             <li>The detailed <strong>migration guide</strong> (95 page PDF)</li>
             <li>A <strong>consulting session</strong> with the author to plan your tailored migration (<span class="strike">$800</span> value)</li>
-            <li>Access to an <strong>exclusive Slack community</strong> of fellow migrators</li>
-            <li>Migration cheatsheet</li>
+            <li>Email availability for questions for 2 months</li>
+            <li>Get a triest and tested migration path</li>
+            <li>Upgrade your app on-the-go</li>
         </ul>
 
         <button class="cta-btn">Buy Now for <span class="strike">$600</span> $500</button>
-    </div>
-
-    <div class="package">
-        <h3>Pro Package</h3>
-
-        <ul>
-            <li>The detailed <strong>migration guide</strong> (95 page PDF)</li>
-            <li>Access to an <strong>exclusive Slack community</strong> of fellow migrators</li>
-            <li>Migration cheatsheet</li>
-        </ul>
-
-        <button class="cta-btn">Buy Now for <span class="strike">$79</span> $59</button>
     </div>
 
     <div class="package">
