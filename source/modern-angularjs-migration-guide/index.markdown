@@ -104,12 +104,15 @@ style: |
         cursor: pointer;
         display: inline-block;
         transition: 0.15s all linear;
+        white-space: nowrap;
+        font-weight: bold;
     }
 
 
     .cta-btn:hover {
         transform: scale(1.1);
         filter: brightness(1.1);
+        color: white;
     }
 
     .packages {
@@ -275,7 +278,7 @@ Then you'll master the gradual approach for transitioning even the bigger projec
             <li>Upgrade your app on-the-go</li>
         </ul>
 
-        <button class="cta-btn">Buy Now for <span class="strike">$600</span> $500</button>
+        <a class="cta-btn" href="https://gum.co/mamg-consulting">Buy Now for <span class="strike">$599</span> $499</a>
     </div>
 
     <div class="package">
@@ -287,7 +290,7 @@ Then you'll master the gradual approach for transitioning even the bigger projec
             <li>Upgrade your app on-the-go</li>
         </ul>
 
-        <button class="cta-btn">Buy Now for <span class="strike">$49</span> $39</button>
+        <a class="cta-btn" href="https://gum.co/mamg-book">Buy Now for <span class="strike">$49</span> $39</a>
     </div>
 
     <div class="package">
@@ -299,9 +302,8 @@ Then you'll master the gradual approach for transitioning even the bigger projec
             <li>Get your whole team on the same page</li>
         </ul>
 
-        <button class="cta-btn">Buy Now for <span class="strike">$1999</span> $1499</button>
+        <a class="cta-btn" href="https://gum.co/mamg-team">Buy Now for <span class="strike">$1499</span> $1199</a>
     </div>
-
 </div>
 
 <div class="sample" id="sample">
