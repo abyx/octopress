@@ -290,6 +290,18 @@ Then you'll master the gradual approach for transitioning even the bigger projec
         <button class="cta-btn">Buy Now for <span class="strike">$49</span> $39</button>
     </div>
 
+    <div class="package">
+        <h3>Corporate Team Package</h3>
+
+        <ul>
+            <li>Everything from the <em>Complete Consulting Package</em></li>
+            <li>License for <strong>20 developers</strong></li>
+            <li>Get your whole team on the same page</li>
+        </ul>
+
+        <button class="cta-btn">Buy Now for <span class="strike">$1999</span> $1499</button>
+    </div>
+
 </div>
 
 <div class="sample" id="sample">
