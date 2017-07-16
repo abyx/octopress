@@ -4,8 +4,9 @@ title: "Modern AngularJS Migration Guide"
 comments: false
 sharing: false
 footer: false
-cta_message: "Be the first to learn when it's out (soon!)"
-cta_form: 226957
+disable_convertkit_modal: true
+extra_head: |
+    <script async id="_ck_238595" src="https://forms.convertkit.com/238595?v=6"></script>
 style: |
     html {
         border: none;
@@ -46,10 +47,6 @@ style: |
 
     ul {
         list-style-type: circle;
-    }
-
-    .ck_form_container {
-        display: none !important;
     }
 
     .hero {
@@ -113,6 +110,11 @@ style: |
         transform: scale(1.1);
         filter: brightness(1.1);
         color: white;
+    }
+
+    .cta-btn.sample-btn {
+        font-size: 1.2rem;
+        font-weight: normal;
     }
 
     .packages {
@@ -316,7 +318,7 @@ Then you'll master the gradual approach for transitioning even the bigger projec
         You can get a sample chapter free directly to your inbox.
     </p>
 
-    <button class="cta-btn">Get Your Free Sample</button>
+    <a rel="ck_modal" href="#ck_modal" class="cta-btn sample-btn">Get Your Free Sample</a>
 
 </div>
 
@@ -333,5 +335,3 @@ Then you'll master the gradual approach for transitioning even the bigger projec
         </div>
     </div>
 </div>
-
-{% render_partial _posts/_partials/cta.markdown %}

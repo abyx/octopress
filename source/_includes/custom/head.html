@@ -26,6 +26,9 @@
 {% endif %}
 
 <script src="https://app.convertkit.com/assets/CKJS4.js?v=21" async></script>
+
+{% unless page.disable_convertkit_modal == true %}
 <script async id="_ck_7875" src="https://forms.convertkit.com/7875?v=6"></script>
+{% endunless %}
 
 {{ page.extra_head }}
