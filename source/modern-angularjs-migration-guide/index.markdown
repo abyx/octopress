@@ -302,7 +302,7 @@ Then you'll master the gradual approach for transitioning even the bigger projec
             <li>Get your whole team on the same page</li>
         </ul>
 
-        <a class="cta-btn" href="https://gum.co/mamg-team">Buy Now for <span class="strike">$1499</span> $1199</a>
+        <a class="cta-btn" href="https://gum.co/mamg-team">Buy Now for <span class="strike">$1399</span> $1099</a>
     </div>
 </div>
 
