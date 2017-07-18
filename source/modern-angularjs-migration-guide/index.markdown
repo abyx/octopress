@@ -190,6 +190,54 @@ style: |
     .author .group .author-bio p {
         margin: 0;
     }
+
+    @media (max-width: 700px) {
+        article p {
+            text-align: left;
+        }
+
+        .hero .hero-intro .header {
+            flex-direction: column;
+        }
+
+        .hero .hero-intro .header .book-image {
+            order: 1;
+        }
+        
+        .hero .hero-intro .header h1 {
+            order: 2;
+            text-align: center;
+            font-size: 2.3rem;
+            padding-right: 0;
+            margin-top: 1em;
+        }
+
+        .hero .hero-intro .buttons {
+            flex-direction: column;
+        }
+
+        .hero .hero-intro .buttons a:first-child {
+            margin-bottom: 1em;
+            margin-right: 0;
+        }
+
+        .packages .package .cta-btn {
+            font-size: 1.2em;
+        }
+
+        .author .group {
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .author .group .author-image {
+            margin: 0;
+        }
+
+        .author .group .author-bio h2 {
+            text-align: center;
+        }
+    }
 ---
 
 <div class="hero">
@@ -330,7 +378,7 @@ Then you'll master the gradual approach for transitioning even the bigger projec
             <p>
                 Hey there, my name's Aviv Ben-Yosef.
                 As part of my consulting business, I've helped dozens of companies with their AngularJS projects over the last 4+ years.
-                With my courses, trainings and articles I've literally helped over a million developers, and have one of the biggest AngularJS newsletter, with over 6,000 subscribers.
+                With my courses, trainings and articles I've literally helped over a million developers, and have one of the biggest AngularJS newsletters, with over 6,000 subscribers.
             </p>
         </div>
     </div>
