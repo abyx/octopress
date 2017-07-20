@@ -1188,3 +1188,29 @@ article {
         color: white;
     }
 }
+
+.main-navigation {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    li {
+        flex-shrink: 0;
+
+        &.mamg {
+            border: 2px solid #65a672;
+            border-radius: 3px;
+            padding: 0 0.5em;
+            transition: all 0.3s;
+
+            &:hover {
+                background-color: #65a672;
+                transform: scale(1.05);
+
+                a {
+                    color: white;
+                }
+            }
+        }
+    }
+}
