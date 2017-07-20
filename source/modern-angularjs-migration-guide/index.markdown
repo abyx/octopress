@@ -261,31 +261,32 @@ style: |
 
 You keep hearing about components, and they sound useful, but you’re not sure how to start using them in your existing project, alongside all your controllers and directives.
 You worked hard to master AngularJS, yet now even in 1.x the standards are changing:  
-"Controllers are dead”  
- "Don't use $scope”  
-“Avoid two-way bindings”  
+> "Controllers are dead”  
+> "Don't use $scope”  
+> “Avoid two-way bindings”  
+
 You see this and can’t help but wonder whether _your_ AngularJS is still useful, or is it a dying dialect?
 
 ## Keeping up with the old way of doing things is taking a daily toll on your team
 
 It's becoming increasingly harder to find references and people that use AngularJS like you do.
 You come across a bug in a library you're using - and hey, there's an updated version that fixes it!
-But that simple update becomes a nightmare when you realize it requires updating your AngularJS version, and you fear what that upgrade may break.
+But that simple update becomes a nightmare when you realize it requires updating your AngularJS version, and simply trying to bump verions caused so many things to break you reverted and ran away.
 
 ## “What exactly is Angular 2 improving upon so much that I need to upgrade?”
 
 What's worse is that you keep hearing about Angular 4 (yeah, 2 is _so 2016_), and don't want to be left out with a bunch of legacy code.
 Yet, moving to it seems crazy - it looks nothing like your code.  
 And Angular 4 comes with a bunch of questions:  
-Should you learn TypeScript?  
-Change all your tooling and build system?  
-Find alternative packages to replace those you're currently using?
+Should you learn TypeScript**?**  
+Change all your tooling and build system**?**  
+Find alternative packages to replace those you're currently using**?**
 
-And worse of all, is Angular 4 even going to be popular, or will you spend time and effort learning it just to find yourself in the same spot a year from now?
+And the major question, is Angular 4 even going to be popular, or will you spend time and effort learning it just to find yourself in the same spot a year from now?
 It feels like a gamble.
-You don't need the "new shiny", you need to ship features fast.
+You don't need the "new shiny", you need to _ship features fast_.
 
-It'd be great if your app was once again something you're proud of—a modern codebase with the latest 1.x standards where it's easy to get stuff done...
+It'd be great if your app was once again something you're proud of—a **modern codebase with the latest 1.x standards** where it's easy to get stuff done...
 but you don't know how to get there without a big, long rewrite.
 
 ## What if you could work on a modern and clean AngularJS project?
