@@ -325,7 +325,7 @@ Then you'll master the gradual approach for transitioning even the bigger projec
             <li>The detailed <strong>migration guide</strong> (95 page PDF)</li>
             <li>A <strong>consulting session</strong> with the author to plan your tailored migration (<span class="strike">$800</span> value)</li>
             <li>Email availability for questions for 2 months</li>
-            <li>Get a triest and tested migration path</li>
+            <li>Get a tried and tested migration path</li>
             <li>Upgrade your app on-the-go</li>
         </ul>
 
@@ -337,7 +337,7 @@ Then you'll master the gradual approach for transitioning even the bigger projec
 
         <ul>
             <li>The detailed <strong>migration guide</strong> (95 page PDF)</li>
-            <li>Get a triest and tested migration path</li>
+            <li>Get a tried and tested migration path</li>
             <li>Upgrade your app on-the-go</li>
         </ul>
 
