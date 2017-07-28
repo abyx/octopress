@@ -1,4 +1,7 @@
-<div class="ck_form ck_naked">
+<div class="ck_form ck_naked cta">
+  {% if page.cta_paragraph %}
+  {{ page.cta_paragraph }}
+  {% endif %}
 
   <div class="ck_form_fields">
 

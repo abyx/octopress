@@ -25,6 +25,10 @@ $default-font-weight: 300;
 	clear: both;
 	margin: 20px 0px;
 	text-align: center;
+
+    &.cta.ck_vertical {
+        max-height: initial !important;
+    }
 }
 
 .ck_form.ck_naked p {
@@ -33,10 +37,17 @@ $default-font-weight: 300;
 
 /* abyx customizations */
 .ck_form.ck_naked {
+    padding: 5%;
     border: 1px solid #666;
     h2 {
         line-height: 1.2em;
         margin-top: 0;
+    }
+
+    p {
+        padding: 0 1em !important;
+        margin-bottom: 0.5em !important;
+        line-height: 1.4 !important;
     }
 }
 
@@ -49,7 +60,7 @@ $default-font-weight: 300;
 .ck_form.ck_naked .ck_form_fields {
 	width: 100%;
 	float: left;
-	padding: 5%;
+	padding: 0;
 }
 /* Form fields */
 
