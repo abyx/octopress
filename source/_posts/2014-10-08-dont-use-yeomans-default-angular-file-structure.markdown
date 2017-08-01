@@ -46,4 +46,4 @@ But it just boils down to a relatively simple template (in case you don't want t
 
 Happy coding!
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

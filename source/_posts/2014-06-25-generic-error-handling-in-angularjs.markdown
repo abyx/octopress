@@ -67,4 +67,4 @@ Also available [here](https://gist.github.com/abyx/acd46b6513e2c58ed1d3).
 
 {% gist acd46b6513e2c58ed1d3 angular-error-handling.js %}
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

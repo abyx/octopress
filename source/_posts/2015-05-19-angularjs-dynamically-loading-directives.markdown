@@ -90,4 +90,4 @@ As you can see, `$compile` has two steps. First, we call it with the HTML we wan
 
 Yes, this is more complicated, requires being more comfortable with how Angular works and doesn't have the benefits I listed above for the simpler solution, but sometimes this approach is necessary.
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

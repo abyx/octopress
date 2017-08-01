@@ -5,7 +5,6 @@ date: 2015-10-14 18:04:05 +0300
 comments: true
 facebook:
     image: /images/ng-codelord.png
-cta_message: "Really understand Angular, prepare for 2.0 and write maintainble Angular!"
 ---
 
 When you just got started doing Angular you probably had a couple of times where you used `setTimeout()` without giving it much thought. Then, you noticed that something wasn’t working right. Changes weren’t happening when you expected them to happen.
@@ -72,4 +71,4 @@ Another use case is to use `invokeApply` in order to have a timeout that only tr
 
 Yes, we have come full circle to the exact same knowledge you had before, but now you have *understanding*. Knowledge is power my friend!
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

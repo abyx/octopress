@@ -5,7 +5,6 @@ date: 2015-08-14 10:35:40 +0300
 comments: true
 facebook:
     image: /images/posts_images/watches_everywhere.png
-cta_message: "Subscribe to receive more advanced Angular techniques and performance pitfalls to avoid!"
 ---
 
 You can only go so long in your Angular path before starting to learn about performance in Angular and some of its common problems.
@@ -58,4 +57,4 @@ As an example, our beloved `ng-repeat` directive is using watches (specifically 
 
 So, to sum up this post, as you can see watches are pretty much everywhere in Angular land. Next time you’re looking at the number of watches using [ng-stats](https://github.com/kentcdodds/ng-stats) you should be more equipped to understand how that number came to be.
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

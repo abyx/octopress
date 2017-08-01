@@ -74,4 +74,4 @@ This is a cleaner solution, in my opinion, since it makes sure the border doesn'
 
 I hope you learned something new. Happy coding!
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

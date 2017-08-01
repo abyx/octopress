@@ -47,4 +47,4 @@ You can use this little snippet whenever you need to. It comes with these alread
 
 [Here's](http://jsfiddle.net/avivby/msjkv72r/) a little jsfiddle that shows this in action.
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

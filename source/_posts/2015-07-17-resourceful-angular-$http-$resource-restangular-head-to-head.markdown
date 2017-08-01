@@ -58,4 +58,4 @@ So, yes, I prefer `$http`, but for some people Restangular "clicks", and that's 
 
 Happy ajaxing!
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

@@ -5,7 +5,6 @@ date: 2016-10-09 21:41:21 +0300
 comments: true
 facebook:
     image: /images/ng-codelord.png
-cta_message: "Learn how to make your Angular 1 app modern, step by step!"
 cta_form: 109875
 ---
 
@@ -143,12 +142,4 @@ Writing component-based Angular, getting rid of controllers, etc. will benefit m
 
 I wrote about [some](http://www.codelord.net/2015/12/17/angulars-component-what-is-it-good-for/) [aspects](http://www.codelord.net/2015/09/30/angular-2-preparation-controller-code-smells/) [here](http://www.codelord.net/2015/10/07/angular-2-preparation-killing-controllers/).
 
-
-I also plan on releasing a course about modern Angular 1.5 soon: the *Future-proof Angular Guide*.  
-With this no-fluff course you'll learn how to quickly adapt your existing Angular 1.x app to the latest components paradigm, as you go about your regular work.  
-You'll gradually turn your app into something that is modern and idiomatic, converting directives and getting rid of controllers.  
-And then, once your app is shaped The Right Way™, you'll be able to keep shipping like a boss, and have your options open.
-
-Sign up to be notified when the course is ready (and get more of these pragmatic Angular posts in the meantime).
-
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

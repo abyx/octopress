@@ -5,26 +5,7 @@ date: 2017-07-28 14:14:49 +0300
 comments: true
 facebook:
     image: /images/ng-codelord.png
-cta_message: "Get the modernization email course!"
 cta_form: 244240
-cta_paragraph: |
-    <h2>"Maintaining AngularJS feels like Cobol 🤷‍♂️…"</h2>
-    <p>
-    You want to do AngularJS <em>the right way</em>.<br>
-    Yet every blog post you see makes it look like your codebase is obsolete.
-    Components? Lifecycle hooks? Controllers are dead?
-    </p>
-
-    <p>
-    It would be great to work on a modern codebase again, but who has weeks for a rewrite?<br>
-    Well, you can get your app back in shape, without pushing back all your deadlines!
-    Imagine, upgrading smoothly along your regular tasks, no longer deep in legacy.
-    </p>
-
-    <p>
-    Subscribe and get my free email course with steps for upgrading your AngularJS app
-    to the latest 1.6 safely and without a rewrite.
-    </p>
 ---
 
 You sit down and start your next frontend task.
@@ -90,4 +71,4 @@ For example, the `required` above will simply work now, and so will our original
 So _please_ don’t write custom controls like an animal.
 Use Angular properly.
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

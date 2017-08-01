@@ -14,5 +14,3 @@ A week ago twitter finally took down the deprecated API, rendering my hack usele
 Lucky for me it required less than one hour and roughly 50 lines of code. Setting it up on heroku is free and works smoothly so far. In case you would like to use such a server yourself I've made the code public with instructions to do so [here](https://github.com/abyx/fweets).
 
 Hope you find this helpful!
-
-{% render_partial _posts/_partials/cta.markdown %}

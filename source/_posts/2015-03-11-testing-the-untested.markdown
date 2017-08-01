@@ -24,5 +24,3 @@ An important thing here is to **see your damn tests fail**. The TDD cycle is [re
 Yes, you already wrote the code, and so it makes sense that the test is passing. But the solution is stupidly simple: **break the code**. Find the conditional or whatever that this specific test is checking, change it so it's invalid and see the test fail with your own eyes. That's the only way to make sure that it works, checks what you meant it to check, and that the error it produces is decipherable.
 
 Don't test hard, test well :)
-
-{% render_partial _posts/_partials/cta.markdown %}

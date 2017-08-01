@@ -5,7 +5,6 @@ date: 2015-11-18 16:26:03 +0200
 comments: true
 facebook:
     image: /images/ng-codelord.png
-cta_message: "Get the next guides: learn to write Angular the right way and be ready for 2.0!"
 ---
 
 Angular and minification (or “minifying” or “uglifying”) might seem like they don’t play well at first. First impressions are usually quite negative:
@@ -80,4 +79,4 @@ The de-facto standard is to use [babel-plugin-angularjs-annotate](https://github
 
 Voila. Configuring it will save you time and make your project minification-ready. w00t!
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

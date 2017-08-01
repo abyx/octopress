@@ -40,4 +40,4 @@ Good commit messages follow these criterions:
 
 No, you don’t need to delete your repository and start from scratch. Decide that from now on you’ll write commit messages with the attention they deserve. Talk with your team, agree on the guidelines for messages and publicly shame whoever disrespects you with bad commits - hey, it [worked for continuous integration](http://youbrokethebuild.com)!
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

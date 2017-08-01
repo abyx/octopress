@@ -60,4 +60,4 @@ Well, my heuristic is: Will creating an isolated scope mess things up? For examp
 
 In pretty much any other case I just use an *isolated scope*. They are the best thing since sliced bread. Isolated scopes are explicit (it is easy to see what they depend on), durable (they are less likely to break because of code changes somewhere else) and plainly the way to go. I've described their advantages in [“Writing More Maintainable Directives”](/2014/03/30/writing-more-maintainable-angular-dot-js-directives/).
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

@@ -40,5 +40,3 @@ I facilitated a [code retreat](http://coderetreat.org/about) last week. During c
 On the 3rd session, I added a new constraint - the world now had to be endless, an infinite grid. No one implemented it that way previously, and intuitively this should have made things harder - after all an infinite grid is more complex than a finite one. But, having this constraint made some of the pairs tackle the problem from a different angle and actually get way ahead of the previous sessions in the constrained, harder case.
 
 As I'm writing this a few more cases come to mind, but I think you get the gist. Yeah, constraints can sometimes work against you (like absurd deadlines that turn a project into a death march) but when used wisely they can turn whole problems around.
-
-{% render_partial _posts/_partials/cta.markdown %}

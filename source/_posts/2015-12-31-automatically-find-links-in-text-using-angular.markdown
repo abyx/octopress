@@ -5,7 +5,6 @@ date: 2015-12-31 00:07:25 +0200
 comments: true
 facebook:
     image: /images/ng-codelord.png
-cta_message: "Always be in the loop for new updates to Angular and get guides for painless upgrading!"
 ---
 
 There comes in every web developer’s life a day where he needs to take some block of text and automatically find URLs inside it and transform them into links, inline.
@@ -47,4 +46,4 @@ You can quite easily make links open in a new tab or add specific attributes, su
 
 And that’s it. Link away!
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

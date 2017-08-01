@@ -14,5 +14,3 @@ You can find the guide [here](/assets/rails4ruby2heroku.pdf).
 **Edit**: Well, the guys at Heroku are fast! Their [tutorial](https://devcenter.heroku.com/articles/rails4-getting-started) now contains most of the pitfalls I talk about in my guide and will work for everyone that already knows how to get Ruby 2 on their computer.
 
 Let me know if you found it helpful!
-
-{% render_partial _posts/_partials/cta.markdown %}

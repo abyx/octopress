@@ -100,4 +100,4 @@ That's about it! You can download a really simple skeleton that shows how this w
 
 Happy routing!
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

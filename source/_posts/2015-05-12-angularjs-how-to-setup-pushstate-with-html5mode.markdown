@@ -42,4 +42,4 @@ This tells nginx to try and fetch the file at the URL. If it really exists (e.g.
 
 Happy state pushing!
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

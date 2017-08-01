@@ -5,7 +5,6 @@ date: 2015-10-29 17:53:57 +0200
 comments: true
 facebook:
     image: /images/ng-codelord.png
-cta_message: "Get the next authentication guides, prepare for 2.0 and write maintainble Angular!"
 ---
 
 In my [last post](http://www.codelord.net/2015/10/22/angular-authentication-3-step-recipe/) we saw the simple 3 step recipe for adding basic authentication in your Angular app.
@@ -81,4 +80,4 @@ In those scenarios I usually go with using a service to store the objects that I
 
 Since the last post I got several requests to discuss more features, like admin only pages, etc. Subscribe below so you won’t miss them and feel free to comment if you have other ideas I should add to the mix!
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

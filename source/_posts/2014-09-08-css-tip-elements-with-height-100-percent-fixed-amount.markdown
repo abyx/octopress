@@ -39,4 +39,4 @@ You can see a simple example [here](http://jsfiddle.net/qvtq0s76/).
 
 Yup. That's it! Calc away!
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

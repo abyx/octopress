@@ -5,7 +5,6 @@ date: 2015-12-03 17:18:53 +0200
 comments: true
 facebook:
     image: /images/ng-codelord.png
-cta_message: "Get more maintainable Angular tips and write Angular like it was meant to be written"
 ---
 
 A lot of web developers that come to Angular from other MVC frameworks are surprised to learn that there’s no official support for lazy loading.
@@ -67,4 +66,4 @@ We actually didn’t need to write our `lazy` directive differently than any oth
 
 That was easy, wasn’t it?
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

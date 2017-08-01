@@ -48,4 +48,4 @@ A word of warning: some of you might try and see that it seems like this works w
 
 I hope you learned something new. Happy coding!
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

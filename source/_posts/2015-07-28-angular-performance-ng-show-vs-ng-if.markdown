@@ -5,7 +5,6 @@ date: 2015-07-28 22:09:02 +0300
 comments: true
 facebook:
     image: /images/posts_images/show-vs-if.png
-cta_message: "Subscribe to receive more advanced Angular techniques and performance pitfalls to avoid!"
 ---
 
 
@@ -37,4 +36,4 @@ That’s it. Enjoy making your app a bit snappier. If you care about performance
 
 [1]:	http://www.codelord.net/2014/04/15/improving-ng-repeat-performance-with-track-by/
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

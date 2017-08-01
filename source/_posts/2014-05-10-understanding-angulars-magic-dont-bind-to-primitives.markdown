@@ -73,4 +73,4 @@ This does the trick since `ng-repeat` now uses the index of the primitive in the
 
 `track by` is actually way more useful for [improving performance in real apps](http://www.codelord.net/2014/04/15/improving-ng-repeat-performance-with-track-by/), but this workaround is nice to know as well. And I find that it helps in understanding the magic in Angular a bit better.
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

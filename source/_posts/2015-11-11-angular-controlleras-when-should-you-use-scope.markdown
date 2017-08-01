@@ -5,7 +5,6 @@ date: 2015-11-11 23:09:50 +0200
 comments: true
 facebook:
     image: /images/ng-codelord.png
-cta_message: "Learn how to prepare for 2.0 and write maintainble Angular!"
 ---
 
 Angular 2 is getting closer and so controllers are getting [closer to death](http://www.codelord.net/2015/09/10/angular-2-migration-path-what-we-know/).
@@ -58,4 +57,4 @@ Like the previous point, though, you can just use the `$rootScope`. Calling `$ap
 
 It’s that simple. Kick controllers' butt!
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

@@ -88,4 +88,4 @@ Function bindings are a very important building block in Angular in general and 
 
 In the next part we’ll see how function bindings can be used to allow the controller *to call* the directive and notify it of changes. Make sure to get it by subscribing to my mailing list below.
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

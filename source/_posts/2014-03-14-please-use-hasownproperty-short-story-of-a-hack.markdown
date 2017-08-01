@@ -36,4 +36,4 @@ Of course, had the line been `if (adminCache.hasOwnProperty(request.getParameter
 
 So, please, use `hasOwnProperty`.
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

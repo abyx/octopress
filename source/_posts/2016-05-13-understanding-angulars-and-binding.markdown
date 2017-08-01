@@ -5,7 +5,6 @@ date: 2016-05-13 15:32:15 +0300
 comments: true
 facebook:
     image: /images/ng-codelord.png
-cta_message: "Don't get tripped up - subscribe to get more posts and <b>really</b> understand Angular!"
 cta_form: 52764
 ---
 
@@ -100,4 +99,4 @@ But *remember*: You’re not really calling a function, you’re evaluating the 
 
 If you’ll make the mental switch from treating `&` as “function binding” to just “expression binding”, I think you’ll be alright from now on.
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

@@ -109,4 +109,4 @@ Now a long woooooooooooooooooooooooooooooooord
 
 Overflow away :)
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

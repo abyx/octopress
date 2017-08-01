@@ -27,10 +27,8 @@ Another advantage is that, usually, the frontend is the most flexible part of th
 
 I believe it's mainly because working on the frontend when the backend's not there yet can be a pain. You either stub a lot of code in the frontend, or hard code dummy endpoints on the server, both of which are ugly and a PITA to maintain.
 
-Several months ago we wrote [a tool](http://www.deflect.io) that allowed us to easily intercept requests and fake them whenever needed, and since then the FDD move just "clicked".
-
 Whatever your environment, be it web or mobile, I bet you can make sure working on the frontend disconnected from the backend is easier, and let your team get stuff done faster!
 
 Happy coding!
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

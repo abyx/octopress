@@ -41,4 +41,4 @@ I hope this will help you out. If you have any other tricks I'd love to hear!
 
 Happy debugging (well, you know, as much as possible).
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

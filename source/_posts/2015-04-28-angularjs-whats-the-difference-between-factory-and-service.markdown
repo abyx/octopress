@@ -53,4 +53,4 @@ This will result in... well... the *same* injectable object as above.
 
 Now that you know the difference and can see that there's none really, I'd recommend just going with one and get on with coding. Which one? Factories are the popular choice in the Angular community. I went with this decision years ago and recently saw that it is also the recommended way according to [John Papa's (excellent) style guide](https://github.com/johnpapa/angular-styleguide).
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

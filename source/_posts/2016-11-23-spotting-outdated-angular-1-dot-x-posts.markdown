@@ -5,7 +5,6 @@ date: 2016-11-23 17:53:58 +0200
 comments: true
 facebook:
     image: /images/ng-codelord.png
-cta_message: "Subscribe to get the latest about modern Angular 1.x"
 cta_form: 129509
 ---
 
@@ -32,9 +31,6 @@ By “standalone” controllers I mean controllers that are used without an enco
 
 `ng-controller` is used quite a bit in blog posts since it makes things shorter which is helpful.
 The problem is that developers then go their projects and use what they saw in the examples, not knowing that `ng-controller` belongs to the past.
-
-*Quick aside:* If you'd like to keep getting posts about the latest and greatest in Angular 1.x, subscribe to my newsletter:
-{% render_partial _posts/_partials/cta.markdown %}
 
 ## Using $scope bindings and not using controller-as syntax
 
@@ -110,24 +106,4 @@ Read all about the hooks [here](http://www.codelord.net/2016/04/14/angular-1-dot
 
 I hope this helps you evaluate the freshness of information and understand that just because something doesn’t come up in some posts it doesn’t mean it’s not not popular - just too new to be popular in posts :)
 
-<hr>
-
-You want to do Angular *the right way*.  
-You hate spending time working on a project, only to find it's completely wrong a month later.  
-But, as you try to get things right, you end up staring at the blinking cursor in your IDE, not sure what to type.  
-Every line of code you write means making decisions, and it's paralyzing.  
-
-You look at blog posts, tutorials, videos, but each is a bit different.  
-Now you need to *reverse engineer every advice* to see what version of Angular it was written for, how updated it is, and whether it fits the current way of doing things.
-
-What if you knew the *Angular Way* of doing things?  
-Imagine knocking down your tasks and spending your brain cycles on your product's core.  
-Wouldn't it be nice to know Angular like a second language?
-
-You can write modern, clean and future-ready Angular right now.  
-Sign up below and get more of these helpful posts, free!  
-Always up to date and I've already done all the research for you.
-
-And be the first the hear about my Modern Angular 1.x book - writing future proof Angular right now.
-
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

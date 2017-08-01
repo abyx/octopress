@@ -5,7 +5,6 @@ date: 2016-01-27 11:16:16 +0200
 comments: true
 facebook:
     image: /images/ng-codelord.png
-cta_message: "Don't let your Angular 1 app become legacy, learn how to upgrade it!"
 cta_form: 20822
 ---
 
@@ -60,9 +59,6 @@ module.factory('FooService',
 ```
 
 *Note:* While this is still an Angular 1 service, you should really consider writing your new services in Angular 2 like I describe [here](http://www.codelord.net/2016/01/07/adding-the-first-angular-2-service-to-your-angular-1-app/).  
-And this is a good time to mention that if you're worried about the future of your Angular 1 app you should subscribe and get my guides for upgrading your app step by step!
-
-{% render_partial _posts/_partials/cta.markdown %}
 
 So, what are we looking at?
 
@@ -92,14 +88,4 @@ Yeah, you’ll probably need to add some more lifecycle management, like invalid
 
 But, this is the gist of it.
 
-<hr>
-
-Do you have a big *Angular 1.x app* that you're scared will *rot and become legacy code*? Because 2.0 and TypeScript will soon be *the new shiny* yet you have *all this JS code* sitting there? Where will your team find the time, and *management approval*, to learn and move things to 2.0?
-
-But what if you could *migrate your project*, incrementally, while keeping your time's pace and shipping awesome code? What if your team could learn a bit more Angular 2 with each task? Imagine you could get to be *working in 2.0 land without ever stopping your development*!
-
-I'm cooking up a self-served course that will get you there. It will allow you, *on your own pace*, learn Angular 2 and TypeScript bit by bit. With those steps your team will migrate your project and soon you'll write all your new code with Angular 2, TypeScript, and *won't have to stay behind*.
-
-Sign up to be notified when the course is ready (and get more of these pragmatic Angular posts in the meantime).
-
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

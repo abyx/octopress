@@ -45,4 +45,4 @@ And of course the solution is pretty much the same regardless of what JS librari
 
 Happy coding!
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

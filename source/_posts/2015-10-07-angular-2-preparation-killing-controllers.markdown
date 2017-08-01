@@ -5,7 +5,6 @@ date: 2015-10-07 18:00:54 +0300
 comments: true
 facebook:
     image: /images/ng-codelord.png
-cta_message: "Learn how to prepare for 2.0 and write maintainble Angular!"
 ---
 
 Controllers are *dying*. The [migration path](http://www.codelord.net/2015/09/10/angular-2-migration-path-what-we-know/) doesn’t even make a reference of them. Once controllers were a cornerstone of Angular. Now we’re all trying to sweep them under the carpet.
@@ -106,4 +105,4 @@ As I said, I’m still figuring this out along with you. But so far I’ve found
 
 If you’ve been toying with this too I’d love to hear your thoughts and techniques.
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

@@ -116,4 +116,4 @@ As a *rule of thumb*, this is the way I’d go with most of the time unless I ha
 
 That's it. I'm more than interested in feedback about this, feel free to contact me. The important takeaway is that Angular is not trivial for communication between parts, but that doesn't mean you shouldn't be breaking your system to small, maintainable chunks.
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

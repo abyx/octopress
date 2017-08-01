@@ -12,5 +12,3 @@ I find it a bit awkward to get my first glance running, since I had to create a 
 <iframe width="420" height="315" src="//www.youtube.com/embed/inX4Pn3OUoI" frameborder="0" allowfullscreen></iframe>
 
 Happy (WatchKit) coding!
-
-{% render_partial _posts/_partials/cta.markdown %}

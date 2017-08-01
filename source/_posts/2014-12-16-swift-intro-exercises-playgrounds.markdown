@@ -10,5 +10,3 @@ Last week I taught a "From Objective-C to Swift" introductory workshop. As part 
 Please leave a comment if you found it helpful, have a better solution to an exercise, or whatever!
 
 [**Get the exercises**](/assets/swift-exercises.zip)
-
-{% render_partial _posts/_partials/cta.markdown %}

@@ -20,5 +20,3 @@ Are your automatic tests valuable? I've seen mountains of useless tests that do 
 Are your retrospectives just 30 minutes that you're waiting to get over with, with basically no action items that change things?
 
 There's a reason software developers have grown to hate process, and it's because most of the times process is just that, stuff that needs to be done without a lot of benefit or apparent logic. Make sure you and your team know why you're doing stuff, that's the only way to get better.
-
-{% render_partial _posts/_partials/cta.markdown %}

@@ -21,5 +21,3 @@ And the best part is that you get everything to be synced. All your clients, be 
 Code that runs once is easier to write and verify, can be effectively forgotten later, and gives use familiarity. Because our jobs are hard enough and we need all the time we have to try to solve real problems. You want to be able to move on from your previous schema mistakes, not to have to drag it around with you forever.
 
 Can you find a chunk of code that can run one last time, today? Do it, make the world a better place.
-
-{% render_partial _posts/_partials/cta.markdown %}

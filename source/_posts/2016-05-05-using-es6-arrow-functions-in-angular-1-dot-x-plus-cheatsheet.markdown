@@ -5,7 +5,6 @@ date: 2016-05-05 12:34:14 +0300
 comments: true
 facebook:
     image: /images/ng-codelord.png
-cta_message: "Get the cheatsheet and learn how to use arrow functions to write less code!"
 cta_form: 49846
 ---
 
@@ -69,4 +68,4 @@ Because of that I simply recommend to not use arrow functions as  the function p
 
 Happy arrowing!
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

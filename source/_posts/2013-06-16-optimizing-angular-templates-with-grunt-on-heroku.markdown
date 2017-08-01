@@ -69,4 +69,4 @@ https://github.com/heroku/heroku-buildpack-nodejs.git
 
 Have fun! For more in-depth Angular stuff you might find [this book](http://www.amazon.com/gp/product/B00CJLFF8K?ie=UTF8&camp=213733&creative=393177&creativeASIN=B00CJLFF8K&linkCode=shr&tag=thcodu02-20&qid=1371412376&sr=8-2&keywords=angularjs) useful.
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

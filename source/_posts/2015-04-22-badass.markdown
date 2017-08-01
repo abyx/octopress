@@ -28,5 +28,3 @@ Another interesting topic is cognitive resources and how our brain works. While 
 It then goes on to explain how cognitive resources and will power are connected so that bad apps that make us work harder will eventually drain our will power so we won't be able to say "no" to that piece of cake. This and more interworkings of the brain are fascinating in my opinion.
 
 Really, go get it. It's really packed with lots of interesting details, great business advice and even some life changing wisdom.
-
-{% render_partial _posts/_partials/cta.markdown %}

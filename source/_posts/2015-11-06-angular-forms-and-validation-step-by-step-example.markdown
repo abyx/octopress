@@ -5,7 +5,6 @@ date: 2015-11-06 15:55:24 +0200
 comments: true
 facebook:
     image: /images/ng-codelord.png
-cta_message: "Get more guides of maintainble Angular and learn how to prepare for 2.0!"
 ---
 
 We all have to get input from users, validate it and act on it. But everywhere I look I see developers that aren’t using Angular’s form capabilities to their full potential.
@@ -155,4 +154,4 @@ Angular keeps track of whether the user has interacted with an input, i.e. focus
 
 Check out a live example of the resulting form [here](http://abyx.github.io/angular-form-validation-example), and the source [here](https://github.com/abyx/angular-form-validation-example). In it you can see a bonus: how to use Angular’s forms to style the error messages and the form in invalid states.
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

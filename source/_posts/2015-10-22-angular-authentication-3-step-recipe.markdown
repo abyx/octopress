@@ -5,7 +5,6 @@ date: 2015-10-22 18:26:44 +0300
 comments: true
 facebook:
     image: /images/ng-codelord.png
-cta_message: "Get the next authentication guides, prepare for 2.0 and write maintainble Angular!"
 ---
 
 Authentication seems like something that literally 100% of people using Angular would want to do. Yet you need to bake something on your own not knowing if your approach is right. Angular doesn’t come with any baked support for authentication. (Did that surprise you? It surprised me the first time I heard.)
@@ -101,4 +100,4 @@ This is the basic recipe. With it you’ve got a working system you can actually
 
 There are endless tweaks to make: add a log out button, redirect back to where you were after login, special admin-only pages, persisting tokens in local storage, etc. I’ll be posting guides to some of these soon. Leave a comment if you’d like me to expand on any specific feature.
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

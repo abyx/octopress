@@ -35,5 +35,3 @@ want to use your product.
 So, be proud in knowing when it's the right call to say "it depends" and not
 just shoot an off-the-cuff answer. The people you work with will value you
 much more for knowing that everything has context.
-
-{% render_partial _posts/_partials/cta.markdown %}

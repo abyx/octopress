@@ -5,7 +5,6 @@ date: 2015-11-25 21:28:02 +0200
 comments: true
 facebook:
     image: /images/ng-codelord.png
-cta_message: "Don't waste time fighting the many Angular pitfalls. Learn how to do things the right & productive way"
 ---
 
 You’re working on a new page in your app, one that should use query parameters. Query parameters give you support for deep links, bookmarks, browser history support, etc.
@@ -101,4 +100,4 @@ For example, we can only write some of the changes to the browser history, or ev
 
 If those scenarios interest you, leave a comment and sign up for my newsletter to get the post once it’s out!
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

@@ -5,7 +5,6 @@ date: 2015-06-27 13:46:01 +0300
 comments: true
 facebook:
     image: /images/posts_images/angular_question.png
-cta_message: "Know when to start writing 2.0 and learn how you can start preparing ahead today!"
 ---
 
 ***Update***: See the updated post, now that 2.0 is final, [here](http://www.codelord.net/2016/10/09/angular-2-is-out-should-you-start-using-it/).
@@ -45,4 +44,4 @@ If you're reading this post, I'm assuming you read the news every once in a whil
 
 Happy Angularing!
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

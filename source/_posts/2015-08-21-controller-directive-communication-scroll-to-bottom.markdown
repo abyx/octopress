@@ -112,4 +112,4 @@ We could use a deep watch (i.e. `$watch('list', func, true)` - notice that last 
 
 The next parts will be more interesting in my opinion - how should your controller notify your directive of changes? How should the directive notify the controller? Sign up to my newsletter below to get the updates (no spam guarantee or I will spend the rest of my career only doing web in Dojo).
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

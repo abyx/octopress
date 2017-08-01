@@ -35,4 +35,4 @@ With the help of a [few](http://twitter.com/arikfr) [talented](http://twitter.co
 
 Here's to hoping the app goes idle soon!
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

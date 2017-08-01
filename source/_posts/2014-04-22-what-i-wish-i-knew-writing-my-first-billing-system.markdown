@@ -42,4 +42,4 @@ I've gathered a list of a few things that you should keep in mind next time you 
 
 **Take special care of DB transactions** - You charge a user using some API, e.g. Stripe, then go ahead to save the user's status as “premium” to the DB. The next line causes some error and the database's transaction automatically rolls back. Essentially, you now have taken the money from the user but have no record of it in your database. Every billing-related operation should have some special logger that lets you know immediately when a rollback happens that affected the billing data.
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

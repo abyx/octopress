@@ -3,7 +3,6 @@ layout: post
 title: "Improving ng-repeat Performance with “track by”"
 date: 2014-04-15 20:31
 comments: true
-cta_message: "Get Angular performance tips, write maintainable Angular and be prepared for 2.0!"
 ---
 
 Probably one of the very first things you learned doing with Angular was how to use `ngRepeat`. It's so easy and simple, you gotta love it. Here's an example:
@@ -51,4 +50,4 @@ To get a better feel of the difference this makes, see [this fiddle](http://jsfi
 
 It's really that easy to get a quick little boost in performance that also saves you writing annoying code.
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

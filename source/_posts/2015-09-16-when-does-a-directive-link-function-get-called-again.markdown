@@ -31,4 +31,4 @@ Not necessarily. Make sure your code doesn’t assume that a certain directive w
 
 This might become a problem if those initializations are on the heavy side and having them run multiple times starts causing a performance issue. Just be on the look out for your [app getting slow](http://www.codelord.net/2015/08/03/angular-performance-diagnosis-101/) and you should be all right.
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

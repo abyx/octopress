@@ -73,4 +73,4 @@ Resolves can be very handy and I definitely use them, but it's important to unde
 
 Happy routing!
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

@@ -100,4 +100,4 @@ As you can see above, using `require` means our directive can get a parent's con
 
 I find this way makes maintaining a large system a lot easier and more straightforward.
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

@@ -5,7 +5,6 @@ date: 2016-01-07 12:26:53 +0200
 comments: true
 facebook:
     image: /images/ng-codelord.png
-cta_message: "Learn how to upgrade your Angular 1 app easily, step by step!"
 cta_form: 16700
 ---
 
@@ -31,10 +30,6 @@ And why are we starting with a service instead of something more sexy like a com
 *Slow your roll*.
 Starting with a service is a great way to take one baby step towards Angular 2.
 We don’t want to take on more than we can handle.
-
-If you’re interested in getting these questions answered, now is a great time to subscribe to my newsletter and get the next parts!
-
-{% render_partial _posts/_partials/cta.markdown %}
 
 # The service we will be replacing
 
@@ -197,4 +192,4 @@ Be sure to sign up below to get it :)
 
 For now, you can take read the [official upgrade guide](https://angular.io/docs/ts/latest/guide/upgrade.html) (TypeScript only), and Dave Ceddia's [great blog](https://daveceddia.com/angular-2-in-plain-js/).
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

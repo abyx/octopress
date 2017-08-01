@@ -5,7 +5,6 @@ date: 2015-12-10 16:41:04 +0200
 comments: true
 facebook:
     image: /images/ng-codelord.png
-cta_message: "Always be in the loop for new updates to Angular and get guides for painless upgrading!"
 ---
 
 The first release candidate of Angular 1.5 was just released.
@@ -74,4 +73,4 @@ The breaking changes are quite obscure and shouldn’t matter for most of us.
 So, it seems like 1.5 is going to be a nice release.
 I’ll keep you posted if the next release candidates have any more interesting points.
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

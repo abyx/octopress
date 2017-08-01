@@ -83,4 +83,4 @@ This way, we're using promise chaining to hide the `$http` promise and hide resp
 
 I've found that 99% of the time your callers don't need/know how to handle HTTP errors anyway, so hiding it works. I prefer to go with [generic error handlers](/2014/06/25/generic-error-handling-in-angularjs/) where needed.
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

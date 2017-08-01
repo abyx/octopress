@@ -5,7 +5,6 @@ date: 2015-08-03 23:42:51 +0300
 comments: true
 facebook:
     image: /images/posts_images/angular-performance.png
-cta_message: "Subscribe to receive more advanced Angular techniques and performance pitfalls to avoid!"
 ---
 
 Angular can feel magical but it is not a magic bullet. That magic comes with a cost, and that cost sometimes means slow/laggy apps.
@@ -63,4 +62,4 @@ The easiest way is to get a feel for your improvements by checking it out with n
 
 That's it for now. May your digests be always fast!
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

@@ -61,4 +61,4 @@ And that's all there's to it. You can see a live example (with `$timeout` in ord
 
 Happy coding!
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

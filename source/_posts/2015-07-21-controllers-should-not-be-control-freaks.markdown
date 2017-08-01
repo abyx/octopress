@@ -77,4 +77,4 @@ angular.module('tasks').controller('TasksCtrl', function($scope, $http) {
 
 Keep (cont)rolling!
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

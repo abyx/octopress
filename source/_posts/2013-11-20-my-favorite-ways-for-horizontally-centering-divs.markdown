@@ -51,8 +51,8 @@ We first set the parent's position to `relative` so that positioning `center-wra
 
 ### Center away!
 
-I hope this saves you some time next time you're knee deep in the DOM. If you do a lot of frontend work you might be interested in my upcoming product: [Deflect.io](http://www.deflect.io).
+I hope this saves you some time next time you're knee deep in the DOM.
 
 Happy coding!
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

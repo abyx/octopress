@@ -5,7 +5,6 @@ date: 2016-01-14 12:54:22 +0200
 comments: true
 facebook:
     image: /images/ng-codelord.png
-cta_message: "Learn how to upgrade your Angular 1 app easily, step by step!"
 cta_form: 18090
 ---
 
@@ -89,4 +88,4 @@ There’s plenty more to go into here: the new template syntax, binding for chan
 
 I’ll be covering more upgrade steps soon, sign up below to stay posted!
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

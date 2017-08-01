@@ -41,5 +41,3 @@ Junior developers often miss checking that a submitted form actually has all fie
 
 
 Happy coding!
-
-{% render_partial _posts/_partials/cta.markdown %}

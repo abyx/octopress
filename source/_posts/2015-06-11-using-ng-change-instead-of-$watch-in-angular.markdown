@@ -52,4 +52,4 @@ Of course, sometimes `$watch` is what you want. But sometimes - it ain't!
 
 Happy coding!
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}

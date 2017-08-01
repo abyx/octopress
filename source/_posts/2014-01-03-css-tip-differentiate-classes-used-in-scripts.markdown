@@ -17,5 +17,3 @@ The Right Way&trade; to do this is by prefixing those classes with `js-` to diff
   * Never fear renaming or moving a class when you change scripts because it might break the styles
 
 Happy coding!
-
-{% render_partial _posts/_partials/cta.markdown %}

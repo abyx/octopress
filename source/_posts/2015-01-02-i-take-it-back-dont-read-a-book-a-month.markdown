@@ -20,5 +20,3 @@ After all, does it matter that I've read every book on technology X if I never u
 I decided to actively spend less of my time consuming. Even though it is intellectual consuming and not time wasting per se, it sums up to the same result. I will focus more of my time to writing blog posts, side projects, etc. With this, I hope, I will build up once more a habit of shipping fast and often. 
 
 Will it make a big difference? Only time will tell, but I believe it will. And don't get me wrong, I'll probably still read a handful of books, since that really is my hobby, but I'll treat it as a hobby and so will make sure it doesn't eat up too many hours that could have been invested in laying out the bricks to getting myself someplace better.
-
-{% render_partial _posts/_partials/cta.markdown %}

@@ -43,4 +43,4 @@ This was really less exciting and problematic than I feared it might be. I’m h
 
 *Happy coding!*
 
-{% render_partial _posts/_partials/cta.markdown %}
+{% render_partial _posts/_partials/book_cta.markdown %}
