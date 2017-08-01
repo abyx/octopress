@@ -329,7 +329,7 @@ Then you'll master the gradual approach for transitioning even the bigger projec
             <li>Upgrade your app on-the-go</li>
         </ul>
 
-        <a class="cta-btn" href="https://gum.co/mamg-consulting">Buy Now for <span class="strike">$599</span> $499</a>
+        <a class="cta-btn" href="https://gum.co/mamg-consulting">Buy Now for $599</a>
     </div>
 
     <div class="package">
@@ -341,7 +341,7 @@ Then you'll master the gradual approach for transitioning even the bigger projec
             <li>Upgrade your app on-the-go</li>
         </ul>
 
-        <a class="cta-btn" href="https://gum.co/mamg-book">Buy Now for <span class="strike">$49</span> $39</a>
+        <a class="cta-btn" href="https://gum.co/mamg-book">Buy Now for $49</a>
     </div>
 
     <div class="package">
@@ -353,7 +353,7 @@ Then you'll master the gradual approach for transitioning even the bigger projec
             <li>Get your whole team on the same page</li>
         </ul>
 
-        <a class="cta-btn" href="https://gum.co/mamg-team">Buy Now for <span class="strike">$1399</span> $1099</a>
+        <a class="cta-btn" href="https://gum.co/mamg-team">Buy Now for $1399</a>
     </div>
 </div>
 
