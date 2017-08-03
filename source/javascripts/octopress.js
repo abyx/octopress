@@ -38,19 +38,8 @@ function addSidebarToggler() {
 }
 
 function testFeatures() {
-  var features = ['maskImage'];
-  $(features).map(function(i, feature) {
-    if (Modernizr.testAllProps(feature)) {
-      $('html').addClass(feature);
-    } else {
-      $('html').addClass('no-'+feature);
-    }
-  });
-  if ("placeholder" in document.createElement("input")) {
-    $('html').addClass('placeholder');
-  } else {
-    $('html').addClass('no-placeholder');
-  }
+  $('html').addClass('maskImage');
+  $('html').addClass('placeholder');
 }
 
 function addCodeLineNumbers() {
@@ -69,37 +58,6 @@ function addCodeLineNumbers() {
   });
 }
 
-function flashVideoFallback(){
-  var flashplayerlocation = "/assets/jwplayer/player.swf",
-      flashplayerskin = "/assets/jwplayer/glow/glow.xml";
-  $('video').each(function(i, video){
-    video = $(video);
-    if (!Modernizr.video.h264 && swfobject.getFlashPlayerVersion() || window.location.hash.indexOf("flash-test") !== -1){
-      video.children('source[src$=mp4]').first().map(i, function(source){
-        var src = $(source).attr('src'),
-            id = 'video_'+Math.round(1 + Math.random()*(100000)),
-            width = video.attr('width'),
-            height = parseInt(video.attr('height'), 10) + 30;
-            video.after('<div class="flash-video"><div><div id='+id+'>');
-        swfobject.embedSWF(flashplayerlocation, id, width, height + 30, "9.0.0",
-          { file : src, image : video.attr('poster'), skin : flashplayerskin } ,
-          { movie : src, wmode : "opaque", allowfullscreen : "true" }
-        );
-      });
-      video.remove();
-    }
-  });
-}
-
-function wrapFlashVideos() {
-  $('object').each(function(i, object) {
-    if( $(object).find('param[name=movie]').length ){
-      $(object).wrap('<div class="flash-video">')
-    }
-  });
-  $('iframe[src*=vimeo],iframe[src*=youtube]').wrap('<div class="flash-video">')
-}
-
 function renderDeliciousLinks(items) {
   var output = "<ul>";
   for (var i=0,l=items.length; i<l; i++) {
@@ -111,8 +69,6 @@ function renderDeliciousLinks(items) {
 
 $('document').ready(function() {
   testFeatures();
-  wrapFlashVideos();
-  flashVideoFallback();
   addCodeLineNumbers();
   getNav();
   addSidebarToggler();
