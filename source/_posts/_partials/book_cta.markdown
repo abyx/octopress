@@ -1,5 +1,5 @@
 <div class="ck_form ck_naked cta">
-  <h2>"Maintaining AngularJS feels like Cobol 🤷‍♂️…"</h2>
+  <h2>"Maintaining AngularJS feels like Cobol 🤷…"</h2>
   <p>
   You want to do AngularJS <em>the right way</em>.<br>
   Yet every blog post you see makes it look like your codebase is obsolete.
