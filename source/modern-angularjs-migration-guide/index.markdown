@@ -118,7 +118,7 @@ style: |
     }
 
     .packages {
-        padding-top: 2em;
+        padding: 2em 0;
     }
 
     .packages .package {
@@ -238,6 +238,37 @@ style: |
             text-align: center;
         }
     }
+
+    .testimonial {
+        display: flex;
+        background: white;
+        box-sizing: border-box;
+        border: 1px solid #1dd3e4;
+        border-radius: 4px;
+        width: 80%;
+        margin: 0 auto;
+        padding: 0.5em 1em;
+    }
+
+    .testimonial .quote, .testimonial .end-quote {
+        font-size: 4rem;
+        flex-shrink: 0;
+        overflow: hidden;
+        height: 0.5em;
+    }
+
+    .testimonial .quote  {
+        margin-right: 0.2em;
+    }
+    
+    .testimonial .end-quote {
+        margin-left: 0.2em;
+        align-self: flex-end;
+    }
+
+    .testimonial .text {
+        line-height: 1.5;
+    }
 ---
 
 <div class="hero">
@@ -295,6 +326,14 @@ Banging out components, reaping the benefits of better performance and standard 
 You'd get work done faster and just imagine getting there while sticking to your existing deadlines, making your bosses pleased?
 
 Yeah, upgrading your project can feel like a big unknown, with no clear steps to follow, and way too many questions, but it doesn't have to be.
+
+<div class="testimonial">
+    <div class="quote">“</div>
+    <div class="text">
+        This is what I have been looking for to help me rapidly get up to speed with the changes in 1.6. It will help me work more effectively in the legacy Angular codebase I help maintain as well as the newer Angular 1.6 projects we started at work. I am now better able to help our team prepare for eventual migration to Angular 2. Thank you for this guide!
+    </div>
+    <div class="end-quote">”</div>
+</div>
 
 ## Learn how to upgrade your project to the latest AngularJS 1.6, with my no-fluff book
 
@@ -355,6 +394,14 @@ Then you'll master the gradual approach for transitioning even the bigger projec
 
         <a class="cta-btn" href="https://gum.co/mamg-team">Buy Now for $1399</a>
     </div>
+</div>
+
+<div class="testimonial">
+    <div class="quote">“</div>
+    <div class="text">
+        As a developer trying to navigate legacy Angular code and learn Angular 1.6 concurrently, I am grateful for the time and attention Aviv has put into this great guide. Thank you for helping me become better at my job!
+    </div>
+    <div class="end-quote">”</div>
 </div>
 
 <div class="sample" id="sample">
