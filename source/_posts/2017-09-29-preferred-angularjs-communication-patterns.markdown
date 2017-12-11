@@ -4,7 +4,7 @@ title: "Preferred AngularJS Communication Patterns"
 date: 2017-09-29 00:04:58 +0300
 comments: true
 facebook:
-    image: /images/posts_images/possibly-unhandled-error.png
+    image: /images/ng-codelord.png
 cta_form: 272683
 ---
 
