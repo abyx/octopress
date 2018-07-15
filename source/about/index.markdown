@@ -14,9 +14,6 @@ My name's Aviv Ben-Yosef.
 
 You can contact me by [e-mail](mailto:abyx@codelord.net), or [twitter](http://www.twitter.com/avivby).
 
-For the past few years I've focused on solving the right problems and in a high quality fashion. Life's too short to ship shit.
+I'm a [B2B SaaS Consultant](https://avivbenyosef.com).
 
-I am currently consulting, mainly full-stack and mobile. [Hire me](mailto:abyx@codelord.net?subject=Hiring%20You).
-
-Among other things, I worked at [BillGuard](http://www.billguard.com) and am a panelist on the [Mobile and Beer Podcast](http://www.mobileandbeer.com) (Hebrew).
-
+I help RND executives execute the company's strategy faster and with higher quality, choose technology solutions that are tailored to the team and business, and assess and raise the bar of their top performers.
